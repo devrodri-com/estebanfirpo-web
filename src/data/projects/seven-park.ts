@@ -65,16 +65,18 @@ export const pSevenPark: Project = {
   paymentPlanEs: [
     "10% reserva",
     "10% contrato",
+    "10% groundbreaking",
     "10% losa 4º piso",
     "10% top-off",
-    "60% cierre"
+    "50% cierre"
   ],
   paymentPlanEn: [
     "10% reservation",
     "10% at contract",
+    "10% at groundbreaking",
     "10% 4th-floor slab",
-    "10% top-off",
-    "60% at closing"
+    "10% at top-off",
+    "50% at closing"
   ],
 
   faqsEs: [
