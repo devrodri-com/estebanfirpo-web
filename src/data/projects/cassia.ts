@@ -4,7 +4,7 @@ import type { Project } from "../types";
 export const pCassia: Project = {
   id: "cassia-miami",
   slug: "/proyectos/cassia",
-  name: "Cassia — The Residences at Coral Gables",
+  name: "Cassia - The Residences at Coral Gables",
   city: "Coral Gables · Merrick Park",
 
   // Pricing & basics (Fact Sheet / Price Ranges)
