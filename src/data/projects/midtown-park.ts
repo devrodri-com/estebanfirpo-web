@@ -5,7 +5,7 @@ export const pMidtownPark: Project = {
   id: "midtown-park",
   slug: "/proyectos/midtown-park",
   name: "Midtown Park",
-  city: "3055 N Miami Ave, Miami, FL 33129",
+  city: "3055 N Miami Ave, Miami, FL 33127",
 
   // media
   image: "https://ik.imagekit.io/devrodri/Midtown%20Park/ca7LMYAw.jpeg",
