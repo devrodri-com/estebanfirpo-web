@@ -23,7 +23,7 @@ export const p72Park: Project = {
     "North Beach",
   ],
   slug: "/proyectos/72-park",
-  image: "/images/projects/72-park.webp",
+  image: "https://ik.imagekit.io/devrodri/72%20Park/B4XUDwSQ.jpeg",
   highlights: [
     "Piscina tipo resort de 45m con bar y cabañas",
     "Club de playa privado con servicio de toallas",
