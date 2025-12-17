@@ -29,6 +29,7 @@ import { pNomad } from "./nomad";
 import { pSevenPark } from "./seven-park";
 import type { Project } from "../types";
 import { pTheWilliam } from "./the-william";
+import { pTheLauderdale } from "./thelauderdale";
 import { pGaiaResidences } from "./gaia";
 
 import { pMidtownPark } from "./midtown-park";
@@ -48,6 +49,6 @@ function upsertMany(base: Project[], items: Project[]): Project[] {
   return [...extras, ...known];
 }
 
-const INCOMING: Project[] = [p72Park, pEllaMiami, p7200Collins, pDomusBrickellPark, pBaccarat, pCipriani, pTwentySixAndSecond, pFlowHouse, pNexo, pOneParkTower, p2200Brickell, pEdgeHouse, pDomusBrickellCenter, pMercedesBenzPlaces, pOkanTower, pAveMaria, pOasis, pFaena, pRider, pParkside, pPalma, pMilleniaPark, pMillux, pJeanGeorges, pCassia, pNomad, pSevenPark, pTheWilliam, pGaiaResidences, pMidtownPark, pNickelodeon];
+const INCOMING: Project[] = [p72Park, pEllaMiami, p7200Collins, pDomusBrickellPark, pBaccarat, pCipriani, pTwentySixAndSecond, pFlowHouse, pNexo, pOneParkTower, p2200Brickell, pEdgeHouse, pDomusBrickellCenter, pMercedesBenzPlaces, pOkanTower, pAveMaria, pOasis, pFaena, pRider, pParkside, pPalma, pMilleniaPark, pMillux, pJeanGeorges, pCassia, pNomad, pSevenPark, pTheWilliam, pTheLauderdale, pGaiaResidences, pMidtownPark, pNickelodeon];
 export const FEATURED_PROJECTS: Project[] = upsertMany(BASE_FEAT, INCOMING);
 export const ALL_PROJECTS: Project[] = upsertMany(BASE_ALL, INCOMING);
