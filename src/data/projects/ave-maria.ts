@@ -3,7 +3,7 @@ import type { Project } from "../types";
 
 export const pAveMaria: Project = {
   id: "ave-maria",
-  name: "Ave Maria – Maple Ridge",
+  name: "Ave Maria - Maple Ridge",
   city: "Naples, Florida",
   rentalPolicy: "No Airbnb",
   furnished: false,
@@ -20,7 +20,7 @@ export const pAveMaria: Project = {
     "Comunidad planificada y autosuficiente"
   ],
   microClaimsEn: [
-    "Single-family homes (2–6 bedrooms)",
+    "Single-family homes (2-6 bedrooms)",
     "Prices from USD 340,000",
     "Master-planned, self-sustaining community"
   ],
