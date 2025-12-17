@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: "Esteban Firpo | Real Estate Miami",
   description: "Real estate en Miami: preconstrucción, renta corta y compra para vivir o invertir. Asesoría y análisis de proyectos, con financiación para compradores internacionales.",
   icons: {
-    icon: "/icon.svg",
     apple: "/apple-touch-icon.png",
     shortcut: "/favicon.ico",
   },
