@@ -12,7 +12,7 @@ export const pEdgeHouse: Project = {
   delivery: "2028",
   financingAtClosing: true,
   slug: "/proyectos/edge-house",
-  image: "https://ik.imagekit.io/devrodri/EDGE%20HOUSE/03_Edge-House_Podium.webp",
+  image: "https://ik.imagekit.io/devrodri/EDGE%20HOUSE/ayxrpX4g.jpeg",
 
   microClaimsEs: [
     "Short‑term friendly (Airbnb)",
