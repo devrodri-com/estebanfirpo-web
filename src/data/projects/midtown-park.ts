@@ -5,7 +5,7 @@ export const pMidtownPark: Project = {
   id: "midtown-park",
   slug: "/proyectos/midtown-park",
   name: "Midtown Park",
-  city: "3501 NE 1st Ave, Miami, FL 33137",
+  city: "3055 N Miami Ave, Miami, FL 33129",
 
   // media
   image: "https://ik.imagekit.io/devrodri/Midtown%20Park/ca7LMYAw.jpeg",
@@ -30,11 +30,11 @@ export const pMidtownPark: Project = {
 
   // microclaims
   microClaimsEs: [
-    "Dirección: 3501 NE 1st Ave",
+    "Dirección: 3055 N Miami Ave",
     "Finalización estimada 2028"
   ],
   microClaimsEn: [
-    "Address: 3501 NE 1st Ave",
+    "Address: 3055 N Miami Ave",
     "Estimated completion 2028"
   ],
 
