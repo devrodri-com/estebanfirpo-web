@@ -8,7 +8,6 @@ export const pAveMaria: Project = {
   rentalPolicy: "No Airbnb",
   furnished: false,
   priceFromUsd: 340000,
-  pricePerSfApprox: 250,
   delivery: "8-12 meses",
   financingAtClosing: true,
   slug: "/proyectos/ave-maria",
@@ -28,7 +27,7 @@ export const pAveMaria: Project = {
   highlights: [
     "Maple Ridge: el vecindario #1 en ventas en Ave Maria",
     "Ubicado en una Comunidad Certificada Blue Zones®",
-    "Clubhouse privado de 10,000 sf con piscina, gimnasio y parque para perros",
+    "Clubhouse privado de ≈930 m² con piscina, gimnasio y parque para perros",
     "Town Center con más de 50 tiendas, restaurantes y servicios"
   ],
   highlightsEn: [
@@ -68,7 +67,7 @@ export const pAveMaria: Project = {
   faqsEs: [
     { q: "¿Cuál es el precio de entrada?", a: "Desde USD 340,000 (2 dormitorios)." },
     { q: "¿Se permiten alquileres temporales?", a: "No. Airbnb no está permitido." },
-    { q: "¿Qué amenidades incluye?", a: "Clubhouse de 10,000 sf con piscina, gimnasio, spa, café, parque para perros y área de niños." },
+    { q: "¿Qué amenidades incluye?", a: "Clubhouse de ≈930 m² con piscina, gimnasio, spa, café, parque para perros y área de niños." },
     { q: "¿Dónde está ubicado?", a: "En Naples, Florida, dentro de la comunidad Ave Maria." }
   ],
   faqsEn: [
