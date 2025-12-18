@@ -9,7 +9,6 @@ export const pMilleniaPark: Project = {
   rentalPolicyEn: "Minimum 31 days, up to 4 leases per year",
   furnished: false,
   priceFromUsd: 289900, // 1BR + den desde ~US$289,900
-  pricePerSfApprox: undefined,
   delivery: "2024-2026", // Fase 1 ~2024; siguientes 2025-2026
   slug: "/proyectos/millenia-park",
   image: "https://ik.imagekit.io/devrodri/Millenia%20Park/chvfJiMA.jpeg",
@@ -23,12 +22,12 @@ export const pMilleniaPark: Project = {
 
   microClaimsEs: [
     "VISA de Inversionista (EB‑5)",
-    "960 residencias · 25.000 sf retail",
+    "960 residencias · ≈2.300 m² de retail",
     "A 2 millas de Epic Universe (Universal)"
   ],
   microClaimsEn: [
     "EB‑5 investor visa eligible",
-    "960 homes · 25,000 sf retail",
+    "960 homes · 25,000 sq ft retail",
     "2 miles to Epic Universe (Universal)"
   ],
 
@@ -50,21 +49,21 @@ export const pMilleniaPark: Project = {
   ],
 
   unitMixEs: [
-    "1 BR + estudio / 1 baño · 750 sf (70 m²) — desde ~US$289,900",
-    "2 BR + estudio / 2 baños · 1.023 sf (95 m²) — desde ~US$364,900",
-    "3 BR / 2 baños · 1.087-1.215 sf (101-113 m²) — desde ~US$419,900"
+    "1 dormitorio + estudio / 1 baño · ≈70 m² - desde ~US$289,900",
+    "2 dormitorios + estudio / 2 baños · ≈95 m² - desde ~US$364,900",
+    "3 dormitorios / 2 baños · ≈101–113 m² - desde ~US$419,900"
   ],
   unitMixEn: [
-    "1 BR + den / 1 bath · 750 sf (70 m²) — from ~US$289,900",
-    "2 BR + den / 2 baths · 1,023 sf (95 m²) — from ~US$364,900",
-    "3 BR / 2 baths · 1,087-1,215 sf (101-113 m²) — from ~US$419,900"
+    "1 BR + den / 1 bath · 750 sq ft - from ~US$289,900",
+    "2 BR + den / 2 baths · 1,023 sq ft - from ~US$364,900",
+    "3 BR / 2 baths · 1,087–1,215 sq ft - from ~US$419,900"
   ],
 
   featuresEs: [
     "Cocinas estilo europeo con electrodomésticos de acero inoxidable y granito",
     "Baños contemporáneos con mesadas de cuarzo",
     "Amplios vestidores (walk‑in) en la mayoría de las unidades",
-    "Plantillas abiertas con techos de ~9 pies",
+    "Plantillas abiertas con techos de ≈2.7 m",
     "Lavadora/secadora en unidad"
   ],
   featuresEn: [
@@ -89,7 +88,7 @@ export const pMilleniaPark: Project = {
     { q: "¿Precio desde?", a: "1 BR + estudio desde ~US$289.900; 2 BR desde ~US$364.900; 3 BR desde ~US$419.900." },
     { q: "¿Política de alquiler?", a: "Mínimo 31 días, hasta 4 alquileres al año (flexible para mensualidades)." },
     { q: "¿Incluye muebles?", a: "No. Se entregan terminadas con acabados/electrodomésticos; mobiliario no incluido." },
-    { q: "¿Financiación para extranjeros?", a: "Disponible — brokers reportan hipotecas hasta ~50% del valor (sujeto a calificación)." },
+    { q: "¿Financiación para extranjeros?", a: "Disponible - brokers reportan hipotecas hasta ~50% del valor (sujeto a calificación)." },
     { q: "¿EB‑5?", a: "Sí, proyecto elegible a través de Centro Regional (visa de inversionista)." },
     { q: "¿Entregas?", a: "Fase 1 ~2024; fases siguientes ~2025-2026." }
   ],
@@ -97,7 +96,7 @@ export const pMilleniaPark: Project = {
     { q: "Starting prices?", a: "1 BR + den from ~US$289,900; 2 BR from ~US$364,900; 3 BR from ~US$419,900." },
     { q: "Rental policy?", a: "Minimum 31 days; up to 4 leases per year (flexible for monthly rentals)." },
     { q: "Furnishing?", a: "No. Delivered finished with appliances; furniture not included." },
-    { q: "Foreign financing?", a: "Available — brokers indicate mortgages up to ~50% LTV (subject to approval)." },
+    { q: "Foreign financing?", a: "Available - brokers indicate mortgages up to ~50% LTV (subject to approval)." },
     { q: "EB‑5?", a: "Yes, eligible via Regional Center (investor visa)." },
     { q: "Deliveries?", a: "Phase 1 ~2024; subsequent phases ~2025-2026." }
   ]
