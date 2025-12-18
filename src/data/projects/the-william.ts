@@ -28,7 +28,7 @@ export const pTheWilliam: Project = {
   // microclaims
   microClaimsEs: [
     "26 pisos · 374 residencias",
-    "Amenidades ~40,459 ft² en dos niveles"
+    "Amenidades ≈3,760 m² en dos niveles"
   ],
   microClaimsEn: [
     "26 stories · 374 residences",
@@ -54,7 +54,7 @@ export const pTheWilliam: Project = {
   ],
 
   // tipologías
-  unitMixEs: ["Studios a 3 dormitorios · ver planos para m²/ft²"],
+  unitMixEs: ["Studios a 3 dormitorios · ver planos para m²"],
   unitMixEn: ["Studios to 3 bedrooms · see plans for m²/sq.ft"],
 
   // acabados
