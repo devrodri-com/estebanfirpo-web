@@ -8,7 +8,6 @@ export const pNexo: Project = {
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 626000,
-  pricePerSfApprox: 1100,
   delivery: "2025",
   financingAtClosing: true,
   slug: "/proyectos/nexo",
@@ -94,18 +93,16 @@ export const pNexo: Project = {
     { q: "¿Se permiten alquileres de corto plazo?", a: "Sí. Nexo no tiene restricciones y permite listar en Airbnb, Vrbo, Booking y otras plataformas." },
     { q: "¿Las residencias se entregan amobladas?", a: "Sí. Todas se entregan completamente terminadas y amobladas." },
     { q: "¿Dónde está ubicado?", a: "13899 Biscayne Blvd, North Miami Beach; cerca de Oleta River Park, Bal Harbour Shops y Aventura Mall." },
-    { q: "¿Cuáles son las amenidades principales?", a: "Tech Center de dos pisos, coworking, piscina resort, rooftop 360°, cine al aire libre, gimnasio, lounge y más." },
-    { q: "¿Cuál es el HOA estimado?", a: "Aproximadamente $1.10 por pie²." }
+    { q: "¿Cuáles son las amenidades principales?", a: "Tech Center de dos pisos, coworking, piscina resort, rooftop 360°, cine al aire libre, gimnasio, lounge y más." }
   ],
   faqsEn: [
     { q: "EB‑5 Visa?", a: "Yes. Eligible via Regional Center; minimum investment US$800,000 and ~US$70,000 admin fee; path to a Green Card subject to USCIS approval." },
-    { q: "Are short‑term rentals allowed?", a: "Yes. No rental restrictions—Airbnb, Vrbo, Booking and other platforms allowed." },
+    { q: "Are short‑term rentals allowed?", a: "Yes. No rental restrictions-Airbnb, Vrbo, Booking and other platforms allowed." },
     { q: "Are units furnished?", a: "Yes. All residences are delivered fully finished and furnished." },
     { q: "Where is it located?", a: "13899 Biscayne Blvd, North Miami Beach; near Oleta River Park, Bal Harbour Shops and Aventura Mall." },
-    { q: "What are the key amenities?", a: "Two‑story Tech Center, coworking, resort pool, 360° rooftop, outdoor movie lawn, gym, lounges and more." },
-    { q: "What is the estimated HOA?", a: "Approximately $1.10 per sq ft." }
+    { q: "What are the key amenities?", a: "Two‑story Tech Center, coworking, resort pool, 360° rooftop, outdoor movie lawn, gym, lounges and more." }
   ],
-
+ 
   images: [
     { src: "https://ik.imagekit.io/devrodri/Nexo/1-2.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Nexo/1-3.jpg" },
