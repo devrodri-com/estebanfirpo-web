@@ -9,7 +9,6 @@ export const pFlowHouse: Project = {
   furnished: true,
   priceFromUsd: 450000,
   pricePerSfApprox: undefined,
-  hoa: "$1.27/sf",
   delivery: "Nov-Dec 2025",
   slug: "/proyectos/flow-house",
   image: "/images/projects/flow-house.webp",
@@ -26,8 +25,8 @@ export const pFlowHouse: Project = {
   ],
 
   highlights: [
-    "46,100 ft² de amenidades (wellness & cowork)",
-    "Piscina semi‑olímpica de 126 ft con day beds y cabañas",
+    "Amenidades ≈4,300 m² (wellness & cowork)",
+    "Piscina semi‑olímpica de ≈38 m con day beds y cabañas",
     "Coworking con oficinas privadas, salas de reunión y podcast room",
     "Residencias terminadas y amobladas con lavadora/secadora",
     "Ubicado en el corazón de Miami Worldcenter",
@@ -92,8 +91,7 @@ export const pFlowHouse: Project = {
     { q: "¿Inventario y pisos?", a: "Torre de 41 pisos con 466 residencias (studios, Jr 1D, 1D y 2D), todas completamente amobladas." },
     { q: "¿Precios de referencia?", a: "Estudios desde ~US$450k (reciente ~US$490-520k); 1D ~US$600k; 2D desde ~US$820k (según sala de ventas)." },
     { q: "¿Impuesto a la propiedad?", a: "Aprox. 2.1% anual del valor tasado en Downtown Miami (ej.: US$500k ⇒ ~US$10.5k/año)." },
-    { q: "¿Leaseback 6%?", a: "Programa de renta garantizada por 2 años al 6% neto anual; cubre HOA e impuestos y 0% fee de gestión (pedir términos oficiales a ventas)." },
-    { q: "¿Cuál es el HOA estimado?", a: "$1.27 por pie cuadrado." }
+    { q: "¿Leaseback 6%?", a: "Programa de renta garantizada por 2 años al 6% neto anual; cubre HOA e impuestos y 0% fee de gestión (pedir términos oficiales a ventas)." }
   ],
 
   faqsEn: [
@@ -108,8 +106,7 @@ export const pFlowHouse: Project = {
     { q: "Inventory & floors?", a: "41‑story tower with 466 turn‑key residences (studios, Jr 1BR, 1BR, 2BR), fully furnished." },
     { q: "Reference pricing?", a: "Studios from ~$450k (recent ~$490-520k); 1BR ~$600k; 2BR from ~$820k (per sales)." },
     { q: "Property tax?", a: "Approx. 2.1% annually of assessed value in Downtown Miami (e.g., $500k ⇒ ~$10.5k/year)." },
-    { q: "6% leaseback?", a: "2‑year guaranteed 6% net annual leaseback; HOA & taxes covered, 0% management fee (request official terms from sales)." },
-    { q: "What is the estimated HOA?", a: "$1.27 per square foot." }
+    { q: "6% leaseback?", a: "2‑year guaranteed 6% net annual leaseback; HOA & taxes covered, 0% management fee (request official terms from sales)." }
   ],
 
   images: [
