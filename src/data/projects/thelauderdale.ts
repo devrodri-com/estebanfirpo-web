@@ -64,7 +64,7 @@ export const pTheLauderdale: Project = {
   ],
 
   // tipologías
-  unitMixEs: ["1 a 4 dormitorios + den · penthouses hasta ~3,000+ ft²"],
+  unitMixEs: ["1 a 4 dormitorios + den · penthouses hasta ≈280 m²"],
   unitMixEn: ["1 to 4 bedrooms + den · penthouses up to ~3,000+ sq.ft"],
 
   // acabados (resumen)
