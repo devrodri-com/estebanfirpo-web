@@ -8,7 +8,6 @@ export const pMercedesBenzPlaces: Project = {
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 685500,
-  pricePerSfApprox: 1600,
   delivery: "2028",
   financingAtClosing: true,
   slug: "/proyectos/mercedes-benz-places",
@@ -27,10 +26,10 @@ export const pMercedesBenzPlaces: Project = {
 
   highlights: [
     "Studios a 3BR + den",
-    "130k sf de amenities Mercedes‑Benz",
+    "Amenidades Mercedes‑Benz ≈12,000 m²",
     "Piscinas rooftop y sun deck, spa y wellness de última generación",
     "Restaurantes, lounge Silver Arrow, simulador de F1 y cine privado",
-    "Parque Southside de 2 acres con canchas, playground y conexión al Underline"
+    "Parque Southside de ≈0.8 hectáreas con canchas, playground y conexión al Underline"
   ],
   highlightsEn: [
     "Studios to 3BR + den",
@@ -45,7 +44,7 @@ export const pMercedesBenzPlaces: Project = {
 
   featuresEs: [
     "Residencias amobladas y terminadas con diseño Mercedes-Benz",
-    "Ventanas de piso a techo de 10 pies y terrazas de 5 pies de profundidad",
+    "Ventanas de piso a techo de ≈3 m y terrazas de ≈1.5 m de profundidad",
     "Cocinas personalizadas con electrodomésticos Miele",
     "Baños con piedra natural, griferías en acabado oro rosado y sanitarios Duravit",
     "Tecnología integrada en todas las residencias (smart home)",
@@ -81,8 +80,8 @@ export const pMercedesBenzPlaces: Project = {
     { q: "¿Qué amenities incluye?", a: "Piscinas rooftop, spa, restaurantes, simulador de F1, Silver Arrow lounge, cine privado, coworking y parque Southside." },
     { q: "¿Cuál es el plan de pagos?", a: "20% contrato, 10% a 180 días, 10% al nivel, 10% top-off, 50% cierre (con financiación)." },
     { q: "¿Cuál es el precio de entrada?", a: "Desde USD 685,500 (studios)." },
-    { q: "¿Qué superficies manejan las residencias?", a: "Estudios 479-683 sf; 1BR 719-815 sf; 2BR 959-1,320 sf; 3BR 1,763-2,106 sf." },
-    { q: "¿Qué es Southside Park y el Underline?", a: "Parque de 2 acres con canchas, playground, dog run y conexión directa al Underline." },
+    { q: "¿Qué superficies manejan las residencias?", a: "Estudios ≈45-63 m²; 1 dormitorio ≈67-76 m²; 2 dormitorios ≈89-123 m²; 3 dormitorios ≈164-196 m²." },
+    { q: "¿Qué es Southside Park y el Underline?", a: "Parque de ≈0.8 hectáreas con canchas, playground, dog run y conexión directa al Underline." },
     { q: "¿Qué tecnología integra el proyecto?", a: "Plataforma ReWyre para soluciones de sostenibilidad, seguridad y experiencia del residente (automación, EV charging, access control, etc.)." }
   ],
   faqsEn: [
