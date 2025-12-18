@@ -8,8 +8,6 @@ export const pSevenPark: Project = {
   city: "218-220 SE 7th St, Hallandale Beach, FL 33009",
 
   priceFromUsd: 370000,
-  pricePerSfApprox: undefined,
-  hoa: "$1.03/sf",
   delivery: "2027",
   furnished: false,
 
@@ -28,14 +26,14 @@ export const pSevenPark: Project = {
     { src: "https://ik.imagekit.io/devrodri/Seven%20Park/8.jpeg?updatedAt=1759349277531" }
   ],
 
-  microClaimsEs: ["Frente a Peter Bluesten Park", "Amenidades ~30,000 ft²"],
+  microClaimsEs: ["Frente a Peter Bluesten Park", "Amenidades ≈2,800 m²"],
   microClaimsEn: ["Facing Peter Bluesten Park", "~30,000 sq.ft amenities"],
 
   highlights: [
     "Piscina tipo resort, 2 hot tubs, cabañas y chaises",
     "BBQ comunal y privadas, coworking + sala de conferencias",
     "Media room / lounge / party room, content creation room",
-    "Wellness: sauna, vapor, cold plunge; gimnasio ~3,000 ft²",
+    "Wellness: sauna, vapor, cold plunge; gimnasio ≈280 m²",
     "Estacionamiento para residentes y visitas; 24 cargadores EV",
     "Pet-friendly; depósitos privados limitados"
   ],
@@ -48,13 +46,13 @@ export const pSevenPark: Project = {
     "Pet-friendly; limited private storage"
   ],
 
-  unitMixEs: ["Studios a 3 dormitorios · ver planos para m²/ft²"],
+  unitMixEs: ["Studios a 3 dormitorios · ver planos para m²"],
   unitMixEn: ["Studios to 3 bedrooms · see plans for m²/sq.ft"],
 
   featuresEs: [
     "Cocinas Mia Cucina + Bosch panel-ready; cuarzo waterfall; grifería brass",
     "Baños con porcelanato italiano; duchas sin marco; grifería brass",
-    "10 ft cielorrasos; ventanales piso-techo; porcelanato; W/D en unidad"
+    "Cielorrasos de ≈3 m; ventanales piso-techo; porcelanato; W/D en unidad"
   ],
   featuresEn: [
     "Mia Cucina kitchens + Bosch panel-ready; waterfall quartz; brass fixtures",
@@ -85,10 +83,6 @@ export const pSevenPark: Project = {
       a: "Kadima (dev) · Fortune Development Sales · Sales Gallery: 21495 E Dixie Hwy, Aventura, FL 33180."
     },
     {
-      q: "¿Cuál es la cuota HOA y qué incluye?",
-      a: "HOA estimada ~$1.03/sf/mes. Incluye agua, alcantarillado, basura, cable/internet bulk, seguridad, mantenimiento y seguro maestro del edificio."
-    },
-    {
       q: "¿Se permiten alquileres de corta estancia?",
       a: "Sí, desde el día 1. El condominio no impone mínimos; se debe tramitar la licencia de Vacation Rental de Hallandale Beach."
     },
@@ -105,10 +99,6 @@ export const pSevenPark: Project = {
     {
       q: "Team & sales gallery?",
       a: "Kadima (dev) · Fortune Development Sales · Sales Gallery: 21495 E Dixie Hwy, Aventura, FL 33180."
-    },
-    {
-      q: "What is the HOA fee and what does it include?",
-      a: "Estimated ~$1.03/sf/month. Covers water, sewer, trash, bulk cable/internet, security, maintenance, and building master insurance."
     },
     {
       q: "Are short-term rentals allowed?",
