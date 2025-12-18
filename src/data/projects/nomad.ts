@@ -60,10 +60,10 @@ export const pNomad: Project = {
 
   // Unit mix (purchaser guide)
   unitMixEs: [
-    "Studios y 1–2 dormitorios · ~464–931 ft² (43–86 m²)"
+    "Studios y 1-2 dormitorios · ~464-931 ft² (43-86 m²)"
   ],
   unitMixEn: [
-    "Studios and 1–2 BR · ~464–931 sq ft (43–86 m²)"
+    "Studios and 1-2 BR · ~464-931 sq ft (43-86 m²)"
   ],
 
   // Features (residencias)

@@ -81,7 +81,7 @@ export const pMercedesBenzPlaces: Project = {
     { q: "¿Qué amenities incluye?", a: "Piscinas rooftop, spa, restaurantes, simulador de F1, Silver Arrow lounge, cine privado, coworking y parque Southside." },
     { q: "¿Cuál es el plan de pagos?", a: "20% contrato, 10% a 180 días, 10% al nivel, 10% top-off, 50% cierre (con financiación)." },
     { q: "¿Cuál es el precio de entrada?", a: "Desde USD 685,500 (studios)." },
-    { q: "¿Qué superficies manejan las residencias?", a: "Estudios 479–683 sf; 1BR 719–815 sf; 2BR 959–1,320 sf; 3BR 1,763–2,106 sf." },
+    { q: "¿Qué superficies manejan las residencias?", a: "Estudios 479-683 sf; 1BR 719-815 sf; 2BR 959-1,320 sf; 3BR 1,763-2,106 sf." },
     { q: "¿Qué es Southside Park y el Underline?", a: "Parque de 2 acres con canchas, playground, dog run y conexión directa al Underline." },
     { q: "¿Qué tecnología integra el proyecto?", a: "Plataforma ReWyre para soluciones de sostenibilidad, seguridad y experiencia del residente (automación, EV charging, access control, etc.)." }
   ],
@@ -91,7 +91,7 @@ export const pMercedesBenzPlaces: Project = {
     { q: "What amenities are included?", a: "Rooftop pools, spa, restaurants, F1 simulator, Silver Arrow lounge, screening room, co-working and Southside Park." },
     { q: "What is the payment plan?", a: "20% contract, 10% in 180 days, 10% at residence level, 10% at top-off, 50% closing (with financing)." },
     { q: "What is the starting price?", a: "From USD 685,500 (studios)." },
-    { q: "What are the typical sizes?", a: "Studios 479–683 sf; 1BR 719–815 sf; 2BR 959–1,320 sf; 3BR 1,763–2,106 sf." },
+    { q: "What are the typical sizes?", a: "Studios 479-683 sf; 1BR 719-815 sf; 2BR 959-1,320 sf; 3BR 1,763-2,106 sf." },
     { q: "What is Southside Park / the Underline?", a: "A 2‑acre park with courts, playground and a direct connection to the Underline." },
     { q: "What technology is integrated?", a: "ReWyre platform for sustainability, security and tenant experience (automation, EV charging, access control, etc.)." }
   ],

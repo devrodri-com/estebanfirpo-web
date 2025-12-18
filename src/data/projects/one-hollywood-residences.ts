@@ -60,18 +60,18 @@ export const pOneHollywoodResidences: Project = {
     "Guest valet; smart package locker room"
   ],
 
-  // Unit mix & sizes (brochure – floorplans)
+  // Unit mix & sizes (brochure - floorplans)
   unitMixEs: [
     "Studios · 48 m² (517 ft²)",
-    "1 dormitorio · 73–88 m² (781–945 ft²)",
-    "2 dormitorios · 113–115 m² (1,212–1,235 ft²)",
-    "3 dormitorios · 130–162 m² (1,400–1,745 ft²)"
+    "1 dormitorio · 73-88 m² (781-945 ft²)",
+    "2 dormitorios · 113-115 m² (1,212-1,235 ft²)",
+    "3 dormitorios · 130-162 m² (1,400-1,745 ft²)"
   ],
   unitMixEn: [
     "Studios · 517 sq ft",
-    "1‑bedroom · 781–945 sq ft",
-    "2‑bedroom · 1,212–1,235 sq ft",
-    "3‑bedroom · 1,400–1,745 sq ft"
+    "1‑bedroom · 781-945 sq ft",
+    "2‑bedroom · 1,212-1,235 sq ft",
+    "3‑bedroom · 1,400-1,745 sq ft"
   ],
 
   // Features (residencias)
@@ -94,16 +94,16 @@ export const pOneHollywoodResidences: Project = {
     "High‑efficiency washer & dryer"
   ],
 
-  // Deposit schedule (brochure – purchaser guide)
+  // Deposit schedule (brochure - purchaser guide)
   paymentPlanEs: [
-    "Reserva: US$30k (studios/1BR) o US$50k (2–3BR)",
+    "Reserva: US$30k (studios/1BR) o US$50k (2-3BR)",
     "Completar 20% al contrato",
     "10% al groundbreaking",
     "10% al top‑off",
     "60% al cierre"
   ],
   paymentPlanEn: [
-    "Reservation: US$30k (studios/1BR) or US$50k (2–3BR)",
+    "Reservation: US$30k (studios/1BR) or US$50k (2-3BR)",
     "Complete 20% at contract",
     "10% at groundbreaking",
     "10% at top‑off",
@@ -115,7 +115,7 @@ export const pOneHollywoodResidences: Project = {
     { q: "¿Desde cuánto?", a: "Desde ~US$420,000 (estudios; sujeto a inventario y cambios)." },
     { q: "¿HOA estimada?", a: "Aprox. US$0.85/ft² por mes (incluye mantenimiento de áreas comunes, amenities y servicios del edificio)." },
     { q: "¿Entrega?", a: "Fines de 2027 (Completion: late 2027)." },
-    { q: "¿Mix y tamaños?", a: "Studios, 1, 2 y 3 dormitorios · 48–132 m² aprox. (517–1,425 ft²)." },
+    { q: "¿Mix y tamaños?", a: "Studios, 1, 2 y 3 dormitorios · 48-132 m² aprox. (517-1,425 ft²)." },
     { q: "¿Plan de depósitos?", a: "US$30k/US$50k reserva · 20% contrato · 10% groundbreaking · 10% top‑off · 60% cierre." },
     { q: "¿Amoblamiento?", a: "Se entregan fully finished; el brochure no indica amoblamiento incluido." },
     { q: "¿Amenidades clave?", a: "Piscina estilo resort, rooftop lounge 360°, spa/sauna, fitness + yoga, clubroom y cowork, kids club, EV chargers, valet." }
@@ -124,7 +124,7 @@ export const pOneHollywoodResidences: Project = {
     { q: "Starting from?", a: "From ~US$420,000 (studios; subject to inventory and change)." },
     { q: "HOA estimate?", a: "Approx. US$0.85/sq ft per month (covers building services, amenities and common areas)." },
     { q: "Completion?", a: "Late 2027 (estimated)." },
-    { q: "Unit mix & sizes?", a: "Studios, 1, 2 & 3 BR · ~517–1,425 sq ft." },
+    { q: "Unit mix & sizes?", a: "Studios, 1, 2 & 3 BR · ~517-1,425 sq ft." },
     { q: "Deposit schedule?", a: "US$30k/US$50k reservation · 20% contract · 10% groundbreaking · 10% top‑off · 60% closing." },
     { q: "Furnished?", a: "Delivered fully finished; brochure does not state furniture included." },
     { q: "Key amenities?", a: "Resort‑style pool, 360° rooftop lounge, spa/sauna, fitness+ yoga, clubroom & co‑working, kids club, EV chargers, valet." }

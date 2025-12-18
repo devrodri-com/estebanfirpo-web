@@ -60,23 +60,23 @@ export const pJeanGeorges: Project = {
 
   // Unit mix & sizes
   unitMixEs: [
-    "Estudios y 1–4 dorm · ~79–269 m² (852–2,892 ft²)"
+    "Estudios y 1-4 dorm · ~79-269 m² (852-2,892 ft²)"
   ],
   unitMixEn: [
-    "Studios and 1–4 BR · ~852–2,892 sq ft (~79–269 m²)"
+    "Studios and 1-4 BR · ~852-2,892 sq ft (~79-269 m²)"
   ],
 
   // Features (acabados principales)
   featuresEs: [
     "Cocinas de chef con electrodomésticos Gaggenau",
     "Encimeras de piedra natural; griferías Gessi",
-    "Ventanales piso‑techo, techos 10–11 ft y balcones privados",
+    "Ventanales piso‑techo, techos 10-11 ft y balcones privados",
     "Vestíbulos de ascensor privados o semi‑privados"
   ],
   featuresEn: [
     "Chef kitchens with Gaggenau appliances",
     "Natural stone counters; Gessi fixtures",
-    "Floor‑to‑ceiling glass, 10–11 ft ceilings and private balconies",
+    "Floor‑to‑ceiling glass, 10-11 ft ceilings and private balconies",
     "Private/semi‑private elevator foyers"
   ],
 

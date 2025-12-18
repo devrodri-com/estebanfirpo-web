@@ -110,7 +110,7 @@ src/
 4. **Rental policy** (ES/EN): include **Certificate of Use / Certificado de Uso**, **DBPR**, tourist taxes when STR applies.
 5. **Images**: 1 hero + ~8 gallery images (ImageKit URLs recommended).
 6. **Short copy**: two `microClaims*` max; keep to one line on mobile.
-7. **Content**: `highlights*`, `unitMix*`, `features*`, `paymentPlan*` (must add up to **100%**; fixed reservation is **not** an extra %), and `faqs*` (3–6).
+7. **Content**: `highlights*`, `unitMix*`, `features*`, `paymentPlan*` (must add up to **100%**; fixed reservation is **not** an extra %), and `faqs*` (3-6).
 8. **Register** in `src/data/projects/index.ts` (import and append to `INCOMING`).
 9. **Build & QA**: `npm run build && npm run start`. Check cards, map, OG preview.
 

@@ -17,8 +17,8 @@ export default async function Miami({ params }: { params: { locale: 'es' | 'en' 
 
   const kpis: { value: string; label: string }[] = [
     locale === 'en'
-      ? { value: '+372k', label: 'Net migration to Florida (2022–23)' }
-      : { value: '+372 k', label: 'Migración neta a Florida (2022–23)' },
+      ? { value: '+372k', label: 'Net migration to Florida (2022-23)' }
+      : { value: '+372 k', label: 'Migración neta a Florida (2022-23)' },
     locale === 'en'
       ? { value: '56M', label: 'MIA passengers 2024' }
       : { value: '56 M', label: 'Pasajeros MIA 2024' },
@@ -207,7 +207,7 @@ export default async function Miami({ params }: { params: { locale: 'es' | 'en' 
           </div>
         </div>
         <div className="mt-3 flex items-center justify-between text-[12px] text-white/70">
-          <p>{locale === 'en' ? 'Florida net migration 2022–23' : 'Migración neta Florida 2022–23'}</p>
+          <p>{locale === 'en' ? 'Florida net migration 2022-23' : 'Migración neta Florida 2022-23'}</p>
           <p>{locale === 'en' ? 'Source: U.S. Census; Florida EDR' : 'Fuente: U.S. Census; Florida EDR'}</p>
         </div>
         <div className="mt-2 h-px bg-white/10" />
@@ -336,7 +336,7 @@ export default async function Miami({ params }: { params: { locale: 'es' | 'en' 
             <li>MIA &amp; PortMiami — {locale === 'en' ? 'Passenger volumes' : 'Volúmenes de pasajeros'}</li>
             <li>U.S. Census &amp; Florida EDR — {locale === 'en' ? 'Net migration' : 'Migración neta'}</li>
           </ul>
-          <p className="mt-2 text-[12px] italic text-white/60">{locale === 'en' ? 'Data consolidated 2023–2024.' : 'Datos consolidados 2023–2024.'}</p>
+          <p className="mt-2 text-[12px] italic text-white/60">{locale === 'en' ? 'Data consolidated 2023-2024.' : 'Datos consolidados 2023-2024.'}</p>
         </div>
       </section>
       <section className="mt-6 rounded-[10px] bg-[#0A2540] p-6 sm:p-7 ring-1 ring-white/10 text-white text-center relative overflow-hidden max-w-[1100px] mx-auto">

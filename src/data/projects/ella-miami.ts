@@ -7,7 +7,6 @@ export const pEllaMiami: Project = {
   city: "Miami Beach",
   delivery: "2026",
   priceFromUsd: 477000,
-  pricePerSfApprox: 1500,
   // STR-friendly (short-term allowed). Usamos "No Restrictions" para consistencia con filtros.
   rentalPolicyEs: "Sin restricciones",
   rentalPolicyEn: "No restrictions",
@@ -40,13 +39,13 @@ export const pEllaMiami: Project = {
   // Unit mix (rangos del brochure)
   unitMixEs: [
     "Estudios · ~32 m² interiores · 8 m² terraza · total ~40 m²",
-    "1 dormitorio · ~51–73 m² interiores · 17–48 m² terraza · total ~72–121 m²",
-    "2 dormitorios · ~95–101 m² interiores · 46–68 m² terraza · total ~142–163 m²",
+    "1 dormitorio · ~51-73 m² interiores · 17-48 m² terraza · total ~72-121 m²",
+    "2 dormitorios · ~95-101 m² interiores · 46-68 m² terraza · total ~142-163 m²",
   ],
   unitMixEn: [
-    "Studios · ~342 sf interiors · 87–90 sf exterior · total ~429–432 sf",
-    "1 bed · ~615–618 sf interiors · 183–384 sf exterior · total ~798–1,002 sf",
-    "2 bed · ~1,019–1,089 sf interiors · 499–737 sf exterior · total ~1,526–1,756 sf",
+    "Studios · ~342 sf interiors · 87-90 sf exterior · total ~429-432 sf",
+    "1 bed · ~615-618 sf interiors · 183-384 sf exterior · total ~798-1,002 sf",
+    "2 bed · ~1,019-1,089 sf interiors · 499-737 sf exterior · total ~1,526-1,756 sf",
   ],
 
   // Features / amenities resumidas

@@ -30,7 +30,7 @@ export default async function Precon({ params }: { params: { locale: 'es' | 'en'
               {locale === 'en' ? 'Calculate your plan' : 'Calculá tu plan'}
             </a>
           </div>
-          <p className="text-[12px] text-neutral-500">{locale === 'en' ? 'filtered by 2025–2028 deliveries' : 'filtradas por entregas 2025–2028'}</p>
+          <p className="text-[12px] text-neutral-500">{locale === 'en' ? 'filtered by 2025-2028 deliveries' : 'filtradas por entregas 2025-2028'}</p>
         </div>
       </section>
 
@@ -43,7 +43,7 @@ export default async function Precon({ params }: { params: { locale: 'es' | 'en'
             locale === 'en' ? ['Staged payments 20/10/10/60','Reserve, contract, milestones, closing'] : ['Pagos 20/10/10/60','Reserva, contrato, hitos, cierre'],
             locale === 'en' ? ['No mortgage until closing','Finance the balance at closing'] : ['Sin hipoteca hasta entrega','Financiás el saldo al cierre'],
             locale === 'en' ? ['Today’s price for future asset','Capture appreciation during build'] : ['Precio de hoy por activo futuro','Capturás plusvalía en obra'],
-            locale === 'en' ? ['Financing ~70–75% LTV','Available even for foreigners'] : ['Financiación ~70–75% LTV','Incluso para extranjeros']
+            locale === 'en' ? ['Financing ~70-75% LTV','Available even for foreigners'] : ['Financiación ~70-75% LTV','Incluso para extranjeros']
           ].map(([title, micro], i) => (
             <div key={i} className="relative rounded-[10px] ring-1 ring-white/10 bg-[#0A2540] p-4 sm:p-5 text-white">
               <div className="absolute left-4 right-4 top-0 h-[2px] rounded-full" style={{background:'linear-gradient(90deg, rgba(212,175,55,0), rgba(212,175,55,.25), rgba(212,175,55,0))'}} />
@@ -197,8 +197,8 @@ export default async function Precon({ params }: { params: { locale: 'es' | 'en'
         </h2>
         <p className="text-[15px] leading-7 text-neutral-800">
           {locale === 'en'
-            ? 'Best for 3–10 year horizons seeking appreciation, leverage and USD cashflow. Ideal for foreign buyers and diversified portfolios.'
-            : 'Ideal para horizontes de 3–10 años que buscan apreciación, apalancamiento y flujo en USD. Perfecto para extranjeros y carteras diversificadas.'}
+            ? 'Best for 3-10 year horizons seeking appreciation, leverage and USD cashflow. Ideal for foreign buyers and diversified portfolios.'
+            : 'Ideal para horizontes de 3-10 años que buscan apreciación, apalancamiento y flujo en USD. Perfecto para extranjeros y carteras diversificadas.'}
         </p>
       </section>
 
@@ -230,11 +230,11 @@ export default async function Precon({ params }: { params: { locale: 'es' | 'en'
         <div className="divide-y divide-neutral-200 rounded-lg border border-primary/10 bg-white">
           <div className="px-4 py-3">
             <p className="text-[14px] font-semibold text-[#0A2540]">{locale === 'en' ? 'Typical payment plan' : 'Plan de pago típico'}</p>
-            <p className="text-[13px] text-neutral-700">{locale === 'en' ? '20/10/10/60 over ~24–36 months.' : '20/10/10/60 en ~24–36 meses.'}</p>
+            <p className="text-[13px] text-neutral-700">{locale === 'en' ? '20/10/10/60 over ~24-36 months.' : '20/10/10/60 en ~24-36 meses.'}</p>
           </div>
           <div className="px-4 py-3">
             <p className="text-[14px] font-semibold text-[#0A2540]">{locale === 'en' ? 'Foreign financing' : 'Financiación a extranjeros'}</p>
-            <p className="text-[13px] text-neutral-700">{locale === 'en' ? 'Up to ~70–75% LTV at closing.' : 'Hasta ~70–75% LTV al cierre.'}</p>
+            <p className="text-[13px] text-neutral-700">{locale === 'en' ? 'Up to ~70-75% LTV at closing.' : 'Hasta ~70-75% LTV al cierre.'}</p>
           </div>
           <div className="px-4 py-3">
             <p className="text-[14px] font-semibold text-[#0A2540]">{locale === 'en' ? 'Rental flexibility' : 'Flexibilidad de renta'}</p>
@@ -242,7 +242,7 @@ export default async function Precon({ params }: { params: { locale: 'es' | 'en'
           </div>
           <div className="px-4 py-3">
             <p className="text-[14px] font-semibold text-[#0A2540]">{locale === 'en' ? 'Completion timeline' : 'Plazo de entrega'}</p>
-            <p className="text-[13px] text-neutral-700">{locale === 'en' ? 'Most projects ~2–3 years.' : 'La mayoría de proyectos ~2–3 años.'}</p>
+            <p className="text-[13px] text-neutral-700">{locale === 'en' ? 'Most projects ~2-3 years.' : 'La mayoría de proyectos ~2-3 años.'}</p>
           </div>
         </div>
       </section>

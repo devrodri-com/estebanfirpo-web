@@ -5,7 +5,7 @@ export const pSevenPark: Project = {
   id: "seven-park",
   slug: "/proyectos/seven-park",
   name: "Seven Park Residences",
-  city: "218–220 SE 7th St, Hallandale Beach, FL 33009",
+  city: "218-220 SE 7th St, Hallandale Beach, FL 33009",
 
   priceFromUsd: 370000,
   pricePerSfApprox: undefined,

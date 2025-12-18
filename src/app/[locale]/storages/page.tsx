@@ -96,11 +96,11 @@ export default async function StoragesPage({
             isEN
               ? {
                   t: "Resilient demand",
-                  d: "Industry with ~92–96% occupancy and sticky tenants.",
+                  d: "Industry with ~92-96% occupancy and sticky tenants.",
                 }
               : {
                   t: "Demanda resiliente",
-                  d: "Industria con ~92–96% de ocupación promedio y tenencia estable.",
+                  d: "Industria con ~92-96% de ocupación promedio y tenencia estable.",
                 },
             isEN
               ? {

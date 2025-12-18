@@ -27,14 +27,14 @@ export const pOkanTower: Project = {
 
   highlights: [
     "555 N Miami Ave, frente a Worldcenter",
-    "163 Sky Residences (1–3BR) desde piso 51",
+    "163 Sky Residences (1-3BR) desde piso 51",
     "236 Condo-Hotel Residences by Hilton desde el piso 36",
     "Hilton Hotel & Resort de 5 estrellas integrado",
     "Amenidades: piscina rooftop, spa turco, gimnasio, cine, lounges y wine cellar"
   ],
   highlightsEn: [
     "555 N Miami Ave, next to Worldcenter",
-    "163 Sky Residences (1–3BR) from 51st",
+    "163 Sky Residences (1-3BR) from 51st",
     "236 Hilton Condo-Hotel Residences from floor 36",
     "Integrated 5-star Hilton Hotel & Resort",
     "Amenities: rooftop pool, Turkish spa, gym, cinema, lounges & wine cellar"

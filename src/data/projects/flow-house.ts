@@ -10,7 +10,7 @@ export const pFlowHouse: Project = {
   priceFromUsd: 450000,
   pricePerSfApprox: undefined,
   hoa: "$1.27/sf",
-  delivery: "Nov–Dec 2025",
+  delivery: "Nov-Dec 2025",
   slug: "/proyectos/flow-house",
   image: "/images/projects/flow-house.webp",
 
@@ -69,15 +69,15 @@ export const pFlowHouse: Project = {
   // No payment plan publicado oficialmente en los materiales; lo dejamos vacío para evitar errores.
   paymentPlanEs: [
     "10% reserva/contrato",
-    "10% a 30–60 días (completa 20%)",
-    "10% a 60–120 días (completa 30%)",
-    "70% al cierre (con financiación disponible para extranjeros, previsto Nov–Dic 2025)"
+    "10% a 30-60 días (completa 20%)",
+    "10% a 60-120 días (completa 30%)",
+    "70% al cierre (con financiación disponible para extranjeros, previsto Nov-Dic 2025)"
   ],
   paymentPlanEn: [
     "10% at reservation/contract",
-    "10% in 30–60 days (to complete 20%)",
-    "10% in 60–120 days (to complete 30%)",
-    "70% at Closing (financing available for foreign buyers, target Nov–Dec 2025)"
+    "10% in 30-60 days (to complete 20%)",
+    "10% in 60-120 days (to complete 30%)",
+    "70% at Closing (financing available for foreign buyers, target Nov-Dec 2025)"
   ],
 
   faqsEs: [
@@ -90,7 +90,7 @@ export const pFlowHouse: Project = {
     { q: "¿Incluye muebles?", a: "Sí. Todas las residencias se entregan terminadas y amobladas." },
     { q: "¿Hay estacionamiento?", a: "Sí. Estacionamiento disponible para alquilar." },
     { q: "¿Inventario y pisos?", a: "Torre de 41 pisos con 466 residencias (studios, Jr 1D, 1D y 2D), todas completamente amobladas." },
-    { q: "¿Precios de referencia?", a: "Estudios desde ~US$450k (reciente ~US$490–520k); 1D ~US$600k; 2D desde ~US$820k (según sala de ventas)." },
+    { q: "¿Precios de referencia?", a: "Estudios desde ~US$450k (reciente ~US$490-520k); 1D ~US$600k; 2D desde ~US$820k (según sala de ventas)." },
     { q: "¿Impuesto a la propiedad?", a: "Aprox. 2.1% anual del valor tasado en Downtown Miami (ej.: US$500k ⇒ ~US$10.5k/año)." },
     { q: "¿Leaseback 6%?", a: "Programa de renta garantizada por 2 años al 6% neto anual; cubre HOA e impuestos y 0% fee de gestión (pedir términos oficiales a ventas)." },
     { q: "¿Cuál es el HOA estimado?", a: "$1.27 por pie cuadrado." }
@@ -101,12 +101,12 @@ export const pFlowHouse: Project = {
     { q: "What types of units are offered?", a: "Studios, 1-bedroom and 2-bedroom residences." },
     { q: "What makes it different from other projects?", a: "Its focus on wellbeing, community, modern design and tech spaces. Includes exclusive Flow furnishings." },
     { q: "What amenities are available?", a: "Coworking, 24/7 gym, yoga, cold plunge, sauna, café, social lounges and more." },
-    { q: "How is the payment plan structured?", a: "10% at contract, 10% in 30 days, 10% in 60 days and 70% at closing (financing for foreign buyers). Completion Nov–Dec 2025." },
+    { q: "How is the payment plan structured?", a: "10% at contract, 10% in 30 days, 10% in 60 days and 70% at closing (financing for foreign buyers). Completion Nov-Dec 2025." },
     { q: "Can it be rented?", a: "Yes. Minimum rental: 30 days. In addition, there is a 2-year leaseback option." },
     { q: "Are units furnished?", a: "Yes. All residences are delivered finished and furnished." },
     { q: "Is parking available?", a: "Yes. Parking spaces available for rent." },
     { q: "Inventory & floors?", a: "41‑story tower with 466 turn‑key residences (studios, Jr 1BR, 1BR, 2BR), fully furnished." },
-    { q: "Reference pricing?", a: "Studios from ~$450k (recent ~$490–520k); 1BR ~$600k; 2BR from ~$820k (per sales)." },
+    { q: "Reference pricing?", a: "Studios from ~$450k (recent ~$490-520k); 1BR ~$600k; 2BR from ~$820k (per sales)." },
     { q: "Property tax?", a: "Approx. 2.1% annually of assessed value in Downtown Miami (e.g., $500k ⇒ ~$10.5k/year)." },
     { q: "6% leaseback?", a: "2‑year guaranteed 6% net annual leaseback; HOA & taxes covered, 0% management fee (request official terms from sales)." },
     { q: "What is the estimated HOA?", a: "$1.27 per square foot." }

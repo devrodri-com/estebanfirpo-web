@@ -6,8 +6,8 @@ export const pMillux: Project = {
   name: "Millux Place Brickell",
   city: "Brickell, Miami",
   // STR-friendly con detalle multilenguaje
-  rentalPolicyEs: "Lodging: 1 noche–6 meses; resto según reglas del condominio. Requiere Certificado de Uso (<6 meses)",
-  rentalPolicyEn: "Lodging: nightly–6 months; remaining units per condo rules. Certificate of Use required for <6 months",
+  rentalPolicyEs: "Lodging: 1 noche-6 meses; resto según reglas del condominio. Requiere Certificado de Uso (<6 meses)",
+  rentalPolicyEn: "Lodging: nightly-6 months; remaining units per condo rules. Certificate of Use required for <6 months",
   furnished: true,
   priceFromUsd: 468000, // estudios desde ~US$468k
   pricePerSfApprox: 1150,
@@ -39,7 +39,7 @@ export const pMillux: Project = {
   ],
 
   highlights: [
-    "Condo‑hotel in‑house · renta 1 noche–6 meses",
+    "Condo‑hotel in‑house · renta 1 noche-6 meses",
     "20 residencias · alquiler a largo plazo",
     "Ubicación prime en Brickell, diseño Kobi Karp",
     "Mobiliario de lujo incluido (Restoration Hardware)",
@@ -54,10 +54,10 @@ export const pMillux: Project = {
   ],
 
   unitMixEs: [
-    "Studios/1–3 dorm · 37–89 m² (397–958 ft²)"
+    "Studios/1-3 dorm · 37-89 m² (397-958 ft²)"
   ],
   unitMixEn: [
-    "Studios/1–3 BR · 397–958 sq ft (37–89 m²)"
+    "Studios/1-3 BR · 397-958 sq ft (37-89 m²)"
   ],
 
   featuresEs: [
@@ -89,18 +89,18 @@ export const pMillux: Project = {
   ],
 
   faqsEs: [
-    { q: "¿Política STR?", a: "Lodging 1 noche–6 meses; residenciales con reglas propias. CU obligatorio para <6 meses." },
+    { q: "¿Política STR?", a: "Lodging 1 noche-6 meses; residenciales con reglas propias. CU obligatorio para <6 meses." },
     { q: "¿HOA?", a: "Aproximadamente US$1.90/ft² por mes." },
     { q: "¿Amoblamiento?", a: "Sí, entregadas con mobiliario RH (turn‑key)." },
     { q: "¿Entrega?", a: "Q4 2027 (estimado)." },
-    { q: "¿Financiación a extranjeros?", a: "Hipoteca al cierre ~50–60% LTV (sujeto a banco y ventas del edificio)." }
+    { q: "¿Financiación a extranjeros?", a: "Hipoteca al cierre ~50-60% LTV (sujeto a banco y ventas del edificio)." }
   ],
   faqsEn: [
-    { q: "STR policy?", a: "Lodging nightly–6 months; residential units under condo rules. City CU required for <6 months." },
+    { q: "STR policy?", a: "Lodging nightly-6 months; residential units under condo rules. City CU required for <6 months." },
     { q: "HOA?", a: "Approx. US$1.90/sq ft per month." },
     { q: "Furnishing?", a: "Yes, RH furniture included (turn‑key)." },
     { q: "Completion?", a: "Q4 2027 (estimated)." },
-    { q: "Foreign financing?", a: "Mortgage at closing ~50–60% LTV (subject to lender and building sales)." }
+    { q: "Foreign financing?", a: "Mortgage at closing ~50-60% LTV (subject to lender and building sales)." }
   ]
 };
 

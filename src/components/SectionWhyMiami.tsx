@@ -15,7 +15,7 @@ export default function SectionWhyMiami() {
     { label: isEN ? 'Average occupancy 95.8%' : 'Ocupación promedio 95.8%' },
     { label: isEN ? 'Constant global liquidity and tourism' : 'Liquidez y turismo internacional constantes' },
     { label: isEN ? 'Legal stability and investor protection' : 'Estabilidad jurídica y protección al inversor' },
-    { label: isEN ? 'Financial & cultural hub (LatAm–EU)' : 'Hub financiero y cultural (LatAm–EU)' },
+    { label: isEN ? 'Financial & cultural hub (LatAm-EU)' : 'Hub financiero y cultural (LatAm-EU)' },
   ];
 
   return (

@@ -42,15 +42,15 @@ export const p72Park: Project = {
   ],
   unitMixEs: [
     "Jr-1, 1, 2 y 3 dormitorios",
-    "43–109 m² interiores",
+    "43-109 m² interiores",
     "Balcón privado de 2 m",
-    "Alturas de 2–3 m; ventanales piso‑techo",
+    "Alturas de 2-3 m; ventanales piso‑techo",
   ],
   unitMixEn: [
     "Jr-1, 1, 2 & 3 bedrooms",
-    "463–1,173 sq ft interiors",
+    "463-1,173 sq ft interiors",
     "2 m deep private balcony",
-    "9–10 ft ceilings; floor‑to‑ceiling glass",
+    "9-10 ft ceilings; floor‑to‑ceiling glass",
   ],
   featuresEs: [
     "Cocina europea (Bosch/SMEG/Fisher & Paykel)",

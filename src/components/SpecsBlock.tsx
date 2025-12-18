@@ -403,7 +403,7 @@ function guessIconKey(text: string): IconKey {
   if (/(jr|studio|dormitorio|bed)/.test(t)) return "bed";
   if (/(m²|sq ft|ft²|metros|square)/.test(t)) return "area";
   if (/(balcón|balcon|balcony|terraza)/.test(t)) return "balcony";
-  if (/(diseñ|diseño|planos?|uno y dos pisos|1 y 2 pisos|dos pisos|2 pisos|1 piso|\b(1|one)\s*[-–—]?\s*(and|y)\s*(2|two)\s*[-–—]?\s*story\b|\b(1|one)\s*[-–—]?\s*story\b|\b(2|two)\s*[-–—]?\s*story\b|\bstory\b|\bstories\b)/.test(t)) return "height";
+  if (/(diseñ|diseño|planos?|uno y dos pisos|1 y 2 pisos|dos pisos|2 pisos|1 piso|\b(1|one)\s*[--—]?\s*(and|y)\s*(2|two)\s*[--—]?\s*story\b|\b(1|one)\s*[--—]?\s*story\b|\b(2|two)\s*[--—]?\s*story\b|\bstory\b|\bstories\b)/.test(t)) return "height";
   if (/(iluminaci[oó]n|lighting)/.test(t)) return "sparkles";
   if (/(materiales|materials?|acabados|finishes?)/.test(t)) return "sparkles";
   if (/(piso|pisos|flooring|floors|large[-\s]?format|porcelanato)/.test(t)) return "sparkles";

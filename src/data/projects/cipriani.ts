@@ -26,7 +26,7 @@ export const pCipriani: Project = {
 
   highlights: [
     "Torre de 80 pisos diseñada por Arquitectonica",
-    "Residencias de 1–4 dormitorios + penthouses",
+    "Residencias de 1-4 dormitorios + penthouses",
     "Interiores sofisticados de 1508 London",
     "Deck elevado con 2 piscinas y spa",
     "Restaurante privado Cipriani exclusivo",
@@ -34,7 +34,7 @@ export const pCipriani: Project = {
   ],
   highlightsEn: [
     "80-story tower by Arquitectonica",
-    "1–4 bedroom residences + penthouses",
+    "1-4 bedroom residences + penthouses",
     "Elegant interiors by 1508 London",
     "Elevated resort deck with 2 pools and spa",
     "Private Cipriani restaurant exclusive to residents",
@@ -42,11 +42,11 @@ export const pCipriani: Project = {
   ],
 
   unitMixEs: [
-    "1–4 dormitorios y penthouses",
+    "1-4 dormitorios y penthouses",
     "Penthouses con terrazas privadas y piscinas"
   ],
   unitMixEn: [
-    "1–4 bedroom residences and penthouses",
+    "1-4 bedroom residences and penthouses",
     "Penthouses with private terraces and pools"
   ],
 
@@ -63,7 +63,7 @@ export const pCipriani: Project = {
   featuresEn: [
     "Dramatic lobby with Cipriani concierge",
     "Private restaurant + 24h in-home catering",
-    "Italian Riviera–inspired pools with cabanas",
+    "Italian Riviera-inspired pools with cabanas",
     "Fitness center + golf simulator + pickleball",
     "Holistic spa with sauna and treatment rooms",
     "Residents’ social lounge, library, screening room",

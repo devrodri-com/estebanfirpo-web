@@ -4,7 +4,7 @@ export type StorageProject = {
     name: string;
     city: string;
     rentableSqft: number; // ft² rentables
-    occupancy: number;    // 0–1
+    occupancy: number;    // 0-1
     units: number;
     lotAcres: number;
     yearBuilt: number;

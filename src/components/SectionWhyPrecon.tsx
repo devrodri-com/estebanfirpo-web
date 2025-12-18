@@ -20,21 +20,21 @@ export function SectionWhyPrecon({ heroImageSrc, heroImageAlt }: SectionWhyPreco
 
   const title = isEN ? "Why Pre‑construction?" : "¿Por qué Preconstrucción?";
   const copy = isEN
-    ? "Deposits 20–40%. Proven 15–30% appreciation. Seamless closing."
-    : "Entradas desde 20–40%. Plusvalía comprobada 15–30%. Cierre sin fricciones.";
+    ? "Deposits 20-40%. Proven 15-30% appreciation. Seamless closing."
+    : "Entradas desde 20-40%. Plusvalía comprobada 15-30%. Cierre sin fricciones.";
 
   const points: { kpi: string; label: string }[] = isEN
     ? [
-        { kpi: "20–40%", label: "Staged deposits" },
-        { kpi: "15–30%", label: "Appreciation during works" },
+        { kpi: "20-40%", label: "Staged deposits" },
+        { kpi: "15-30%", label: "Appreciation during works" },
         { kpi: "Prime", label: "Amenities & rental demand" },
         { kpi: "Developer", label: "+ escrow protection" },
         { kpi: "Lower", label: "carrying until delivery" },
         { kpi: "Financing", label: "at closing (foreigners)" },
       ]
     : [
-        { kpi: "20–40%", label: "Entradas por hitos" },
-        { kpi: "15–30%", label: "Plusvalía en obra" },
+        { kpi: "20-40%", label: "Entradas por hitos" },
+        { kpi: "15-30%", label: "Plusvalía en obra" },
         { kpi: "Prime", label: "Amenities y demanda" },
         { kpi: "Desarrollador", label: "+ cuenta escrow" },
         { kpi: "Menor", label: "carga hasta entrega" },
@@ -70,14 +70,14 @@ export function SectionWhyPrecon({ heroImageSrc, heroImageAlt }: SectionWhyPreco
           {isEN ? (
             <>
               <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">20/10/10/60</span>
-              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">15–30% appreciation</span>
-              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">~70–75% LTV</span>
+              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">15-30% appreciation</span>
+              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">~70-75% LTV</span>
             </>
           ) : (
             <>
               <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">20/10/10/60</span>
-              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">15–30% plusvalía</span>
-              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">~70–75% LTV</span>
+              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">15-30% plusvalía</span>
+              <span className="inline-flex items-center rounded-md bg-[#0A2540]/5 px-2.5 py-1 text-[12px] font-medium text-[#0A2540] ring-1 ring-[#0A2540]/10">~70-75% LTV</span>
             </>
           )}
         </div>

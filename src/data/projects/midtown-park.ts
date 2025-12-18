@@ -47,25 +47,25 @@ export const pMidtownPark: Project = {
   highlightsEn: [
     "Architecture by Arquitectonica",
     "Design by Meyer Davis Studio",
-    "Mix of 1–3 bedrooms with dens and terraces"
+    "Mix of 1-3 bedrooms with dens and terraces"
   ],
 
   // unit mix (from key plan)
   unitMixEs: [
     "JR Suite · 1 baño · 588 ft² / 56 m²",
     "1 Dormitorio · 1 baño · 670 ft² / 62 m²",
-    "1 Dormitorio + Den · 2 baños · 782–1,060 ft² / 73–98 m²",
-    "2 Dormitorios + Den · 2–3 baños · 1,168–1,276 ft² / 109–119 m²",
+    "1 Dormitorio + Den · 2 baños · 782-1,060 ft² / 73-98 m²",
+    "2 Dormitorios + Den · 2-3 baños · 1,168-1,276 ft² / 109-119 m²",
     "2 Dormitorios · 2.5 baños · 1,239 ft² / 115 m²",
-    "3 Dormitorios · 3.5 baños · 1,616–1,730 ft² / 150–161 m²"
+    "3 Dormitorios · 3.5 baños · 1,616-1,730 ft² / 150-161 m²"
   ],
   unitMixEn: [
     "JR Suite · 1 bath · 588 sq.ft / 56 m²",
     "1 Bed · 1 bath · 670 sq.ft / 62 m²",
-    "1 Bed + Den · 2 baths · 782–1,060 sq.ft / 73–98 m²",
-    "2 Bed + Den · 2–3 baths · 1,168–1,276 sq.ft / 109–119 m²",
+    "1 Bed + Den · 2 baths · 782-1,060 sq.ft / 73-98 m²",
+    "2 Bed + Den · 2-3 baths · 1,168-1,276 sq.ft / 109-119 m²",
     "2 Bed · 2.5 baths · 1,239 sq.ft / 115 m²",
-    "3 Bed · 3.5 baths · 1,616–1,730 sq.ft / 150–161 m²"
+    "3 Bed · 3.5 baths · 1,616-1,730 sq.ft / 150-161 m²"
   ],
 
   // features

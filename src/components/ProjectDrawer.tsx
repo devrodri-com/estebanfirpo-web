@@ -212,8 +212,8 @@ export default function ProjectDrawer({ open, project, onClose }: ProjectDrawerP
               return (
                 <p className="mt-2 text-[13px] text-[#0A2540]/80">
                   {isEN
-                    ? "Staged deposits typically 20–40% before closing. Exact schedule varies by developer."
-                    : "Entradas por hitos, típicamente 20–40% antes del cierre. El cronograma exacto varía según el developer."}
+                    ? "Staged deposits typically 20-40% before closing. Exact schedule varies by developer."
+                    : "Entradas por hitos, típicamente 20-40% antes del cierre. El cronograma exacto varía según el developer."}
                 </p>
               );
             })()}

@@ -31,7 +31,7 @@ export const pFaena: Project = {
   ],
 
   highlights: [
-    "Sky Bridge 61–64: club y lounges",
+    "Sky Bridge 61-64: club y lounges",
     "Faena Beach: piscina infinity, cabañas y bar",
     "Foro cultural The Pistil, Library Lounge y programación artística",
     "Wellness de alto desempeño: fitness, spa, salas de creación y estudio",
@@ -52,11 +52,11 @@ export const pFaena: Project = {
   ],
 
   unitMixEs: [
-    "1–4 dormitorios; River Lofts; Sky Lofts; Penthouses",
+    "1-4 dormitorios; River Lofts; Sky Lofts; Penthouses",
     "Residencias con terrazas de 10 ft y ventanales piso‑techo"
   ],
   unitMixEn: [
-    "1–4 bedrooms; River Lofts; Sky Lofts; Penthouses",
+    "1-4 bedrooms; River Lofts; Sky Lofts; Penthouses",
     "Residences with 10‑ft terraces and floor‑to‑ceiling glass"
   ],
 

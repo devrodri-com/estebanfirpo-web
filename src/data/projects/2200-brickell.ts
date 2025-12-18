@@ -25,15 +25,15 @@ export const p2200Brickell: Project = {
   ],
 
   highlights: [
-    "105 residencias (1–4 BR y Garden Villas)",
-    "≈55–190 m² con balcones",
+    "105 residencias (1-4 BR y Garden Villas)",
+    "≈55-190 m² con balcones",
     "≈4,000 m² de rooftop con piscina resort, spa, pickleball y summer kitchen",
     "Certificación WELL Building Standard™ enfocada en salud y bienestar",
     "Ubicación privilegiada en Brickell Avenue, cerca de tiendas y restaurantes"
   ],
   highlightsEn: [
-    "105 residences (1–4 BR & Garden Villas)",
-    "590–2,070 sf with balconies",
+    "105 residences (1-4 BR & Garden Villas)",
+    "590-2,070 sf with balconies",
     "One-acre rooftop with resort pool, spa, pickleball and summer kitchen",
     "WELL Building Standard™ certified for health and wellbeing",
     "Prime Brickell Avenue location near shops and dining"

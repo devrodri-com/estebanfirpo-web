@@ -56,22 +56,22 @@ export const pPalma: Project = {
   ],
 
   unitMixEs: [
-    "1 dormitorio: 405–573 sf (38–53 m²)",
-    "2 dormitorios: 620–889 sf (58–83 m²)",
-    "Penthouses: 414–1342 sf (38–125 m²)",
+    "1 dormitorio: 405-573 sf (38-53 m²)",
+    "2 dormitorios: 620-889 sf (58-83 m²)",
+    "Penthouses: 414-1342 sf (38-125 m²)",
     "126 residencias · 14 pisos"
   ],
   unitMixEn: [
-    "1 BR: 405–573 sf (38–53 m²)",
-    "2 BR: 620–889 sf (58–83 m²)",
-    "Penthouses: 414–1342 sf (38–125 m²)",
+    "1 BR: 405-573 sf (38-53 m²)",
+    "2 BR: 620-889 sf (58-83 m²)",
+    "Penthouses: 414-1342 sf (38-125 m²)",
     "126 residences · 14 stories"
   ],
 
   featuresEs: [
     "Puertas corredizas de piso a techo con vidrio resistente a impactos",
     "Balcones privados",
-    "Techos de 9–10 pies",
+    "Techos de 9-10 pies",
     "Pre‑cableado para internet de alta velocidad y Wi‑Fi",
     "A/C y calefacción central de alta eficiencia",
     "Lavadora y secadora en cada unidad",
@@ -82,7 +82,7 @@ export const pPalma: Project = {
   featuresEn: [
     "Floor‑to‑ceiling impact‑resistant sliding glass doors",
     "Private balconies",
-    "9–10 ft ceiling heights",
+    "9-10 ft ceiling heights",
     "Pre‑wired for high‑speed internet and Wi‑Fi",
     "Energy‑efficient central A/C and heating",
     "In‑unit washer & dryer",

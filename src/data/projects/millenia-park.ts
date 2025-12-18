@@ -10,7 +10,7 @@ export const pMilleniaPark: Project = {
   furnished: false,
   priceFromUsd: 289900, // 1BR + den desde ~US$289,900
   pricePerSfApprox: undefined,
-  delivery: "2024–2026", // Fase 1 ~2024; siguientes 2025–2026
+  delivery: "2024-2026", // Fase 1 ~2024; siguientes 2025-2026
   slug: "/proyectos/millenia-park",
   image: "https://ik.imagekit.io/devrodri/Millenia%20Park/chvfJiMA.jpeg",
 
@@ -52,12 +52,12 @@ export const pMilleniaPark: Project = {
   unitMixEs: [
     "1 BR + estudio / 1 baño · 750 sf (70 m²) — desde ~US$289,900",
     "2 BR + estudio / 2 baños · 1.023 sf (95 m²) — desde ~US$364,900",
-    "3 BR / 2 baños · 1.087–1.215 sf (101–113 m²) — desde ~US$419,900"
+    "3 BR / 2 baños · 1.087-1.215 sf (101-113 m²) — desde ~US$419,900"
   ],
   unitMixEn: [
     "1 BR + den / 1 bath · 750 sf (70 m²) — from ~US$289,900",
     "2 BR + den / 2 baths · 1,023 sf (95 m²) — from ~US$364,900",
-    "3 BR / 2 baths · 1,087–1,215 sf (101–113 m²) — from ~US$419,900"
+    "3 BR / 2 baths · 1,087-1,215 sf (101-113 m²) — from ~US$419,900"
   ],
 
   featuresEs: [
@@ -91,7 +91,7 @@ export const pMilleniaPark: Project = {
     { q: "¿Incluye muebles?", a: "No. Se entregan terminadas con acabados/electrodomésticos; mobiliario no incluido." },
     { q: "¿Financiación para extranjeros?", a: "Disponible — brokers reportan hipotecas hasta ~50% del valor (sujeto a calificación)." },
     { q: "¿EB‑5?", a: "Sí, proyecto elegible a través de Centro Regional (visa de inversionista)." },
-    { q: "¿Entregas?", a: "Fase 1 ~2024; fases siguientes ~2025–2026." }
+    { q: "¿Entregas?", a: "Fase 1 ~2024; fases siguientes ~2025-2026." }
   ],
   faqsEn: [
     { q: "Starting prices?", a: "1 BR + den from ~US$289,900; 2 BR from ~US$364,900; 3 BR from ~US$419,900." },
@@ -99,7 +99,7 @@ export const pMilleniaPark: Project = {
     { q: "Furnishing?", a: "No. Delivered finished with appliances; furniture not included." },
     { q: "Foreign financing?", a: "Available — brokers indicate mortgages up to ~50% LTV (subject to approval)." },
     { q: "EB‑5?", a: "Yes, eligible via Regional Center (investor visa)." },
-    { q: "Deliveries?", a: "Phase 1 ~2024; subsequent phases ~2025–2026." }
+    { q: "Deliveries?", a: "Phase 1 ~2024; subsequent phases ~2025-2026." }
   ]
 };
 
