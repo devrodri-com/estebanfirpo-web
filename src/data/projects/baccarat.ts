@@ -49,11 +49,11 @@ export const pBaccarat: Project = {
   ],
 
   unitMixEs: [
-    { label: "1–4 dormitorios y penthouses", iconKey: "bed" },
+    { label: "1-4 dormitorios y penthouses", iconKey: "bed" },
     { label: "316 residencias flow‑through + 8 penthouses", iconKey: "balcony" }
   ],
   unitMixEn: [
-    { label: "1–4 bedroom residences and penthouses", iconKey: "bed" },
+    { label: "1-4 bedroom residences and penthouses", iconKey: "bed" },
     { label: "316 flow‑through residences + 8 penthouses", iconKey: "balcony" }
   ],
 
@@ -97,7 +97,7 @@ export const pBaccarat: Project = {
 
   faqsEs: [
     { q: "¿Incluye acceso a club de playa?", a: "Sí. Membresía y privilegios en el Beach Club de 1 Hotel South Beach." },
-    { q: "¿Hay marina privada?", a: "Sí. Muelle privado con taxi acuático y más de 300 pies lineales de atraque." },
+    { q: "¿Hay marina privada?", a: "Sí. Muelle privado con taxi acuático y más de ≈90 m lineales de atraque." },
     { q: "¿Qué vistas tienen las residencias?", a: "Vistas panorámicas a Biscayne Bay, Miami River y skyline de Miami." }
   ],
   faqsEn: [
