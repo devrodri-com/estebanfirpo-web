@@ -7,7 +7,6 @@ export const pDomusBrickellPark: Project = {
   city: "Brickell",
   delivery: "2026",
   priceFromUsd: 629000,
-  pricePerSfApprox: 1000,
   // STR: el brochure y la propuesta Domus FLATS enfocan alquiler temporal con portal propio (Airbnb, VRBO, Booking, etc.) — ver PDF adjunto.
   rentalPolicyEs: "Alquiler diario permitido (1 día a 6 meses + 1 día)",
   rentalPolicyEn: "Daily rentals allowed (1 day to 6 months + 1 day)",
