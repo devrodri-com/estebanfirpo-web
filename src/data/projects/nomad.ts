@@ -9,12 +9,10 @@ export const pNomad: Project = {
 
   // Pricing & basics (brochures do not publish official base price)
   priceFromUsd: 680000,
-  pricePerSfApprox: 1250,
-  hoa: "$1.40/sf",
   delivery: "Q4 2025",
   furnished: true, // fully finished & furnished
 
-  // STR policy — flexible ownership / no rental restrictions (Airbnb‑friendly). Local permits required.
+  // STR policy - flexible ownership / no rental restrictions (Airbnb‑friendly). Local permits required.
   rentalPolicyEs:
     "Sin restricciones de alquiler; permite renta diaria (Airbnb). Requiere Certificado de Uso de Miami, licencia estatal (DBPR) e impuestos turísticos.",
   rentalPolicyEn:
@@ -60,10 +58,10 @@ export const pNomad: Project = {
 
   // Unit mix (purchaser guide)
   unitMixEs: [
-    "Studios y 1-2 dormitorios · ~464-931 ft² (43-86 m²)"
+    "Studios y 1-2 dormitorios · ~43-86 m²"
   ],
   unitMixEn: [
-    "Studios and 1-2 BR · ~464-931 sq ft (43-86 m²)"
+    "Studios and 1-2 BR · ~464-931 sq ft"
   ],
 
   // Features (residencias)
@@ -94,7 +92,6 @@ export const pNomad: Project = {
 
   faqsEs: [
     { q: "¿Precios desde?", a: "Studios desde la franja media de ~US$600.000; 2 dormitorios cerca de ~US$1.0M (sujeto a inventario)." },
-    { q: "¿HOA estimada?", a: "Aprox. US$1.40/ft² por mes (incluye operación de amenities, seguridad 24h, conserjería y valet)." },
     { q: "¿Entrega?", a: "Q4 2025 (estructura ‘topped off’ en oct‑2024; obra en acabados)." },
     { q: "¿Política de rentas?", a: "Sin restricciones; alquiler diario (Airbnb) permitido. Requiere CU de Miami, licencia DBPR e impuestos turísticos." },
     { q: "¿Amoblamiento?", a: "Sí, residencias completamente amobladas y curadas por NoMad & DesignAgency (turn‑key)." },
@@ -102,7 +99,6 @@ export const pNomad: Project = {
   ],
   faqsEn: [
     { q: "Starting prices?", a: "Studios currently from the mid‑$600Ks; 2‑bedrooms around ~$1.0M (subject to inventory)." },
-    { q: "HOA estimate?", a: "Approx. US$1.40/sq ft per month (includes amenity operations, 24/7 security, concierge and valet)." },
     { q: "Completion?", a: "Q4 2025 (structure topped off Oct‑2024; interiors underway)." },
     { q: "Rental policy?", a: "No restrictions; daily Airbnb‑type rentals allowed. CU (City of Miami), DBPR license and tourist taxes required." },
     { q: "Furnishing?", a: "Yes—fully furnished and curated by NoMad & DesignAgency (turn‑key)." },
