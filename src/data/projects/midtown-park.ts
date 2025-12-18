@@ -22,8 +22,6 @@ export const pMidtownPark: Project = {
 
   // pricing & timing
   priceFromUsd: 700000,
-  pricePerSfApprox: 1200,
-  hoa: "$1.50/sf",
   delivery: "2028",
   rentalPolicyEs: "Mínimo 30 días, hasta 4 veces al año.",
   rentalPolicyEn: "30-day minimum, up to 4 times per year.",
@@ -52,20 +50,20 @@ export const pMidtownPark: Project = {
 
   // unit mix (from key plan)
   unitMixEs: [
-    "JR Suite · 1 baño · 588 ft² / 56 m²",
-    "1 Dormitorio · 1 baño · 670 ft² / 62 m²",
-    "1 Dormitorio + Den · 2 baños · 782-1,060 ft² / 73-98 m²",
-    "2 Dormitorios + Den · 2-3 baños · 1,168-1,276 ft² / 109-119 m²",
-    "2 Dormitorios · 2.5 baños · 1,239 ft² / 115 m²",
-    "3 Dormitorios · 3.5 baños · 1,616-1,730 ft² / 150-161 m²"
+    "JR Suite · 1 baño · 56 m²",
+    "1 Dormitorio · 1 baño · 62 m²",
+    "1 Dormitorio + Den · 2 baños · 73-98 m²",
+    "2 Dormitorios + Den · 2-3 baños · 109-119 m²",
+    "2 Dormitorios · 2.5 baños · 115 m²",
+    "3 Dormitorios · 3.5 baños · 150-161 m²"
   ],
   unitMixEn: [
-    "JR Suite · 1 bath · 588 sq.ft / 56 m²",
-    "1 Bed · 1 bath · 670 sq.ft / 62 m²",
-    "1 Bed + Den · 2 baths · 782-1,060 sq.ft / 73-98 m²",
-    "2 Bed + Den · 2-3 baths · 1,168-1,276 sq.ft / 109-119 m²",
-    "2 Bed · 2.5 baths · 1,239 sq.ft / 115 m²",
-    "3 Bed · 3.5 baths · 1,616-1,730 sq.ft / 150-161 m²"
+    "JR Suite · 1 bath · 588 sq ft",
+    "1 Bed · 1 bath · 670 sq ft",
+    "1 Bed + Den · 2 baths · 782-1,060 sq ft",
+    "2 Bed + Den · 2-3 baths · 1,168-1,276 sq ft",
+    "2 Bed · 2.5 baths · 1,239 sq ft",
+    "3 Bed · 3.5 baths · 1,616-1,730 sq ft"
   ],
 
   // features
@@ -102,13 +100,11 @@ export const pMidtownPark: Project = {
   faqsEs: [
     { q: "¿Arquitectura y diseño?", a: "Arquitectonica · Meyer Davis Studio." },
     { q: "¿Política de alquileres?", a: "Mínimo 30 días, hasta 4 veces al año." },
-    { q: "¿HOA estimada?", a: "$1.50/sf mensual, sujeta a confirmación en condo docs." },
     { q: "¿Fecha estimada de finalización?", a: "2028, según cronograma de obra." }
   ],
   faqsEn: [
     { q: "Architecture & design?", a: "Arquitectonica · Meyer Davis Studio." },
     { q: "Rental policy?", a: "30-day minimum, up to 4 times per year." },
-    { q: "Estimated HOA?", a: "$1.50/sf monthly, subject to condo docs." },
     { q: "Estimated completion?", a: "2028 per construction timeline." }
   ]
 };
