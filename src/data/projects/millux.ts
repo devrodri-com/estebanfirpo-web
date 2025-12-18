@@ -10,8 +10,6 @@ export const pMillux: Project = {
   rentalPolicyEn: "Lodging: nightly-6 months; remaining units per condo rules. Certificate of Use required for <6 months",
   furnished: true,
   priceFromUsd: 468000, // estudios desde ~US$468k
-  pricePerSfApprox: 1150,
-  hoa: "$1.90/sf",
   delivery: "Q4 2027",
   slug: "/proyectos/millux-place-brickell",
   image: "https://ik.imagekit.io/devrodri/Millux/i7490rzQ.jpeg",
@@ -42,22 +40,20 @@ export const pMillux: Project = {
     "Condo‑hotel in‑house · renta 1 noche-6 meses",
     "20 residencias · alquiler a largo plazo",
     "Ubicación prime en Brickell, diseño Kobi Karp",
-    "Mobiliario de lujo incluido (Restoration Hardware)",
-    "HOA estimado ~US$1.90/ft²/mes"
+    "Mobiliario de lujo incluido (Restoration Hardware)"
   ],
   highlightsEn: [
     "In‑house lodging (condo‑hotel); rent nightly up to 6 months",
     "~20 residential units under long‑term guidelines",
     "Prime Brickell location, design by Kobi Karp",
-    "Luxury furniture included (Restoration Hardware)",
-    "Estimated HOA ~US$1.90/ft²/mo"
+    "Luxury furniture included (Restoration Hardware)"
   ],
 
   unitMixEs: [
-    "Studios/1-3 dorm · 37-89 m² (397-958 ft²)"
+    "Studios/1-3 dorm · 37-89 m²"
   ],
   unitMixEn: [
-    "Studios/1-3 BR · 397-958 sq ft (37-89 m²)"
+    "Studios/1-3 BR · 397-958 sq ft"
   ],
 
   featuresEs: [
@@ -90,14 +86,12 @@ export const pMillux: Project = {
 
   faqsEs: [
     { q: "¿Política STR?", a: "Lodging 1 noche-6 meses; residenciales con reglas propias. CU obligatorio para <6 meses." },
-    { q: "¿HOA?", a: "Aproximadamente US$1.90/ft² por mes." },
     { q: "¿Amoblamiento?", a: "Sí, entregadas con mobiliario RH (turn‑key)." },
     { q: "¿Entrega?", a: "Q4 2027 (estimado)." },
     { q: "¿Financiación a extranjeros?", a: "Hipoteca al cierre ~50-60% LTV (sujeto a banco y ventas del edificio)." }
   ],
   faqsEn: [
     { q: "STR policy?", a: "Lodging nightly-6 months; residential units under condo rules. City CU required for <6 months." },
-    { q: "HOA?", a: "Approx. US$1.90/sq ft per month." },
     { q: "Furnishing?", a: "Yes, RH furniture included (turn‑key)." },
     { q: "Completion?", a: "Q4 2027 (estimated)." },
     { q: "Foreign financing?", a: "Mortgage at closing ~50-60% LTV (subject to lender and building sales)." }
