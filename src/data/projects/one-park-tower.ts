@@ -27,10 +27,10 @@ export const pOneParkTower: Project = {
   highlights: [
     "Torre de 33 plantas con 299 residencias y penthouses",
     "Vistas a Bahía Biscayne, Atlántico y Oleta",
-    "Ubicado dentro de SoLé Mia (184 acres) con laguna de 7 acres",
+    "Ubicado dentro de SoLé Mia (≈74 hectáreas) con laguna de ≈3 hectáreas",
     "Dos piscinas: planta baja y terraza social nivel 6",
     "ONE Beach Club con playas de arena y deportes acuáticos",
-    "Senderos, jardines y acceso a naturaleza (37+ acres de áreas verdes)"
+    "Senderos, jardines y acceso a naturaleza (≈15 hectáreas de áreas verdes)"
   ],
   highlightsEn: [
     "33‑story tower with 299 residences and penthouses",
@@ -73,7 +73,6 @@ export const pOneParkTower: Project = {
     { q: "¿Qué tipologías hay?", a: "Residencias de 1, 2 y 3 dormitorios más penthouses." },
     { q: "¿Qué amenities incluye?", a: "Dos piscinas, gimnasio y spa, golf simulator, salones sociales, senderos y jardines; deportes acuáticos en la laguna." },
     { q: "¿Cuál es el precio de entrada?", a: "Desde USD 990,900 (1 dormitorio)." },
-    { q: "¿Cuál es el HOA estimado?", a: "≈ US$1.20 por pie²." },
     { q: "¿Hay financiación para extranjeros?", a: "Sí, disponible para el pago final al cierre." },
     { q: "¿Quiénes son los diseñadores?", a: "Arquitectonica (arquitectura), Meyer Davis (interiores) y DSBoca (paisajismo)." },
     { q: "¿Qué ofrece SoLé Mia además de la laguna?", a: "ONE Beach Club, 37+ acres de áreas verdes, senderos y proximidad al Parque Oleta." }
@@ -84,7 +83,6 @@ export const pOneParkTower: Project = {
     { q: "What unit types are offered?", a: "1‑, 2‑ and 3‑bedroom residences plus penthouses." },
     { q: "Key amenities?", a: "Two pools, fitness & spa, golf simulator, social lounges, gardens & trails; water sports at the lagoon." },
     { q: "What is the starting price?", a: "From USD 990,900 (1-bedroom)." },
-    { q: "What is the estimated HOA?", a: "≈ US$1.20 per sq ft." },
     { q: "Is financing available for foreign buyers?", a: "Yes, available for the balance at closing." },
     { q: "Who are the design teams?", a: "Arquitectonica (architecture), Meyer Davis (interiors), DSBoca (landscape)." },
     { q: "What else does SoLé Mia offer?", a: "ONE Beach Club, 37+ acres of green space and trails, next to Oleta River State Park." }
