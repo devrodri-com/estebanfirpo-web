@@ -9,7 +9,6 @@ export const pTwentySixAndSecond: Project = {
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 500000,
-  pricePerSfApprox: 1500,
   delivery: "2028 Q1",
   financingAtClosing: true,
   slug: "/proyectos/26-and-2nd",
