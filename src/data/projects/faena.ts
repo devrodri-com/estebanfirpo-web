@@ -19,8 +19,8 @@ export const pFaena: Project = {
     "Dos torres frente al río conectadas por Sky Bridge",
     "Faena Beach en el piso 64",
     "Cultura + wellness + comunidad",
-    "327 ft de frente al Miami River",
-    "Distrito de 14 acres",
+    "≈100 m de frente al Miami River",
+    "Distrito de ≈6 hectáreas",
   ],
   microClaimsEn: [
     "Two riverfront towers linked by a Sky Bridge",
@@ -53,7 +53,7 @@ export const pFaena: Project = {
 
   unitMixEs: [
     "1-4 dormitorios; River Lofts; Sky Lofts; Penthouses",
-    "Residencias con terrazas de 10 ft y ventanales piso‑techo"
+    "Residencias con terrazas de ≈3 m y ventanales piso‑techo"
   ],
   unitMixEn: [
     "1-4 bedrooms; River Lofts; Sky Lofts; Penthouses",
@@ -93,7 +93,7 @@ export const pFaena: Project = {
   ],
 
   faqsEs: [
-    { q: "¿Dónde está el proyecto?", a: "A orillas del Miami River, con 327 pies de frente de río." },
+    { q: "¿Dónde está el proyecto?", a: "A orillas del Miami River, con ≈100 m de frente de río." },
     { q: "¿Las residencias vienen amobladas?", a: "Se entregan terminadas (acabados de lujo); amoblamiento no especificado en los materiales." },
     { q: "¿Precio desde?", a: "1 dormitorio desde USD 1.3M (según lista vigente)." },
     { q: "¿Cómo es el plan de depósitos?", a: "5% contrato; 5% a 45 días; 10% a 120 días; 10% al inicio de obra; 10% a 12 meses; 10% al colado de la losa más alta; 50% al cierre." },
