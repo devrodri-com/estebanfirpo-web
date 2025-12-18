@@ -52,9 +52,9 @@ export const pNickelodeon: Project = {
 
   // unit mix (condo-residences)
   unitMixEs: [
-    "Studio · 1 baño · ~500 ft² + 90 ft² balcón",
-    "1 Hab + Kids Den · 2 baños · ~1,000 ft² + 180 ft² balcón",
-    "2 Hab Lockoff · 3 baños · ~1,600 ft² + 270 ft² balcón"
+    "Studio · 1 baño · ≈46 m² + ≈8 m² balcón",
+    "1 Hab + Kids Den · 2 baños · ≈93 m² + ≈17 m² balcón",
+    "2 Hab Lockoff · 3 baños · ≈149 m² + ≈25 m² balcón"
   ],
   unitMixEn: [
     "Studio · 1 bath · ~500 sq.ft + 90 sq.ft balcony",
