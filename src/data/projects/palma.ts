@@ -9,7 +9,6 @@ export const pPalma: Project = {
   rentalPolicyEn: "No minimum rental restrictions; STR allowed",
   furnished: true,
   priceFromUsd: 600000,
-  pricePerSfApprox: 1600,
   delivery: "2026",
   slug: "/proyectos/palma-miami-beach",
   image: "https://ik.imagekit.io/devrodri/Palma/Ekinbtkg.jpeg",
@@ -56,22 +55,22 @@ export const pPalma: Project = {
   ],
 
   unitMixEs: [
-    "1 dormitorio: 405-573 sf (38-53 m²)",
-    "2 dormitorios: 620-889 sf (58-83 m²)",
-    "Penthouses: 414-1342 sf (38-125 m²)",
+    "1 dormitorio: 38–53 m²",
+    "2 dormitorios: 58–83 m²",
+    "Penthouses: 38–125 m²",
     "126 residencias · 14 pisos"
   ],
   unitMixEn: [
-    "1 BR: 405-573 sf (38-53 m²)",
-    "2 BR: 620-889 sf (58-83 m²)",
-    "Penthouses: 414-1342 sf (38-125 m²)",
+    "1 BR: 405–573 sq ft",
+    "2 BR: 620–889 sq ft",
+    "Penthouses: 414–1,342 sq ft",
     "126 residences · 14 stories"
   ],
 
   featuresEs: [
     "Puertas corredizas de piso a techo con vidrio resistente a impactos",
     "Balcones privados",
-    "Techos de 9-10 pies",
+    "Techos de ≈2.7–3 m",
     "Pre‑cableado para internet de alta velocidad y Wi‑Fi",
     "A/C y calefacción central de alta eficiencia",
     "Lavadora y secadora en cada unidad",
@@ -112,7 +111,6 @@ export const pPalma: Project = {
     { q: "¿Renta mínima?", a: "Sin restricción de alquiler mínimo; STR permitidos (según normativa local de Certificado de Uso)." },
     { q: "¿Amoblamiento?", a: "Sí, residencias completamente terminadas y amobladas." },
     { q: "¿Cantidad de unidades y pisos?", a: "126 residencias en 14 pisos." },
-    { q: "¿Precio por pie²?", a: "Aprox. US$1,600/sf (según lista vigente)." },
     { q: "¿Entrega?", a: "2026 (estimada)." },
     { q: "¿Plan de depósitos?", a: "10% reserva · 10% contrato · 10% inicio de obra · 10% nivel de piscina · 10% top‑off · 50% cierre (financiación disponible para extranjeros)." }
   ],
@@ -120,7 +118,6 @@ export const pPalma: Project = {
     { q: "Minimum rental?", a: "No minimum rental restrictions; STR allowed (subject to city Certificate of Use)." },
     { q: "Furnishing?", a: "Yes, residences delivered fully finished and furnished." },
     { q: "How many units and stories?", a: "126 residences across 14 stories." },
-    { q: "Price per sq ft?", a: "Approx. US$1,600/sf (current sheet)." },
     { q: "Delivery?", a: "2026 (estimated)." },
     { q: "Deposit structure?", a: "10% reservation · 10% contract · 10% groundbreaking · 10% pool deck · 10% top‑off · 50% closing (financing available for foreign buyers)." }
   ]
