@@ -8,7 +8,6 @@ export const pOkanTower: Project = {
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 800000,
-  pricePerSfApprox: 1500,
   delivery: "2027",
   financingAtClosing: true,
   slug: "/proyectos/okan-tower",
@@ -52,7 +51,7 @@ export const pOkanTower: Project = {
   ],
   featuresEn: [
     "Turnkey furnished residences",
-    "3m floor-to-ceiling windows and private terraces",
+    "~10 ft floor-to-ceiling windows and private terraces",
     "Italian kitchens with premium appliances",
     "Luxury bathrooms with Turkish marble finishes",
     "Hilton services: concierge, room service, housekeeping"
