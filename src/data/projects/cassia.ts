@@ -9,8 +9,6 @@ export const pCassia: Project = {
 
   // Pricing & basics (Fact Sheet / Price Ranges)
   priceFromUsd: 773000, // 1BR desde ~US$823k (act. 04-01-2025)
-  pricePerSfApprox: 1200,
-  hoa: "$1.58/sf",
   delivery: "Q1 2027",
   furnished: true, // completamente amuebladas por RH
 
@@ -48,7 +46,7 @@ export const pCassia: Project = {
     "Wellness spa (piscina interior, sauna, vapor, masajes)",
     "Gimnasio de última generación + estudio de yoga/barre",
     "Gran lobby de doble altura y centro de negocios/co‑working",
-    ">1 acre de amenidades interiores/exteriores"
+    ">≈4,000 m² de amenidades interiores/exteriores"
   ],
   highlightsEn: [
     "Resort‑style rooftop pool with cabanas & dining areas",
@@ -61,11 +59,11 @@ export const pCassia: Project = {
   // Unit mix & scale
   unitMixEs: [
     "Edificio de 12 pisos · 174 residencias",
-    "1–3 dormitorios · 62–135 m² (662–1,461 ft²)"
+    "1-3 dormitorios · 62-135 m²"
   ],
   unitMixEn: [
     "12‑story building · 174 residences",
-    "1–3 BR · 662–1,461 sq ft (62–135 m²)"
+    "1-3 BR · 662-1,461 sq ft"
   ],
 
   // Features (residencias)
@@ -99,7 +97,7 @@ export const pCassia: Project = {
     { q: "¿Precios desde?", a: "1D desde ~US$823.000; 1D+den ~US$924.000; 2D/1B ~US$988.000; 2D/2B ~US$1.194.000; 3D ~US$1.790.000 (act. 04‑01‑2025)." },
     { q: "¿Política de renta?", a: "Propiedad flexible con posibilidad de alquiler de corta/larga estadía; sujeta a normativa local y permisos." },
     { q: "¿Ubicación?", a: "4011 Salzedo St., Coral Gables (a pasos de The Shops at Merrick Park)." },
-    { q: "¿Edificio y mix?", a: "12 pisos · 174 residencias · 1–3 dormitorios (62–135 m²)." },
+    { q: "¿Edificio y mix?", a: "12 pisos · 174 residencias · 1-3 dormitorios (62-135 m²)." },
     { q: "¿Amoblamiento?", a: "Sí, completamente amuebladas por RH (turn‑key)." },
     { q: "¿Plan de depósitos?", a: "30% contrato · 10% a ~6 meses · 60% cierre." }
   ],
@@ -107,7 +105,7 @@ export const pCassia: Project = {
     { q: "Starting prices?", a: "1BR from ~$823,000; 1BR+den ~$924,000; 2BR/1B ~$988,000; 2BR/2B ~$1,194,000; 3BR ~$1,790,000 (as of 04‑01‑2025)." },
     { q: "Rental policy?", a: "Flexible ownership allowing short/long‑term rentals; subject to local rules and permits." },
     { q: "Location?", a: "4011 Salzedo St., Coral Gables (steps from The Shops at Merrick Park)." },
-    { q: "Building & mix?", a: "12 stories · 174 residences · 1–3 BR (662–1,461 sq ft)." },
+    { q: "Building & mix?", a: "12 stories · 174 residences · 1-3 BR (662-1,461 sq ft)." },
     { q: "Furnishing?", a: "Yes, fully furnished by RH (turn‑key)." },
     { q: "Deposit schedule?", a: "30% contract · 10% ~6 months later · 60% closing." }
   ]
