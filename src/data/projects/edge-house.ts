@@ -8,7 +8,6 @@ export const pEdgeHouse: Project = {
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 500000,
-  pricePerSfApprox: 1200,
   delivery: "2028",
   financingAtClosing: true,
   slug: "/proyectos/edge-house",
