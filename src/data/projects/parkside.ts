@@ -13,7 +13,6 @@ export const pParkside: Project = {
   rentalPolicyEn: "No rental restrictions; approved for short-term rental (hotel management in the building)",
   furnished: true,
   priceFromUsd: 500000,
-  pricePerSfApprox: undefined,
   delivery: "2027",
   slug: "/proyectos/parkside-brickell",
   image: "https://ik.imagekit.io/devrodri/Parkside/y6-PI7-A.jpeg",
