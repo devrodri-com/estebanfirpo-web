@@ -7,11 +7,9 @@ export const p72Park: Project = {
   city: "Miami Beach",
   delivery: "2025",
   priceFromUsd: 720000,
-  pricePerSfApprox: 1600,
   rentalPolicyEs: "Sin restricciones",
   rentalPolicyEn: "No Restrictions",
   furnished: true,
-  hoa: "≈ $1.25–1.50 / sf",
   microClaimsEs: [
     "Renta corta aprobada",
     "Club de playa privado",
