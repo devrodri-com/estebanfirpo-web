@@ -8,7 +8,6 @@ export const p2200Brickell: Project = {
   rentalPolicy: "90 días",
   furnished: false,
   priceFromUsd: 830000,
-  pricePerSfApprox: 1550,
   delivery: "2026",
   financingAtClosing: false,
   slug: "/proyectos/2200-brickell",
@@ -17,7 +16,7 @@ export const p2200Brickell: Project = {
   microClaimsEs: [
     "Boutique de 5 pisos en Brickell",
     "Diseño de ODA New York",
-    "Un acre de rooftop verde"
+    "≈4,000 m² de rooftop verde"
   ],
   microClaimsEn: [
     "5-story boutique in Brickell",
@@ -27,8 +26,8 @@ export const p2200Brickell: Project = {
 
   highlights: [
     "105 residencias (1–4 BR y Garden Villas)",
-    "590–2,070 sf con balcones",
-    "Un acre de rooftop con piscina resort, spa, pickleball y summer kitchen",
+    "≈55–190 m² con balcones",
+    "≈4,000 m² de rooftop con piscina resort, spa, pickleball y summer kitchen",
     "Certificación WELL Building Standard™ enfocada en salud y bienestar",
     "Ubicación privilegiada en Brickell Avenue, cerca de tiendas y restaurantes"
   ],
