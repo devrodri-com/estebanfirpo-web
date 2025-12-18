@@ -9,7 +9,6 @@ export const pRider: Project = {
   rentalPolicyEn: "Short‑ and long‑term rentals allowed; city Certificate of Use required.",
   furnished: true,
   priceFromUsd: 500000, // Desde ~US$500k (material público reciente)
-  pricePerSfApprox: undefined,
   delivery: "2027",
   slug: "/proyectos/the-rider-wynwood",
   image: "https://ik.imagekit.io/devrodri/Rider/Db459XMg.jpeg",
