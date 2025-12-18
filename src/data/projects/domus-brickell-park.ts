@@ -35,14 +35,14 @@ export const pDomusBrickellPark: Project = {
   ],
 
   unitMixEs: [
-    { label: "Estudios, 1 y 2 dorms · 30–90 m² totales", iconKey: "bed" },
-    { label: "Ejemplo 1BR · 59–75 m² totales (interior 54 m² + exterior 5 m²)", iconKey: "bed" },
-    { label: "Ejemplo 2BR · 78–80 m² totales (interior 74 m² + exterior 4–6 m²)", iconKey: "bed" }
+    { label: "Estudios, 1 y 2 dorms · 30-90 m² totales", iconKey: "bed" },
+    { label: "Ejemplo 1BR · 59-75 m² totales (interior 54 m² + exterior 5 m²)", iconKey: "bed" },
+    { label: "Ejemplo 2BR · 78-80 m² totales (interior 74 m² + exterior 4-6 m²)", iconKey: "bed" }
   ],
   unitMixEn: [
-    { label: "Studios, 1 & 2 beds · 323–969 sf total", iconKey: "bed" },
-    { label: "Sample 1BR · 633–799 sf total (576 sf int + 38–57 sf ext)", iconKey: "bed" },
-    { label: "Sample 2BR · 837–853 sf total (799–802 sf int + 38–51 sf ext)", iconKey: "bed" }
+    { label: "Studios, 1 & 2 beds · 323-969 sf total", iconKey: "bed" },
+    { label: "Sample 1BR · 633-799 sf total (576 sf int + 38-57 sf ext)", iconKey: "bed" },
+    { label: "Sample 2BR · 837-853 sf total (799-802 sf int + 38-51 sf ext)", iconKey: "bed" }
   ],
 
   featuresEs: [
