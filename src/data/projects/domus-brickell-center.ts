@@ -8,7 +8,6 @@ export const pDomusBrickellCenter: Project = {
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 470000,
-  pricePerSfApprox: 1200,
   delivery: "2027",
   financingAtClosing: true,
   slug: "/proyectos/domus-brickell-center",
@@ -17,12 +16,12 @@ export const pDomusBrickellCenter: Project = {
   microClaimsEs: [
     "Modelo flexible de renta (Airbnb/Booking/Hyatt/Marriott)",
     "579 FLATS amoblados (Estudio, 1 y 2BR)",
-    "35 pisos · 20,000 sf de amenities"
+    "35 pisos · ≈1,900 m² de amenities"
   ],
   microClaimsEn: [
     "Flexible rental model (Airbnb/Booking/Hyatt/Marriott)",
     "579 furnished FLATS (Studio, 1 & 2BR)",
-    "35 stories · 20,000 sf amenities"
+    "35 stories · 20,000 sq ft of amenities"
   ],
 
   highlights: [
@@ -78,7 +77,6 @@ export const pDomusBrickellCenter: Project = {
     { q: "¿Las unidades se entregan amobladas?", a: "Sí. FLATS terminados y amoblados listos para rentar/usar." },
     { q: "¿Dónde está ubicado?", a: "1034 SW 2nd Ave, en el corazón de Brickell, a metros de Metrorail/Metromover y Brickell City Centre." },
     { q: "¿Cuál es el precio de entrada?", a: "Desde USD 470,000 (estudios)." },
-    { q: "¿Cuál es el HOA estimado?", a: "≈ US$1.50 por pie²." },
     { q: "¿Qué amenities principales incluye?", a: "Rooftop con piscina y lounge, wellness deck (yoga, spa, gimnasio), restaurante en lobby y business lounge." },
     { q: "¿Cuál es el plan de pagos?", a: "10% al contrato, 10% a 30 días, 10% a 60 días y 70% al cierre (con financiación para extranjeros)." }
   ],
@@ -87,7 +85,6 @@ export const pDomusBrickellCenter: Project = {
     { q: "Are the residences furnished?", a: "Yes. Turnkey FLATS delivered fully finished and furnished." },
     { q: "Where is it located?", a: "1034 SW 2nd Ave, in the heart of Brickell, steps to Metrorail/Metromover and Brickell City Centre." },
     { q: "What is the starting price?", a: "From USD 470,000 (studios)." },
-    { q: "What is the estimated HOA?", a: "≈ US$1.50 per sq ft." },
     { q: "What are the main amenities?", a: "Rooftop pool & lounge, wellness deck (yoga, spa, gym), lobby restaurant and business lounge." },
     { q: "What is the payment plan?", a: "10% at contract, 10% in 30 days, 10% in 60 days and 70% at closing (financing for foreign buyers)." }
   ],
