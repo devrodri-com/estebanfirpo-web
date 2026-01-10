@@ -3,6 +3,13 @@
 
 import { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import type { Country } from "react-phone-number-input";
+import { parsePhoneNumber } from "libphonenumber-js";
+import enLabels from "react-phone-number-input/locale/en.json";
+import esLabels from "react-phone-number-input/locale/es.json";
+import "react-phone-number-input/style.css";
+import styles from "./ContactoPhone.module.css";
 
 declare global {
   interface Window { gtag?: (...args: any[]) => void }
@@ -14,17 +21,74 @@ export default function Contacto() {
   const waMsg = isEN ? 'Hi Esteban, I would like to schedule a call to discuss Miami pre-construction opportunities.' : 'Hola Esteban, me gustaría coordinar una llamada para hablar de oportunidades en Miami.';
   const waHref = `https://wa.me/17542673931?text=${encodeURIComponent(waMsg)}`;
 
-  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
+  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "", telefonoE164: "", country: "" as Country | "" | "INTL" });
+  const [phoneInputValue, setPhoneInputValue] = useState<string>("");
+  const [phoneError, setPhoneError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState<null | { type: 'success' | 'error'; text: string }>(null);
   const router = useRouter();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handlePhoneChange = (value: string | undefined) => {
+    const newValue = value ?? "";
+    // Actualizar siempre el valor visible del input
+    setPhoneInputValue(newValue);
+
+    if (!newValue) {
+      setForm(prev => ({ ...prev, telefonoE164: "", country: "" }));
+      setPhoneError(null);
+      return;
+    }
+
+    try {
+      const phoneNumber = parsePhoneNumber(newValue);
+      if (phoneNumber && isValidPhoneNumber(newValue)) {
+        const countryCode = phoneNumber.country || "";
+        const finalCountry = countryCode || "INTL";
+        setForm(prev => ({ 
+          ...prev, 
+          telefonoE164: phoneNumber.format("E.164"), 
+          country: finalCountry as Country | "INTL"
+        }));
+        setPhoneError(null);
+      } else {
+        // Solo mostrar error si el usuario está escribiendo (más de 3 caracteres)
+        if (newValue.length > 3) {
+          setPhoneError(isEN ? "Invalid phone number" : "Número de teléfono inválido");
+        } else {
+          setPhoneError(null);
+        }
+        setForm(prev => ({ ...prev, telefonoE164: "", country: "" }));
+      }
+    } catch (err) {
+      // Solo mostrar error si el usuario está escribiendo (más de 3 caracteres)
+      if (newValue.length > 3) {
+        setPhoneError(isEN ? "Invalid phone number" : "Número de teléfono inválido");
+      } else {
+        setPhoneError(null);
+      }
+      setForm(prev => ({ ...prev, telefonoE164: "", country: "" }));
+    }
+  };
+
+  const handleCountryChange = (country: Country | undefined) => {
+    // Al cambiar de país, resetear el input y mantener solo el nuevo país
+    setPhoneInputValue("");
+    setForm(prev => ({ ...prev, telefonoE164: "", country: country ?? "" }));
+    setPhoneError(null);
+  };
 
   const handleSubmit = async () => {
+    // Validar teléfono antes de enviar
+    if (!form.telefonoE164 || !isValidPhoneNumber(form.telefonoE164)) {
+      setPhoneError(isEN ? "Please enter a valid phone number" : "Por favor ingresa un número de teléfono válido");
+      return;
+    }
+
     setSending(true);
+    setPhoneError(null);
     try {
       const r = await fetch("/api/contact", {
         method: "POST",
@@ -54,9 +118,42 @@ export default function Contacto() {
   };
 
   return (
-    <main className="mx-auto max-w-[700px] px-4 py-16">
+    <main 
+      className="relative mx-auto max-w-[700px] px-4 py-16 min-h-[calc(100vh-200px)]"
+      style={{
+        background: 'linear-gradient(135deg, #0A1929 0%, #0A2540 25%, #1a3a5a 50%, #0A2540 75%, #0A1929 100%)',
+        backgroundImage: `
+          url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+        `
+      }}
+    >
+      {/* Decorative blobs behind card */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-0">
+        {/* Blob 1 - Top left, subtle gold tint */}
+        <div 
+          className="absolute -top-32 -left-32 w-96 h-96 rounded-full blur-3xl opacity-20"
+          style={{
+            background: 'radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(10,37,64,0) 70%)',
+          }}
+        />
+        {/* Blob 2 - Bottom right, navy-blue */}
+        <div 
+          className="absolute -bottom-24 -right-24 w-[500px] h-[500px] rounded-full blur-3xl opacity-15"
+          style={{
+            background: 'radial-gradient(circle, rgba(26,58,90,0.4) 0%, rgba(10,37,64,0) 70%)',
+          }}
+        />
+        {/* Blob 3 - Center right, subtle accent */}
+        <div 
+          className="absolute top-1/2 -right-16 w-80 h-80 rounded-full blur-3xl opacity-10"
+          style={{
+            background: 'radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(10,25,41,0) 70%)',
+          }}
+        />
+      </div>
+
       {/* Navy card wrapper */}
-      <section className="relative rounded-[12px] bg-[#0A2540] p-6 sm:p-7 ring-1 ring-white/10 text-white overflow-hidden">
+      <section className="relative z-10 rounded-[12px] bg-[#0A2540] p-6 sm:p-7 ring-1 ring-white/10 text-white overflow-hidden">
         {/* gold hairline */}
         <div
           className="pointer-events-none absolute inset-x-5 sm:inset-x-6 top-0 h-[1.5px] rounded-full"
@@ -96,6 +193,28 @@ export default function Contacto() {
               onChange={handleChange}
             />
           </label>
+          <div className="block">
+            <label className="block">
+              <span className="sr-only">{isEN ? 'Phone (WhatsApp preferred)' : 'Teléfono (WhatsApp preferido)'}</span>
+              <div className={styles.phoneWrapper}>
+                <PhoneInput
+                  international
+                  defaultCountry="US"
+                  countries={['US', 'CA', 'ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'DO', 'GT', 'HN', 'NI', 'CR', 'PA', 'CU', 'PR', 'BO', 'PY', 'UY', 'BR', 'JM', 'TT', 'BZ']}
+                  labels={isEN ? enLabels : esLabels}
+                  value={phoneInputValue}
+                  onChange={handlePhoneChange}
+                  onCountryChange={handleCountryChange}
+                  placeholder={isEN ? 'Phone number' : 'Número de teléfono'}
+                />
+              </div>
+            </label>
+            {phoneError && (
+              <p className="mt-1 text-sm text-red-400" role="alert">
+                {phoneError}
+              </p>
+            )}
+          </div>
           <label className="block">
             <span className="sr-only">{isEN ? 'Message' : 'Mensaje'}</span>
             <textarea
@@ -109,7 +228,6 @@ export default function Contacto() {
 
           <button
             type="submit"
-            onClick={handleSubmit}
             disabled={sending}
             className={`mt-1 h-11 rounded-md px-4 text-white text-[14px] font-medium focus-visible:ring-2 focus-visible:ring-[#D4AF37]/40 transition-colors ${sending ? 'bg-white/10 opacity-70 cursor-not-allowed' : 'bg-white/10 hover:bg-white/20'}`}
             aria-label={isEN ? 'Send inquiry' : 'Enviar consulta'}
