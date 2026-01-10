@@ -1,7 +1,7 @@
 // src/app/[locale]/contacto/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import type { Country } from "react-phone-number-input";
@@ -23,6 +23,8 @@ export default function Contacto() {
 
   const [form, setForm] = useState({ nombre: "", email: "", mensaje: "", telefonoE164: "", country: "" as Country | "" | "INTL" });
   const [phoneInputValue, setPhoneInputValue] = useState<string>("");
+  const [selectedCountry, setSelectedCountry] = useState<Country | undefined>(undefined);
+  const ignoreNextPhoneChange = useRef(false);
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState<null | { type: 'success' | 'error'; text: string }>(null);
@@ -33,6 +35,15 @@ export default function Contacto() {
 
   const handlePhoneChange = (value: string | undefined) => {
     const newValue = value ?? "";
+    if (ignoreNextPhoneChange.current) {
+      ignoreNextPhoneChange.current = false;
+      // Force a clean international input state.
+      setPhoneInputValue("");
+      setForm(prev => ({ ...prev, telefonoE164: "", country: "" }));
+      setPhoneError(null);
+      return;
+    }
+
     // Actualizar siempre el valor visible del input
     setPhoneInputValue(newValue);
 
@@ -74,10 +85,21 @@ export default function Contacto() {
   };
 
   const handleCountryChange = (country: Country | undefined) => {
-    // Al cambiar de país, resetear el input y mantener solo el nuevo país
-    setPhoneInputValue("");
-    setForm(prev => ({ ...prev, telefonoE164: "", country: country ?? "" }));
-    setPhoneError(null);
+    // Actualizar el país seleccionado
+    setSelectedCountry(country);
+    
+    // Si se selecciona International (country undefined), resetear todo
+    if (country === undefined) {
+      ignoreNextPhoneChange.current = true;
+      setPhoneInputValue("");
+      setForm(prev => ({ ...prev, telefonoE164: "", country: "" }));
+      setPhoneError(null);
+    } else {
+      // Al cambiar de país, resetear el input y mantener solo el nuevo país
+      setPhoneInputValue("");
+      setForm(prev => ({ ...prev, telefonoE164: "", country: country ?? "" }));
+      setPhoneError(null);
+    }
   };
 
   const handleSubmit = async () => {
@@ -198,14 +220,21 @@ export default function Contacto() {
               <span className="sr-only">{isEN ? 'Phone (WhatsApp preferred)' : 'Teléfono (WhatsApp preferido)'}</span>
               <div className={styles.phoneWrapper}>
                 <PhoneInput
+                  key={`${selectedCountry ?? "INTL"}`}
                   international
-                  defaultCountry="US"
+                  defaultCountry={selectedCountry ?? undefined}
+                  country={selectedCountry}
+                  countryCallingCodeEditable={true}
                   countries={['US', 'CA', 'ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'DO', 'GT', 'HN', 'NI', 'CR', 'PA', 'CU', 'PR', 'BO', 'PY', 'UY', 'BR', 'JM', 'TT', 'BZ']}
                   labels={isEN ? enLabels : esLabels}
                   value={phoneInputValue}
                   onChange={handlePhoneChange}
                   onCountryChange={handleCountryChange}
-                  placeholder={isEN ? 'Phone number' : 'Número de teléfono'}
+                  placeholder={
+                    selectedCountry
+                      ? (isEN ? 'Phone number' : 'Número de teléfono')
+                      : (isEN ? '+ Country code + number' : '+ Código de país + número')
+                  }
                 />
               </div>
             </label>
