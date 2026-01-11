@@ -1,7 +1,7 @@
 // src/app/[locale]/contacto/page.tsx
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import type { Country } from "react-phone-number-input";
@@ -10,6 +10,7 @@ import enLabels from "react-phone-number-input/locale/en.json";
 import esLabels from "react-phone-number-input/locale/es.json";
 import "react-phone-number-input/style.css";
 import styles from "./ContactoPhone.module.css";
+import CountrySelect from "./CountrySelect";
 
 declare global {
   interface Window { gtag?: (...args: any[]) => void }
@@ -22,13 +23,41 @@ export default function Contacto() {
   const waHref = `https://wa.me/17542673931?text=${encodeURIComponent(waMsg)}`;
 
   const [form, setForm] = useState({ nombre: "", email: "", mensaje: "", telefonoE164: "", country: "" as Country | "" | "INTL" });
+  const [companyHoneypot, setCompanyHoneypot] = useState<string>("");
   const [phoneInputValue, setPhoneInputValue] = useState<string>("");
   const [selectedCountry, setSelectedCountry] = useState<Country | undefined>(undefined);
   const ignoreNextPhoneChange = useRef(false);
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState<null | { type: 'success' | 'error'; text: string }>(null);
+  const [utms, setUtms] = useState<{
+    utm_source?: string;
+    utm_medium?: string;
+    utm_campaign?: string;
+    utm_content?: string;
+    utm_term?: string;
+  }>({});
   const router = useRouter();
+
+  // Capturar UTMs desde la URL al cargar la página
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const utmParams: typeof utms = {};
+      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const;
+      utmKeys.forEach(key => {
+        const value = params.get(key);
+        if (value) {
+          utmParams[key] = value;
+        }
+      });
+      if (Object.keys(utmParams).length > 0) {
+        setUtms(utmParams);
+        // Guardar UTMs en sessionStorage para usarlos en /gracias
+        sessionStorage.setItem("lead_utms", JSON.stringify(utmParams));
+      }
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -115,14 +144,36 @@ export default function Contacto() {
       const r = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, ...utms, company: companyHoneypot }),
       });
       const raw = await r.text();
       let data: any = {};
       try { data = JSON.parse(raw); } catch {}
+      
+      // Handle rate limiting specifically
+      if (r.status === 429 || data?.error === "rate_limited") {
+        setNotice({ 
+          type: 'error', 
+          text: isEN ? 'Too many attempts. Please try again in a few minutes.' : 'Demasiados intentos. Probá de nuevo en unos minutos.' 
+        });
+        return;
+      }
+      
       if (!r.ok || !data?.ok) throw new Error(data?.error || raw || 'send failed');
       setNotice({ type: 'success', text: isEN ? 'Message sent. I will contact you shortly.' : 'Mensaje enviado. Te contactaré a la brevedad.' });
-      window.gtag?.('event', 'generate_lead', { event_category: 'form', event_label: isEN ? 'contact' : 'contacto' });
+      
+      // Evento gtag mejorado sin PII
+      window.gtag?.('event', 'generate_lead', {
+        event_category: 'form',
+        event_label: isEN ? 'contact' : 'contacto',
+        locale: locale,
+        has_phone: 'true',
+        phone_country: form.country || 'INTL',
+        ...(utms.utm_source && { utm_source: utms.utm_source }),
+        ...(utms.utm_medium && { utm_medium: utms.utm_medium }),
+        ...(utms.utm_campaign && { utm_campaign: utms.utm_campaign }),
+      });
+      
       setTimeout(() => router.push(`/${locale}/gracias`), 400);
     } catch (err) {
       setNotice({ type: 'error', text: isEN ? 'Could not send the message. Try again.' : 'No se pudo enviar. Intenta de nuevo.' });
@@ -140,42 +191,10 @@ export default function Contacto() {
   };
 
   return (
-    <main 
-      className="relative mx-auto max-w-[700px] px-4 py-16 min-h-[calc(100vh-200px)]"
-      style={{
-        background: 'linear-gradient(135deg, #0A1929 0%, #0A2540 25%, #1a3a5a 50%, #0A2540 75%, #0A1929 100%)',
-        backgroundImage: `
-          url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
-        `
-      }}
-    >
-      {/* Decorative blobs behind card */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-0">
-        {/* Blob 1 - Top left, subtle gold tint */}
-        <div 
-          className="absolute -top-32 -left-32 w-96 h-96 rounded-full blur-3xl opacity-20"
-          style={{
-            background: 'radial-gradient(circle, rgba(212,175,55,0.3) 0%, rgba(10,37,64,0) 70%)',
-          }}
-        />
-        {/* Blob 2 - Bottom right, navy-blue */}
-        <div 
-          className="absolute -bottom-24 -right-24 w-[500px] h-[500px] rounded-full blur-3xl opacity-15"
-          style={{
-            background: 'radial-gradient(circle, rgba(26,58,90,0.4) 0%, rgba(10,37,64,0) 70%)',
-          }}
-        />
-        {/* Blob 3 - Center right, subtle accent */}
-        <div 
-          className="absolute top-1/2 -right-16 w-80 h-80 rounded-full blur-3xl opacity-10"
-          style={{
-            background: 'radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(10,25,41,0) 70%)',
-          }}
-        />
-      </div>
-
-      {/* Navy card wrapper */}
-      <section className="relative z-10 rounded-[12px] bg-[#0A2540] p-6 sm:p-7 ring-1 ring-white/10 text-white overflow-hidden">
+    <div className="w-full min-h-[calc(100vh-200px)] bg-white">
+      <main className="mx-auto w-full max-w-[980px] px-4 py-16">
+        {/* Navy card wrapper */}
+      <section className="relative z-10 rounded-[12px] bg-[#0A2540] p-6 sm:p-7 ring-1 ring-white/10 text-white overflow-visible">
         {/* gold hairline */}
         <div
           className="pointer-events-none absolute inset-x-5 sm:inset-x-6 top-0 h-[1.5px] rounded-full"
@@ -225,8 +244,11 @@ export default function Contacto() {
                   defaultCountry={selectedCountry ?? undefined}
                   country={selectedCountry}
                   countryCallingCodeEditable={true}
-                  countries={['US', 'CA', 'ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'DO', 'GT', 'HN', 'NI', 'CR', 'PA', 'CU', 'PR', 'BO', 'PY', 'UY', 'BR', 'JM', 'TT', 'BZ']}
+                  countries={['US','CA','ES','MX','AR','CO','CL','PE','VE','EC','DO','GT','HN','NI','CR','PA','CU','PR','BO','PY','UY','BR']}
                   labels={isEN ? enLabels : esLabels}
+                  countrySelectComponent={(props) => (
+                    <CountrySelect {...props} labels={isEN ? enLabels : esLabels} isEN={isEN} />
+                  )}
                   value={phoneInputValue}
                   onChange={handlePhoneChange}
                   onCountryChange={handleCountryChange}
@@ -254,6 +276,19 @@ export default function Contacto() {
               onChange={handleChange}
             />
           </label>
+
+          {/* Honeypot field - invisible to users */}
+          <div className="sr-only">
+            <input
+              name="company"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={companyHoneypot}
+              onChange={(e) => setCompanyHoneypot(e.target.value)}
+              aria-hidden="true"
+            />
+          </div>
 
           <button
             type="submit"
@@ -309,6 +344,7 @@ export default function Contacto() {
           </div>
         </div>
       )}
-    </main>
+      </main>
+    </div>
   );
 }

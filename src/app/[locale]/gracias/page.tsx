@@ -4,6 +4,10 @@
 import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 
+declare global {
+  interface Window { gtag?: (...args: any[]) => void }
+}
+
 export default function GraciasPage() {
   const router = useRouter();
   const { locale } = useParams() as { locale: 'es' | 'en' };
@@ -14,6 +18,48 @@ export default function GraciasPage() {
     const title = isEN ? "Thanks for your message" : "¡Gracias por tu mensaje!";
     document.title = `${title} · Esteban Firpo`;
   }, [isEN]);
+
+  // Track lead thank you page with UTMs from sessionStorage
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Evitar duplicados: verificar si ya se disparó el evento
+    const alreadySent = sessionStorage.getItem("lead_thankyou_sent");
+    if (alreadySent === "1") {
+      return;
+    }
+
+    // Leer UTMs de sessionStorage
+    const utmsJson = sessionStorage.getItem("lead_utms");
+    if (!utmsJson) {
+      return;
+    }
+
+    try {
+      const utms = JSON.parse(utmsJson) as {
+        utm_source?: string;
+        utm_medium?: string;
+        utm_campaign?: string;
+        utm_content?: string;
+        utm_term?: string;
+      };
+
+      // Disparar evento gtag una vez
+      window.gtag?.('event', 'lead_thankyou', {
+        locale: locale,
+        ...(utms.utm_source && { utm_source: utms.utm_source }),
+        ...(utms.utm_medium && { utm_medium: utms.utm_medium }),
+        ...(utms.utm_campaign && { utm_campaign: utms.utm_campaign }),
+      });
+
+      // Marcar como enviado y limpiar UTMs (conservar el flag)
+      sessionStorage.setItem("lead_thankyou_sent", "1");
+      sessionStorage.removeItem("lead_utms");
+    } catch (err) {
+      // Si hay error parseando JSON, ignorar
+      console.error("Error parsing UTMs from sessionStorage:", err);
+    }
+  }, [locale]);
 
   const t = {
     title: isEN ? "Thanks for your message" : "¡Gracias por contactarnos!",
