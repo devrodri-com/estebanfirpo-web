@@ -19,8 +19,8 @@ export default function NavBar(){
   const base = `/${locale}`;
 
   const L = locale === "es"
-    ? {home:"Inicio", proyectos:"Proyectos", miami:"Miami", precon:"Preconstrucción", storages:"Storages", financing:"Financiación", sobreMi:"Sobre mí"}
-    : {home:"Home", projects:"Projects", miami:"Miami", precon:"Pre-construction", storages:"Storages", financing:"Financing", sobreMi:"About"};
+    ? {home:"Inicio", proyectos:"Proyectos", miami:"Miami", precon:"Preconstrucción", storages:"Storages", financing:"Financiación", sobreMi:"Sobre mí", contacto:"Contacto"}
+    : {home:"Home", projects:"Projects", miami:"Miami", precon:"Pre-construction", storages:"Storages", financing:"Financing", sobreMi:"About", contact:"Contact"};
 
   const items = [
     { href: `${base}`,              label: L.home },
@@ -29,7 +29,8 @@ export default function NavBar(){
     { href: `${base}/precon`,       label: L.precon },
     { href: `${base}/storages`,     label: L.storages },
     { href: `${base}/financiacion`, label: L.financing },
-    { href: `${base}/sobre-mi`,     label: L.sobreMi }
+    { href: `${base}/sobre-mi`,     label: L.sobreMi },
+    { href: `${base}/contacto`,     label: L.contacto || L.contact }
   ];
 
   const switchTo = locale === "es" ? "en" : "es";
@@ -42,7 +43,7 @@ export default function NavBar(){
           Esteban Firpo · Miami Real Estate
         </Link>
 
-        <button aria-label="Abrir menú" onClick={()=>setOpen(v=>!v)} className="md:hidden p-2">
+        <button aria-label="Abrir menú" onClick={()=>setOpen(v=>!v)} className="lg:hidden p-2">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
@@ -50,7 +51,7 @@ export default function NavBar(){
           </svg>
         </button>
 
-        <nav className="hidden md:flex gap-6 xl:gap-7 text-sm font-medium">
+        <nav className="hidden lg:flex gap-6 xl:gap-7 text-sm font-medium">
           {items.map(it=>{
             const isHome = it.href === base;
             const isActive = isHome ? (pathname === base) : pathname.startsWith(it.href);
@@ -77,7 +78,7 @@ export default function NavBar(){
       </div>
 
       {open && (
-        <nav className="md:hidden fixed inset-0 z-50 bg-[#0A2540]/95 text-white backdrop-blur-sm">
+        <nav className="lg:hidden fixed inset-0 z-50 bg-[#0A2540]/95 text-white backdrop-blur-sm">
           <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col h-full">
             {/* Top bar */}
             <div className="flex items-center justify-between pb-3 border-b border-black/10">
