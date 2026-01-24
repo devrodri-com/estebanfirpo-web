@@ -68,7 +68,7 @@ export const pEdgeHouse: Project = {
     "5% a los 15 días",
     "10% a los 45 días",
     "10% a los 90 días",
-    "10% al colado del piso 25",
+    "10% al finalizar la estructura del piso 25 (top off)",
     "10% al top‑off",
     "50% al cierre (con financiación disponible para extranjeros)"
   ],
