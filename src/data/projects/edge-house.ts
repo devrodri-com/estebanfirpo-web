@@ -4,7 +4,7 @@ import type { Project } from "../types";
 export const pEdgeHouse: Project = {
   id: "edge-house",
   name: "Edge House Miami",
-  city: "Edgewater",
+  city: "1837 NE 4th Ave, Miami, FL 33132",
   rentalPolicy: "No restr.",
   furnished: true,
   priceFromUsd: 500000,
@@ -39,8 +39,8 @@ export const pEdgeHouse: Project = {
     "Summer kitchens/BBQ, putting green and kids’ areas"
   ],
 
-  unitMixEs: ["Studios", "1 Dormitorio", "2 Dormitorios"],
-  unitMixEn: ["Studios", "1 Bedroom", "2 Bedrooms"],
+  unitMixEs: ["Studios", "1 Dormitorio", "2 Dormitorios", "3 Dormitorios"],
+  unitMixEn: ["Studios", "1 Bedroom", "2 Bedrooms", "3 Bedrooms"],
 
   featuresEs: [
     "Residencias totalmente amuebladas y equipadas (curadas por Adriana Hoyos)",
