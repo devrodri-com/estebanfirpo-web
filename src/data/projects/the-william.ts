@@ -13,8 +13,8 @@ export const pTheWilliam: Project = {
   furnished: false,
 
   // STR policy multilenguaje
-  rentalPolicyEs: "Alquiler mínimo 30 días. Se permiten contratos mensuales o más largos.",
-  rentalPolicyEn: "Minimum stay 30 days. Monthly or longer leases allowed.",
+  rentalPolicyEs: "Alquiler mínimo 90 días. Se permiten contratos mensuales o más largos.",
+  rentalPolicyEn: "Minimum stay 90 days. Monthly or longer leases allowed.",
 
   // hero + galería
   image: "https://ik.imagekit.io/devrodri/The%20William%20residences/1.jpg.webp",
