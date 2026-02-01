@@ -14,9 +14,9 @@ export const pCassia: Project = {
 
   // STR / flexible ownership (brochure)
   rentalPolicyEs:
-    "Renta corta permitida (Airbnb); estadía mínima ~3 noches. Requiere Certificado de Uso de Miami‑Dade, licencia estatal (DBPR) y registro de impuestos turísticos.",
+    "Renta corta permitida (Airbnb); estadía mínima ~3 noches.",
   rentalPolicyEn:
-    "Short‑term rentals permitted (Airbnb); ~3‑night minimum. Miami‑Dade Certificate of Use, Florida DBPR license and tourist tax registration required.",
+    "Short‑term rentals permitted (Airbnb); ~3‑night minimum.",
 
   image: "https://ik.imagekit.io/devrodri/Cassia/1.jpeg",
   images: [
