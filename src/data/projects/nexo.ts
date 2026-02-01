@@ -10,7 +10,7 @@ export const pNexo: Project = {
   rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 626000,
-  delivery: "2025",
+  delivery: "2026",
   financingAtClosing: true,
   slug: "/proyectos/nexo",
   image: "https://ik.imagekit.io/devrodri/1-2-2.jpg",
