@@ -5,7 +5,7 @@ export const pAveMaria: Project = {
   id: "ave-maria",
   name: "Ave Maria - Maple Ridge",
   city: "Naples, Florida",
-  rentalPolicy: "No Airbnb",
+  rentalPolicy: "Tradicional",
   furnished: false,
   priceFromUsd: 340000,
   delivery: "8-12 meses",
