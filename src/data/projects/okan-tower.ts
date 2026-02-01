@@ -5,7 +5,9 @@ export const pOkanTower: Project = {
   id: "okan-tower",
   name: "Okan Tower Miami",
   city: "Downtown Miami",
-  rentalPolicy: "No restr.",
+  rentalPolicy: "Sin restricciones", // legacy fallback
+  rentalPolicyEs: "Sin restricciones",
+  rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 800000,
   delivery: "2027",
