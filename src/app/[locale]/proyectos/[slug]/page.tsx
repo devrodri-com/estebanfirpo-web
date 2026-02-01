@@ -226,7 +226,7 @@ export default async function Proyecto({ params }: Params) {
     ...(policy ? [policy] : []),
     ...(p.hoa ? [`HOA ${p.hoa}`] : []),
     ...(typeof p.furnished === "boolean"
-      ? [isEN ? (p.furnished ? "Furnished" : "Unfurnished") : (p.furnished ? "Amueblado" : "Sin amoblar")]
+      ? [isEN ? (p.furnished ? "Furnished" : "Unfurnished") : (p.furnished ? "Amueblado" : "Sin amueblar")]
       : []),
   ];
 
@@ -271,7 +271,7 @@ export default async function Proyecto({ params }: Params) {
         {policy ? <> · {t.rental} {policy}</> : null}
         {p.hoa ? <> · HOA {p.hoa}</> : null}
         {typeof p.furnished === "boolean" ? (
-          <> · {isEN ? (p.furnished ? "Furnished" : "Unfurnished") : (p.furnished ? "amueblado" : "Sin amoblar")}</>
+          <> · {isEN ? (p.furnished ? "Furnished" : "Unfurnished") : (p.furnished ? "amueblado" : "Sin amueblar")}</>
         ) : null}
       </p>
 
