@@ -5,7 +5,9 @@ export const pNexo: Project = {
   id: "nexo",
   name: "Nexo Residences",
   city: "North Miami Beach",
-  rentalPolicy: "No restr.",
+  rentalPolicy: "Sin restricciones", // legacy fallback
+  rentalPolicyEs: "Sin restricciones",
+  rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 626000,
   delivery: "2025",
