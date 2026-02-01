@@ -6,7 +6,9 @@ export const pTwentySixAndSecond: Project = {
   id: "twenty-six-and-2nd",
   name: "Twenty Six & 2nd (Wynwood)",
   city: "Wynwood",
-  rentalPolicy: "No restr.",
+  rentalPolicy: "Sin restricciones", // legacy fallback
+  rentalPolicyEs: "Sin restricciones",
+  rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 500000,
   delivery: "2028 Q1",
