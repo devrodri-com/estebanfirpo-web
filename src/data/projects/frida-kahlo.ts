@@ -124,7 +124,7 @@ export const pFridaKahlo: Project = {
 
   image: "https://ik.imagekit.io/devrodri/Frida%20Khalo/1(1).jpg",
   images: [
-    { src: "https://ik.imagekit.io/devrodri/Frida%20Khalo/2(1).jpg" },
+    { src: "https://ik.imagekit.io/devrodri/Frida%20Khalo/Untitled%20design%20(16).jpg" },
     { src: "https://ik.imagekit.io/devrodri/Frida%20Khalo/2ds.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Frida%20Khalo/3(1).jpg" },
     { src: "https://ik.imagekit.io/devrodri/Frida%20Khalo/4(1).jpg" },
