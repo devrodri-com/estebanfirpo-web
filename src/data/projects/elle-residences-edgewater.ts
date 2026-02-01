@@ -7,6 +7,7 @@ export const pElleResidences: Project = {
   name: "ELLE Residences Miami",
   city: "3618 NE 5th Ave, Miami, FL 33137, EE. UU.",
   priceFromUsd: 590000,
+  delivery: "2028",
 
   furnished: true,
 

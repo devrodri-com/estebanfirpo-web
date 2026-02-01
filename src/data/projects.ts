@@ -70,7 +70,7 @@ export const FEATURED_PROJECTS: Project[] = [
     faqsEs: [
       { q: "¿Se permiten rentas cortas?", a: "Sí. Edificio aprobado para alquileres de corto plazo con programa de gestión en sitio." },
       { q: "¿El edificio ofrece club de playa?", a: "Sí. Club de playa privado con servicio de sillas y toallas a 5 minutos a pie." },
-      { q: "¿Las residencias se entregan amuebladas?", a: "Opcional. Hay paquetes de amoblado disponibles." }
+      { q: "¿Las residencias se entregan amuebladas?", a: "Opcional. Hay paquetes de amueblado disponibles." }
     ],
     faqsEn: [
       { q: "Are short‑term rentals allowed?", a: "Yes. Building approved for short‑term rentals with on‑site management program." },
