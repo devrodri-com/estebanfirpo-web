@@ -42,7 +42,7 @@ export const pCassia: Project = {
 
   // Highlights (amenities principales)
   highlights: [
-    "Piscina rooftop estilo resort con cabañas y áreas de comedor",
+    "Piscina rooftop tipo resort, cabañas y áreas de comedor",
     "Wellness spa (piscina interior, sauna, vapor, masajes)",
     "Gimnasio de última generación + estudio de yoga/barre",
     "Gran lobby de doble altura y centro de negocios/co‑working",

@@ -28,7 +28,7 @@ export const pBaccarat: Project = {
 
   // Convertimos a objetos para mostrar iconografía consistente
   highlights: [
-    "Torre de 75 pisos en la ribera del Miami River, donde se une con Biscayne Bay",
+    "75 pisos en la ribera del Miami River, Biscayne Bay",
     "316 residencias, 8 penthouses y 28 flats frente al río",
     "Interiores por Meyer Davis Studio; acabados de cocina/baño/pisos personalizados",
     "Piscina resort en nivel 14 con spa, cabañas y terraza con vistas a la bahía",

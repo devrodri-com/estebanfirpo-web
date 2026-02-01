@@ -28,7 +28,7 @@ export const pOasis: Project = {
 
   highlights: [
     "Valet y lobby 24 h; salas de negocios y conferencias",
-    "2 piscinas con cabañas, hot‑tub + cold plunge, cine interior y al aire libre",
+    "2 piscinas con cabañas, hot‑tub + cold plunge y cines",
     "Fitness & wellness center, yoga lawn, mini‑cancha de fútbol indoor",
     "Simulador de golf, lounge bar con mesas de billar, salón de banquetes",
     "Parque para mascotas y paw‑wash; cargadores para autos eléctricos; storage"

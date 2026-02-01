@@ -25,7 +25,7 @@ export const pDomusBrickellCenter: Project = {
   ],
 
   highlights: [
-    "Ubicación central: 1034 SW 2nd Ave, junto a Brickell City Centre",
+    "Ubicación: 1034 SW 2nd Ave, junto a Brickell City Centre",
     "Wellness Deck: yoga, spa y gimnasio indoor/outdoor",
     "Piscina rooftop con vistas + lounge/bar y restaurante en lobby",
     "Sistema Domus Management con pricing dinámico y 100+ canales (Hyatt/Marriott)"

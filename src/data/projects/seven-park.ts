@@ -31,7 +31,7 @@ export const pSevenPark: Project = {
 
   highlights: [
     "Piscina tipo resort, 2 hot tubs, cabañas y chaises",
-    "BBQ comunal y privadas, coworking + sala de conferencias",
+    "BBQ's, coworking + sala de conferencias",
     "Media room / lounge / party room, content creation room",
     "Wellness: sauna, vapor, cold plunge; gimnasio ≈280 m²",
     "Estacionamiento para residentes y visitas; 24 cargadores EV",

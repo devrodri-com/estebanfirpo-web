@@ -43,7 +43,7 @@ export const pJeanGeorges: Project = {
   // Highlights
   highlights: [
     "Skydeck en piso 49 con piscina y Sky Bar; vistas 360°",
-    "Restaurante privado de Jean‑Georges y abc kitchens en PB",
+    "Restaurante privado de Jean‑Georges y abc kitchens",
     "Spa completo, gimnasio interior/exterior y cancha de squash",
     "Coworking, estudio de pódcast, salones y jardines interiores",
     "Ubicación AAA entre Design District y Midtown"

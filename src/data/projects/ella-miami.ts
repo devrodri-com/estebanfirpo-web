@@ -20,7 +20,7 @@ export const pEllaMiami: Project = {
 
   // Highlights (bullets de venta)
   highlights: [
-    "Colección de residencias inspiradas en el Art Deco de Miami Beach",
+    "Residencias inspiradas en el Art Deco de Miami Beach",
     "Estudios, 1 y 2 dormitorios con amplias terrazas",
     "Rentas de corto plazo permitidas (STR friendly)",
     "A ~5 minutos a pie de la playa",

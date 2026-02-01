@@ -37,7 +37,7 @@ export const pRider: Project = {
 
   highlights: [
     "Rooftop: piscina resort, lounge & bar entre jardines",
-    "RESET: fitness + cold plunge garden + saunas infrarrojas + sala de masajes",
+    "Fitness + saunas infrarrojas + sala de masajes",
     "VINYL: lounge con mesa de billar, pantalla de cine y tocadiscos Brionvega",
     "Ready Set Café para tomas on‑the‑go",
     "Port‑cochère ‘X Marks the Spot’ y lobby de arte",
