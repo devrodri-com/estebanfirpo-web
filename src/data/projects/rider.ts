@@ -5,8 +5,8 @@ export const pRider: Project = {
   id: "the-rider-wynwood",
   name: "The Rider Wynwood",
   city: "Wynwood, Miami",
-  rentalPolicyEs: "Permite corta y larga estadía; requiere Certificado de Uso de la ciudad (\"Certificate of Use\").",
-  rentalPolicyEn: "Short‑ and long‑term rentals allowed; city Certificate of Use required.",
+  rentalPolicyEs: "Política de renta Uso flexible (short-/long-term)",
+  rentalPolicyEn: "Short‑ and long‑term rentals allowed.",
   furnished: true,
   priceFromUsd: 500000, // Desde ~US$500k (material público reciente)
   delivery: "2027",
