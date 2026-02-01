@@ -370,29 +370,7 @@ export default async function Proyecto({ params }: Params) {
             <ImagesIcon className="h-5 w-5 text-white stroke-[1.5]" aria-hidden />
             <h2 className="text-[16px] sm:text-[17px] font-semibold tracking-tight text-white">{t.gallery}</h2>
           </div>
-          {/* Desktop / Tablet: Lightbox grid */}
-          <div className="hidden sm:block">
-            <GalleryLightbox images={p.images} name={p.name} />
-          </div>
-          {/* Mobile: horizontal scroll */}
-          <div className="sm:hidden mt-3 -mx-4 px-4 overflow-x-auto">
-            <ul className="flex gap-3 snap-x snap-mandatory">
-              {p.images.map((img, i) => (
-                <li key={`mimg-${i}`} className="snap-start shrink-0 first:pl-0 last:pr-0">
-                  <div className="relative h-48 w-[85vw] overflow-hidden rounded-xl ring-1 ring-white/15">
-                    <Image
-                      src={img.src}
-                      alt={`${p.name} — ${t.gallery} ${i + 1}`}
-                      fill
-                      sizes="85vw"
-                      className="object-cover"
-                      priority={i === 0}
-                    />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <GalleryLightbox images={p.images} name={p.name} />
         </section>
       )}
 
