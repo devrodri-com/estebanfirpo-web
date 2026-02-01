@@ -6,8 +6,8 @@ export const pMillux: Project = {
   name: "Millux Place Brickell",
   city: "Brickell, Miami",
   // STR-friendly con detalle multilenguaje
-  rentalPolicyEs: "Lodging: 1 noche-6 meses; resto según reglas del condominio. Requiere Certificado de Uso (<6 meses)",
-  rentalPolicyEn: "Lodging: nightly-6 months; remaining units per condo rules. Certificate of Use required for <6 months",
+  rentalPolicyEs: "Lodging: 1 noche-6 meses. (<6 meses)",
+  rentalPolicyEn: "Lodging: nightly-6 months. (<6 months)",
   furnished: true,
   priceFromUsd: 468000, // estudios desde ~US$468k
   delivery: "Q4 2027",
@@ -26,8 +26,8 @@ export const pMillux: Project = {
   ],
 
   microClaimsEs: [
-    "Residencias terminadas y amobladas (Restoration Hardware)",
-    "STR: lodging desde 1 noche",
+    "Residencias terminadas y amuebladas (Restoration Hardware)",
+    "STR: desde 1 noche",
     "Entrega Q4 2027"
   ],
   microClaimsEn: [
@@ -85,13 +85,13 @@ export const pMillux: Project = {
   ],
 
   faqsEs: [
-    { q: "¿Política STR?", a: "Lodging 1 noche-6 meses; residenciales con reglas propias. CU obligatorio para <6 meses." },
-    { q: "¿Amoblamiento?", a: "Sí, entregadas con mobiliario RH (turn‑key)." },
+    { q: "¿Política STR?", a: "1 noche-6 meses; residenciales con reglas propias. CU obligatorio para <6 meses." },
+    { q: "Esta amueblado?", a: "Sí, entregadas con mobiliario RH (turn‑key)." },
     { q: "¿Entrega?", a: "Q4 2027 (estimado)." },
     { q: "¿Financiación a extranjeros?", a: "Hipoteca al cierre ~50-60% LTV (sujeto a banco y ventas del edificio)." }
   ],
   faqsEn: [
-    { q: "STR policy?", a: "Lodging nightly-6 months; residential units under condo rules. City CU required for <6 months." },
+    { q: "STR policy?", a: "Nightly-6 months. (<6 months)." },
     { q: "Furnishing?", a: "Yes, RH furniture included (turn‑key)." },
     { q: "Completion?", a: "Q4 2027 (estimated)." },
     { q: "Foreign financing?", a: "Mortgage at closing ~50-60% LTV (subject to lender and building sales)." }
