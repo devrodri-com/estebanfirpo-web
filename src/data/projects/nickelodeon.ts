@@ -25,8 +25,8 @@ export const pNickelodeon: Project = {
   delivery: "Q2 2026", // estimated possession per brochure
 
   // STR policy / use
-  rentalPolicyEs: "Condo-hotel con uso vacacional; ocupación permanente prohibida por ordenanza del Condado de Osceola (Sec. 24-42).",
-  rentalPolicyEn: "Condo-hotel for vacation use; permanent occupancy prohibited by Osceola County ordinance (Sec. 24-42).",
+  rentalPolicyEs: "Condo-hotel con uso vacacional; No se permite ocupación permanente.",
+  rentalPolicyEn: "Condo-hotel for vacation use; permanent occupancy prohibited.",
 
   // microclaims
   microClaimsEs: [
@@ -88,7 +88,7 @@ export const pNickelodeon: Project = {
   faqsEs: [
     { q: "¿Dónde está?", a: "Dentro de Everest Place, Orlando, FL (a minutos de Disney)." },
     { q: "¿Dirección exacta?", a: "8298 W. Irlo Bronson Memorial Hwy, Kissimmee, FL 34747." },
-    { q: "¿Ocupación permanente?", a: "Prohibida por ordenanza del Condado de Osceola; uso vacacional/condo-hotel." },
+    { q: "¿Ocupación permanente?", a: "No está permitida, solo uso vacacional/condo-hotel." },
     { q: "¿Programa de rentas?", a: "Operación hotelera on‑site por Karisma/Lion Star; gestionan reservas y limpieza. Uso personal cuando no esté alquilada." },
     { q: "¿Desde qué precio?", a: "Studios desde ~US$415,300; 1 Hab + Kids Den desde ~US$706,250; 2 Hab Lockoff desde ~US$897,300 (según vista y nivel)." },
     { q: "¿Amenidades clave?", a: "Aqua Nick, Lazy River, Club Nick, Snick Lounge, Character Dining, Nick Shop." },
