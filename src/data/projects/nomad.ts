@@ -9,7 +9,7 @@ export const pNomad: Project = {
 
   // Pricing & basics (brochures do not publish official base price)
   priceFromUsd: 680000,
-  delivery: "Q4 2025",
+  delivery: "2026",
   furnished: true, // fully finished & furnished
 
   // STR policy - flexible ownership / no rental restrictions (Airbnb‑friendly). Local permits required.
