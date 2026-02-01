@@ -116,7 +116,7 @@ export const pViceroyBrickellResidences: Project = {
     { src: "https://ik.imagekit.io/devrodri/Viceroy/2.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Viceroy/3.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Viceroy/4.jpg" },
-    { src: "https://ik.imagekit.io/devrodri/Viceroy/5.jpg" },
+    { src: "https://ik.imagekit.io/devrodri/Viceroy/1.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Viceroy/6.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Viceroy/7.jpg" },
     { src: "https://ik.imagekit.io/devrodri/Viceroy/8.jpg" },
