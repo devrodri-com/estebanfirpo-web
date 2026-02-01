@@ -13,8 +13,8 @@ export const pTheWilliam: Project = {
   furnished: false,
 
   // STR policy multilenguaje
-  rentalPolicyEs: "Alquiler mínimo 90 días. Se permiten contratos mensuales o más largos.",
-  rentalPolicyEn: "Minimum stay 90 days. Monthly or longer leases allowed.",
+  rentalPolicyEs: "Alquiler mínimo 90 días.",
+  rentalPolicyEn: "Minimum stay 90 days.",
 
   // hero + galería
   image: "https://ik.imagekit.io/devrodri/The%20William%20residences/1.jpg.webp",
@@ -88,12 +88,12 @@ export const pTheWilliam: Project = {
   // FAQs
   faqsEs: [
     { q: "¿Dirección y sales gallery?", a: "Proyecto: 2040 NE 163rd St, North Miami Beach. Sales Gallery: 16251 W Dixie Hwy, NMB 33160." },
-    { q: "¿Rentas de corta estancia?", a: "No se permiten. Mínimo 30 días por contrato." },
+    { q: "¿Rentas de corta estancia?", a: "No se permiten. Mínimo 90 días por contrato." },
     { q: "¿Desde qué precio?", a: "Studios desde ~US$380,880 según disponibilidad del desarrollador (9/25/2025)." }
   ],
   faqsEn: [
     { q: "Address and sales gallery?", a: "Project: 2040 NE 163rd St, North Miami Beach. Sales Gallery: 16251 W Dixie Hwy, NMB 33160." },
-    { q: "Short-term rentals?", a: "Not allowed. 30-day minimum leases." },
+    { q: "Short-term rentals?", a: "Not allowed. 90-day minimum leases." },
     { q: "Starting price?", a: "Studios from ~US$380,880 per developer availability (9/25/2025)." }
   ]
 };
