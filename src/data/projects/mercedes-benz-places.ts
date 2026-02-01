@@ -5,7 +5,9 @@ export const pMercedesBenzPlaces: Project = {
   id: "mercedes-benz-places",
   name: "Mercedes-Benz Places Miami",
   city: "Brickell",
-  rentalPolicy: "No restr.",
+  rentalPolicy: "Sin restricciones", // legacy fallback
+  rentalPolicyEs: "Sin restricciones",
+  rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 685500,
   delivery: "2028",
