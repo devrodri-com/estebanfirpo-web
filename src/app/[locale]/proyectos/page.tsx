@@ -8,6 +8,7 @@ import { ALL_PROJECTS } from "@/data/projects/index";
 import type { Project } from "@/data/types";
 import ProjectsFilters, { type Filters } from "@/components/ProjectsFilters";
 import ProjectDrawer from "@/components/ProjectDrawer";
+import { getRentalPolicyForFilter } from "@/utils/rentalPolicyForFilter";
 import { useParams } from "next/navigation";
 
 export default function Proyectos() {
@@ -37,8 +38,9 @@ export default function Proyectos() {
         ? (p.name?.toLowerCase().includes(q) || p.city?.toLowerCase().includes(q))
         : true;
 
-      // rental policy
-      const rentalOk = filters.rental === "all" ? true : p.rentalPolicy === filters.rental;
+      // rental policy (supports legacy rentalPolicy + rentalPolicyEs/En)
+      const projectRental = getRentalPolicyForFilter(p);
+      const rentalOk = filters.rental === "all" ? true : projectRental === filters.rental;
 
       // price range (only check when price exists)
       const pf = typeof p.priceFromUsd === "number" ? p.priceFromUsd : undefined;
@@ -188,7 +190,7 @@ export default function Proyectos() {
                 <Link href={`/${locale}${p.slug}`}>{p.name}</Link>
               </h3>
               <p className="mt-1 text-[12px] text-white/70 line-clamp-1">
-                {p.city} · {p.rentalPolicy}
+                {p.city} · {(locale === "en" ? p.rentalPolicyEn : p.rentalPolicyEs) ?? p.rentalPolicy ?? ""}
               </p>
               <div className="mt-2 text-[14px] font-semibold text-white">
                 {typeof p.priceFromUsd === "number"
