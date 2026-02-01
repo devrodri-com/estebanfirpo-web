@@ -14,9 +14,9 @@ export const pNomad: Project = {
 
   // STR policy - flexible ownership / no rental restrictions (Airbnb‑friendly). Local permits required.
   rentalPolicyEs:
-    "Sin restricciones de alquiler; permite renta diaria (Airbnb). Requiere Certificado de Uso de Miami, licencia estatal (DBPR) e impuestos turísticos.",
+    "Sin restricciones de alquiler; permite renta diaria (Airbnb).",
   rentalPolicyEn:
-    "No rental restrictions; daily Airbnb‑type rentals allowed. City of Miami Certificate of Use and Florida DBPR license required, plus tourist taxes.",
+    "No rental restrictions; daily Airbnb‑type rentals allowed.",
 
   image: "https://ik.imagekit.io/devrodri/Nomad/1.jpeg",
   images: [
