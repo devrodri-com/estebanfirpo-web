@@ -43,7 +43,7 @@ export const pOkanTower: Project = {
   unitMixEn: ["Studios", "1 Bedroom", "1 Bedroom + Den", "2 Bedrooms", "2 Bedrooms + Den", "3 Bedrooms", "3 Bedrooms + Den", "Penthouses"],
 
   featuresEs: [
-    "Residencias terminadas y amobladas",
+    "Residencias terminadas y amuebladas",
     "Ventanas de piso a techo de 3m y terrazas privadas",
     "Cocinas con ebanistería italiana y electrodomésticos premium",
     "Baños con acabados de lujo y mármol turco",

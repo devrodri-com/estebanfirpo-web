@@ -19,7 +19,7 @@ export const p7200Collins: Project = {
 
   highlights: [
     "Frente al mar, propiedad flexible (STR)",
-    "222 unidades amobladas por Adriana Hoyos",
+    "222 unidades amuebladas por Adriana Hoyos",
     "Arquitectura de Revuelta, fachada curva con balcones de vidrio y vistas abiertas",
     "Más de 3 niveles de amenidades: rooftop con piscina, lounge y cine al aire libre",
     "Club de playa privado con sillas y sombrillas",
@@ -84,7 +84,7 @@ export const p7200Collins: Project = {
   faqsEs: [
     { q: "¿Se permiten rentas cortas?", a: "Sí. Propiedad flexible con STR-friendly (sin restricciones de renta)." },
     { q: "¿Incluye club de playa?", a: "Sí. Acceso con sillas y sombrillas para residentes e invitados." },
-    { q: "¿Las residencias vienen amobladas?", a: "Sí. Unidades completamente amobladas por Adriana Hoyos Design Studio." }
+    { q: "¿Las residencias vienen amuebladas?", a: "Sí. Unidades completamente amuebladas por Adriana Hoyos Design Studio." }
   ],
   faqsEn: [
     { q: "Are short‑term rentals allowed?", a: "Yes. Flexible ownership (STR-friendly / no restrictions)." },

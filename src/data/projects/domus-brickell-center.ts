@@ -17,7 +17,7 @@ export const pDomusBrickellCenter: Project = {
 
   microClaimsEs: [
     "Modelo flexible de renta (Airbnb/Booking/Hyatt/Marriott)",
-    "579 FLATS amoblados (Estudio, 1 y 2BR)",
+    "579 FLATS amueblados (Estudio, 1 y 2BR)",
     "35 pisos · ≈1,900 m² de amenities"
   ],
   microClaimsEn: [
@@ -43,7 +43,7 @@ export const pDomusBrickellCenter: Project = {
   unitMixEn: ["Studios", "1 Bedroom", "2 Bedrooms"],
 
   featuresEs: [
-    "FLATS terminados y amoblados (hard flooring en toda la unidad)",
+    "FLATS terminados y amueblados (hard flooring en toda la unidad)",
     "Balcón privado en todas las unidades",
     "Cerradura inteligente sin llave (smart lock)",
     "Cocina con paquete de electrodomésticos premium",
@@ -76,7 +76,7 @@ export const pDomusBrickellCenter: Project = {
 
   faqsEs: [
     { q: "¿Se permiten alquileres de corto plazo?", a: "Sí. Modelo flexible con integración a Airbnb, Booking y alianzas con Hyatt/Marriott." },
-    { q: "¿Las unidades se entregan amobladas?", a: "Sí. FLATS terminados y amoblados listos para rentar/usar." },
+    { q: "¿Las unidades se entregan amuebladas?", a: "Sí. FLATS terminados y amueblados listos para rentar/usar." },
     { q: "¿Dónde está ubicado?", a: "1034 SW 2nd Ave, en el corazón de Brickell, a metros de Metrorail/Metromover y Brickell City Centre." },
     { q: "¿Cuál es el precio de entrada?", a: "Desde USD 470,000 (estudios)." },
     { q: "¿Qué amenities principales incluye?", a: "Rooftop con piscina y lounge, wellness deck (yoga, spa, gimnasio), restaurante en lobby y business lounge." },

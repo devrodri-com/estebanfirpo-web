@@ -25,7 +25,7 @@ export const pPalma: Project = {
   ],
 
   microClaimsEs: [
-    "Residencias terminadas y amobladas",
+    "Residencias terminadas y amuebladas",
     "Sin restricción de alquiler mínimo (STR)",
     "Boutique a pasos de la playa"
   ],
@@ -109,7 +109,7 @@ export const pPalma: Project = {
 
   faqsEs: [
     { q: "¿Renta mínima?", a: "Sin restricción de alquiler mínimo; STR permitidos (según normativa local de Certificado de Uso)." },
-    { q: "¿Amoblamiento?", a: "Sí, residencias completamente terminadas y amobladas." },
+    { q: "¿Amoblamiento?", a: "Sí, residencias completamente terminadas y amuebladas." },
     { q: "¿Cantidad de unidades y pisos?", a: "126 residencias en 14 pisos." },
     { q: "¿Entrega?", a: "2026 (estimada)." },
     { q: "¿Plan de depósitos?", a: "10% reserva · 10% contrato · 10% inicio de obra · 10% nivel de piscina · 10% top‑off · 50% cierre (financiación disponible para extranjeros)." }

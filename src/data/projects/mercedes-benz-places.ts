@@ -45,7 +45,7 @@ export const pMercedesBenzPlaces: Project = {
   unitMixEn: ["Studios", "1 Bedroom", "1 Bedroom + Den", "2 Bedrooms", "2 Bedrooms + Den", "3 Bedrooms", "3 Bedrooms + Den"],
 
   featuresEs: [
-    "Residencias amobladas y terminadas con diseño Mercedes-Benz",
+    "Residencias amuebladas y terminadas con diseño Mercedes-Benz",
     "Ventanas de piso a techo de ≈3 m y terrazas de ≈1.5 m de profundidad",
     "Cocinas personalizadas con electrodomésticos Miele",
     "Baños con piedra natural, griferías en acabado oro rosado y sanitarios Duravit",

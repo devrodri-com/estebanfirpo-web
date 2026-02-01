@@ -32,7 +32,7 @@ export const pNomad: Project = {
 
   // Micro‑claims
   microClaimsEs: [
-    "Residencias amobladas y curadas por NoMad & DesignAgency",
+    "Residencias amuebladas y curadas por NoMad & DesignAgency",
     "Airbnb‑friendly (sin restricciones de alquiler)"
   ],
   microClaimsEn: [
@@ -94,7 +94,7 @@ export const pNomad: Project = {
     { q: "¿Precios desde?", a: "Studios desde la franja media de ~US$600.000; 2 dormitorios cerca de ~US$1.0M (sujeto a inventario)." },
     { q: "¿Entrega?", a: "Q4 2025 (estructura ‘topped off’ en oct‑2024; obra en acabados)." },
     { q: "¿Política de rentas?", a: "Sin restricciones; alquiler diario (Airbnb) permitido. Requiere CU de Miami, licencia DBPR e impuestos turísticos." },
-    { q: "¿Amoblamiento?", a: "Sí, residencias completamente amobladas y curadas por NoMad & DesignAgency (turn‑key)." },
+    { q: "¿Amoblamiento?", a: "Sí, residencias completamente amuebladas y curadas por NoMad & DesignAgency (turn‑key)." },
     { q: "¿Plan de depósitos?", a: "20% contrato · 10% a 60 días · 70% cierre (plan vigente)." }
   ],
   faqsEn: [

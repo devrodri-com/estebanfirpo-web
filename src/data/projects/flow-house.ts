@@ -16,7 +16,7 @@ export const pFlowHouse: Project = {
   microClaimsEs: [
     "Miami Worldcenter",
     "41 pisos · 466 residencias",
-    "Residencias amobladas"
+    "Residencias amuebladas"
   ],
   microClaimsEn: [
     "Miami Worldcenter",
@@ -28,7 +28,7 @@ export const pFlowHouse: Project = {
     "Amenidades ≈4,300 m² (wellness & cowork)",
     "Piscina semi‑olímpica de ≈38 m con day beds y cabañas",
     "Coworking con oficinas privadas, salas de reunión y podcast room",
-    "Residencias terminadas y amobladas con lavadora/secadora",
+    "Residencias terminadas y amuebladas con lavadora/secadora",
     "Ubicado en el corazón de Miami Worldcenter",
     "Leaseback 6% neto por 2 años (promoción limitada)",
   ],
@@ -45,7 +45,7 @@ export const pFlowHouse: Project = {
   unitMixEn: ["Studio", "Jr 1 Bedroom", "1 Bedroom", "2 Bedrooms"],
 
   featuresEs: [
-    "Residencias terminadas y amobladas",
+    "Residencias terminadas y amuebladas",
     "Paquetes de iluminación personalizados",
     "Balcón privado en unidades selectas",
     "Gabinetes estilo europeo",
@@ -86,9 +86,9 @@ export const pFlowHouse: Project = {
     { q: "¿Qué amenities tiene?", a: "Coworking, gimnasio 24/7, yoga, baños de agua fría, sauna, cafetería, salones sociales y más." },
     { q: "¿Cómo es el plan de pago?", a: "10% al firmar, 10% en 30 días, 10% en 60 días y 70% al cierre (con financiación para extranjeros). Entrega estimada Noviembre/Diciembre 2025." },
     { q: "¿Se puede alquilar?", a: "Sí. Alquiler mínimo: 30 días. Además, hay opción de leaseback por 2 años." },
-    { q: "¿Incluye muebles?", a: "Sí. Todas las residencias se entregan terminadas y amobladas." },
+    { q: "¿Incluye muebles?", a: "Sí. Todas las residencias se entregan terminadas y amuebladas." },
     { q: "¿Hay estacionamiento?", a: "Sí. Estacionamiento disponible para alquilar." },
-    { q: "¿Inventario y pisos?", a: "Torre de 41 pisos con 466 residencias (studios, Jr 1D, 1D y 2D), todas completamente amobladas." },
+    { q: "¿Inventario y pisos?", a: "Torre de 41 pisos con 466 residencias (studios, Jr 1D, 1D y 2D), todas completamente amuebladas." },
     { q: "¿Precios de referencia?", a: "Estudios desde ~US$450k (reciente ~US$490-520k); 1D ~US$600k; 2D desde ~US$820k (según sala de ventas)." },
     { q: "¿Impuesto a la propiedad?", a: "Aprox. 2.1% anual del valor tasado en Downtown Miami (ej.: US$500k ⇒ ~US$10.5k/año)." },
     { q: "¿Leaseback 6%?", a: "Programa de renta garantizada por 2 años al 6% neto anual; cubre HOA e impuestos y 0% fee de gestión (pedir términos oficiales a ventas)." }

@@ -30,7 +30,7 @@ export const pParkside: Project = {
 
   microClaimsEs: [
     "VISA de Inversionista (EB‑5)",
-    "Residencias terminadas y amobladas",
+    "Residencias terminadas y amuebladas",
     "STR sin restricciones con gestión in‑house",
     "Boutique en el corazón de Brickell"
   ],
@@ -71,7 +71,7 @@ export const pParkside: Project = {
 
   featuresEs: [
     "Ventanales piso‑techo resistentes al impacto",
-    "Unidades completamente amobladas",
+    "Unidades completamente amuebladas",
     "Encimeras de mármol y electrodomésticos de acero inoxidable",
     "Gabinetes italianos y diseño de iluminación personalizado",
     "Baños con duchas de vidrio sin marco",
@@ -112,7 +112,7 @@ export const pParkside: Project = {
     { q: "¿Precio desde?", a: "Estudios desde ~US$500.000; 1BR desde ~US$700.000; 2BR desde ~US$900.000." },
     { q: "¿Hay leaseback?", a: "Sí, programa de leaseback con retorno del 10%." },
     { q: "¿Política de alquiler?", a: "Sin restricciones; STR permitidos con gestión hotelera en el edificio." },
-    { q: "¿Amoblamiento?", a: "Residencias entregadas completamente terminadas y amobladas." }
+    { q: "¿Amoblamiento?", a: "Residencias entregadas completamente terminadas y amuebladas." }
   ],
   faqsEn: [
     { q: "EB‑5 visa?", a: "Yes. Parkside Brickell offers an EB‑5 option via a Regional Center, with a path to the Green Card subject to USCIS approval." },

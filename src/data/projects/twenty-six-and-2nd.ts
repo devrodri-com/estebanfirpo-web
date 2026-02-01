@@ -42,7 +42,7 @@ export const pTwentySixAndSecond: Project = {
   unitMixEs: ["Studio", "Junior Suite", "Junior Suite + Den", "1 Dormitorio", "1 Dormitorio + Den"],
   unitMixEn: ["Studio", "Junior Suite", "Junior Suite + Den", "1 Bedroom", "1 Bedroom + Den"],
   featuresEs: [
-    "Residencias completamente terminadas y amobladas",
+    "Residencias completamente terminadas y amuebladas",
     "Cocinas con paquete de electrodomésticos de alta gama (microondas, lavavajillas, horno empotrado y refrigerador)",
     "Mobiliario italiano de baño por Italkraft y griferías WaterWorks",
     "Lavadora y secadora en cada residencia",

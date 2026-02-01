@@ -85,7 +85,7 @@ export const pDomusBrickellPark: Project = {
     { q: "¿Qué incluye el lobby?", a: "Cafetería/panadería, wine & beer bar, mercado artesanal y Peacock Room." },
     { q: "¿Qué amenidades hay en rooftop?", a: "Piscina, cabañas, jacuzzi y áreas sociales con vistas." },
     { q: "¿Cuál es el plan de pagos?", a: "20% al contrato, 10% a los 6 meses, 70% al cierre (financiación disponible para extranjeros)." },
-    { q: "¿Hay opciones amobladas?", a: "Sí, todas las unidades incluyen paquetes de amueblamiento completos." },
+    { q: "¿Hay opciones amuebladas?", a: "Sí, todas las unidades incluyen paquetes de amueblamiento completos." },
     { q: "¿Cuándo está prevista la entrega?", a: "Estimada para 2026." }
   ],
   faqsEn: [

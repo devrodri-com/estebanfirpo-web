@@ -18,7 +18,7 @@ export const pNexo: Project = {
   microClaimsEs: [
     "VISA de Inversionista (EB‑5)",
     "Alquiler flexible (sin restricciones)",
-    "Residencias amobladas",
+    "Residencias amuebladas",
     "Sobre Biscayne Blvd"
   ],
   microClaimsEn: [
@@ -35,7 +35,7 @@ export const pNexo: Project = {
     "Tech Center de dos niveles con coworking, salas y café",
     "Piscina estilo resort, cine al aire libre, fire pits y summer kitchens",
     "Rooftop observatory con vistas 360° y BBQ",
-    "Residencias terminadas y amobladas; ventanas piso‑techo y balcones",
+    "Residencias terminadas y amuebladas; ventanas piso‑techo y balcones",
   ],
   highlightsEn: [
     "EB‑5 Investor Visa: path to Green Card (via Regional Center)",
@@ -51,7 +51,7 @@ export const pNexo: Project = {
   unitMixEn: ["Studio", "1 Bedroom", "1 Bedroom + Den", "2 Bedrooms", "2 Bedrooms + Den", "3 Bedrooms", "3 Bedrooms + Den", "3‑4BR Townhomes"],
 
   featuresEs: [
-    "Residencias completamente terminadas y amobladas",
+    "Residencias completamente terminadas y amuebladas",
     "Cocinas europeas, encimeras de cuarzo y electrodomésticos premium",
     "Baños con losas texturizadas y accesorios negro mate",
     "Lavadora y secadora en cada unidad",
@@ -93,7 +93,7 @@ export const pNexo: Project = {
   faqsEs: [
     { q: "¿Visa EB‑5?", a: "Sí. Elegible vía Centro Regional; inversión mínima US$800.000 y tarifa administrativa ~US$70.000; camino a la Green Card sujeto a aprobación de USCIS." },
     { q: "¿Se permiten alquileres de corto plazo?", a: "Sí. Nexo no tiene restricciones y permite listar en Airbnb, Vrbo, Booking y otras plataformas." },
-    { q: "¿Las residencias se entregan amobladas?", a: "Sí. Todas se entregan completamente terminadas y amobladas." },
+    { q: "¿Las residencias se entregan amuebladas?", a: "Sí. Todas se entregan completamente terminadas y amuebladas." },
     { q: "¿Dónde está ubicado?", a: "13899 Biscayne Blvd, North Miami Beach; cerca de Oleta River Park, Bal Harbour Shops y Aventura Mall." },
     { q: "¿Cuáles son las amenidades principales?", a: "Tech Center de dos pisos, coworking, piscina resort, rooftop 360°, cine al aire libre, gimnasio, lounge y más." }
   ],

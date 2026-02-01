@@ -25,7 +25,7 @@ export const pRider: Project = {
   ],
 
   microClaimsEs: [
-    "Residencias terminadas y amobladas",
+    "Residencias terminadas y amuebladas",
     "Renta corta permitida con gestión interna",
     "Wynwood · Midtown · Design District"
   ],
@@ -96,7 +96,7 @@ export const pRider: Project = {
   faqsEs: [
     { q: "¿Precio desde?", a: "Desde ~US$500.000 (según material público reciente)." },
     { q: "¿Política de alquiler?", a: "Permite renta corta y larga; exige Certificado de Uso (\"Certificate of Use\") de la ciudad." },
-    { q: "¿Las residencias vienen amobladas?", a: "Sí, ‘fully furnished and finished’." },
+    { q: "¿Las residencias vienen amuebladas?", a: "Sí, ‘fully furnished and finished’." },
     { q: "¿Entrega estimada?", a: "2027." }
   ],
   faqsEn: [

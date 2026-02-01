@@ -25,7 +25,7 @@ export const pEllaMiami: Project = {
     "Rentas de corto plazo permitidas (STR friendly)",
     "A ~5 minutos a pie de la playa",
     "Cocinas ItalKraft y paquete de electrodomésticos panel‑ready",
-    "Paquetes de amoblado disponibles por Interiors by Steven G",
+    "Paquetes de amueblado disponibles por Interiors by Steven G",
   ],
   highlightsEn: [
     "Art‑Deco inspired collection in Miami Beach",
@@ -86,7 +86,7 @@ export const pEllaMiami: Project = {
   faqsEs: [
     { q: "¿Se permiten rentas cortas?", a: "Sí. El proyecto es STR‑friendly (rentas de corto plazo permitidas)." },
     { q: "¿Está cerca de la playa?", a: "Sí. Aproximadamente a 5 minutos caminando." },
-    { q: "¿Hay opciones amobladas?", a: "Sí. Paquetes completos por Interiors by Steven G." },
+    { q: "¿Hay opciones amuebladas?", a: "Sí. Paquetes completos por Interiors by Steven G." },
   ],
   faqsEn: [
     { q: "Are short‑term rentals allowed?", a: "Yes. STR‑friendly (short‑term rentals allowed)." },

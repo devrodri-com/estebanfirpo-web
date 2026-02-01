@@ -26,7 +26,7 @@ export const p72Park: Project = {
     "Piscina tipo resort de 45m con bar y cabañas",
     "Club de playa privado con servicio de toallas",
     "Coworking 24/7 y gimnasio de doble altura",
-    "Opciones amobladas disponibles",
+    "Opciones amuebladas disponibles",
     "Restaurante y lounge en 5° piso con vistas",
     "Sala de yoga y terrazas exteriores",
     "Spa para mascotas en planta baja",
@@ -84,8 +84,8 @@ export const p72Park: Project = {
       a: "Sí. Club privado con servicio de sillas y toallas a 5 min caminando.",
     },
     {
-      q: "¿Las residencias vienen amobladas?",
-      a: "Opcional. Hay paquetes de amoblado completos.",
+      q: "¿Las residencias vienen amuebladas?",
+      a: "Opcional. Hay paquetes de amueblado completos.",
     },
     {
       q: "¿Hay coworking disponible?",

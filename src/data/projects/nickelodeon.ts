@@ -32,7 +32,7 @@ export const pNickelodeon: Project = {
   microClaimsEs: [
     "A ~10 min de Disney®",
     "Entrega estimada Q2 2026",
-    "Residencias amobladas listas para rentar"
+    "Residencias amuebladas listas para rentar"
   ],
   microClaimsEn: [
     "~10 min to Disney®",
@@ -64,7 +64,7 @@ export const pNickelodeon: Project = {
 
   // features
   featuresEs: [
-    "Residencias entregadas amobladas (programa de renta disponible)",
+    "Residencias entregadas amuebladas (programa de renta disponible)",
     "Cocina equipada / kitchenette, lavadora-secadora (según tipología)",
     "Acceso completo al resort: Aqua Nick, gym 24h, club infantil, cabanas VIP"
   ],

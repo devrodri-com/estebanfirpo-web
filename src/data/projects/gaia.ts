@@ -107,7 +107,7 @@ export const pGaiaResidences: Project = {
     { q: "Equipo?", a: "Desarrollador: Alta Developers · Arquitectura: CFE Architects · Interiores: ID & Design International · Sales & Marketing: Fortune International Group." },
     { q: "¿Fecha de entrega?", a: "Entrega estimada 2028 (sujeto a permisos y cronograma de obra)." },
     { q: "¿Política de alquileres?", a: "Alquiler flexible: se permiten estadías cortas, incluso diarias." },
-    { q: "¿Se puede comprar amoblado?", a: "Hay paquetes de mobiliario a medida disponibles (opcional)." }
+    { q: "¿Se puede comprar amueblado?", a: "Hay paquetes de mobiliario a medida disponibles (opcional)." }
   ],
   faqsEn: [
     { q: "Project address?", a: "401 N Federal Hwy, Hollywood, FL 33020." },

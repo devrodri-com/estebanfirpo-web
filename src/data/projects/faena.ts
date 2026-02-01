@@ -94,7 +94,7 @@ export const pFaena: Project = {
 
   faqsEs: [
     { q: "¿Dónde está el proyecto?", a: "A orillas del Miami River, con ≈100 m de frente de río." },
-    { q: "¿Las residencias vienen amobladas?", a: "Se entregan terminadas (acabados de lujo); amoblamiento no especificado en los materiales." },
+    { q: "¿Las residencias vienen amuebladas?", a: "Se entregan terminadas (acabados de lujo); amoblamiento no especificado en los materiales." },
     { q: "¿Precio desde?", a: "1 dormitorio desde USD 1.3M (según lista vigente)." },
     { q: "¿Cómo es el plan de depósitos?", a: "5% contrato; 5% a 45 días; 10% a 120 días; 10% al inicio de obra; 10% a 12 meses; 10% al colado de la losa más alta; 50% al cierre." },
     { q: "¿Qué incluye el Sky Bridge?", a: "Club social y cultural con The Pistil, Library Lounge, teatro, suites de huéspedes, wellness y piscina Faena Beach." },
