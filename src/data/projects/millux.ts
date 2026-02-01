@@ -6,7 +6,7 @@ export const pMillux: Project = {
   name: "Millux Place Brickell",
   city: "Brickell, Miami",
   // STR-friendly con detalle multilenguaje
-  rentalPolicyEs: "Lodging: 1 noche-6 meses. (<6 meses)",
+  rentalPolicyEs: "1 noche-6 meses. (<6 meses)",
   rentalPolicyEn: "Lodging: nightly-6 months. (<6 months)",
   furnished: true,
   priceFromUsd: 468000, // estudios desde ~US$468k
