@@ -5,7 +5,9 @@ export const pDomusBrickellCenter: Project = {
   id: "domus-brickell-center",
   name: "Domus Brickell Center",
   city: "Brickell",
-  rentalPolicy: "No restr.",
+  rentalPolicy: "Sin restricciones", // legacy fallback
+  rentalPolicyEs: "Sin restricciones",
+  rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 470000,
   delivery: "2027",
