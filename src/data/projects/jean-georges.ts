@@ -10,13 +10,12 @@ export const pJeanGeorges: Project = {
   // Pricing & basics
   priceFromUsd: 1100000, // 1BR desde ~US$1.1M (2025)
   delivery: "2028", // ventana fin‑2027 / 2028
-  furnished: false, // terminadas de lujo; no amuebladas
 
   // STR policy (marketing indica flexibilidad; sujeto a normativa local)
   rentalPolicyEs:
-    "Renta corta permitida (Airbnb‑friendly) sin estadía mínima fija; requiere Certificado de Uso (\"Certificate of Use\") y licencias locales",
+    "Renta corta permitida (Airbnb‑friendly).",
   rentalPolicyEn:
-    "Short‑term rentals allowed (Airbnb‑friendly) with no fixed minimum stay; City Certificate of Use and permits required",
+    "Short‑term rentals allowed (Airbnb‑friendly).",
 
   image: "https://ik.imagekit.io/devrodri/Jean%20Georges/1.jpg",
   images: [
@@ -33,11 +32,11 @@ export const pJeanGeorges: Project = {
   // Micro claims
   microClaimsEs: [
     "Residencias de lujo con la firma culinaria de Jean‑Georges",
-    "Airbnb‑friendly (sujeto a CU y permisos)"
+    "Airbnb‑friendly"
   ],
   microClaimsEn: [
     "Luxury residences curated by Chef Jean‑Georges",
-    "Airbnb‑friendly (subject to CU & permits)"
+    "Airbnb‑friendly"
   ],
 
   // Highlights
@@ -96,14 +95,14 @@ export const pJeanGeorges: Project = {
   faqsEs: [
     { q: "¿Precios desde?", a: "1 dormitorio desde ~US$1.1M; 2 dorm ~US$2.2M; 3 dorm ~US$3.3M; 4 dorm ~US$4.9M (según inventario)." },
     { q: "¿Plan de pagos?", a: "20% firma · 10% groundbreaking · 10% top‑off · 60% cierre." },
-    { q: "¿Política de rentas?", a: "Renta corta permitida (sin mínimo fijo). Requiere Certificate of Use y licencias de renta corta de la Ciudad de Miami." },
+    { q: "¿Política de rentas?", a: "Renta corta permitida (sin mínimo fijo). " },
     { q: "¿Amoblamiento?", a: "Unidades terminadas de lujo; no incluyen muebles. Paquetes opcionales disponibles." },
     { q: "¿Entrega?", a: "Estimado fin‑2027 / 2028 (construcción desde 2025)." }
   ],
   faqsEn: [
     { q: "Starting prices?", a: "1‑bed from ~$1.1M; 2‑bed ~$2.2M; 3‑bed ~$3.3M; 4‑bed ~$4.9M (subject to availability)." },
     { q: "Deposit schedule?", a: "20% at contract · 10% at groundbreaking · 10% at top‑off · 60% at closing." },
-    { q: "Rental policy?", a: "Short‑term rentals allowed (no fixed minimum). City Certificate of Use and short‑term rental permits required." },
+    { q: "Rental policy?", a: "Short‑term rentals allowed (no fixed minimum)." },
     { q: "Furnishing?", a: "Delivered fully finished; furniture not included. Optional furniture packages available." },
     { q: "Completion?", a: "Estimated late‑2027 / early‑2028 (construction commencing 2025)." }
   ]

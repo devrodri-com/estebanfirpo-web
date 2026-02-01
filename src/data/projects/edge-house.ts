@@ -5,7 +5,9 @@ export const pEdgeHouse: Project = {
   id: "edge-house",
   name: "Edge House Miami",
   city: "1837 NE 4th Ave, Miami, FL 33132",
-  rentalPolicy: "No restr.",
+  rentalPolicy: "Sin restricciones", // legacy fallback
+  rentalPolicyEs: "Sin restricciones",
+  rentalPolicyEn: "No rental restrictions",
   furnished: true,
   priceFromUsd: 500000,
   delivery: "2028",
