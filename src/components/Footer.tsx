@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { Mail, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
@@ -50,32 +51,46 @@ export default function Footer() {
               </div>
             </div>
 
-            <ul className="text-sm space-y-1">
-              <li>
-                <a
-                  href="mailto:esteban@miamiliferealty.com"
-                  className="hover:opacity-90"
-                  style={{ color: SAND }}
-                >
-                  esteban@miamiliferealty.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/17542673931"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-90"
-                  style={{ color: SAND }}
-                  aria-label={isEN ? "WhatsApp" : "WhatsApp"}
-                >
-                  {isEN ? "+1 (754) 267‑3931 · WhatsApp" : "+1 (754) 267‑3931 · WhatsApp"}
-                </a>
-              </li>
-              <li className="opacity-90">
-                Miami Life Realty · 2320 Hollywood Blvd, Hollywood, FL 33020
-              </li>
-            </ul>
+            <div className="mt-2 ml-[60px] flex items-center gap-2">
+              <a
+                href="mailto:esteban@miamiliferealty.com"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-transparent transition hover:bg-white/10 focus-visible:bg-white/10"
+                style={{ color: SAND }}
+                aria-label={isEN ? "Email" : "Email"}
+              >
+                <Mail className="h-4.5 w-4.5" aria-hidden />
+              </a>
+
+              <a
+                href="tel:+17542673931"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-transparent transition hover:bg-white/10 focus-visible:bg-white/10"
+                style={{ color: SAND }}
+                aria-label={isEN ? "Call" : "Llamar"}
+              >
+                <Phone className="h-4.5 w-4.5" aria-hidden />
+              </a>
+
+              <a
+                href="https://wa.me/17542673931"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-transparent transition hover:bg-white/10 focus-visible:bg-white/10"
+                style={{ color: SAND }}
+                aria-label="WhatsApp"
+              >
+                <Image
+                  src="/icons/whatsapp.svg"
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="brightness-0 invert opacity-90"
+                  aria-hidden
+                />
+              </a>
+            </div>
+            <p className="mt-2 text-sm opacity-90">
+              Miami Life Realty · 2320 Hollywood Blvd, Hollywood, FL 33020
+            </p>
 
             {/* Logo broker */}
             <div className="pt-3">
@@ -92,7 +107,9 @@ export default function Footer() {
 
           {/* Enlaces útiles */}
           <div className="space-y-3">
-            <p className="text-sm font-medium">{isEN ? "Links" : "Enlaces"}</p>
+            <h4 className="text-xs font-semibold uppercase tracking-wider opacity-80">
+              {isEN ? "Links" : "Enlaces"}
+            </h4>
             <ul className="text-sm space-y-2">
               <li>
                 <Link href={`/${locale}/proyectos`} className="hover:opacity-90" style={{ color: SAND }}>
@@ -122,6 +139,11 @@ export default function Footer() {
               <li>
                 <Link href={`/${locale}/sobre-mi`} className="hover:opacity-90" style={{ color: SAND }}>
                   {isEN ? "About" : "Sobre mí"}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/contacto`} className="hover:opacity-90" style={{ color: SAND }}>
+                  {isEN ? "Contact" : "Contacto"}
                 </Link>
               </li>
             </ul>
