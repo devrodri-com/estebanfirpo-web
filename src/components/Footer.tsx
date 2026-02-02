@@ -136,8 +136,8 @@ export default function Footer() {
             {/* Desktop: una sola línea */}
             <p className="opacity-90 hidden sm:block text-center">
               {isEN
-                ? <>© {year} Esteban Firpo. All rights reserved. · Made with <span aria-hidden>💻</span> by{" "}</>
-                : <>© {year} Esteban Firpo. Todos los derechos reservados. · Hecho con <span aria-hidden>💻</span> por{" "}</>
+                ? <>© {year} Esteban Firpo. All rights reserved. · Made with <span aria-hidden>Next.js</span> by{" "}</>
+                : <>© {year} Esteban Firpo. Todos los derechos reservados. · Hecho con <span aria-hidden>Next.js</span> por{" "}</>
               }
               <a
                 href="https://www.devrodri.com"
@@ -157,7 +157,7 @@ export default function Footer() {
                   : `© ${year} Esteban Firpo. Todos los derechos reservados.`}
               </p>
               <p className="opacity-90">
-                {isEN ? "Made with 💻 by " : "Hecho con 💻 por "}
+                {isEN ? "Made with Next.js by " : "Hecho con Next.js por "}
                 <a
                   href="https://www.devrodri.com"
                   target="_blank"
