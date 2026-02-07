@@ -601,6 +601,7 @@ export default async function Proyecto({ params }: Params) {
         title={t.payments}
         steps={payment.map((label: string) => ({ label }))}
         project={p.name}
+        locale={locale === "en" ? "en" : "es"}
         className="mt-8"
       />
 

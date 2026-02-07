@@ -7,6 +7,11 @@ type PaymentStep = {
   id?: string; // opcional para keys estables y analytics
 };
 
+const DISCLAIMER_ES =
+  "Los planes de pago pueden modificarse sin previo aviso. Consulte su contrato de compraventa para conocer los requisitos exactos de depósito.";
+const DISCLAIMER_EN =
+  "Deposit schedules are subject to change without notice. Please refer to your purchase agreement for exact deposit requirements.";
+
 type PaymentPlanProps = {
   steps: PaymentStep[];
   id?: string;
@@ -14,6 +19,8 @@ type PaymentPlanProps = {
   className?: string;
   headingLevel?: "h2" | "h3" | "h4";
   project?: string;
+  /** Locale para el disclaimer legal (es | en) */
+  locale?: "es" | "en";
   /** Negrita del primer token del label (por defecto true) */
   emphasizeFirstToken?: boolean;
   /** Variante visual del badge numerado */
@@ -27,6 +34,7 @@ const PaymentPlan: React.FC<PaymentPlanProps> = ({
   className = "",
   headingLevel = "h3",
   project = "",
+  locale = "es",
   emphasizeFirstToken = true,
   variant = "filled",
 }) => {
@@ -92,6 +100,11 @@ const PaymentPlan: React.FC<PaymentPlanProps> = ({
           );
         })}
       </ol>
+      {steps.length > 0 ? (
+        <p className="mt-4 text-[12px] leading-[18px] text-white/60">
+          {locale === "en" ? DISCLAIMER_EN : DISCLAIMER_ES}
+        </p>
+      ) : null}
     </section>
   );
 };
