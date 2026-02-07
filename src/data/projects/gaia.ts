@@ -25,6 +25,23 @@ export const pGaiaResidences: Project = {
   rentalPolicyEs: "Alquiler flexible: se permiten estadías cortas, incluso diarias.",
   rentalPolicyEn: "Flexible rentals: short stays allowed, including daily.",
 
+  paymentPlanEs: [
+    "5% al hacer la reserva (reservation).",
+    "5% a los 45 días de la reserva.",
+    "10% al firmar el contrato.",
+    "10% al inicio de obra (groundbreaking).",
+    "10% al top-off (estructura).",
+    "60% saldo al cierre."
+  ],
+  paymentPlanEn: [
+    "5% at reservation.",
+    "5% 45 days after reservation.",
+    "10% at contract.",
+    "10% at groundbreaking.",
+    "10% at top-off.",
+    "60% balance due at closing."
+  ],
+
   // microclaims
   microClaimsEs: [
     "18 pisos · 238 residencias",
@@ -104,7 +121,7 @@ export const pGaiaResidences: Project = {
     { q: "¿Amenidades principales?", a: "Rooftop pool + jacuzzi, Health Club, Aura Spa (steam/sauna/plunge), sky lounge, co-working con zoom pods, terrazas exteriores y BBQ stations." },
     { q: "¿Qué incluye la membresía?", a: "Espacio de playa privado con sombrillas y lounge seating + membresía al Hollywood Beach Golf Club." },
     { q: "¿Qué tan cerca está de lo más importante?", a: "Hollywood Beach Golf Club ~1 km · Arts Park at Young Circle ~0.8 km · Hollywood Marina ~2.7 km · Aventura Mall ~7 km." },
-    { q: "Equipo?", a: "Desarrollador: Alta Developers · Arquitectura: CFE Architects · Interiores: ID & Design International · Sales & Marketing: Fortune International Group." },
+    { q: "¿Quiénes están detrás del proyecto?", a: "Desarrollador: Alta Developers · Arquitectura: CFE Architects · Interiores: ID & Design International · Sales & Marketing: Fortune International Group." },
     { q: "¿Fecha de entrega?", a: "Entrega estimada 2028 (sujeto a permisos y cronograma de obra)." },
     { q: "¿Política de alquileres?", a: "Alquiler flexible: se permiten estadías cortas, incluso diarias." },
     { q: "¿Se puede comprar amueblado?", a: "Hay paquetes de mobiliario a medida disponibles (opcional)." }
@@ -117,7 +134,7 @@ export const pGaiaResidences: Project = {
     { q: "Top amenities?", a: "Rooftop pool + jacuzzi, Health Club, Aura Spa (steam/sauna/plunge), sky lounge, co-working with zoom pods, outdoor terraces and BBQ stations." },
     { q: "What’s included in the memberships?", a: "Private beach space with umbrellas and lounge seating + membership at the Hollywood Beach Golf Club." },
     { q: "How close is everything?", a: "Hollywood Beach Golf Club ~0.6 mi · Arts Park at Young Circle ~0.5 mi · Hollywood Marina ~1.7 mi · Aventura Mall ~4.5 mi." },
-    { q: "Team?", a: "Developer: Alta Developers · Architecture: CFE Architects · Interiors: ID & Design International · Sales & Marketing: Fortune International Group." },
+    { q: "Who’s behind the project?", a: "Developer: Alta Developers · Architecture: CFE Architects · Interiors: ID & Design International · Sales & Marketing: Fortune International Group." },
     { q: "Completion date?", a: "Estimated completion 2028 (subject to permits and construction timeline)." },
     { q: "Rental policy?", a: "Flexible rentals: short stays allowed, including daily." },
     { q: "Can units be purchased furnished?", a: "Bespoke custom furniture packages are available (optional)." }
