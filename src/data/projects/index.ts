@@ -38,6 +38,7 @@ import { pNickelodeon } from "./nickelodeon";
 import { pAmbarOrlando } from "./ambar-orlando";
 import { pFridaKahlo } from "./frida-kahlo";
 import { pViceroyBrickellResidences } from "./viceroy-brickell-residences";
+import { pTheStandardBrickell } from "./the-standard-brickell";
 
 // helper: upsert por id (o alias) preservando el orden base
 function upsertMany(base: Project[], items: Project[]): Project[] {
@@ -53,6 +54,6 @@ function upsertMany(base: Project[], items: Project[]): Project[] {
   return [...extras, ...known];
 }
 
-const INCOMING: Project[] = [p72Park, pEllaMiami, pElleResidences, p7200Collins, pDomusBrickellPark, pBaccarat, pCipriani, pTwentySixAndSecond, pFlowHouse, pNexo, pOneParkTower, p2200Brickell, pEdgeHouse, pDomusBrickellCenter, pMercedesBenzPlaces, pOkanTower, pAveMaria, pOasis, pFaena, pRider, pParkside, pPalma, pMilleniaPark, pMillux, pJeanGeorges, pCassia, pNomad, pSevenPark, pTheWilliam, pTheLauderdale, pGaiaResidences, pMidtownPark, pNickelodeon, pAmbarOrlando, pFridaKahlo, pViceroyBrickellResidences];
+const INCOMING: Project[] = [p72Park, pEllaMiami, pElleResidences, p7200Collins, pDomusBrickellPark, pBaccarat, pCipriani, pTwentySixAndSecond, pFlowHouse, pNexo, pOneParkTower, p2200Brickell, pEdgeHouse, pDomusBrickellCenter, pMercedesBenzPlaces, pOkanTower, pAveMaria, pOasis, pFaena, pRider, pParkside, pPalma, pMilleniaPark, pMillux, pJeanGeorges, pCassia, pNomad, pSevenPark, pTheWilliam, pTheLauderdale, pGaiaResidences, pMidtownPark, pNickelodeon, pAmbarOrlando, pFridaKahlo, pViceroyBrickellResidences, pTheStandardBrickell];
 export const FEATURED_PROJECTS: Project[] = upsertMany(BASE_FEAT, INCOMING);
 export const ALL_PROJECTS: Project[] = upsertMany(BASE_ALL, INCOMING);
