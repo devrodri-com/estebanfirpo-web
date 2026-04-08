@@ -55,5 +55,12 @@ function upsertMany(base: Project[], items: Project[]): Project[] {
 }
 
 const INCOMING: Project[] = [p72Park, pEllaMiami, pElleResidences, p7200Collins, pDomusBrickellPark, pBaccarat, pCipriani, pTwentySixAndSecond, pFlowHouse, pNexo, pOneParkTower, p2200Brickell, pEdgeHouse, pDomusBrickellCenter, pMercedesBenzPlaces, pOkanTower, pAveMaria, pOasis, pFaena, pRider, pParkside, pPalma, pMilleniaPark, pMillux, pJeanGeorges, pCassia, pNomad, pSevenPark, pTheWilliam, pTheLauderdale, pGaiaResidences, pMidtownPark, pNickelodeon, pAmbarOrlando, pFridaKahlo, pViceroyBrickellResidences, pTheStandardBrickell];
-export const FEATURED_PROJECTS: Project[] = upsertMany(BASE_FEAT, INCOMING);
-export const ALL_PROJECTS: Project[] = upsertMany(BASE_ALL, INCOMING);
+// TEMPORARY: hidden from public site pending legal review
+const HIDDEN_IDS = new Set<Project["id"]>(["mercedes-benz-places"]);
+
+export const FEATURED_PROJECTS: Project[] = upsertMany(BASE_FEAT, INCOMING).filter(
+  (p) => !HIDDEN_IDS.has(p.id),
+);
+export const ALL_PROJECTS: Project[] = upsertMany(BASE_ALL, INCOMING).filter(
+  (p) => !HIDDEN_IDS.has(p.id),
+);
