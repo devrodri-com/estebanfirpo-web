@@ -4,8 +4,6 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Rate limit in-memory map
 // NOTE: This is a best-effort solution for serverless environments.
 // The rate limit state can be reset between function invocations in serverless deployments.
@@ -117,6 +115,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
     }
 
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const leadsTo = process.env.LEADS_TO;
+
+    if (!resendApiKey || !leadsTo) {
+      return NextResponse.json({ ok: false, error: "Email service is not configured" }, { status: 500 });
+    }
+
+    const resend = new Resend(resendApiKey);
+
     const phoneDisplay = telefonoE164 || 'N/A';
     const countryDisplay = country || 'INTL';
 
@@ -139,7 +146,7 @@ export async function POST(req: Request) {
 
     const { error } = await resend.emails.send({
       from: "Leads Esteban <leads@estebanfirpo.com>",
-      to: process.env.LEADS_TO!,
+      to: leadsTo,
             replyTo: email,
       subject: `Nuevo lead: ${nombre}`,
       text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${phoneDisplay} (${countryDisplay})\nMensaje:\n${mensaje}${trackingSection}`,
