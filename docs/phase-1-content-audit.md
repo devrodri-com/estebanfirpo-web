@@ -12,19 +12,21 @@ El foco comercial ya confirmado para la próxima etapa es **preconstrucción en 
 
 1. **Conservar:** el propósito, la información o la función son útiles. Puede requerir edición menor.
 2. **Reescribir:** el tema es pertinente, pero el mensaje, jerarquía, tono o precisión deben cambiar.
-3. **Validar:** no debe reafirmarse ni destacarse hasta contar con fuente, fecha, responsable y aprobación.
+3. **Validar:** no debe reafirmarse ni destacarse hasta contar con fuente identificada, fecha, responsable, aprobación editorial y plazo de vigencia.
 4. **Retirar de navegación:** mantener la URL por ahora, pero dejar de promoverla en navegación principal o secundaria.
 5. **Eliminar posteriormente:** retirar contenido redundante, engañoso, vencido o contrario al foco una vez autorizada su edición.
 6. **Contenido faltante:** información necesaria que hoy no existe o no es suficiente.
 
 Las categorías no son excluyentes. Por ejemplo, puede conservarse el propósito de una página y, a la vez, reescribir y validar todo su contenido.
 
+En las recomendaciones de comunicación pública se prefiere **“información revisada, fechada y sujeta a reconfirmación”**. El término **“Validado”** se reserva a registros con fuente identificada, fecha, responsable, aprobación editorial y plazo de vigencia documentados.
+
 ## Resumen ejecutivo
 
 - El sitio tiene una estructura bilingüe completa y un recorrido funcional desde contenido educativo hacia proyectos y contacto.
 - La propuesta personal de Esteban aparece, pero el catálogo y numerosos argumentos cuantitativos dominan la experiencia. Esto hace que el sitio se perciba más como inventario que como proceso de asesoramiento.
 - Los mayores riesgos editoriales están en Home, Preconstrucción, Miami, Financiación, Storages y las fichas: incluyen cifras, rendimientos, condiciones, disponibilidad implícita y credenciales sin evidencia documental asociada en el repositorio.
-- El catálogo expone 36 slugs públicos. Sus fichas están fuera del sitemap, pero siguen accesibles e indexables. Cada ficha requiere validación individual antes de volver a promoverse orgánicamente.
+- El catálogo expone 36 slugs públicos. Sus fichas están fuera del sitemap, pero siguen accesibles e indexables. Cada ficha requiere revisión individual y debe cumplir el criterio estricto de “Validado” antes de volver a promoverse orgánicamente.
 - Storages compite con el foco confirmado: aparece en Home, navegación principal y footer. Se recomienda dejar de promoverlo, sin borrar la página ni alterar todavía su metadata o indexación.
 - El contenido ES/EN suele tener paridad temática, pero se mantiene manualmente en varios archivos. Hay traducciones, fallbacks y microcopys inconsistentes que pueden transmitir mensajes distintos o mezclar idiomas.
 - La metadata institucional implementada en Fase 0 es deliberadamente genérica y segura. Conviene conservarla hasta aprobar el nuevo posicionamiento y el contenido factual de cada ruta.
@@ -48,7 +50,7 @@ Estos hechos describen la implementación o decisiones ya confirmadas. No prueba
 
 - El visitante necesita orientación para reducir incertidumbre, no una lista más extensa de proyectos.
 - La capacidad de explicar el proceso completo puede diferenciar más a Esteban que las cifras genéricas sobre Miami.
-- Un catálogo más pequeño, actualizado y explicado tendría más credibilidad que 36 fichas sin fecha de validación visible.
+- Un catálogo más pequeño, explicado y con información revisada, fechada y sujeta a reconfirmación tendría más credibilidad que 36 fichas sin fecha de revisión visible.
 - WhatsApp será un canal principal para el público internacional hispanohablante, con agenda o formulario como alternativa.
 - Miami, Preconstrucción y Financiación pueden funcionar como contenidos de decisión si responden objeciones concretas y evitan promesas de rendimiento.
 
@@ -82,7 +84,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 - El hero debe explicar cómo ayuda Esteban y para quién, antes de prometer “alto rendimiento”, ROI o salida.
 - “Catálogo revisado”, “inventario seleccionado” y “actualizado semanalmente” deben sustituirse por un proceso de selección verificable o eliminarse.
 - Las secciones Miami y Preconstrucción deben resumir decisiones y riesgos, no acumular cifras promocionales.
-- “Proyectos destacados” hoy no presenta proyectos: es una puerta al catálogo. Renombrar según su función hasta definir una selección validada.
+- “Proyectos destacados” hoy no presenta proyectos: es una puerta al catálogo. Renombrar según su función hasta definir una selección cuyos registros cumplan el criterio de “Validado”.
 - Unificar la voz personal: hoy alterna “asesoro”, “conversemos”, “hablar con un asesor” y “we’ll”.
 
 **Validar**
@@ -109,7 +111,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 - Una explicación breve del proceso de asesoramiento.
 - Señales de confianza documentadas: identidad profesional, brokerage, licencia y alcance del servicio.
 - Criterios de selección de oportunidades, riesgos y “para quién/no para quién”.
-- Evidencia validada: testimonios, casos o ejemplos reales sólo si existen y hay autorización.
+- Evidencia comprobable: testimonios, casos o ejemplos reales sólo si existen, tienen fuente y cuentan con autorización de publicación.
 
 ### 2. Proyectos — `/[locale]/proyectos`
 
@@ -124,8 +126,8 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 **Reescribir**
 
 - Agregar una introducción editorial: qué representa el catálogo, cómo se selecciona y por qué una conversación sigue siendo necesaria.
-- Cambiar el énfasis de “cantidad de opciones” a “estado de validación y encaje con el inversor”.
-- Las etiquetas “Desde”, “Entrega” y política de renta deben incorporar fecha o estado cuando el dato esté validado.
+- Cambiar el énfasis de “cantidad de opciones” a “estado de revisión, vigencia y encaje con el inversor”.
+- Las etiquetas “Desde”, “Entrega” y política de renta deben incorporar fecha, responsable y necesidad de reconfirmación; sólo podrán marcarse “Validadas” cuando el registro cumpla el criterio completo.
 
 **Validar**
 
@@ -144,7 +146,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 
 **Contenido faltante**
 
-- Fecha de última validación, estado editorial, fuente y disclaimer de cambio sin aviso.
+- Fecha de última revisión, estado editorial, fuente, responsable, plazo de vigencia y disclaimer de cambio sin aviso.
 - Estado “consultar disponibilidad” distinto de una disponibilidad confirmada.
 - Criterios explicados para recomendaciones o destacados.
 - Estado vacío útil y vía de asesoramiento cuando ningún resultado encaje.
@@ -161,7 +163,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 
 **Reescribir**
 
-- Reordenar la ficha alrededor de la decisión del inversor: resumen factual, encaje, riesgos, números validados, proceso y siguiente paso.
+- Reordenar la ficha alrededor de la decisión del inversor: resumen factual, encaje, riesgos, cifras revisadas y fechadas, proceso y siguiente paso.
 - Separar datos del developer, interpretación de Esteban y disclaimers.
 - Evitar repetir `microClaims` en chips y en “¿Por qué este proyecto?”.
 - Sustituir “destacados” genéricos por factores de decisión comprobables.
@@ -188,7 +190,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 
 **Contenido faltante**
 
-- Fuente, fecha de actualización y responsable de validación por campo.
+- Fuente, fecha de actualización, responsable de revisión, aprobación editorial y vigencia por campo.
 - Estado editorial visible internamente y regla clara de publicación.
 - Disponibilidad confirmada, riesgos/limitaciones y disclaimer de cambios del developer.
 - Opinión o recomendación de Esteban sólo cuando esté explícitamente aprobada.
@@ -320,7 +322,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 **Conservar**
 
 - Una página personal con fotografía, historia, método y acceso directo a Esteban.
-- El concepto de acompañamiento de principio a fin como posible diferenciador, sujeto a validación.
+- El concepto de acompañamiento de principio a fin como posible diferenciador, sujeto a confirmación del proceso real.
 - La explicación de servicios en lenguaje comprensible.
 
 **Reescribir**
@@ -413,7 +415,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 
 **Retirar de navegación**
 
-- Retirar Storages de la navegación principal, footer y promoción de Home mientras el foco sea preconstrucción y el contenido no esté validado.
+- Retirar Storages de la navegación principal, footer y promoción de Home mientras el foco sea preconstrucción y el contenido no esté revisado, fechado y aprobado para publicación.
 
 **Eliminar posteriormente**
 
@@ -485,11 +487,11 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 
 **Conservar**
 
-- Identidad, email, teléfono/WhatsApp, brokerage sujeto a validación y enlaces institucionales esenciales.
+- Identidad, email, teléfono/WhatsApp, brokerage sujeto a confirmación y enlaces institucionales esenciales.
 
 **Reescribir**
 
-- La promesa “asesoría profesional en preventa y proyectos selectos” debe alinearse con el nuevo posicionamiento validado.
+- La promesa “asesoría profesional en preventa y proyectos selectos” debe alinearse con el nuevo posicionamiento aprobado.
 - Simplificar enlaces y convertir el footer en cierre de confianza y contacto.
 - Revisar si la atribución tecnológica aporta valor al usuario final.
 
@@ -512,7 +514,7 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 
 - Títulos y descripciones institucionales genéricos implementados en Fase 0.
 - Canonical, hreflang ES/EN, imagen social general y `noindex` de Gracias/404.
-- Metadata genérica de ficha basada en nombre y ciudad mientras el catálogo no esté validado.
+- Metadata genérica de ficha basada en nombre y ciudad mientras los registros del catálogo no cumplan el criterio de “Validado”.
 
 **Reescribir después de aprobar contenido**
 
@@ -586,17 +588,17 @@ Estas hipótesis orientan investigación y arquitectura; no deben publicarse com
 | Activo | Decisión provisional | Condición para avanzar |
 |---|---|---|
 | Home | Reescribir | Posicionamiento y hechos de confianza aprobados |
-| Proyectos | Conservar y reencuadrar | Catálogo con estado y fecha de validación |
-| 36 fichas | Mantener accesibles, no promover | Validación individual y derechos de contenido |
+| Proyectos | Conservar y reencuadrar | Catálogo con estado, fecha de revisión y necesidad de reconfirmación |
+| 36 fichas | Mantener accesibles, no promover | Revisión individual, gobernanza y derechos de contenido |
 | Preconstrucción | Reescribir como guía | Revisión de claims y disclosures |
 | Miami | Simplificar y actualizar | Fuentes primarias y fecha de corte |
 | Financiación | Reescribir como orientación | Rol, partner y condiciones confirmados |
 | Sobre mí | Reescribir | Credenciales y biografía documentadas |
 | Contacto | Conservar y aclarar | Canal, proceso, privacidad y SLA aprobados |
-| Storages | Retirar de navegación/promoción | Decisión comercial y validación integral |
+| Storages | Retirar de navegación/promoción | Decisión comercial y revisión integral aprobada |
 | Gracias/404 | Conservar | Ajustes menores de voz y próximos pasos |
 | Navegación/footer | Simplificar en fase visual | Arquitectura de información aprobada |
-| Metadata | Conservar genérica | Reescribir sólo con contenido validado |
+| Metadata | Conservar genérica | Reescribir sólo con contenido revisado, fechado y aprobado |
 
 ## Criterio de cierre de la auditoría
 

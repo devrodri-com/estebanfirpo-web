@@ -1,10 +1,29 @@
 # Fase 1 — Cuestionario prioritario para Esteban
 
+## Cuestionario ejecutivo para primera conversación
+
+Estas 12 preguntas reúnen lo imprescindible para una primera conversación o un único mensaje. El cuestionario detallado que sigue queda como segunda instancia y checklist interno para documentar evidencias, permisos y decisiones antes de publicar.
+
+1. ¿Cuál es tu nombre profesional exacto, qué cargo querés comunicar, con qué brokerage operás y cuál es el número, tipo y jurisdicción de tu licencia?
+2. ¿Qué perfil de cliente querés priorizar —origen, objetivo, rango orientativo y principal preocupación— y qué consultas no son foco?
+3. ¿Cuál es el alcance real de tu servicio: qué hacés personalmente, qué queda fuera y qué corresponde al brokerage o a otros profesionales?
+4. ¿Cuáles son las etapas de tu proceso desde el primer contacto hasta la compra y el seguimiento posterior?
+5. ¿En qué idiomas podés asesorar profesionalmente y cuáles atendés de forma personal?
+6. ¿Cuál debe ser la conversión principal del sitio: WhatsApp, agenda, formulario u otro canal?
+7. ¿Qué número de WhatsApp, enlace de agenda, duración de reunión y disponibilidad están autorizados para publicar?
+8. ¿Qué proyectos deberían revisarse primero y quién aprobará cuáles pueden presentarse como prioritarios después de revisar sus datos?
+9. ¿Qué fotografías tuyas están aprobadas para web, quién posee los derechos y hace falta producir material nuevo?
+10. ¿Qué disclosures exige el brokerage, la licencia, los desarrolladores o la normativa, y quién debe aprobarlos antes de publicar?
+11. ¿Quién será responsable de mantener el catálogo, con qué fuentes y frecuencia, y quién dará la aprobación editorial?
+12. ¿Storages debe conservarse sin promoción, funcionar como landing secundaria o evaluarse para archivo cuando su contenido haya sido revisado?
+
 ## Cómo responder
 
 El objetivo es obtener sólo la información necesaria para definir posicionamiento, arquitectura y contenido sin inventar credenciales ni promesas. Se recomienda responder primero la sección bloqueante y adjuntar evidencia cuando una respuesta vaya a publicarse como hecho.
 
 Una respuesta puede ser “no aplica”, “no autorizado para publicar” o “pendiente de confirmar”. Es preferible dejar un dato fuera del sitio antes que completarlo por aproximación.
+
+El criterio general es comunicar información revisada, fechada y sujeta a reconfirmación. El término “validado” se reserva para registros con fuente identificada, fecha, responsable, aprobación editorial y plazo de vigencia.
 
 ## 1. Información bloqueante
 
@@ -62,7 +81,7 @@ Sin estas respuestas no se debería aprobar el contenido central ni avanzar a un
 - ¿Qué disclosures exige el brokerage, la licencia, cada desarrollador o la normativa aplicable?
 - ¿Qué aclaraciones deben acompañar precios, renders, disponibilidad, fechas, renta, financiación y posibles resultados?
 - ¿Quién revisará y aprobará el contenido legal/comercial antes de publicar?
-- ¿Qué consentimiento y tratamiento corresponde para formularios, WhatsApp, agenda y seguimiento de leads? La redacción legal deberá validarla un profesional autorizado.
+- ¿Qué consentimiento y tratamiento corresponde para formularios, WhatsApp, agenda y seguimiento de leads? La redacción legal deberá revisarla y aprobarla un profesional autorizado.
 
 ## 2. Información importante
 
@@ -102,7 +121,7 @@ Estas respuestas permiten construir confianza y una experiencia diferenciada. Si
 
 - ¿Quién aprueba textos ES/EN, datos de proyectos, imágenes y disclosures?
 - ¿Quién será responsable de mantener precio, disponibilidad y fechas actualizados?
-- ¿Con qué frecuencia podés revisar el catálogo y cuánto tiempo máximo debería mostrarse un dato sin revalidar?
+- ¿Con qué frecuencia podés revisar el catálogo y cuánto tiempo máximo debería mostrarse un dato sin una nueva revisión y reconfirmación?
 
 ## 3. Información opcional
 
@@ -126,8 +145,8 @@ Puede enriquecer etapas posteriores, pero no debería frenar la base estratégic
 ### 18. Línea comercial Storages
 
 - ¿Storages sigue siendo una línea comercial activa y estratégica?
-- ¿Quién puede validar sus cifras, rendimientos, condiciones, riesgos y disclosures?
-- ¿Debe quedar sin promoción, funcionar como landing secundaria o evaluarse para archivo después de la validación?
+- ¿Quién puede revisar y fechar sus cifras, rendimientos, condiciones, riesgos y disclosures, y asumir la responsabilidad de reconfirmarlos?
+- ¿Debe quedar sin promoción, funcionar como landing secundaria o evaluarse para archivo después de esa revisión?
 
 ## Formato breve para consolidar respuestas
 
@@ -139,7 +158,7 @@ Para cada respuesta que vaya a transformarse en contenido público, registrar:
 | Publicable | Sí / no / sólo uso interno |
 | Evidencia | Enlace, documento o persona autorizada |
 | Responsable de aprobación | Nombre y función |
-| Fecha de validación | AAAA-MM-DD |
+| Fecha de revisión | AAAA-MM-DD |
 | Revisión futura | Fecha o condición que obliga a revisar |
 
 ## Resultado mínimo esperado

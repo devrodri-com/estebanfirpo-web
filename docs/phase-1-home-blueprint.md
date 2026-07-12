@@ -12,39 +12,35 @@ La Home debe presentar a Esteban como asesor personal para inversores internacio
 La página debe conducir a una de dos acciones:
 
 - **CTA principal:** coordinar una conversación con Esteban;
-- **CTA secundario:** explorar proyectos previamente validados.
+- **CTA secundario:** explorar proyectos con información revisada, fechada y sujeta a reconfirmación.
 
 ## 2. Principios de contenido
 
 - Priorizar claridad, criterio y acompañamiento sobre volumen de inventario.
 - Explicar beneficios junto con riesgos, condiciones y límites.
-- No publicar cifras, rendimientos, disponibilidad ni condiciones sin fuente, responsable y fecha de validación.
+- No publicar cifras, rendimientos, disponibilidad ni condiciones sin fuente identificada, responsable y fecha de revisión.
 - No usar urgencia artificial, escasez no comprobada ni promesas de retorno.
-- Mostrar proyectos destacados sólo cuando hayan superado la matriz de validación.
+- Mostrar proyectos destacados sólo cuando su registro incluya fuente identificada, fecha, responsable, aprobación editorial y plazo de vigencia.
 - Presentar las credenciales, el proceso y los canales de contacto únicamente después de confirmarlos con Esteban.
 - Mantener el contenido esencial completo y accionable en mobile, sin depender de interacciones complejas.
+- Usar como formulación habitual **“información revisada, fechada y sujeta a reconfirmación”**. Reservar **“validado”** para un registro con fuente identificada, fecha, responsable, aprobación editorial y plazo de vigencia.
 
 ## 3. Wireframe estratégico
 
-La secuencia propuesta va desde la promesa y la confianza hasta la educación, la evaluación y el contacto. No define todavía estilo visual, grilla, tipografía ni tratamiento fotográfico.
+La secuencia se limita a ocho bloques. Cada bloque puede contener los subcomponentes indicados, pero éstos no deben convertirse en nuevas secciones que alarguen o repitan la página. El wireframe no define todavía estilo visual, grilla, tipografía ni tratamiento fotográfico.
 
-| Orden | Sección | Objetivo | Mensaje principal | Tipo de contenido | CTA | Evidencia o material necesario | Prioridad mobile |
+| Orden | Bloque | Objetivo | Mensaje principal | Contenido y subcomponentes | CTA | Evidencia o material necesario | Prioridad mobile |
 |---:|---|---|---|---|---|---|---|
-| 1 | Encabezado | Identificar rápidamente a Esteban, el foco del sitio y la acción principal. | Asesoramiento personal para evaluar preconstrucción en Miami. | Identidad, navegación breve, selector ES/EN y acceso directo a contacto. | **Hablar con Esteban** | Nombre profesional aprobado, título exacto, brokerage, canales y destino de agenda confirmados. | Crítica: identidad y CTA visibles sin ocupar excesivo espacio. |
-| 2 | Hero | Explicar en segundos para quién es el servicio y qué valor ofrece. | Tomar decisiones de preconstrucción con contexto, comparación y acompañamiento personal. | Titular, explicación breve, retrato aprobado y dos acciones. | **Coordinar una conversación**; secundario: **Explorar proyectos** | Promesa aprobada, fotografía con derechos de uso, credenciales verificadas y definición del cliente prioritario. | Crítica: promesa, identidad y CTA principal antes del primer scroll o inmediatamente después. |
-| 3 | Para quién es | Ayudar al visitante a reconocerse o descartarse con honestidad. | El asesoramiento se adapta al objetivo, horizonte, liquidez y tolerancia al riesgo del inversor. | Tres o cuatro escenarios de necesidad, no perfiles demográficos inventados. | **Ver si mi objetivo encaja** | Segmentos y objetivos comerciales confirmados por Esteban. | Alta: tarjetas o bloques muy breves, sin carruseles obligatorios. |
-| 4 | Qué ayuda a decidir Esteban | Mover la percepción desde “catálogo” hacia “criterio de decisión”. | Elegir un proyecto implica comparar desarrollador, ubicación, pagos, uso, financiación, riesgos y salida. | Marco de evaluación resumido. | **Conocer el proceso** | Proceso real de asesoramiento, alcance del servicio, responsabilidades y límites profesionales. | Alta: lista escaneable con lenguaje simple. |
-| 5 | Proceso de asesoramiento | Reducir incertidumbre sobre qué ocurre después del primer contacto. | Un recorrido claro: objetivos, preselección, comparación, validaciones, reserva/contrato, seguimiento y cierre. | Secuencia de etapas con responsables y entregables. | **Iniciar la conversación** | Flujo confirmado por Esteban; participación real de brokerage, abogados, prestamistas u otros terceros; disclosures. | Alta: etapas lineales y breves, con el CTA al final. |
-| 6 | Oportunidades seleccionadas | Dar acceso al catálogo sin convertir la Home en un listado indiscriminado. | Una selección pequeña y vigente, explicada por su encaje con criterios concretos. | Entre 3 y 6 proyectos validados, con fecha de actualización y razón editorial. | **Ver todos los proyectos** y CTA por ficha | Matriz completa, derechos de imágenes, disponibilidad, precios y condiciones validados; criterio y aprobación de Esteban. | Alta: máximo tres proyectos visibles inicialmente; comparación legible. |
-| 7 | Cómo comparar un proyecto | Demostrar método y ayudar a formular mejores preguntas. | El precio inicial no basta: hay que evaluar el conjunto de condiciones y escenarios. | Checklist o tabla de criterios: desarrollador, microzona, calendario, uso/renta, financiación, costos, riesgos y salida. | **Usar estos criterios en una consulta** | Definiciones revisadas; fuentes para cualquier condición específica; revisión profesional cuando corresponda. | Media-alta: priorizar los criterios esenciales y permitir ampliar. |
-| 8 | Preconstrucción, con beneficios y riesgos | Educar sin prometer resultados ni sustituir asesoramiento legal, fiscal o financiero. | La preconstrucción puede ofrecer ventajas, pero exige entender plazos, contratos, liquidez, cambios y riesgo de mercado. | Resumen equilibrado con enlace a la guía completa. | **Entender la preconstrucción** | Contenido validado y fechado; fuentes; disclaimers; revisión legal/fiscal de cualquier afirmación correspondiente. | Media: resumen de lectura rápida; riesgos nunca ocultos detrás de un acordeón. |
-| 9 | Por qué Miami | Aportar contexto para la decisión, no una colección de cifras promocionales. | Miami debe evaluarse por mercado, conectividad, demanda, regulación, costos y encaje con el objetivo del inversor. | Contexto breve, criterios de análisis y enlace a la página temática. | **Explorar Miami como mercado** | Estadísticas con fuente y fecha; definición de áreas atendidas; revisión de afirmaciones fiscales o regulatorias. | Media: uno o dos argumentos centrales; el detalle queda en la página específica. |
-| 10 | Confianza verificable | Dar razones concretas para conversar con Esteban. | La confianza debe apoyarse en identidad, credenciales, proceso transparente y evidencia autorizada. | Brokerage y licencia verificados; alcance; testimonios o casos sólo si existen y tienen permiso. | **Conocer a Esteban** | Licencia y brokerage confirmados, biografía aprobada, fotografía, permisos de testimonios y metodología de casos. | Alta: credenciales esenciales cerca del CTA, sin sellos decorativos no explicados. |
-| 11 | Sobre Esteban | Humanizar la propuesta sin convertir la biografía en una lista de afirmaciones. | Quién es, a quién asesora y cómo trabaja. | Biografía corta y fotografía; enlace a la página completa. | **Sobre Esteban** | Historia, experiencia, mercados, idiomas y enfoque confirmados directamente. | Media: un bloque breve; no desplazar la propuesta de valor. |
-| 12 | Preguntas frecuentes | Resolver objeciones antes del contacto. | Es posible entender de antemano el proceso, los límites y la información necesaria para comenzar. | Respuestas sobre compra remota, representación, financiación, pagos, tiempos, riesgos, honorarios y comunicación. | **Hacer una consulta** | Respuestas de Esteban; revisión de brokerage; fuentes y disclosures cuando correspondan. | Media-alta: preguntas priorizadas por fricción real, no por SEO genérico. |
-| 13 | Cierre y contacto | Convertir interés en una acción simple y trazable. | Una primera conversación sirve para entender objetivos y definir si tiene sentido avanzar. | CTA de agenda, WhatsApp y formulario breve como alternativas claras. | **Coordinar una conversación** | WhatsApp, agenda, horario, expectativa de respuesta, consentimiento y política de privacidad confirmados. | Crítica: CTA fácil de tocar; formulario breve; canales alternativos visibles. |
+| 1 | Hero y propuesta | Explicar en segundos para quién es el servicio, qué ayuda ofrece y cuál es el siguiente paso. | Tomar decisiones de preconstrucción en Miami con contexto, comparación y acompañamiento personal. | Encabezado compacto con identidad, navegación y selector ES/EN; titular; explicación breve; retrato aprobado; indicación breve del cliente prioritario; dos acciones. | **Coordinar una conversación**; secundario: **Explorar proyectos** | Promesa y audiencia aprobadas; nombre y título exactos; fotografía con derechos de uso; canales y destino de agenda confirmados. | Crítica: identidad, propuesta y CTA principal deben comprenderse con un primer recorrido breve. |
+| 2 | Confianza verificable | Dar razones concretas para continuar sin depender de sellos decorativos ni afirmaciones promocionales. | La confianza se apoya en identidad comprobable, credenciales, alcance transparente y evidencia autorizada. | Licencia y brokerage; rol profesional; idiomas; forma de trabajo; testimonios o casos sólo si existen, son pertinentes y tienen permiso. | **Conocer a Esteban** | Registros oficiales o documentación aplicable; forma de mención aprobada; permisos; fecha de revisión y condiciones de vigencia. | Alta: mostrar sólo las señales esenciales, cerca de la propuesta, en pocas líneas. |
+| 3 | Qué ayuda a decidir Esteban | Mover la percepción desde “catálogo” hacia “criterio de decisión” y permitir que el visitante evalúe si el servicio encaja. | Elegir exige relacionar objetivos, horizonte y liquidez con desarrollador, ubicación, pagos, uso, financiación, riesgos y salida. | Tres o cuatro decisiones clave; escenarios de necesidad confirmados; checklist breve de comparación. | **Ver cómo puede ayudarme** | Cliente prioritario y alcance confirmados; criterios definidos; límites profesionales claros; fuentes para cualquier condición específica. | Alta: lista corta, escaneable y sin tablas extensas. |
+| 4 | Proceso de asesoramiento | Reducir incertidumbre sobre lo que ocurre después del contacto y quién es responsable de cada paso. | Un recorrido claro para entender objetivos, preseleccionar, comparar, revisar, coordinar la operación y acompañar hasta el cierre. | De cuatro a seis etapas agrupadas; entregables; responsabilidades de Esteban; participación de brokerage, abogados, prestamistas u otros terceros. | **Iniciar la conversación** | Flujo confirmado por Esteban; alcance, exclusiones, terceros y disclosures aprobados. | Alta: secuencia lineal y breve, con detalles ampliados fuera de la Home. |
+| 5 | Proyectos seleccionados y validados | Dar acceso al catálogo mediante una muestra pequeña, vigente y explicada, no un listado indiscriminado. | Cada proyecto aparece por su encaje con criterios concretos, no por una promesa de resultado. | Entre 3 y 6 proyectos; razón editorial breve; fecha de revisión; advertencia de reconfirmación; acceso al catálogo completo. “Validado” sólo se utilizará si cada registro tiene fuente, fecha, responsable, aprobación editorial y plazo de vigencia. | **Ver todos los proyectos** y CTA contextual por ficha | Matriz completa; aprobación de Esteban; derechos de imágenes; para cada registro, fuente identificada, fecha, responsable, aprobación editorial y vigencia. Precios, disponibilidad y condiciones deben mostrarse como información sujeta a reconfirmación. | Alta: máximo tres proyectos visibles inicialmente; comparación legible y sin carruseles obligatorios. |
+| 6 | Preconstrucción y Miami como bloque educativo resumido | Aportar el contexto mínimo necesario sin convertir la Home en una guía enciclopédica. | La oportunidad debe evaluarse junto con plazos, contratos, liquidez, riesgo de mercado, ubicación, costos y encaje con el objetivo del inversor. | Dos subcomponentes breves: beneficios, riesgos y límites de preconstrucción; criterios para evaluar Miami. Cada uno enlaza a su página temática. | **Entender la preconstrucción**; secundario: **Explorar Miami como mercado** | Información revisada, fechada y sujeta a reconfirmación; fuentes para estadísticas; definición de áreas atendidas; disclaimers y revisión profesional de afirmaciones legales, fiscales o financieras. | Media: síntesis visible; beneficios y riesgos al mismo nivel; el detalle queda fuera de la Home. |
+| 7 | Sobre Esteban | Humanizar la propuesta y explicar quién acompaña la decisión sin repetir el bloque de confianza. | Quién es Esteban, a quién asesora y cómo se relaciona personalmente con el cliente. | Biografía corta centrada en enfoque y relación de trabajo; fotografía; enlace a la página completa. Las credenciales no se vuelven a desarrollar aquí. | **Sobre Esteban** | Historia, experiencia, mercados, idiomas y enfoque confirmados directamente; fotografía autorizada. | Media: bloque breve que complemente, sin desplazar, la propuesta de valor. |
+| 8 | FAQ breve y contacto final | Resolver las objeciones decisivas y convertir interés en una acción simple. | El visitante puede entender los límites básicos y decidir si una primera conversación tiene sentido. | De tres a cinco preguntas sobre proceso, compra remota, representación, financiación o riesgos; luego agenda, WhatsApp y formulario breve como alternativas claras. | **Coordinar una conversación** | Respuestas confirmadas; revisión de brokerage; disclosures; WhatsApp, agenda, horario, expectativa de respuesta, consentimiento y privacidad aprobados. | Crítica: FAQ concisa; CTA fácil de tocar; formulario breve y canales alternativos visibles. |
 
-## 4. Mensajería inicial para validar
+## 4. Mensajería inicial para revisar y aprobar
 
 Las siguientes líneas son borradores estratégicos, no copy definitivo ni hechos aprobados:
 
@@ -57,7 +53,7 @@ Antes de publicar, Esteban debe confirmar el alcance real de su acompañamiento,
 
 ## 5. Contenido que no debe ocupar la Home
 
-- Promoción de Storages mientras esa línea comercial y sus cifras no estén validadas.
+- Promoción de Storages mientras su información comercial no esté revisada, fechada y sujeta a reconfirmación.
 - Métricas de rendimiento, apreciación, ocupación, migración o inventario sin fuente y fecha.
 - Citas o testimonios sin autor, permiso y trazabilidad.
 - Los 36 proyectos como listado extenso.
@@ -71,27 +67,21 @@ Storages debe conservar su página durante esta etapa, pero no formar parte del 
 
 ### Prioridad 0 — imprescindible para comprender y actuar
 
-1. Identidad y foco.
-2. Promesa del hero.
-3. CTA principal.
-4. Para quién es.
-5. Qué ayuda a decidir Esteban.
-6. Confianza verificable.
-7. Contacto final.
+1. Hero y propuesta.
+2. Confianza verificable.
+3. Qué ayuda a decidir Esteban.
+4. FAQ breve y contacto final.
 
 ### Prioridad 1 — necesaria para evaluar
 
 1. Proceso de asesoramiento.
 2. Proyectos seleccionados y validados.
-3. Marco de comparación.
-4. Beneficios y riesgos de preconstrucción.
-5. Preguntas frecuentes.
+3. Preconstrucción y Miami como bloque educativo resumido.
 
 ### Prioridad 2 — profundización
 
-1. Contexto resumido de Miami.
-2. Biografía ampliada.
-3. Recursos secundarios.
+1. Sobre Esteban.
+2. Recursos secundarios enlazados desde los ocho bloques.
 
 Esta priorización define jerarquía de contenido, no autoriza ocultar información material en mobile.
 
@@ -103,8 +93,8 @@ Esta priorización define jerarquía de contenido, no autoriza ocultar informaci
 | Licencia, brokerage y título profesional | Esteban | Verificación y forma de mención aprobada. |
 | Descripción del proceso de asesoramiento | Esteban | Alcance, límites y terceros confirmados. |
 | Fotografía principal y alternativas | Esteban | Archivos originales y derechos de uso. |
-| Selección de 3 a 6 proyectos | Esteban + responsable de catálogo | Matriz validada, fecha de actualización y fuentes. |
-| Información de cada proyecto destacado | Responsable de catálogo | Precio, entrega, disponibilidad, renta, financiación e imágenes verificados. |
+| Selección de 3 a 6 proyectos | Esteban + responsable de catálogo | Cada registro debe tener fuente, fecha, responsable, aprobación editorial y plazo de vigencia. |
+| Información de cada proyecto destacado | Responsable de catálogo | Información revisada, fechada y sujeta a reconfirmación; derechos de imágenes confirmados. |
 | Estadísticas de Miami | Responsable editorial | Fuente primaria o autorizada y fecha visible. |
 | Guía de preconstrucción | Responsable editorial + revisión profesional | Beneficios, riesgos y disclosures aprobados. |
 | Testimonios y casos | Esteban + cada cliente | Consentimiento, texto final y límites de confidencialidad. |
@@ -118,7 +108,7 @@ La Home estará lista para diseñarse e implementarse cuando:
 - la audiencia y la promesa central estén aprobadas;
 - el alcance del asesoramiento esté descrito sin ambigüedad;
 - las credenciales y canales de contacto estén verificados;
-- haya entre 3 y 6 proyectos aptos para destacar según la matriz;
+- haya entre 3 y 6 proyectos aptos para destacar, con fuente, fecha, responsable, aprobación editorial y plazo de vigencia registrados en la matriz;
 - toda cifra tenga fuente, fecha y responsable;
 - los materiales fotográficos tengan derechos confirmados;
 - los principales riesgos y disclosures estén redactados y revisados;

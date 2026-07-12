@@ -16,6 +16,8 @@ Toda afirmación futura debe identificarse en uno de estos estados:
 
 La existencia de un texto en la web actual no lo convierte en un hecho comprobado.
 
+En la comunicación pública se prefiere **“información revisada, fechada y sujeta a reconfirmación”**. El estado **“Validado”** queda reservado a registros con fuente identificada, fecha, responsable, aprobación editorial y plazo de vigencia documentados.
+
 ## 1. Base actualmente comprobada
 
 ### Decisiones aprobadas del producto
@@ -24,8 +26,8 @@ La existencia de un texto en la web actual no lo convierte en un hecho comprobad
 - El sitio debe posicionar a Esteban como asesor personal y estratégico, no como un simple catálogo.
 - El sitio ofrece rutas públicas equivalentes en español e inglés.
 - El email público y receptor del formulario es `esteban@miamiliferealty.com`.
-- El catálogo público contiene 36 proyectos, pero sus precios, fechas, condiciones, disponibilidad, imágenes y claims aún requieren validación.
-- Las fichas individuales y Storages no se promueven mediante el sitemap mientras sus contenidos no estén validados.
+- El catálogo público contiene 36 proyectos, pero sus precios, fechas, condiciones, disponibilidad, imágenes y claims aún requieren revisión y gobernanza editorial.
+- Las fichas individuales y Storages no se promueven mediante el sitemap mientras sus contenidos no estén revisados, fechados y aprobados para publicación.
 - Storages no debe eliminarse en esta etapa.
 
 ### Hechos sobre la experiencia actual del sitio
@@ -111,7 +113,7 @@ Ese rol implica, sujeto a confirmar su proceso real:
 
 ### Propuesta de trabajo
 
-> Esteban acompaña a inversores internacionales a entender, comparar y ejecutar una compra de preconstrucción en Miami con criterios claros, información validada y coordinación personal durante el proceso.
+> Esteban acompaña a inversores internacionales a entender, comparar y ejecutar una compra de preconstrucción en Miami con criterios claros, información revisada, fechada y sujeta a reconfirmación, y coordinación personal durante el proceso.
 
 Esta formulación es una dirección estratégica. Antes de convertirla en copy público deben confirmarse el alcance real del acompañamiento, el mecanismo de validación de información y los límites de responsabilidad.
 
@@ -141,7 +143,7 @@ No deben publicarse como ventajas actuales hasta ser demostrados.
 | --- | --- | --- |
 | Asesoría personal, no derivación anónima | El inversor sabe quién responde y acompaña | Proceso real, tiempos de respuesta y responsable de cada etapa |
 | Marco de decisión centrado en objetivo y salida | Evita comparar sólo precio y amenities | Método documentado, ejemplos anonimizados y límites del análisis |
-| Catálogo curado y con fecha de validación | Reduce datos obsoletos | Gobernanza del catálogo, fuentes y responsable de actualización |
+| Catálogo curado con información revisada y fechada | Reduce datos obsoletos | Gobernanza del catálogo, fuentes, responsable, aprobación editorial y plazo de vigencia |
 | Experiencia con comprador internacional | Responde a fricciones de operar a distancia | Casos, mercados atendidos y pasos efectivamente coordinados |
 | Comunicación bilingüe ES/EN | Reduce fricción durante la consulta | Confirmación de idiomas y nivel de atención ofrecido |
 | Red de especialistas coordinada | Simplifica una operación con varios actores | Nombres o categorías, relación, independencia y disclosures |
@@ -201,7 +203,7 @@ El inglés debe expresar el mismo alcance y cautelas que el español; no debe se
 
 | Objeción del visitante | Respuesta que debe ofrecer el sitio | Evidencia o contenido requerido |
 | --- | --- | --- |
-| “No sé si puedo confiar en la información.” | Mostrar fuente, fecha y estado de validación | Registro de actualización por proyecto y política editorial |
+| “No sé si puedo confiar en la información.” | Mostrar fuente, fecha, responsable y necesidad de reconfirmación | Registro de actualización por proyecto, aprobación editorial, vigencia y política editorial |
 | “No sé quién es Esteban ni por qué debería escucharlo.” | Presentar identidad, rol y alcance verificables | Licencia, brokerage, biografía y fotografía confirmados |
 | “Hay demasiados proyectos; todos parecen iguales.” | Comparar con criterios vinculados al objetivo | Campos normalizados y método de recomendación |
 | “No entiendo cuánto dinero necesito ni cuándo.” | Explicar depósito, hitos, cierre y gastos como rangos o datos fechados | Planes vigentes, fuentes y disclaimer financiero |
@@ -230,7 +232,7 @@ El inglés debe expresar el mismo alcance y cautelas que el español; no debe se
 - Explicación concreta del proceso de asesoramiento.
 - Criterios de evaluación y recomendación de proyectos.
 - Fecha y fuente visibles para información sensible.
-- Identificación del responsable de validar cada proyecto.
+- Identificación del responsable de revisar cada proyecto y de aprobar su publicación.
 - Testimonios con consentimiento, identidad y texto aprobados.
 - Casos reales verificables y anonimizados cuando corresponda.
 - Política clara sobre conflictos, compensación y relación con developers.
@@ -248,9 +250,9 @@ El inglés debe expresar el mismo alcance y cautelas que el español; no debe se
 1. **Qué hace:** asesoramiento personal para evaluar preconstrucción en Miami.
 2. **Para quién:** inversores internacionales.
 3. **Qué cambia para el visitante:** pasa de oferta dispersa a una decisión estructurada.
-4. **Cómo trabaja:** diagnóstico, comparación, validación y coordinación, sujeto a confirmar el proceso.
+4. **Cómo trabaja:** diagnóstico, comparación, revisión de información y coordinación, sujeto a confirmar el proceso.
 5. **Por qué confiar:** credenciales, método y evidencia verificables.
-6. **Qué hacer ahora:** iniciar una conversación o explorar proyectos ya validados.
+6. **Qué hacer ahora:** iniciar una conversación o explorar proyectos con información revisada, fechada y sujeta a reconfirmación.
 
 El catálogo debe apoyar esta historia, no precederla.
 
@@ -300,11 +302,11 @@ Antes de reutilizarlos, deben pasar a la matriz de validación correspondiente:
 ## 13. Decisiones recomendadas para Product Owner
 
 - Aprobar como norte la promesa “claridad para decidir y acompañamiento personal para avanzar”.
-- Tratar la propuesta de valor como hipótesis hasta validar el proceso real de Esteban.
+- Tratar la propuesta de valor como hipótesis hasta confirmar el proceso real de Esteban.
 - Hacer que credenciales, método y actualización de datos sean la base de confianza; no la estética ni superlativos.
 - Establecer una política editorial: ningún dato comercial se publica sin fuente, fecha, responsable y estado.
 - Mantener el catálogo como herramienta de comparación y conversación, no como protagonista de marca.
-- Reservar Storages como oferta secundaria no promovida hasta una decisión comercial y validación completa.
+- Reservar Storages como oferta secundaria no promovida hasta una decisión comercial y una revisión completa con fuentes, fechas, responsables, aprobación editorial y vigencias.
 - Evitar elegir proyectos destacados hasta completar la matriz y recibir la recomendación explícita de Esteban.
 
 ## 14. Criterio de aprobación del posicionamiento
@@ -314,5 +316,5 @@ Esta base estará lista para convertirse en copy cuando:
 - Esteban confirme audiencia, proceso, credenciales, idiomas y alcance;
 - exista una formulación aprobada de la propuesta en ES/EN;
 - las señales de confianza bloqueantes tengan evidencia;
-- el equipo defina qué significa “información validada” y quién la mantiene;
+- el equipo adopte la definición estricta de “Validado” y asigne quién revisa, aprueba y mantiene cada registro;
 - cada claim pueda clasificarse como hecho con fuente, hipótesis señalada o contenido no publicable.

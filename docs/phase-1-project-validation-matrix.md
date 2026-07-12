@@ -9,12 +9,18 @@ La presencia de un proyecto en esta lista **no confirma** que esté activo, disp
 ## Criterio de estado
 
 - **Sin validar:** todavía no existe evidencia suficiente o no fue revisada por una persona responsable.
-- **Validado:** el dato fue contrastado con una fuente identificada y tiene fecha de revisión.
+- **Validado:** uso reservado a un registro que cuenta con fuente identificada, fecha de revisión, responsable asignado, aprobación editorial y plazo de vigencia o próxima revisión documentados.
 - **No aplica:** el campo no corresponde al proyecto y existe una explicación documentada.
 - **Desactualizado:** existió una validación, pero venció el plazo acordado o cambió la fuente.
 - **Rechazado:** el dato no debe publicarse porque es incorrecto, no comprobable o no está autorizado.
 
 Para evitar ambigüedades, una celda vacía nunca equivale a “validado”.
+
+Hasta que un registro reúna los cinco requisitos anteriores, la comunicación pública preferida será **“información revisada, fechada y sujeta a reconfirmación”**. Haber revisado un dato no implica por sí solo que esté validado.
+
+### Uso futuro de la matriz
+
+Este Markdown define el modelo inicial, el inventario de partida y los criterios de gobernanza; **no será la herramienta operativa definitiva**. En una fase futura deberá migrarse a una fuente estructurada y editable —por ejemplo, un spreadsheet, un CMS o una base de datos— que permita gestionar trazabilidad, permisos, fechas y vigencias sin listas paralelas. La elección de esa herramienta queda deliberadamente pendiente y no forma parte de esta fase.
 
 ## Registro maestro inicial
 
@@ -65,27 +71,27 @@ Estado de partida: todos los datos de negocio quedan pendientes. “Inventariado
 |---|---|---|
 | Activo o inactivo | Estado comercial y fecha de comprobación | Comunicación oficial del desarrollador, broker portal o contacto autorizado |
 | Precio actualizado | Rango o precio “desde”, moneda, alcance y condiciones | Price sheet vigente y fechado |
-| Fecha de actualización | Fecha en que se verificó el conjunto de datos | Registro interno y copia o enlace de la fuente |
+| Fecha de actualización | Fecha en que se revisó el conjunto de datos y plazo de vigencia o próxima revisión | Registro interno y copia o enlace de la fuente |
 | Entrega | Fecha o rango, aclarando si es estimado | Documento oficial vigente |
 | Ubicación | Dirección, ciudad y submercado normalizados | Sitio oficial, offering documents o fuente pública fiable |
 | Política de renta | Restricciones, mínimos y excepciones; evitar inferencias | Documentación oficial o confirmación escrita |
 | Disponibilidad | Estado y fecha; no convertir inventario puntual en promesa | Inventory sheet o confirmación autorizada |
 | Financiación | Si existe, quién la ofrece, requisitos y vigencia | Material del proveedor o entidad autorizada |
-| Recomendado por Esteban | Sí, no o en evaluación, más una razón interna | Decisión explícita de Esteban después de validar el resto |
+| Recomendado por Esteban | Sí, no o en evaluación, más una razón interna | Decisión explícita de Esteban después de revisar el resto y comprobar que cumple el criterio de “Validado” |
 | Derechos de imágenes | Propietario, licencia, alcance web/ads, territorio y vencimiento | Licencia, contrato o autorización escrita |
 | Fuente | Nombre, URL o archivo, fecha de emisión y contacto | Registro trazable; nunca “internet” como única referencia |
-| Responsable | Persona que validó y persona que aprobó publicación | Nombre y fecha en el registro editorial |
+| Responsable | Persona que revisó y persona que aprobó la publicación | Nombre y fecha en el registro editorial |
 | Estado editorial | Borrador, en validación, aprobado, publicado, desactualizado o archivado | Decisión del flujo editorial |
 
 ## Flujo de validación recomendado
 
 1. **Asignar responsable:** una persona reúne fuentes y otra aprueba cuando el dato tenga impacto legal o comercial.
-2. **Validar estado y fuente:** confirmar primero si el proyecto sigue activo. Si está inactivo, definir si la ficha se archiva, se conserva como referencia o se retira más adelante.
+2. **Revisar estado y fuente:** confirmar primero si el proyecto sigue activo. Si está inactivo, definir si la ficha se archiva, se conserva como referencia o se retira más adelante.
 3. **Completar datos sensibles:** precio, entrega, renta, disponibilidad y financiación deben tener fuente y fecha.
-4. **Validar materiales:** comprobar derechos de cada imagen antes de reutilizarla en fichas, Home, anuncios o redes.
+4. **Revisar materiales:** comprobar derechos de cada imagen antes de reutilizarla en fichas, Home, anuncios o redes.
 5. **Revisión bilingüe:** una aprobación del dato base y una revisión separada de la redacción ES/EN; la traducción no debe agregar claims.
 6. **Aprobación editorial:** sólo una ficha aprobada puede volver al sitemap o ser candidata a destacada.
-7. **Definir caducidad:** acordar cada cuánto se revisan precio, disponibilidad, entrega y condiciones. Si vence, marcar “Desactualizado” hasta una nueva validación.
+7. **Definir caducidad:** acordar cada cuánto se revisan precio, disponibilidad, entrega y condiciones. Si vence, marcar “Desactualizado” hasta completar una nueva revisión y aprobación.
 
 ## Criterios para elegir entre 3 y 6 proyectos destacados
 
@@ -117,14 +123,14 @@ Reglas para el conjunto final:
 - evitar que todos representen la misma zona, horizonte o perfil de comprador, salvo decisión comercial expresa;
 - no usar únicamente precio, comisión, popularidad o calidad de render como criterio;
 - registrar fecha, responsable y razones de inclusión;
-- revisar la selección cuando cambie disponibilidad o venza la validación;
+- revisar la selección cuando cambie disponibilidad o venza su plazo de vigencia;
 - obtener aprobación final de Esteban antes de publicar.
 
 ## Decisiones pendientes
 
-- Quién valida los datos comerciales y quién tiene aprobación final.
+- Quién revisa los datos comerciales y quién tiene aprobación final.
 - Qué fuentes se consideran autorizadas para cada tipo de dato.
 - Cuánto dura la vigencia de precio, disponibilidad, entrega, renta y financiación.
 - Qué definición operativa tendrá “activo” para el catálogo.
 - Qué perfiles de inversión y objetivos comerciales prioriza Esteban.
-- Qué proceso se seguirá para reincorporar fichas validadas al sitemap.
+- Qué proceso se seguirá para reincorporar al sitemap fichas cuyos registros cumplan el criterio de “Validado”.
