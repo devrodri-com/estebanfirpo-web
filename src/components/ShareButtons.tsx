@@ -41,8 +41,12 @@ export default function ShareButtons({
 
   const [canSystemShare, setCanSystemShare] = React.useState(false);
   React.useEffect(() => {
-    if (typeof navigator !== "undefined" && (navigator as any).share) setCanSystemShare(true);
-  }, []);
+    setCanSystemShare(
+      showSystemShare &&
+        typeof navigator !== "undefined" &&
+        typeof navigator.share === "function"
+    );
+  }, [showSystemShare]);
 
   // Desktop media query flag
   const [isDesktop, setIsDesktop] = React.useState(false);
@@ -57,9 +61,15 @@ export default function ShareButtons({
   }, []);
 
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!isDesktop && typeof navigator !== "undefined" && (navigator as any).share) {
+    if (!isDesktop && typeof navigator !== "undefined" && typeof navigator.share === "function") {
       e.preventDefault();
-      (navigator as any).share({ title: text || document.title, url }).catch(() => {});
+      void navigator.share({ title: text || document.title, url }).catch(() => {});
+    }
+  };
+
+  const onSystemShare = () => {
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      void navigator.share({ title: text || document.title, url }).catch(() => {});
     }
   };
 
@@ -83,16 +93,18 @@ export default function ShareButtons({
         }
         <span className="leading-none">{btnText}</span>
       </a>
-      <button
-        type="button"
-        onClick={() => (navigator as any).share?.({ title: text || document.title, url }).catch(() => {})}
-        className={`inline-flex ${btn}`}
-        aria-label={locale === "en" ? "Share" : "Compartir"}
-        style={{ display: isDesktop ? (canSystemShare ? undefined : 'none') : undefined }}
-      >
-        <SystemShareIcon />
-        <span className="leading-none">{locale === "en" ? "Share" : "Compartir"}</span>
-      </button>
+      {showSystemShare ? (
+        <button
+          type="button"
+          onClick={onSystemShare}
+          className={`inline-flex ${btn}`}
+          aria-label={locale === "en" ? "Share" : "Compartir"}
+          style={{ display: canSystemShare ? undefined : "none" }}
+        >
+          <SystemShareIcon />
+          <span className="leading-none">{locale === "en" ? "Share" : "Compartir"}</span>
+        </button>
+      ) : null}
     </div>
   );
 }
