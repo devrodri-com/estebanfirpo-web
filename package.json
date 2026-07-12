@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "catalog:slugs": "node scripts/generate-project-slugs.mjs",
+    "predev": "npm run catalog:slugs",
     "dev": "next dev --turbopack",
+    "prebuild": "npm run catalog:slugs",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"

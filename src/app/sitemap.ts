@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { ALL_PROJECTS } from "@/data/projects/index";
 import { defaultLocale, locales, type Locale } from "@/i18n/config";
 import {
   absoluteUrl,
@@ -38,19 +37,7 @@ function entriesForPath(path: string): MetadataRoute.Sitemap {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticEntries = sitemapRoutes.flatMap((route) =>
+  return sitemapRoutes.flatMap((route) =>
     entriesForPath(staticRouteMetadata[route].path),
   );
-  const projectPaths = [
-    ...new Set(
-      ALL_PROJECTS.map((project) =>
-        project.slug.startsWith("/proyectos/")
-          ? project.slug
-          : `/proyectos/${project.slug.replace(/^\/+/, "")}`,
-      ),
-    ),
-  ];
-  const projectEntries = projectPaths.flatMap(entriesForPath);
-
-  return [...staticEntries, ...projectEntries];
 }

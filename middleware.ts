@@ -1,10 +1,10 @@
 // middleware.ts
 import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
-import { ALL_PROJECTS } from '@/data/projects/index';
+import { PUBLIC_PROJECT_SLUGS } from '@/data/projects/public-slugs.generated';
 
 const intlMiddleware = createMiddleware({ locales: ['es', 'en'], defaultLocale: 'es' });
-const projectPaths = new Set(ALL_PROJECTS.map((project) => project.slug));
+const projectPaths = new Set<string>(PUBLIC_PROJECT_SLUGS);
 
 export default function middleware(request: NextRequest) {
   const projectMatch = request.nextUrl.pathname.match(

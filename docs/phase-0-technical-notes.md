@@ -13,7 +13,15 @@ La Fase 0 no agrega Redis, Upstash, variables de entorno ni otra infraestructura
 
 ## 404 localizada
 
-La aplicación usa layouts raíz bajo el segmento dinámico `[locale]`. Para que una URL inexistente responda con estado 404, contenido ES/EN y el atributo `lang` correcto desde el HTML inicial, se habilita `experimental.globalNotFound` de Next.js 15.5 y se implementa `src/app/global-not-found.tsx`. El middleware contrasta los slugs de fichas con el mismo `ALL_PROJECTS` que usa el catálogo y dirige los slugs inexistentes a esa respuesta 404, sin duplicar ni modificar datos inmobiliarios. La opción `globalNotFound` es experimental en la versión actual y debe reevaluarse al actualizar Next.js.
+La aplicación usa layouts raíz bajo el segmento dinámico `[locale]`. Para que una URL inexistente responda con estado 404, contenido ES/EN y el atributo `lang` correcto desde el HTML inicial, se habilita `experimental.globalNotFound` de Next.js 15.5 y se implementa `src/app/global-not-found.tsx`. El middleware contrasta las fichas contra un manifiesto generado de slugs públicos y dirige los slugs inexistentes a esa respuesta 404, sin importar ni duplicar manualmente los objetos inmobiliarios. La opción `globalNotFound` es experimental en la versión actual y debe reevaluarse al actualizar Next.js.
+
+## Sitemap y validación del catálogo
+
+El sitemap incluye las rutas institucionales en español e inglés, incluidos `/es/proyectos` y `/en/proyectos`, pero omite temporalmente las fichas `/[locale]/proyectos/[slug]` hasta completar la validación editorial del catálogo. Las fichas permanecen accesibles y este cambio no modifica sus páginas, metadata, directivas de robots ni estado de indexación. Se reincorporarán al sitemap cuando sus datos, fechas, precios, condiciones y claims hayan sido validados.
+
+El comando `npm run catalog:slugs`, ejecutado automáticamente antes de desarrollo y build, genera `src/data/projects/public-slugs.generated.ts` desde el mismo `ALL_PROJECTS` consolidado que consume la web. El middleware importa solamente ese manifiesto liviano; no carga textos, imágenes, precios, galerías ni planes de pago, y no existe una lista manual que pueda quedar desincronizada. Durante la futura gobernanza del catálogo, el generador deberá consumir la fuente editorial canónica aprobada.
+
+En el build local de Next.js 15.5 con Turbopack, el tamaño reportado del middleware bajó de 92,7 kB a 50,8 kB. Sus archivos Edge pasaron de 326.195 a 167.839 bytes sin comprimir; el chunk principal bajó de 89.052 a 46.948 bytes comprimido con gzip. El sourcemap ya no incluye los módulos completos de proyectos: contiene únicamente el manifiesto generado.
 
 ## Referencias a assets locales inexistentes
 
