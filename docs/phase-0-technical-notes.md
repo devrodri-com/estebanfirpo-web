@@ -21,8 +21,6 @@ La revisión compara las rutas locales literales usadas por el código con el co
 
 | Referencia | Origen | Estado e impacto actual |
 | --- | --- | --- |
-| `/videos/hero-sora.webm` | `src/app/[locale]/page.tsx` | No existe. Es una fuente del video del hero de Home en ES/EN. |
-| `/videos/hero-sora.mp4` | `src/app/[locale]/page.tsx` | No existe. Es la segunda fuente del mismo video del hero. |
 | `/images/projects/domus-brickell-center.webp` | `src/data/projects.ts` | No existe. La lista pública consolidada reemplaza actualmente esta entrada legacy por una URL remota, pero la referencia local permanece insegura si se consume el catálogo base. |
 | `/images/projects/mercedes-benz-places.webp` | `src/data/projects.ts` | No existe. La lista consolidada tiene una URL remota y este proyecto está oculto actualmente; la referencia legacy permanece. |
 | `/images/projects/edge-house.webp` | `src/data/projects.ts` | No existe. La lista pública consolidada reemplaza actualmente esta entrada legacy por una URL remota, pero la referencia local permanece. |
@@ -32,7 +30,7 @@ La revisión compara las rutas locales literales usadas por el código con el co
 | `/images/storages/callaway-3.jpg` | `src/data/storages/callaway.ts` | No existe; referencia de galería actualmente no renderizada. |
 | `/images/projects/placeholder.webp` | `src/utils/projectsImport.ts` | No existe. Es un fallback de importación para filas sin imagen y no forma parte del flujo público actual. |
 
-El hero de Home sí conserva `public/images/hero-fallback.jpg` y la variante móvil `public/images/hero-fallback-mobile.jpg`; por eso los videos faltantes no justifican inventar un reemplazo en esta fase. Resolver las fuentes de video y las referencias legacy requiere recibir assets aprobados o una decisión editorial posterior.
+El hero de Home utiliza únicamente `public/images/hero-fallback.jpg` y la variante móvil `public/images/hero-fallback-mobile.jpg`. En la Fase 0.1 se retiró el elemento de video obsoleto que solicitaba dos fuentes inexistentes; no se generaron ni incorporaron videos. Resolver las referencias legacy restantes requiere recibir assets aprobados o una decisión editorial posterior.
 
 ## Dependencias y auditoría
 

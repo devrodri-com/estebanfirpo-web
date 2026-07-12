@@ -15,23 +15,20 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* HERO */}
       <section role="region" aria-labelledby="hero-title" aria-describedby="hero-desc" className="relative overflow-hidden w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-[#F9FAFB] pt-[88px] pb-20 md:pt-[104px] md:pb-24 flex justify-center items-center min-h-[600px]">
         
-        {/* Background media (SORA-ready) */}
+        {/* Responsive background images */}
         <div aria-hidden className="absolute inset-0 pointer-events-none">
-          {/* Desktop/Tablet: video de fondo */}
+          {/* Desktop/Tablet */}
           <div className="hidden sm:block absolute inset-0">
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              playsInline
-              loop
-              poster="/images/hero-fallback.jpg"
-            >
-              <source src="/videos/hero-sora.webm" type="video/webm" />
-              <source src="/videos/hero-sora.mp4" type="video/mp4" />
-            </video>
+            <Image
+              src="/images/hero-fallback.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
-          {/* Mobile: imagen estática */}
+          {/* Mobile */}
           <div className="sm:hidden absolute inset-0">
             <Image src="/images/hero-fallback-mobile.jpg" alt="" fill priority className="object-cover" />
           </div>
