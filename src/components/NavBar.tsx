@@ -1,131 +1,275 @@
-// src/components/NavBar.tsx
 "use client";
-import Link from "next/link";
-import {usePathname} from "next/navigation";
-import {useState, useEffect} from "react";
-import {useLocale} from "next-intl";
 
-export default function NavBar(){
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
+import { Menu, MessageCircle, X } from "lucide-react";
+import { createWhatsAppUrl } from "@/lib/site";
+
+type SupportedLocale = "es" | "en";
+
+export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavigationRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname() || "/es";
+  const locale = (useLocale() as SupportedLocale) || "es";
+  const isEnglish = locale === "en";
+  const base = `/${locale}`;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const pathname = usePathname() || "/es";
-  const locale = (useLocale() as "es"|"en") || "es";
-  const base = `/${locale}`;
 
-  const L = locale === "es"
-    ? {home:"Inicio", proyectos:"Proyectos", miami:"Miami", precon:"Preconstrucción", storages:"Storages", financing:"Financiación", sobreMi:"Sobre mí", contacto:"Contacto"}
-    : {home:"Home", projects:"Projects", miami:"Miami", precon:"Pre-construction", storages:"Storages", financing:"Financing", sobreMi:"About", contact:"Contact"};
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+    };
 
-  const items = [
-    { href: `${base}`,              label: L.home },
-    { href: `${base}/proyectos`,    label: L.proyectos || L.projects },
-    { href: `${base}/miami`,        label: L.miami },
-    { href: `${base}/precon`,       label: L.precon },
-    { href: `${base}/storages`,     label: L.storages },
-    { href: `${base}/financiacion`, label: L.financing },
-    { href: `${base}/sobre-mi`,     label: L.sobreMi },
-    { href: `${base}/contacto`,     label: L.contacto || L.contact }
+    desktopQuery.addEventListener("change", closeOnDesktop);
+    return () => desktopQuery.removeEventListener("change", closeOnDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        requestAnimationFrame(() => menuButtonRef.current?.focus());
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = mobileNavigationRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const labels = isEnglish
+    ? {
+        projects: "Projects",
+        advisory: "How I help",
+        precon: "Pre-construction",
+        miami: "Miami",
+        about: "About",
+        financing: "Financing",
+        contact: "Contact",
+        whatsapp: "Talk on WhatsApp",
+        menu: "Open menu",
+        close: "Close menu",
+        switchLanguage: "Switch to Spanish",
+      }
+    : {
+        projects: "Proyectos",
+        advisory: "Cómo te ayudo",
+        precon: "Preconstrucción",
+        miami: "Miami",
+        about: "Sobre mí",
+        financing: "Financiación",
+        contact: "Contacto",
+        whatsapp: "Hablar por WhatsApp",
+        menu: "Abrir menú",
+        close: "Cerrar menú",
+        switchLanguage: "Cambiar a inglés",
+      };
+
+  const primaryItems = [
+    { href: `${base}/proyectos`, label: labels.projects },
+    { href: `${base}#asesoramiento`, label: labels.advisory },
+    { href: `${base}/precon`, label: labels.precon },
+    { href: `${base}/miami`, label: labels.miami },
+    { href: `${base}/sobre-mi`, label: labels.about },
   ];
 
-  const switchTo = locale === "es" ? "en" : "es";
-  const switchHref = `/${switchTo}${pathname.replace(/^\/(es|en)/,"")}`;
+  const secondaryItems = [
+    { href: `${base}/financiacion`, label: labels.financing },
+    { href: `${base}/contacto`, label: labels.contact },
+  ];
+
+  const switchTo: SupportedLocale = isEnglish ? "es" : "en";
+  const switchHref = `/${switchTo}${pathname.replace(/^\/(es|en)/, "")}`;
+  const whatsappMessage = isEnglish
+    ? "Hi Esteban, I’m considering a real estate purchase in Miami or South Florida."
+    : "Hola Esteban, estoy evaluando una compra inmobiliaria en Miami o el sur de Florida.";
+
+  function isActive(href: string) {
+    if (href.includes("#")) return pathname === base;
+    return pathname.startsWith(href);
+  }
 
   return (
-    <header className={"w-full bg-[#0A2540] text-white transition-shadow " + (scrolled ? "border-b border-white/10 shadow-[0_1px_8px_rgba(0,0,0,.08)]" : "border-b border-white/5")}>
-      <div className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
-        <Link href={base} className="text-sm font-semibold text-white no-underline hover:opacity-90">
-          Esteban Firpo · Miami Real Estate
+    <header
+      className={`sticky top-0 z-50 w-full bg-[#0A2540] text-white transition-shadow ${
+        scrolled
+          ? "border-b border-white/10 shadow-[0_8px_24px_rgba(10,37,64,0.16)]"
+          : "border-b border-white/8"
+      }`}
+    >
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-5 px-4">
+        <Link
+          href={base}
+          className="shrink-0 rounded-sm text-sm font-semibold tracking-[-0.01em] text-white no-underline hover:text-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37]"
+        >
+          Esteban Firpo <span className="font-normal text-white/62">· Miami Real Estate</span>
         </Link>
 
-        <button aria-label="Abrir menú" onClick={()=>setOpen(v=>!v)} className="lg:hidden p-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-
-        <nav className="hidden lg:flex gap-6 xl:gap-7 text-sm font-medium">
-          {items.map(it=>{
-            const isHome = it.href === base;
-            const isActive = isHome ? (pathname === base) : pathname.startsWith(it.href);
-            return (
-              <Link
-                key={it.href}
-                href={it.href}
-                aria-current={isActive ? 'page' : undefined}
-                className={`no-underline text-white/85 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] focus-visible:ring-2 focus-visible:ring-[#D4AF37]/30 underline-offset-10 xl:underline-offset-12 transition-colors ${isActive ? 'text-white underline decoration-2 xl:decoration-1 decoration-[#D4AF37]' : ''}`}
-              >
-                {it.label}
-              </Link>
-            )
-          })}
+        <nav aria-label={isEnglish ? "Primary navigation" : "Navegación principal"} className="hidden items-center gap-5 lg:flex">
+          {primaryItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={`rounded-sm text-[13px] font-medium no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37] ${
+                isActive(item.href)
+                  ? "text-white underline decoration-[#D4AF37] decoration-2 underline-offset-[10px]"
+                  : "text-white/72 hover:text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
           <Link
             href={switchHref}
             title={switchTo.toUpperCase()}
-            aria-label={locale === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
-            className="inline-flex items-center rounded-full border border-white/25 text-white px-2.5 py-1 text-xs font-semibold no-underline hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#D4AF37]/40"
+            aria-label={labels.switchLanguage}
+            className="inline-flex min-h-9 items-center rounded-full border border-white/22 px-2.5 text-xs font-semibold text-white no-underline transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
           >
             {switchTo.toUpperCase()}
           </Link>
+          <a
+            href={createWhatsAppUrl(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-white px-3.5 text-[13px] font-semibold text-[#0A2540] no-underline transition hover:bg-[#F6F5F0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            {labels.whatsapp}
+          </a>
         </nav>
+
+        <button
+          ref={menuButtonRef}
+          type="button"
+          aria-label={labels.menu}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen(true)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/16 text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] lg:hidden"
+        >
+          <Menu className="h-5 w-5" aria-hidden="true" />
+        </button>
       </div>
 
-      {open && (
-        <nav className="lg:hidden fixed inset-0 z-50 bg-[#0A2540]/95 text-white backdrop-blur-sm">
-          <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col h-full">
-            {/* Top bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-black/10">
-              <Link href={base} onClick={()=>setOpen(false)} className="text-sm font-semibold text-white no-underline hover:opacity-90">
-                Esteban Firpo · Miami Real Estate
+      {open ? (
+        <div
+          ref={mobileNavigationRef}
+          id="mobile-navigation"
+          role="dialog"
+          aria-modal="true"
+          aria-label={isEnglish ? "Mobile navigation" : "Navegación mobile"}
+          className="fixed inset-0 z-[60] bg-[#0A2540] text-white lg:hidden"
+        >
+          <div className="mx-auto flex h-full max-w-lg flex-col px-5 py-4">
+            <div className="flex min-h-12 items-center justify-between border-b border-white/12 pb-4">
+              <Link
+                href={base}
+                onClick={() => setOpen(false)}
+                className="rounded-sm text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+              >
+                Esteban Firpo <span className="font-normal text-white/60">· Miami</span>
               </Link>
-              <button aria-label="Cerrar menú" onClick={()=>setOpen(false)} className="p-2">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" stroke="white" />
-                  <line x1="6" y1="6" x2="18" y2="18" stroke="white" />
-                </svg>
+              <button
+                type="button"
+                autoFocus
+                aria-label={labels.close}
+                onClick={() => {
+                  setOpen(false);
+                  requestAnimationFrame(() => menuButtonRef.current?.focus());
+                }}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/16 text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
-            {/* Menu items + language switch */}
-            <div className="mt-3 overflow-y-auto">
-              <div className="divide-y divide-black/5">
-                {items.map(it=>{
-                  const isHome = it.href === base;
-                  const isActive = isHome ? (pathname === base) : pathname.startsWith(it.href);
-                  return (
-                    <Link
-                      key={it.href}
-                      href={it.href}
-                      aria-current={isActive ? 'page' : undefined}
-                      onClick={()=>setOpen(false)}
-                      className={`block py-3.5 text-lg no-underline transition-colors ${isActive ? 'text-white underline decoration-2 underline-offset-[6px] decoration-[#D4AF37]' : 'text-white/85 hover:text-white'}`}
-                    >
-                      {it.label}
-                    </Link>
-                  )})}
+            <nav aria-label={isEnglish ? "Mobile navigation" : "Navegación mobile"} className="flex-1 overflow-y-auto py-5">
+              <div className="divide-y divide-white/10">
+                {primaryItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="flex min-h-14 items-center py-3 text-xl font-medium text-white/88 no-underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#D4AF37]"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
-              <div className="mt-4">
+
+              <div className="mt-5 flex flex-wrap gap-3 border-t border-white/12 pt-5">
+                {secondaryItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="inline-flex min-h-10 items-center rounded-lg border border-white/18 px-3 text-sm text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
                 <Link
                   href={switchHref}
-                  onClick={()=>setOpen(false)}
-                  title={switchTo.toUpperCase()}
-                  aria-label={locale === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
-                  className="inline-flex w-full items-center justify-center rounded-md border border-white/25 text-white px-3 py-2 text-sm font-semibold no-underline hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#D4AF37]/40"
+                  onClick={() => setOpen(false)}
+                  aria-label={labels.switchLanguage}
+                  className="inline-flex min-h-10 items-center rounded-lg border border-white/18 px-3 text-sm font-semibold text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
                 >
                   {switchTo.toUpperCase()}
                 </Link>
               </div>
-            </div>
+            </nav>
+
+            <a
+              href={createWhatsAppUrl(whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-semibold text-[#0A2540] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              {labels.whatsapp}
+            </a>
           </div>
-        </nav>
-      )}
+        </div>
+      ) : null}
     </header>
   );
 }
