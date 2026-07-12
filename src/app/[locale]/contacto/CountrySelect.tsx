@@ -29,7 +29,6 @@ export default function CountrySelect({
   onChange,
   options,
   labels,
-  countries,
   isEN,
   ...props
 }: CustomCountrySelectProps) {

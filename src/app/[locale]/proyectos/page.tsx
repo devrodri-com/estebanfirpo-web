@@ -7,7 +7,6 @@ import { useMemo, useState, useCallback } from "react";
 import { ALL_PROJECTS } from "@/data/projects/index";
 import type { Project } from "@/data/types";
 import ProjectsFilters, { type Filters } from "@/components/ProjectsFilters";
-import ProjectDrawer from "@/components/ProjectDrawer";
 import { getRentalPolicyForFilter } from "@/utils/rentalPolicyForFilter";
 import { useParams } from "next/navigation";
 
@@ -26,7 +25,6 @@ export default function Proyectos() {
   const [filters, setFilters] = useState<Filters>({ q: "", rental: "all", min: undefined, max: undefined, sort: 'alpha-asc' });
 
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<Project | null>(null);
   const openDrawer = useCallback(() => setOpen(true), []);
   const closeDrawer = useCallback(() => setOpen(false), []);
 
@@ -232,7 +230,6 @@ export default function Proyectos() {
           </div>
         ))}
       </div>
-      <ProjectDrawer open={open} project={selected} onClose={() => setOpen(false)} />
     </main>
   );
 }

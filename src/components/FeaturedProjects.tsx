@@ -1,8 +1,5 @@
 // src/components/FeaturedProjects.tsx
 "use client";
-import { FEATURED_PROJECTS } from "@/data/projects";
-import ProjectCard from "./ProjectCard";
-import { useRef } from "react";
 import { useParams } from "next/navigation";
 
 export default function FeaturedProjects() {

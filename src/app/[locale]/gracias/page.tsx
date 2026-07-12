@@ -5,12 +5,19 @@ import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 declare global {
-  interface Window { gtag?: (...args: any[]) => void }
+  interface Window {
+    gtag?: (
+      command: "event",
+      eventName: string,
+      parameters?: Record<string, string | number | boolean | undefined>,
+    ) => void;
+  }
 }
 
 export default function GraciasPage() {
   const router = useRouter();
-  const { locale } = useParams() as { locale: 'es' | 'en' };
+  const params = useParams<{ locale: string }>();
+  const locale = params.locale === "en" ? "en" : "es";
   const isEN = locale === 'en';
 
   // Accesibilidad: anuncia el estado
@@ -110,8 +117,7 @@ export default function GraciasPage() {
             className="group inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-white/20 px-5 text-[14px] font-medium text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
             onClick={() => {
               // GA4 opcional
-              // @ts-ignore
-              window?.gtag?.('event','click_whatsapp',{ event_category:'engagement', event_label:'thankyou_whatsapp' });
+              window.gtag?.('event','click_whatsapp',{ event_category:'engagement', event_label:'thankyou_whatsapp' });
             }}
           >
             <svg aria-hidden viewBox="0 0 24 24" className="h-4 w-4 opacity-90 transition-transform group-hover:scale-110" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.04 0C5.5 0 .2 5.3.2 11.84c0 2.08.54 4.1 1.57 5.89L0 24l6.42-1.67a11.75 11.75 0 0 0 5.62 1.43h.01c6.54 0 11.85-5.3 11.85-11.84 0-3.16-1.23-6.14-3.38-8.44ZM12.05 21.4a9.55 9.55 0 0 1-4.86-1.33l-.35-.2-3.81 1 1.02-3.71-.23-.38a9.65 9.65 0 0 1-1.49-5.2c0-5.32 4.33-9.64 9.66-9.64 2.58 0 5 1 6.82 2.82a9.6 9.6 0 0 1 2.83 6.8c0 5.32-4.33 9.64-9.59 9.64Zm5.46-7.17c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.78-1.49-1.73-1.66-2.02-.17-.3-.02-.46.13-.6.13-.12.3-.32.44-.48.15-.16.2-.27.3-.45.1-.2.05-.36-.02-.5-.07-.15-.66-1.6-.9-2.2-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.76.36-.26.3-1 1-1 2.42s1.02 2.8 1.17 3c.15.2 2.02 3.08 4.92 4.33.69.3 1.24.48 1.66.6.7.22 1.35.19 1.86.12.57-.08 1.77-.72 2.03-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.36Z"/></svg>

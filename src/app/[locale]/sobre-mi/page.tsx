@@ -1,13 +1,24 @@
 // src/app/[locale]/sobre-mi/page.tsx
+import type { Metadata } from "next";
 import Image from 'next/image';
 import { MapPinIcon, GlobeAltIcon, AcademicCapIcon, ChartBarIcon, ShieldCheckIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
+import { createStaticPageMetadata } from "@/lib/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createStaticPageMetadata(locale, "sobreMi");
+}
 
 export default async function SobreMi({
   params,
 }: {
-  params: { locale: 'es' | 'en' }
+  params: Promise<{ locale: 'es' | 'en' }>
 }) {
-  const locale = params?.locale || 'es';
+  const { locale = 'es' } = await params;
   const isEN = locale === 'en';
 
   return (

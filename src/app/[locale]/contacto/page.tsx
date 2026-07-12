@@ -13,11 +13,39 @@ import styles from "./ContactoPhone.module.css";
 import CountrySelect from "./CountrySelect";
 
 declare global {
-  interface Window { gtag?: (...args: any[]) => void }
+  interface Window {
+    gtag?: (
+      command: "event",
+      eventName: string,
+      parameters?: Record<string, string | number | boolean | undefined>,
+    ) => void;
+  }
+}
+
+type ContactApiResponse =
+  | { ok: true }
+  | { ok: false; error: string };
+
+type UtmParams = {
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+};
+
+function isContactApiResponse(value: unknown): value is ContactApiResponse {
+  if (typeof value !== "object" || value === null || !("ok" in value)) {
+    return false;
+  }
+
+  const response = value as { ok?: unknown; error?: unknown };
+  return response.ok === true || (response.ok === false && typeof response.error === "string");
 }
 
 export default function Contacto() {
-  const { locale } = useParams() as { locale: 'es' | 'en' };
+  const params = useParams<{ locale: string }>();
+  const locale = params.locale === "en" ? "en" : "es";
   const isEN = locale === 'en';
   const waMsg = isEN ? 'Hi Esteban, I would like to schedule a call to discuss Miami pre-construction opportunities.' : 'Hola Esteban, me gustaría coordinar una llamada para hablar de oportunidades en Miami.';
   const waHref = `https://wa.me/17542673931?text=${encodeURIComponent(waMsg)}`;
@@ -30,25 +58,19 @@ export default function Contacto() {
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const [notice, setNotice] = useState<null | { type: 'success' | 'error'; text: string }>(null);
-  const [utms, setUtms] = useState<{
-    utm_source?: string;
-    utm_medium?: string;
-    utm_campaign?: string;
-    utm_content?: string;
-    utm_term?: string;
-  }>({});
+  const [utms, setUtms] = useState<UtmParams>({});
   const router = useRouter();
 
   // Capturar UTMs desde la URL al cargar la página
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const utmParams: typeof utms = {};
+      const utmParams: UtmParams = {};
       const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const;
       utmKeys.forEach(key => {
         const value = params.get(key);
         if (value) {
-          utmParams[key] = value;
+          utmParams[key] = value.trim().slice(0, 200);
         }
       });
       if (Object.keys(utmParams).length > 0) {
@@ -102,7 +124,7 @@ export default function Contacto() {
         }
         setForm(prev => ({ ...prev, telefonoE164: "", country: "" }));
       }
-    } catch (err) {
+    } catch {
       // Solo mostrar error si el usuario está escribiendo (más de 3 caracteres)
       if (newValue.length > 3) {
         setPhoneError(isEN ? "Invalid phone number" : "Número de teléfono inválido");
@@ -147,11 +169,16 @@ export default function Contacto() {
         body: JSON.stringify({ ...form, ...utms, company: companyHoneypot }),
       });
       const raw = await r.text();
-      let data: any = {};
-      try { data = JSON.parse(raw); } catch {}
+      let data: ContactApiResponse | null = null;
+      try {
+        const parsed: unknown = JSON.parse(raw);
+        if (isContactApiResponse(parsed)) data = parsed;
+      } catch {
+        // A non-JSON response is handled as a generic delivery failure below.
+      }
       
       // Handle rate limiting specifically
-      if (r.status === 429 || data?.error === "rate_limited") {
+      if (r.status === 429 || (data?.ok === false && data.error === "rate_limited")) {
         setNotice({ 
           type: 'error', 
           text: isEN ? 'Too many attempts. Please try again in a few minutes.' : 'Demasiados intentos. Probá de nuevo en unos minutos.' 
@@ -159,7 +186,7 @@ export default function Contacto() {
         return;
       }
       
-      if (!r.ok || !data?.ok) throw new Error(data?.error || raw || 'send failed');
+      if (!r.ok || data?.ok !== true) throw new Error("send failed");
       setNotice({ type: 'success', text: isEN ? 'Message sent. I will contact you shortly.' : 'Mensaje enviado. Te contactaré a la brevedad.' });
       
       // Evento gtag mejorado sin PII
@@ -220,6 +247,7 @@ export default function Contacto() {
               className="h-11 w-full rounded-md border border-white/20 bg-white px-3 text-[#0A2540] placeholder-black/40 outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
               placeholder={isEN ? 'Name' : 'Nombre'}
               required
+              maxLength={100}
               onChange={handleChange}
             />
           </label>
@@ -231,6 +259,7 @@ export default function Contacto() {
               placeholder={isEN ? 'Email' : 'Email'}
               type="email"
               required
+              maxLength={254}
               onChange={handleChange}
             />
           </label>
@@ -273,6 +302,7 @@ export default function Contacto() {
               className="min-h-32 w-full rounded-md border border-white/20 bg-white p-3 text-[#0A2540] placeholder-black/40 outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
               placeholder={isEN ? 'Your message' : 'Tu consulta'}
               required
+              maxLength={4000}
               onChange={handleChange}
             />
           </label>
@@ -284,6 +314,7 @@ export default function Contacto() {
               type="text"
               tabIndex={-1}
               autoComplete="off"
+              maxLength={200}
               value={companyHoneypot}
               onChange={(e) => setCompanyHoneypot(e.target.value)}
               aria-hidden="true"
