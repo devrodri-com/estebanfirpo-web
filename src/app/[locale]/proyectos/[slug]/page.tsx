@@ -1,4 +1,5 @@
 // src/app/[locale]/proyectos/[slug]/page.tsx
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,115 +7,18 @@ import { ALL_PROJECTS } from "@/data/projects/index";
 import type { Project } from "@/data/types";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import HighlightsBlock, { type HighlightItem } from "@/components/HighlightsBlock";
-import SpecsBlock from "@/components/SpecsBlock";
-import WhyBlock, { type WhyItem } from "@/components/WhyBlock";
 import FaqsBlock, { type FaqItem } from "@/components/FaqsBlock";
 import PaymentPlan from "@/components/PaymentPlan";
-import { Lock, WashingMachine, Tv, Speaker, PawPrint, Palette, Dumbbell, Briefcase } from "lucide-react";
 import {
   Sparkles,
   LayoutGrid,
   ListChecks,
-  PackageOpen,
-  CalendarClock,
-  CircleHelp,
   MapPin,
   Images as ImagesIcon,
 } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
-function BedIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <rect x="2" y="10" width="20" height="8" rx="2" />
-      <path d="M2 18v2M22 18v2M6 10V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4" />
-    </svg>
-  );
-}
-function BalconyIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <rect x="4" y="10" width="16" height="8" rx="2" />
-      <path d="M4 14h16M9 10V6h6v4" />
-    </svg>
-  );
-}
-function RulerIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <rect x="3" y="7" width="18" height="10" rx="2" />
-      <path d="M7 7v10M17 7v10M12 7v10" />
-    </svg>
-  );
-}
-
-function HeightIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4" />
-    </svg>
-  );
-}
-
-
-// Feature icons
-function PoolIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <path d="M3 16c2 1.5 4 1.5 6 0 2 1.5 4 1.5 6 0 2 1.5 4 1.5 6 0" />
-      <path d="M8 12V7a2 2 0 0 1 4 0v5" />
-      <path d="M12 12V7a2 2 0 0 1 4 0v5" />
-    </svg>
-  );
-}
-function YogaIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <circle cx="12" cy="5" r="2" />
-      <path d="M12 7v6l-4 4M12 13l4 4" />
-    </svg>
-  );
-}
-function WorkIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <rect x="3" y="7" width="18" height="12" rx="2" />
-      <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
-    </svg>
-  );
-}
-function StoreIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <path d="M4 7h16l-1 3H5L4 7z" />
-      <path d="M5 10v7h14v-7" />
-    </svg>
-  );
-}
-
-function featureIconFor(label: string) {
-  const s = (label || "").toLowerCase();
-  const cls = "h-4 w-4";
-  // Priority: explicit keywords first
-  if (s.includes("cerradura")) return <Lock className={cls} />; // smart lock
-  if (s.includes("lavadora") || s.includes("secadora")) return <WashingMachine className={cls} />; // washer/dryer
-  if (s.includes("tv") || s.includes("audio") || s.includes("sonido")) return <Tv className={cls} />; // tv + audio
-  if (s.includes("pet") || s.includes("mascota")) return <PawPrint className={cls} />; // pet‑friendly
-  if (s.includes("arte") || s.includes("art")) return <Palette className={cls} />; // art exhibitions
-
-  // Generic amenities
-  if (s.includes("cowork") || s.includes("co‑working") || s.includes("co working")) return <Briefcase className={cls} />;
-  if (s.includes("gimnasio") || s.includes("gym")) return <Dumbbell className={cls} />;
-  if (s.includes("piscina") || s.includes("pool") || s.includes("jacuzzi")) return <PoolIcon className={cls} />;
-  if (s.includes("mercado") || s.includes("lobby") || s.includes("tienda")) return <StoreIcon className={cls} />;
-
-  // Fallback: no icon
-  return undefined;
-}
-
-
-
+import { createProjectMetadata } from "@/lib/metadata";
 type Params = { params: Promise<{ locale: string; slug: string }> };
-
 
 function pickBySlug(slug: string): Project | null {
   // projects store slug like "/proyectos/72-park"; normalize for match
@@ -130,46 +34,32 @@ function fmtUSD(n: number, locale: string) {
   }).format(n);
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
   const { locale, slug } = await params;
   const isEN = locale === "en";
   const p = pickBySlug(slug);
+
   if (!p) {
     return {
-      title: isEN ? "Project not found" : "Proyecto no encontrado",
+      title: {
+        absolute: isEN
+          ? "Project not found | Esteban Firpo"
+          : "Proyecto no encontrado | Esteban Firpo",
+      },
       robots: { index: false, follow: false },
     };
   }
 
-  const title = `${p.name} — ${p.city} | Esteban Firpo`;
-  const desc = isEN
-    ? `STR approved, private beach club, ${p.pricePerSfApprox ? `~$${p.pricePerSfApprox}/sf, ` : ""}${p.delivery ? `completion ${p.delivery}, ` : ""}request floor plans and availability.`
-    : `Renta corta aprobada, club de playa privado, ${p.pricePerSfApprox ? `~$${p.pricePerSfApprox}/sf, ` : ""}${p.delivery ? `entrega ${p.delivery}, ` : ""}solicitá planos y disponibilidad.`;
-
-  const url = `/${locale}/proyectos/${slug}`;
-  const image = p.image || "/images/og-default.jpg";
-
-  return {
-    title,
-    description: desc,
-    alternates: { canonical: url },
-    robots: { index: true, follow: true },
-    openGraph: {
-      title,
-      description: desc,
-      url,
-      images: [{ url: image }],
-      locale,
-      siteName: "Esteban Firpo — Real Estate",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: desc,
-      images: [image],
-    },
-  };
+  return createProjectMetadata({
+    rawLocale: locale,
+    slug,
+    name: p.name,
+    city: p.city,
+  });
 }
 
 export default async function Proyecto({ params }: Params) {
@@ -179,8 +69,8 @@ export default async function Proyecto({ params }: Params) {
   if (!p) notFound();
 
   const policy = isEN
-    ? ((p as any).rentalPolicyEn ?? (p as any).rentalPolicy ?? undefined)
-    : ((p as any).rentalPolicyEs ?? (p as any).rentalPolicy ?? undefined);
+    ? (p.rentalPolicyEn ?? p.rentalPolicy)
+    : (p.rentalPolicyEs ?? p.rentalPolicy);
 
   const payment = (isEN ? p.paymentPlanEn : p.paymentPlanEs) ?? [];
   const faqs = (isEN ? p.faqsEn : p.faqsEs) ?? [];
@@ -347,7 +237,7 @@ export default async function Proyecto({ params }: Params) {
           {t.ctas.whatsapp}
         </a>
         <a
-          href="mailto:info@estebanfirpo.com"
+          href="mailto:esteban@miamiliferealty.com"
           className="inline-flex h-10 items-center justify-center rounded-md border border-[#0A2540]/25 px-5 text-sm font-medium text-[#0A2540] hover:bg-[#F9FAFB] focus-visible:ring-2 focus-visible:ring-[#D4AF37]/40"
         >
           {t.ctas.email}
@@ -408,7 +298,7 @@ export default async function Proyecto({ params }: Params) {
               <h2 className="text-[16px] sm:text-[17px] font-semibold tracking-tight text-white">{t.mix}</h2>
             </div>
             <ul className="mt-2 sm:mt-3 space-y-[11px] max-w-[1000px] lg:max-w-[960px] mx-auto" role="list">
-              {items.map((line: any, i: number) => {
+              {items.map((line, i) => {
                 const label = typeof line === 'string' ? line : line?.label;
                 if (!label) return null;
                 return (
@@ -449,7 +339,7 @@ export default async function Proyecto({ params }: Params) {
               <h2 className="text-[16px] sm:text-[17px] font-semibold tracking-tight text-white">{t.features}</h2>
             </div>
             <ul className="mt-2 sm:mt-3 space-y-[11px] max-w-[1000px] lg:max-w-[960px] mx-auto" role="list">
-              {items.map((line: any, i: number) => {
+              {items.map((line, i) => {
                 const label = typeof line === 'string' ? line : line?.label;
                 if (!label) return null;
                 return (
@@ -583,7 +473,7 @@ export default async function Proyecto({ params }: Params) {
         <a href={waHref} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md border border-[#0A2540]/20 px-4 text-sm font-medium text-[#0A2540] hover:bg-[#F9FAFB]">
           {t.ctas.whatsapp}
         </a>
-        <a href="mailto:info@estebanfirpo.com" className="w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md border border-[#0A2540]/20 px-4 text-sm font-medium text-[#0A2540] hover:bg-[#F9FAFB]">
+        <a href="mailto:esteban@miamiliferealty.com" className="w-full sm:w-auto inline-flex h-10 items-center justify-center rounded-md border border-[#0A2540]/20 px-4 text-sm font-medium text-[#0A2540] hover:bg-[#F9FAFB]">
           {t.ctas.email}
         </a>
         <ShareButtons
@@ -615,6 +505,7 @@ export default async function Proyecto({ params }: Params) {
         <div className="overflow-hidden rounded-2xl ring-1 ring-white/10">
           <iframe
             src={mapSrc}
+            title={isEN ? `${p.name} location map` : `Mapa de ubicación de ${p.name}`}
             width="100%"
             height="360"
             style={{ border: 0 }}

@@ -1,18 +1,20 @@
 // src/app/[locale]/miami/page.tsx
 
-import {getTranslations} from 'next-intl/server';
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { createStaticPageMetadata } from "@/lib/metadata";
 
-export async function generateMetadata({ params }: { params: { locale: 'es' | 'en' } }) {
-  const { locale } = params;
-  return {
-    alternates: {
-      canonical: `/${locale}/miami`,
-    },
-  };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createStaticPageMetadata(locale, "miami");
 }
 
-export default async function Miami({ params }: { params: { locale: 'es' | 'en' } }) {
-  const locale = params.locale;
+export default async function Miami({ params }: { params: Promise<{ locale: 'es' | 'en' }> }) {
+  const { locale } = await params;
   const t = await getTranslations({ locale });
 
   const kpis: { value: string; label: string }[] = [

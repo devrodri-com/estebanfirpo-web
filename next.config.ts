@@ -3,6 +3,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./next-intl.config.ts');
 export default withNextIntl({
   reactStrictMode: true,
+  experimental: {
+    globalNotFound: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -11,8 +14,5 @@ export default withNextIntl({
         pathname: '**',
       },
     ],
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 });

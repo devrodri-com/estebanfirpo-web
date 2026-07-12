@@ -1,13 +1,24 @@
 // src/app/[locale]/storages/page.tsx
-
+import type { Metadata } from "next";
+import Image from "next/image";
 import { callaway } from "../../../data/storages/callaway";
-import type { StorageProject } from "../../../data/storages/types";
+import { createStaticPageMetadata } from "@/lib/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createStaticPageMetadata(locale, "storages");
+}
+
 export default async function StoragesPage({
   params,
 }: {
-  params: { locale: "es" | "en" };
+  params: Promise<{ locale: "es" | "en" }>;
 }) {
-  const locale = params?.locale || "es";
+  const { locale = "es" } = await params;
   const isEN = locale === "en";
 
   return (
@@ -206,9 +217,12 @@ export default async function StoragesPage({
             <div className="mt-2 h-40 w-full max-w-[260px] overflow-hidden rounded-md bg-[#F2F4F7] sm:mt-0">
               {/* Placeholder de imagen: reemplazar con la imagen generada en Sora */}
               {/* Subí la imagen a /public/images/storages/callaway-hero.jpg */}
-              <img
+              <Image
                 src="/images/storages/callaway-hero.jpg"
                 alt={isEN ? "Marketing render of self-storage facility" : "Render marketing de self-storage"}
+                width={260}
+                height={160}
+                sizes="(min-width: 640px) 260px, 100vw"
                 className="h-full w-full object-cover"
               />
             </div>

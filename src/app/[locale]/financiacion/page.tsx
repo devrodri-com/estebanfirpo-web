@@ -1,7 +1,9 @@
 // src/app/[locale]/financiacion/page.tsx
 import React from "react";
+import type { Metadata } from "next";
 import es from "@/i18n/messages/es.json";
 import en from "@/i18n/messages/en.json";
+import { createStaticPageMetadata } from "@/lib/metadata";
 
 type StepT = { t: string; d: string };
 interface FinancingT {
@@ -27,19 +29,13 @@ function getDict(locale: string): Messages {
   return (locale === "en" ? (en as unknown as Messages) : (es as unknown as Messages));
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const dict = getDict(params?.locale);
-  const t = dict.financing;
-  return {
-    title: t.title,
-    description: t.seo,
-    alternates: {
-      languages: {
-        en: "/en/financiacion",
-        es: "/es/financiacion",
-      },
-    },
-  };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createStaticPageMetadata(locale, "financiacion");
 }
 
 // Icon components for steps
@@ -59,8 +55,9 @@ const SignatureIcon = () => (
   </svg>
 );
 
-export default function FinancingPage({ params }: { params: { locale: string } }) {
-  const dict = getDict(params?.locale);
+export default async function FinancingPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const dict = getDict(locale);
   const t = dict.financing;
 
   // Normalize benefits to objects and sort
@@ -83,8 +80,8 @@ export default function FinancingPage({ params }: { params: { locale: string } }
     };
   });
 
-  const ariaLabelCTA = params.locale === "en" ? "Apply for financing - opens in new tab" : "Solicitar financiación - se abre en una nueva pestaña";
-  const trustMicrocopy = params.locale === "en" ? "Response in Miami local time" : "Respuesta en horario local de Miami";
+  const ariaLabelCTA = locale === "en" ? "Apply for financing - opens in new tab" : "Solicitar financiación - se abre en una nueva pestaña";
+  const trustMicrocopy = locale === "en" ? "Response in Miami local time" : "Respuesta en horario local de Miami";
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-16 space-y-12 text-[#0A2540]">

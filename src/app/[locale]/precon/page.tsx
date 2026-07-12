@@ -1,6 +1,18 @@
 // src/app/[locale]/precon/page.tsx
-export default async function Precon({ params }: { params: { locale: 'es' | 'en' } }) {
-  const locale = params.locale;
+import type { Metadata } from "next";
+import { createStaticPageMetadata } from "@/lib/metadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return createStaticPageMetadata(locale, "precon");
+}
+
+export default async function Precon({ params }: { params: Promise<{ locale: 'es' | 'en' }> }) {
+  const { locale } = await params;
   return (
     <main className="mx-auto max-w-5xl px-4 py-16 space-y-12">
       <section className="space-y-4">
