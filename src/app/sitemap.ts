@@ -15,7 +15,6 @@ const sitemapRoutes: StaticRouteKey[] = [
   "contacto",
   "financiacion",
   "sobreMi",
-  "storages",
 ];
 
 function languageAlternates(path: string) {

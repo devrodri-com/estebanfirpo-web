@@ -19,6 +19,8 @@ La aplicación usa layouts raíz bajo el segmento dinámico `[locale]`. Para que
 
 El sitemap incluye las rutas institucionales en español e inglés, incluidos `/es/proyectos` y `/en/proyectos`, pero omite temporalmente las fichas `/[locale]/proyectos/[slug]` hasta completar la validación editorial del catálogo. Las fichas permanecen accesibles y este cambio no modifica sus páginas, metadata, directivas de robots ni estado de indexación. Se reincorporarán al sitemap cuando sus datos, fechas, precios, condiciones y claims hayan sido validados.
 
+Las rutas `/es/storages` y `/en/storages` también quedan temporalmente fuera del sitemap. La página, su navegación, metadata, directivas de robots y estado de indexación permanecen sin cambios. Storages se reincorporará al sitemap solamente si esa línea comercial y sus cifras, rendimientos, condiciones y contenido son validados.
+
 El comando `npm run catalog:slugs`, ejecutado automáticamente antes de desarrollo y build, genera `src/data/projects/public-slugs.generated.ts` desde el mismo `ALL_PROJECTS` consolidado que consume la web. El middleware importa solamente ese manifiesto liviano; no carga textos, imágenes, precios, galerías ni planes de pago, y no existe una lista manual que pueda quedar desincronizada. Durante la futura gobernanza del catálogo, el generador deberá consumir la fuente editorial canónica aprobada.
 
 En el build local de Next.js 15.5 con Turbopack, el tamaño reportado del middleware bajó de 92,7 kB a 50,8 kB. Sus archivos Edge pasaron de 326.195 a 167.839 bytes sin comprimir; el chunk principal bajó de 89.052 a 46.948 bytes comprimido con gzip. El sourcemap ya no incluye los módulos completos de proyectos: contiene únicamente el manifiesto generado.
