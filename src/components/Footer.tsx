@@ -1,202 +1,212 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { CalendarDays, ChevronDown, Mail, MessageCircle, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
+import {
+  CALENDAR_URL,
+  PUBLIC_EMAIL,
+  PUBLIC_PHONE_DISPLAY,
+  PUBLIC_PHONE_E164,
+  createWhatsAppUrl,
+} from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-
-  // Brand palette (estándar del proyecto)
-  const NAVY = "#0B1F3A";
-  const GOLD = "#D4AF37";
-  const SAND = "#F6F5F0";
-
   const pathname = usePathname();
-  const locale = (pathname?.split("/")[1] || "es") as "es" | "en";
-  const isEN = locale === "en";
+  const locale = (pathname?.split("/")[1] || "es") === "en" ? "en" : "es";
+  const isEnglish = locale === "en";
+  const base = `/${locale}`;
+
+  const labels = isEnglish
+    ? {
+        tagline: "Personal real estate advisory for international investors evaluating Miami and South Florida.",
+        affiliation: "Affiliated with Miami Life Realty",
+        explore: "Explore",
+        contact: "Contact",
+        projects: "Projects",
+        precon: "Pre-construction",
+        miami: "Miami",
+        financing: "Financing",
+        about: "About Esteban",
+        form: "Contact form",
+        schedule: "Schedule a conversation",
+        call: "Call Esteban",
+        disclosure:
+          "Website information is general and may change. Prices, availability, and conditions must be reconfirmed before making a decision.",
+        disclosureLabel: "Important information",
+        fullDisclosure:
+          "The information included with this communication and marketing material is intended solely for informational purposes. Miami Life Realty explicitly disclaims any representations or warranties, express or implied, as to the profitability of the real estate investment opportunity mentioned herein. Miami Life Realty has not performed any due diligence on the real estate investment opportunity and makes no representations about its feasibility, financial viability, or suitability for investment purposes. The decision to invest shall be made independently by each prospective buyer after appropriate due diligence and consideration for the profitability and commercial risks of the real estate investment. Prospective buyers are to perform their own independent valuations of risks and commercial viability in determining whether to undertake such investment opportunity. Miami Life Realty disclaims any responsibility for your reliance on the information provided herein.",
+        rights: "All rights reserved.",
+        made: "Made with Next.js by",
+        whatsappMessage: "Hi Esteban, I’d like to discuss a possible purchase in Miami or South Florida.",
+      }
+    : {
+        tagline: "Asesoría inmobiliaria personal para inversores internacionales que evalúan Miami y el sur de Florida.",
+        affiliation: "Afiliado a Miami Life Realty",
+        explore: "Explorar",
+        contact: "Contacto",
+        projects: "Proyectos",
+        precon: "Preconstrucción",
+        miami: "Miami",
+        financing: "Financiación",
+        about: "Sobre Esteban",
+        form: "Formulario de contacto",
+        schedule: "Agendar una conversación",
+        call: "Llamar a Esteban",
+        disclosure:
+          "La información del sitio es general y puede cambiar. Precios, disponibilidad y condiciones deben reconfirmarse antes de tomar una decisión.",
+        disclosureLabel: "Información importante",
+        fullDisclosure:
+          "Cierto material publicitario presenta porcentajes de rentabilidad obtenida en un periodo determinado de tiempo, expresadas en una base de tiempo mensual o anual. El material publicitario puede contener información prospectiva y que, por ende, está basada en expectativas y proyecciones actuales sobre eventos y tendencias futuras, con probabilidad de variación, y en todo momento se encuentra sujeta a riesgos, incertidumbres y otro tipo de factores.",
+        rights: "Todos los derechos reservados.",
+        made: "Hecho con Next.js por",
+        whatsappMessage: "Hola Esteban, quiero conversar sobre una posible compra en Miami o el sur de Florida.",
+      };
 
   return (
-    <footer className="mt-16" style={{ backgroundColor: NAVY, color: SAND }}>
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          {/* Brand + tagline */}
-          <div className="space-y-3">
-            <h3 className="text-xl font-semibold">
-              Esteban Firpo · <span className="font-normal">Miami Real Estate</span>
-            </h3>
-            <p className="text-sm opacity-90">
-              {isEN
-                ? "Professional advisory in pre‑construction and select projects in Miami."
-                : "Asesoría profesional en preventa y proyectos selectos en Miami."}
-            </p>
-          </div>
-
-          {/* Contacto */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2" style={{ borderColor: GOLD }}>
-                {/* Coloca tu foto en public/images/esteban.jpg (300×300 aprox). Si no existe, mostramos un fallback. */}
-                <Image
-                  src="/images/Esteban.jpg"
-                  alt="Foto de Esteban Firpo"
-                  fill
-                  className="object-cover"
-                  sizes="150px"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-medium">Esteban Firpo</p>
-                <p className="text-xs opacity-90">REALTOR® Associate</p>
-              </div>
+    <footer className="mt-8 bg-[#0B1F3A] text-[#F6F5F0]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.2fr_0.8fr_0.9fr] md:py-16">
+        <div>
+          <h2 className="text-xl font-semibold tracking-[-0.02em] text-white">
+            Esteban Firpo <span className="font-normal text-white/60">· Miami Real Estate</span>
+          </h2>
+          <p className="mt-4 max-w-sm text-sm leading-6 text-white/68">{labels.tagline}</p>
+          <div className="mt-6 flex items-center gap-4">
+            <Image
+              src="/images/Esteban.jpg"
+              alt="Esteban Firpo"
+              width={96}
+              height={96}
+              sizes="48px"
+              className="h-12 w-12 rounded-full object-cover ring-1 ring-[#D4AF37]/55"
+            />
+            <div>
+              <p className="text-sm font-semibold text-white">Esteban Firpo</p>
+              <p className="mt-0.5 text-xs text-white/58">{labels.affiliation}</p>
             </div>
+          </div>
+          <div className="mt-5 inline-flex rounded-lg bg-white px-3 py-2">
+            <Image
+              src="/images/miamiliferealty_logo.png"
+              alt="Miami Life Realty"
+              width={160}
+              height={40}
+              sizes="140px"
+              className="h-7 w-auto object-contain"
+            />
+          </div>
+        </div>
 
-            <div className="mt-2 ml-[60px] flex items-center gap-2">
-              <a
-                href="mailto:esteban@miamiliferealty.com"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-transparent transition hover:bg-white/10 focus-visible:bg-white/10"
-                style={{ color: SAND }}
-                aria-label={isEN ? "Email" : "Email"}
-              >
-                <Mail className="h-4.5 w-4.5" aria-hidden />
-              </a>
+        <nav aria-label={labels.explore}>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/48">
+            {labels.explore}
+          </h3>
+          <ul className="mt-5 space-y-3 text-sm">
+            {[
+              [`${base}/proyectos`, labels.projects],
+              [`${base}/precon`, labels.precon],
+              [`${base}/miami`, labels.miami],
+              [`${base}/financiacion`, labels.financing],
+              [`${base}/sobre-mi`, labels.about],
+            ].map(([href, label]) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="rounded-sm text-white/72 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
+        <div>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/48">
+            {labels.contact}
+          </h3>
+          <ul className="mt-5 space-y-3 text-sm text-white/72">
+            <li>
               <a
-                href="tel:+17542673931"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-transparent transition hover:bg-white/10 focus-visible:bg-white/10"
-                style={{ color: SAND }}
-                aria-label={isEN ? "Call" : "Llamar"}
-              >
-                <Phone className="h-4.5 w-4.5" aria-hidden />
-              </a>
-
-              <a
-                href="https://wa.me/17542673931"
+                href={createWhatsAppUrl(labels.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-transparent transition hover:bg-white/10 focus-visible:bg-white/10"
-                style={{ color: SAND }}
-                aria-label="WhatsApp"
+                className="inline-flex items-center gap-2 rounded-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
               >
-                <Image
-                  src="/icons/whatsapp.svg"
-                  alt=""
-                  width={16}
-                  height={16}
-                  className="brightness-0 invert opacity-90"
-                  aria-hidden
-                />
+                <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
               </a>
-            </div>
-            <p className="mt-2 text-sm opacity-90">
-              Miami Life Realty · 2320 Hollywood Blvd, Hollywood, FL 33020
-            </p>
-
-            {/* Logo broker */}
-            <div className="pt-3">
-              <Image
-                src="/images/miamiliferealty_logo.png"
-                alt="Miami Life Realty"
-                width={160}
-                height={40}
-                className="h-8 w-auto object-contain"
-                sizes="160px"
-              />
-            </div>
-          </div>
-
-          {/* Enlaces útiles */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider opacity-80">
-              {isEN ? "Links" : "Enlaces"}
-            </h4>
-            <ul className="text-sm space-y-2">
-              <li>
-                <Link href={`/${locale}/proyectos`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "Projects" : "Proyectos"}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/miami`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "Why Miami" : "Por qué Miami"}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/precon`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "Why Pre‑construction" : "Por qué Preconstrucción"}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/storages`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "Storages" : "Storages"}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/financiacion`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "Financing" : "Financiación"}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/sobre-mi`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "About" : "Sobre mí"}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/contacto`} className="hover:opacity-90" style={{ color: SAND }}>
-                  {isEN ? "Contact" : "Contacto"}
-                </Link>
-              </li>
-            </ul>
-          </div>
+            </li>
+            <li>
+              <a
+                href={`mailto:${PUBLIC_EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+              >
+                <Mail className="h-4 w-4" aria-hidden="true" /> {PUBLIC_EMAIL}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`tel:${PUBLIC_PHONE_E164}`}
+                aria-label={labels.call}
+                className="inline-flex items-center gap-2 rounded-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" /> {PUBLIC_PHONE_DISPLAY}
+              </a>
+            </li>
+            <li>
+              <a
+                href={CALENDAR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-sm hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+              >
+                <CalendarDays className="h-4 w-4" aria-hidden="true" /> {labels.schedule}
+              </a>
+            </li>
+            <li>
+              <Link
+                href={`${base}/contacto`}
+                className="rounded-sm underline decoration-white/25 underline-offset-4 hover:text-white hover:decoration-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+              >
+                {labels.form}
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
 
-      {/* Legal bar */}
-      <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-        <div className="mx-auto max-w-6xl px-4 py-4 text-xs flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <div className="w-full flex justify-center">
-            {/* Desktop: una sola línea */}
-            <p className="opacity-90 hidden sm:block text-center">
-              {isEN
-                ? <>© {year} Esteban Firpo. All rights reserved. · Made with <span aria-hidden>Next.js</span> by{" "}</>
-                : <>© {year} Esteban Firpo. Todos los derechos reservados. · Hecho con <span aria-hidden>Next.js</span> por{" "}</>
-              }
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-6">
+          <p className="max-w-4xl text-xs leading-5 text-white/48">{labels.disclosure}</p>
+          <details className="group mt-4 max-w-4xl border-t border-white/10 pt-4">
+            <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-4 rounded-sm text-xs font-semibold text-white/72 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37] [&::-webkit-details-marker]:hidden">
+              <span>{labels.disclosureLabel}</span>
+              <ChevronDown
+                className="h-4 w-4 shrink-0 transition group-open:rotate-180 motion-reduce:transition-none"
+                aria-hidden="true"
+              />
+            </summary>
+            <p className="pb-2 pr-8 text-xs leading-5 text-white/60">{labels.fullDisclosure}</p>
+          </details>
+          <div className="mt-5 flex flex-col gap-2 border-t border-white/8 pt-5 text-[11px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {year} Esteban Firpo. {labels.rights}</p>
+            <p>
+              {labels.made}{" "}
               <a
                 href="https://www.devrodri.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-90"
-                style={{ color: SAND }}
+                className="rounded-sm underline decoration-white/20 underline-offset-3 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
               >
                 Rodrigo Opalo
               </a>
             </p>
-            {/* Mobile: dos líneas centradas */}
-            <div className="sm:hidden text-center leading-relaxed">
-              <p className="opacity-90">
-                {isEN
-                  ? `© ${year} Esteban Firpo. All rights reserved.`
-                  : `© ${year} Esteban Firpo. Todos los derechos reservados.`}
-              </p>
-              <p className="opacity-90">
-                {isEN ? "Made with Next.js by " : "Hecho con Next.js por "}
-                <a
-                  href="https://www.devrodri.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-90"
-                  style={{ color: SAND }}
-                >
-                  Rodrigo Opalo
-                </a>
-              </p>
-            </div>
           </div>
         </div>
       </div>
-
-      {/* Sutil acento dorado inferior */}
-      <div style={{ height: 3, backgroundColor: GOLD }} />
+      <div className="h-0.5 bg-[#D4AF37]" />
     </footer>
   );
 }
