@@ -17,6 +17,8 @@ import {
   Images as ImagesIcon,
 } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
+import { PriorityProjectPage } from "@/components/projects/PriorityProjectPage";
+import { getPriorityProjectGovernance } from "@/data/project-governance/priority-projects";
 import { createProjectMetadata } from "@/lib/metadata";
 type Params = { params: Promise<{ locale: string; slug: string }> };
 
@@ -54,11 +56,15 @@ export async function generateMetadata({
     };
   }
 
+  const governance = getPriorityProjectGovernance(slug);
+
   return createProjectMetadata({
     rawLocale: locale,
     slug,
     name: p.name,
-    city: p.city,
+    city: governance
+      ? governance.location[isEN ? "en" : "es"]
+      : p.city,
   });
 }
 
@@ -67,6 +73,17 @@ export default async function Proyecto({ params }: Params) {
   const isEN = locale === "en";
   const p = pickBySlug(slug);
   if (!p) notFound();
+
+  const governance = getPriorityProjectGovernance(slug);
+  if (governance) {
+    return (
+      <PriorityProjectPage
+        project={p}
+        governance={governance}
+        locale={isEN ? "en" : "es"}
+      />
+    );
+  }
 
   const policy = isEN
     ? (p.rentalPolicyEn ?? p.rentalPolicy)
