@@ -3,6 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
+import canonicalProjectModule from "../src/features/projects/server/get-canonical-project.ts";
 
 const require = createRequire(import.meta.url);
 const ts = require("typescript");
@@ -15,6 +16,7 @@ const slugManifestEntry = path.join(projectsRoot, "public-slugs.generated.ts");
 const outputFile = path.join(repositoryRoot, "docs/phase-3b-project-migration-matrix.tsv");
 const temporaryOutput = fs.mkdtempSync(path.join(os.tmpdir(), "estebanfirpo-phase-3b-matrix-"));
 const checkOnly = process.argv.includes("--check");
+const { getAllCanonicalProjects } = canonicalProjectModule;
 
 const FUNCTION_COLUMNS = [
   "name",
@@ -24,7 +26,7 @@ const FUNCTION_COLUMNS = [
   "delivery",
   "rental",
   "delivery_condition",
-  "metrics",
+  "key_facts",
   "gallery",
   "highlights_amenities",
   "unit_types_floorplans",
@@ -103,7 +105,7 @@ const FUNCTION_CONFLICTS = {
     delivery: "El tratamiento aprobado presenta 2029 como entrega estimada y sujeta a confirmación.",
     rental: "El tratamiento aprobado conserva el mínimo de renta de 90 días con una sola nota prudente de bloque.",
     delivery_condition: "El tratamiento aprobado conserva la función como consulta de especificaciones y condición de entrega.",
-    metrics: "El tratamiento aprobado conserva las tres métricas con una sola nota prudente de bloque.",
+    key_facts: "El tratamiento aprobado conserva los tres datos clave con una sola nota prudente de bloque.",
     payment_plan: "El tratamiento aprobado conserva la función como solicitud del plan de pagos vigente.",
   },
   "/proyectos/viceroy-brickell-residences": {
@@ -166,12 +168,22 @@ function projectConflict(project, functionName) {
   );
 }
 
-function makeCell({ legacy, languages, source, conflict, proposed, decision, omissionReason, lossRisk }) {
+function makeCell({
+  legacy,
+  languages,
+  source,
+  conflict,
+  proposed,
+  decision,
+  omissionReason,
+  lossRisk,
+  allowLegacyOmission = false,
+}) {
   if (!DECISIONS.has(decision)) throw new Error(`Invalid decision: ${decision}`);
   if (["request", "omit_optional", "needs_content"].includes(decision) && !omissionReason) {
     throw new Error(`Decision ${decision} requires an omission reason.`);
   }
-  if (decision === "omit_optional" && present(legacy)) {
+  if (decision === "omit_optional" && present(legacy) && !allowLegacyOmission) {
     throw new Error("omit_optional cannot be used when legacy content exists.");
   }
   return {
@@ -194,7 +206,7 @@ function mapLegacy(project) {
   return `sin coordenadas; query pública actual=${query}`;
 }
 
-function cellsFor(project) {
+function cellsFor(project, canonicalModels) {
   const source = generalSource(project);
   const conflictFor = (functionName) => projectConflict(project, functionName);
   const rentalEs = project.rentalPolicyEs ?? project.rentalPolicy;
@@ -209,6 +221,17 @@ function cellsFor(project) {
   const hasPayment = present(paymentEs) || present(paymentEn);
   const isWilliam = project.slug === "/proyectos/the-william";
   const conditionFromExistingContent = CONDITION_FROM_EXISTING_CONTENT.has(project.slug);
+  const keyFactsEs = canonicalModels.es.metrics.items;
+  const keyFactsEn = canonicalModels.en.metrics.items;
+  const legacyKeyFactsEs = compact(project.microClaimsEs);
+  const legacyKeyFactsEn = compact(project.microClaimsEn);
+  const hasLegacyKeyFacts = present(legacyKeyFactsEs) || present(legacyKeyFactsEn);
+  const hasVisibleKeyFacts = keyFactsEs.length > 0 || keyFactsEn.length > 0;
+  const removedKeyFacts =
+    (legacyKeyFactsEs?.length ?? 0) +
+    (legacyKeyFactsEn?.length ?? 0) -
+    keyFactsEs.length -
+    keyFactsEn.length;
 
   const cells = {
     name: makeCell({
@@ -331,20 +354,34 @@ function cellsFor(project) {
           : "",
       lossRisk: "Alto: evita inferencias sobre muebles, acabados y equipamiento incluidos.",
     }),
-    metrics: makeCell({
+    key_facts: makeCell({
       legacy: `ES=${JSON.stringify(compact(project.microClaimsEs))}; EN=${JSON.stringify(compact(project.microClaimsEn))}`,
       languages: bilingual(project.microClaimsEs, project.microClaimsEn),
       source,
-      conflict: conflictFor("metrics"),
+      conflict: conflictFor("key_facts"),
       proposed: isWilliam
-        ? "Conservar 26 pisos, 374 residencias y aproximadamente 3.760 m² de amenidades con una sola nota prudente para el bloque."
-        : "Conservar cada microclaim como texto opaco, sin regex ni reinterpretación; admitir entre 2 y 5 elementos.",
-      decision: present(project.microClaimsEs) || present(project.microClaimsEn) ? (isWilliam ? "qualify" : "preserve") : "needs_content",
+        ? "Conservar 26 pisos, 374 residencias y aproximadamente 3.760 m² de amenidades con una sola nota prudente para Datos clave."
+        : !hasVisibleKeyFacts && hasLegacyKeyFacts
+          ? "Omitir Datos clave: sus microclaims ya están representados íntegramente en precio, entrega, renta, condición o ubicación."
+          : removedKeyFacts > 0
+            ? `Conservar los datos clave no redundantes y retirar ${removedKeyFacts} duplicado(s) ES/EN mediante comparación normalizada con el resumen superior.`
+            : "Conservar los datos clave actuales como texto opaco, sin reinterpretar su contenido.",
+      decision: hasLegacyKeyFacts
+        ? isWilliam
+          ? "qualify"
+          : hasVisibleKeyFacts
+            ? "preserve"
+            : "omit_optional"
+        : "needs_content",
       omissionReason:
-        present(project.microClaimsEs) || present(project.microClaimsEn)
-          ? ""
-          : "No hay métricas legacy; cada métrica ausente debe registrarse sin eliminar el bloque completo por defecto.",
-      lossRisk: "Medio-alto: perder métricas reduce capacidad de comparación y puede ocultar una herencia incompleta.",
+        !hasLegacyKeyFacts
+          ? "No hay datos clave legacy; la carencia queda registrada sin inventar contenido."
+          : !hasVisibleKeyFacts
+            ? "La sección opcional se omite sin hueco ni fallback porque todo su contenido permanece visible en el resumen superior o la ubicación."
+            : "",
+      lossRisk:
+        "Medio-alto: una deduplicación demasiado amplia podría retirar atributos adicionales; el filtro conserva cualquier detalle no representado arriba.",
+      allowLegacyOmission: true,
     }),
     gallery: makeCell({
       legacy: JSON.stringify((project.images ?? []).map((image) => ({ src: image.src, alt: image.alt ?? null }))),
@@ -504,10 +541,19 @@ try {
     throw new Error("ALL_PROJECTS and PUBLIC_PROJECT_SLUGS do not contain the same slugs.");
   }
 
+  const modelsByLocale = {
+    es: new Map(getAllCanonicalProjects("es").map((model) => [model.identity.slug, model])),
+    en: new Map(getAllCanonicalProjects("en").map((model) => [model.identity.slug, model])),
+  };
+
   const rows = [...effectiveCatalog]
     .sort((a, b) => a.slug.localeCompare(b.slug))
     .map((project) => {
-      const cells = cellsFor(project);
+      const slug = project.slug.slice("/proyectos/".length);
+      const es = modelsByLocale.es.get(slug);
+      const en = modelsByLocale.en.get(slug);
+      if (!es || !en) throw new Error(`${project.slug} is missing a canonical ES/EN view model.`);
+      const cells = cellsFor(project, { es, en });
       if (Object.keys(cells).length !== FUNCTION_COLUMNS.length) {
         throw new Error(`${project.slug} does not contain exactly 16 function records.`);
       }

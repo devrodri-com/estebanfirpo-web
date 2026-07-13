@@ -10,6 +10,7 @@ import type {
   CanonicalProjectMetric,
   CanonicalProjectViewModel,
 } from "../project-view-model";
+import { filterRedundantKeyFacts } from "./filter-redundant-key-facts";
 import { projectMigrationAdjustments } from "./project-migration-adjustments";
 
 type LegacyLabel = string | { label: string; iconKey?: string };
@@ -134,6 +135,14 @@ export function adaptLegacyProject(
   const paymentSteps = locale === "en" ? project.paymentPlanEn ?? [] : project.paymentPlanEs ?? [];
   const messages = copy.messages;
   const resolvedMapQuery = mapQuery(project);
+  const keyFacts = filterRedundantKeyFacts(adaptMetrics(project, locale), {
+    projectName: project.name,
+    location: project.city,
+    price: priceWithRate,
+    delivery,
+    rental,
+    condition,
+  });
 
   return {
     locale,
@@ -164,7 +173,7 @@ export function adaptLegacyProject(
       note: `${adjustment?.decisionsNote?.[locale] ?? genericDecisionNote}${hoaNote}`,
     },
     metrics: {
-      items: adaptMetrics(project, locale),
+      items: keyFacts,
       note:
         adjustment?.metricsNote?.[locale] ??
         (locale === "en"

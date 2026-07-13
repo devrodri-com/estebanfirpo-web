@@ -200,7 +200,6 @@ export default function CanonicalProjectPage({ model }: { model: CanonicalProjec
         title={copy.sections.metrics}
         metrics={model.metrics.items}
         note={model.metrics.note}
-        emptyLabel={copy.empty.metrics}
       />
 
       <DarkSection

@@ -23,7 +23,7 @@ export const projectPageCopy = {
       finalWhatsapp: (name: string) => `Conversar sobre ${name}`,
     },
     sections: {
-      metrics: "Proyecto en cifras",
+      metrics: "Datos clave",
       gallery: "Galería",
       highlights: "Destacados y amenidades",
       units: "Tipologías y planos",
@@ -44,7 +44,6 @@ export const projectPageCopy = {
         "Esteban puede ayudarte a comparar tipologías, condiciones y próximos pasos dentro de una evaluación más amplia.",
     },
     empty: {
-      metrics: "Solicitá las métricas disponibles del proyecto.",
       gallery: "Solicitá las imágenes y materiales disponibles del proyecto.",
       highlights: "Solicitá los destacados y amenidades disponibles del proyecto.",
       unitTypes: "Solicitar tipologías, planos y disponibilidad",
@@ -105,7 +104,7 @@ export const projectPageCopy = {
       finalWhatsapp: (name: string) => `Discuss ${name}`,
     },
     sections: {
-      metrics: "Project at a glance",
+      metrics: "Key facts",
       gallery: "Gallery",
       highlights: "Highlights and amenities",
       units: "Unit types and floor plans",
@@ -126,7 +125,6 @@ export const projectPageCopy = {
         "Esteban can help you compare unit types, conditions, and next steps within a broader evaluation.",
     },
     empty: {
-      metrics: "Request the available project metrics.",
       gallery: "Request the available project images and materials.",
       highlights: "Request the available project highlights and amenities.",
       unitTypes: "Request unit types, floor plans, and availability",

@@ -5,13 +5,13 @@ export default function ProjectMetricsPanel({
   title,
   metrics,
   note,
-  emptyLabel,
 }: {
   title: string;
   metrics: readonly CanonicalProjectMetric[];
   note?: string;
-  emptyLabel: string;
 }) {
+  if (metrics.length === 0) return null;
+
   return (
     <section
       aria-labelledby="project-metrics-heading"
@@ -28,35 +28,29 @@ export default function ProjectMetricsPanel({
         </h2>
       </div>
 
-      {metrics.length > 0 ? (
-        <dl
-          className="mt-5 grid gap-3"
-          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 12rem), 1fr))" }}
-        >
-          {metrics.map((metric) => (
-            <div key={metric.id} className="rounded-[10px] bg-[#F6F5F0] p-4 text-[#0A2540]">
-              {metric.label ? (
-                <dt className="text-xs font-medium text-[#0A2540]/60">{metric.label}</dt>
-              ) : (
-                <dt className="sr-only">{title}</dt>
-              )}
-              <dd
-                className={
-                  metric.label
-                    ? "mt-1 text-xl font-semibold tracking-tight"
-                    : "text-base font-semibold leading-6 tracking-tight"
-                }
-              >
-                {metric.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      ) : (
-        <p className="mt-5 rounded-[10px] bg-[#F6F5F0] p-4 text-sm leading-6 text-[#0D1521]/70">
-          {emptyLabel}
-        </p>
-      )}
+      <dl
+        className="mt-5 grid gap-3"
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 12rem), 1fr))" }}
+      >
+        {metrics.map((metric) => (
+          <div key={metric.id} className="rounded-[10px] bg-[#F6F5F0] p-4 text-[#0A2540]">
+            {metric.label ? (
+              <dt className="text-xs font-medium text-[#0A2540]/60">{metric.label}</dt>
+            ) : (
+              <dt className="sr-only">{title}</dt>
+            )}
+            <dd
+              className={
+                metric.label
+                  ? "mt-1 text-xl font-semibold tracking-tight"
+                  : "text-base font-semibold leading-6 tracking-tight"
+              }
+            >
+              {metric.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
 
       {note ? <p className="mt-4 text-xs leading-5 text-[#0D1521]/60">{note}</p> : null}
     </section>

@@ -8,6 +8,7 @@ import { SITE_URL } from "../src/lib/metadata";
 import { CALENDAR_URL, PUBLIC_EMAIL, WHATSAPP_NUMBER } from "../src/lib/site";
 import { getProjectPageCopy } from "../src/features/projects/project-page-copy";
 import type { CanonicalProjectViewModel } from "../src/features/projects/project-view-model";
+import { filterRedundantKeyFacts } from "../src/features/projects/server/filter-redundant-key-facts";
 import { getAllCanonicalProjects } from "../src/features/projects/server/get-canonical-project";
 import { projectMigrationAdjustments } from "../src/features/projects/server/project-migration-adjustments";
 
@@ -19,7 +20,7 @@ const FUNCTION_CONTRACTS = [
   "delivery",
   "rental",
   "delivery_condition",
-  "metrics",
+  "key_facts",
   "gallery",
   "highlights_amenities",
   "unit_types_floorplans",
@@ -33,10 +34,10 @@ const FUNCTION_CONTRACTS = [
 const errors: string[] = [];
 const repositoryRoot = process.cwd();
 const EXPECTED_MATRIX_TOTALS = {
-  preserve: 559,
+  preserve: 556,
   qualify: 6,
   request: 9,
-  omit_optional: 0,
+  omit_optional: 3,
   needs_content: 2,
 } as const;
 const EXPECTED_MATRIX_BY_FUNCTION: Record<
@@ -50,7 +51,7 @@ const EXPECTED_MATRIX_BY_FUNCTION: Record<
   delivery: { preserve: 31, qualify: 4, request: 1 },
   rental: { preserve: 34, qualify: 1, request: 1 },
   delivery_condition: { preserve: 33, request: 3 },
-  metrics: { preserve: 35, qualify: 1 },
+  key_facts: { preserve: 32, qualify: 1, omit_optional: 3 },
   gallery: { preserve: 36 },
   highlights_amenities: { preserve: 36 },
   unit_types_floorplans: { preserve: 36 },
@@ -171,6 +172,7 @@ function checkMatrixContract() {
     (typeof FUNCTION_CONTRACTS)[number],
     Record<keyof typeof EXPECTED_MATRIX_TOTALS, number>
   >;
+  const keyFactDecisions = new Map<string, keyof typeof EXPECTED_MATRIX_TOTALS>();
 
   for (const [rowIndex, line] of lines.slice(1).entries()) {
     const columns = line.split("\t");
@@ -187,6 +189,9 @@ function checkMatrixContract() {
           totalsByFunction[functionHeaders[columnIndex] as (typeof FUNCTION_CONTRACTS)[number]][
             parsed.decision
           ] += 1;
+          if (functionHeaders[columnIndex] === "key_facts") {
+            keyFactDecisions.set(columns[1], parsed.decision);
+          }
         }
       } catch {
         check(false, `Matrix row ${rowIndex + 2}, ${functionHeaders[columnIndex]}: invalid JSON`);
@@ -211,6 +216,8 @@ function checkMatrixContract() {
       );
     }
   }
+  check(keyFactDecisions.size === 36, `Matrix key facts decisions: expected 36, got ${keyFactDecisions.size}`);
+  return keyFactDecisions;
 }
 
 function expectedMapQuery(project: Project) {
@@ -228,6 +235,42 @@ function checkImageSource(src: string, context: string) {
   }
   const localPath = path.join(repositoryRoot, "public", src.replace(/^\//, ""));
   check(fs.existsSync(localPath), `${context}: missing local image ${src}`);
+}
+
+function checkCanonicalPublicRouteContract() {
+  const routePath = path.join(
+    repositoryRoot,
+    "src/app/[locale]/proyectos/[slug]/page.tsx",
+  );
+  const source = fs.readFileSync(routePath, "utf8");
+  for (const required of [
+    "CanonicalProjectPage",
+    "getCanonicalProject",
+    "PUBLIC_PROJECT_SLUGS",
+    "createProjectMetadata",
+    "dynamicParams = false",
+  ]) {
+    check(source.includes(required), `Public project route: missing ${required}`);
+  }
+  for (const forbidden of [
+    "PriorityProjectPage",
+    "ALL_PROJECTS",
+    "GalleryLightbox",
+    "PaymentPlan",
+    "ShareButtons",
+    "project-template-preview",
+  ]) {
+    check(!source.includes(forbidden), `Public project route: legacy branch ${forbidden} remains`);
+  }
+
+  for (const removedPath of [
+    "src/app/[locale]/project-template-preview",
+    "src/components/GalleryLightbox.tsx",
+    "src/components/PaymentPlan.tsx",
+    "src/components/ShareButtons.tsx",
+  ]) {
+    check(!fs.existsSync(path.join(repositoryRoot, removedPath)), `${removedPath}: retired file still exists`);
+  }
 }
 
 function checkMailto(href: string, projectName: string, context: string) {
@@ -332,7 +375,11 @@ function checkNoPrivateData(model: CanonicalProjectViewModel, context: string) {
   check(JSON.parse(serialized) !== null, `${context}: not JSON serializable`);
 }
 
-function checkFunctionContract(model: CanonicalProjectViewModel, context: string) {
+function checkFunctionContract(
+  model: CanonicalProjectViewModel,
+  context: string,
+  keyFactDecision: keyof typeof EXPECTED_MATRIX_TOTALS,
+) {
   const copy = getProjectPageCopy(model.locale);
   const present: Record<(typeof FUNCTION_CONTRACTS)[number], boolean> = {
     name: Boolean(model.identity.id && model.identity.name && model.identity.slug),
@@ -342,7 +389,7 @@ function checkFunctionContract(model: CanonicalProjectViewModel, context: string
     delivery: Boolean(model.decisions.delivery),
     rental: Boolean(model.decisions.rental),
     delivery_condition: Boolean(model.decisions.condition),
-    metrics: model.metrics.items.length > 0 || Boolean(copy.empty.metrics),
+    key_facts: model.metrics.items.length > 0 || keyFactDecision === "omit_optional",
     gallery: model.gallery.length > 0 || Boolean(copy.empty.gallery),
     highlights_amenities: model.highlights.length > 0 || Boolean(copy.empty.highlights),
     unit_types_floorplans:
@@ -426,13 +473,22 @@ function checkPreservation(project: Project, model: CanonicalProjectViewModel, l
   if (model.payment.kind === "steps") {
     checkArrayEqual(model.payment.steps, legacyPayment, `${context}.payment.steps`);
   }
-  if (project.slug !== "/proyectos/the-william") {
-    checkArrayEqual(
-      model.metrics.items.map((item) => item.value),
-      locale === "en" ? project.microClaimsEn ?? [] : project.microClaimsEs ?? [],
-      `${context}.metrics`,
+  const rawMetrics = projectMigrationAdjustments[project.slug]?.metrics?.[locale] ??
+    (locale === "en" ? project.microClaimsEn ?? [] : project.microClaimsEs ?? []).map(
+      (value, index) => ({ id: `${project.id}-metric-${index + 1}`, value }),
     );
-  }
+  const expectedMetrics = filterRedundantKeyFacts(rawMetrics, {
+    projectName: project.name,
+    location: project.city,
+    price: decisions.price,
+    delivery: decisions.delivery,
+    rental: decisions.rental,
+    condition: decisions.condition,
+  });
+  check(
+    JSON.stringify(model.metrics.items) === JSON.stringify(expectedMetrics),
+    `${context}.metrics: normalized deduplication changed content/order`,
+  );
 }
 
 function checkCtas(model: CanonicalProjectViewModel, context: string) {
@@ -463,7 +519,8 @@ function findModel(models: CanonicalProjectViewModel[], locale: Locale, slug: st
   return model as CanonicalProjectViewModel;
 }
 
-checkMatrixContract();
+const keyFactDecisions = checkMatrixContract();
+checkCanonicalPublicRouteContract();
 check(FUNCTION_CONTRACTS.length === 16, "Expected exactly 16 function contracts");
 check(ALL_PROJECTS.length === 36, `Expected 36 effective projects; got ${ALL_PROJECTS.length}`);
 check(new Set(ALL_PROJECTS.map((project) => project.id)).size === 36, "Project IDs are not unique");
@@ -491,7 +548,14 @@ for (const model of models) {
 
   checkAllowedShape(model, context);
   checkNoPrivateData(model, context);
-  checkFunctionContract(model, context);
+  const matrixDecision = keyFactDecisions.get(`/proyectos/${model.identity.slug}`);
+  check(matrixDecision, `${context}: missing matrix decision for key facts`);
+  if (!matrixDecision) continue;
+  checkFunctionContract(model, context, matrixDecision);
+  check(
+    (model.metrics.items.length === 0) === (matrixDecision === "omit_optional"),
+    `${context}: empty key facts and matrix omit_optional are out of sync`,
+  );
   checkPreservation(project, model, model.locale);
   checkCtas(model, context);
   checkImageSource(model.hero.src, `${context}.hero`);
@@ -610,6 +674,8 @@ check(
   "William EN: approved metric values changed",
 );
 check(Boolean(williamEn.location.structuredAddress), "William EN: structured address missing");
+check(getProjectPageCopy("es").sections.metrics === "Datos clave", "ES key facts heading changed");
+check(getProjectPageCopy("en").sections.metrics === "Key facts", "EN key facts heading changed");
 
 for (const locale of locales) {
   const cassia = findModel(models, locale, "cassia");
@@ -620,6 +686,26 @@ for (const locale of locales) {
     `Cassia ${locale}: unresolved price must use approved fallback`,
   );
   check(!cassia.faqs[0]?.answer.includes("823"), `Cassia ${locale}: conflicting FAQ price leaked`);
+  check(cassia.metrics.items.length === 1, `Cassia ${locale}: key facts deduplication changed`);
+  check(
+    /(?:RH|Restoration Hardware)/.test(cassia.metrics.items[0]?.value ?? ""),
+    `Cassia ${locale}: non-redundant RH detail was lost`,
+  );
+
+  const viceroyMetrics = findModel(models, locale, "viceroy-brickell-residences").metrics.items;
+  check(viceroyMetrics.length === 0, `Viceroy ${locale}: duplicated key facts remain`);
+  check(
+    findModel(models, locale, "26-and-2nd").metrics.items.length === 3,
+    `26 & 2nd ${locale}: non-redundant key facts were removed`,
+  );
+  check(
+    findModel(models, locale, "ambar-orlando").metrics.items.length === 3,
+    `Ambar ${locale}: non-redundant key facts were removed`,
+  );
+  check(
+    findModel(models, locale, "one-park-tower").metrics.items.length === 3,
+    `One Park ${locale}: non-redundant key facts were removed`,
+  );
 
   const nomad = findModel(models, locale, "nomad");
   check(nomad.decisions.delivery === "2026", `NoMad ${locale}: delivery must preserve 2026`);

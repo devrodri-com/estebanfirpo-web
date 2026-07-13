@@ -164,7 +164,7 @@ Las solicitudes son enlaces de email; no son descargas públicas. Esa función d
 - 26 pisos / stories y 374 residencias / residences;
 - aproximadamente 3.760 m² / 40.459 ft² de amenidades en dos niveles.
 
-Es contenido útil, pero ya aparece como chips. Puede consolidarse en “Proyecto en cifras” sin perder ninguna métrica.
+Es contenido útil, pero ya aparece como chips. Puede consolidarse en “Datos clave” sin perder ninguna métrica.
 
 ### 2.8 FAQ
 
@@ -225,7 +225,7 @@ El footer termina con copyright 2026 y el crédito técnico ya publicado.
 | 10 | Agenda | Presente dos veces. | Conservar después del hero y en CTA final. | Sin pérdida. |
 | 11 | Email | Presente dos veces y en footer. | Conservar como acción complementaria y en footer. | Sin pérdida. |
 | 12 | Compartir | WhatsApp share y Web Share condicional. | Conservar ambas capacidades, diferenciadas de consulta. | Sin pérdida. |
-| 13 | Proyecto en cifras | Métricas como chips y bloque duplicado. | Unificar 26 pisos, 374 residencias y ≈3.760 m² en un bloque. | Sin pérdida; menos repetición. |
+| 13 | Datos clave | Métricas como chips y bloque duplicado. | Unificar 26 pisos, 374 residencias y ≈3.760 m² en un bloque. | Sin pérdida; menos repetición. |
 | 14 | Galería | Cuatro imágenes y lightbox. | Conservar assets, grilla/carrusel y lightbox. | Sin pérdida. |
 | 15 | Destacados y amenidades | Seis contenidos. | Conservar los seis con una sola nota de alcance. | Sin pérdida. |
 | 16 | Tipologías | Estudios a tres dormitorios. | Conservar y normalizar copy ES. | Sin pérdida. |
@@ -280,7 +280,7 @@ El footer termina con copyright 2026 y el crédito técnico ya publicado.
 | Planos | `Solicitar planos (PDF)` y disponibilidad. | `Solicitar planos disponibles` y `Consultar disponibilidad por tipología`. | Refinar expectativa. | No existe una descarga pública canónica. |
 | Características | Tres grupos de acabados/equipamiento. | Conservar los tres; una nota grupal pide confirmar especificaciones de la unidad. | Qualify por bloque. | No se pierde detalle ni se prometen inclusiones contractuales. |
 | Materiales | `Solicitar materiales (PDF)`. | `Solicitar materiales y especificaciones`. | Refinar expectativa. | Hay versiones locales distintas y derechos pendientes. |
-| “Por qué” | Repite métricas. | Se integra en “Proyecto en cifras”. | Consolidar. | No desaparece ningún contenido. |
+| “Por qué” | Repite métricas. | Se integra en “Datos clave”. | Consolidar. | No desaparece ningún contenido. |
 | FAQ renta | Afirma mínimo 90 días. | Indica que la mejor información operativa disponible es 90 días, sin repetir la nota del bloque. | Qualify. | Mantiene una respuesta útil y evita advertencias por campo. |
 | FAQ dirección | Dirección + sales gallery concreta. | Dirección del proyecto; sales gallery a confirmar antes de visitar. | Qualify. | El punto de ventas puede cambiar. |
 | FAQ precio | Repite US$380.880 y fecha 2025. | Explica que precio e inventario varían y permite solicitar el price sheet vigente. | Request. | Evita publicar una disponibilidad vencida. |
@@ -303,7 +303,7 @@ El footer termina con copyright 2026 y el crédito técnico ya publicado.
 | Nota única del bloque | `Condiciones sujetas al reglamento del condominio y a reconfirmación.` | `Conditions are subject to condominium rules and reconfirmation.` |
 | Condición | `Consultar especificaciones y condición de entrega` | `Ask about specifications and delivery condition` |
 
-### 6.2 Proyecto en cifras
+### 6.2 Datos clave
 
 | Español | Inglés |
 |---|---|
@@ -397,7 +397,7 @@ No son diferencias autorizadas:
 
 Antes de convertir el prototipo en plantilla canónica se necesita decidir:
 
-1. si se aprueba el orden final de los 26 requisitos y la consolidación de `¿Por qué?` dentro de “Proyecto en cifras”;
+1. si se aprueba el orden final de los 26 requisitos y la consolidación de `¿Por qué?` dentro de “Datos clave”;
 2. si el copy ES/EN propuesto para precio, condición y plan es el definitivo; la renta queda provisionalmente fijada en 90 días con nota única hasta recibir fuente primaria;
 3. si la nota única de métricas y la nota única de características son suficientes;
 4. si se mantiene provisionalmente el hero actual mientras se aclaran derechos;

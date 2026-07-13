@@ -68,7 +68,7 @@ La comparación separa tres cosas: el contenido que existe, el riesgo editorial 
 | Entrega | 2029. | Una fuente pública respalda una entrega estimada 2029; sigue siendo una estimación. | **Entrega estimada 2029 · sujeta a confirmación.** |
 | Renta | Mínimo de 90 días. | Los materiales oficiales revisados no fijan la renta; las referencias de 30 días son derivados internos de 2025 y dos correcciones explícitas del repositorio, posteriores, cambian la ficha y su FAQ a 90 días. Falta el reglamento primario. | **Alquiler mínimo de 90 días**, con una única nota de bloque: **Condiciones sujetas al reglamento del condominio y a reconfirmación.** |
 | Amueblado | Sin amueblar. | El valor existe como booleano legacy, sin fuente contractual identificada. | **Consultar especificaciones y condición de entrega.** Cuando exista evidencia, mostrar la condición concreta. |
-| Métricas | 26 pisos, 374 residencias y aproximadamente 3.760 m² de amenidades en dos niveles. | 374 residencias y la escala general tienen respaldo; las métricas deben tratarse como información del material del proyecto. | Conservar el bloque “Proyecto en cifras” y sus tres métricas, con una sola aclaración grupal si siguen sujetas a confirmación. |
+| Datos clave | 26 pisos, 374 residencias y aproximadamente 3.760 m² de amenidades en dos niveles. | 374 residencias y la escala general tienen respaldo; los datos deben tratarse como información del material del proyecto. | Conservar el bloque “Datos clave” y sus tres elementos, con una sola aclaración grupal si siguen sujetos a confirmación. |
 | Galería | Cuatro imágenes adicionales. | Los assets responden técnicamente; falta cerrar derechos y alt editorial por imagen. | Conservar las cuatro imágenes y el lightbox. No sumar ni reemplazar assets por inferencia. |
 | Destacados | Piscina y solárium; BBQ, bar y firepits; coworking, biblioteca y café; fitness, yoga y training outdoor; rooftop pickleball, valet y concierge; espacios pet-friendly y cargadores EV. | Los atributos deben cotejarse con el material canónico del proyecto; no prueban disponibilidad comercial. | Conservar los seis contenidos dentro de “Destacados y amenidades”, con una sola nota de alcance para el bloque. |
 | Tipologías | Studios a tres dormitorios. | El rango general tiene respaldo; hay varias revisiones de planos sin una versión canónica definida. | Conservar el rango y ofrecer **Solicitar planos y disponibilidad por tipología**. |
@@ -91,7 +91,7 @@ El primer recorrido debe permitir entender lo siguiente sin ver estados técnico
 - **Entrega:** estimada 2029, sujeta a confirmación;
 - **Renta:** alquiler mínimo de 90 días, sujeto al reglamento del condominio y a reconfirmación;
 - **Condición de entrega:** consultar especificaciones y amueblado;
-- **Proyecto en cifras:** 26 pisos, 374 residencias y aproximadamente 3.760 m² de amenidades, con una única nota de alcance si corresponde;
+- **Datos clave:** 26 pisos, 374 residencias y aproximadamente 3.760 m² de amenidades, con una única nota de alcance si corresponde;
 - cuatro imágenes de galería;
 - seis destacados y amenidades;
 - studios a tres dormitorios, con solicitud de planos y disponibilidad;
@@ -109,7 +109,7 @@ La plantilla no necesita parecer más nueva; necesita ordenar mejor lo que ya ha
 2. **Identidad y hero.** Nombre, ubicación, imagen principal y resumen breve, cuando exista.
 3. **Resumen de decisión.** Precio/inventario, entrega, renta y condición de entrega; siempre visibles y nunca dentro de acordeones.
 4. **Conversación principal.** WhatsApp contextual como acción primaria; agenda, email y compartir como acciones complementarias.
-5. **Proyecto en cifras.** Pisos, residencias, superficie y otras métricas realmente disponibles.
+5. **Datos clave.** Pisos, residencias, superficie y otros atributos realmente disponibles; sin repetir precio, entrega, renta, condición o ubicación.
 6. **Galería.** Grilla en desktop, recorrido horizontal en mobile y lightbox accesible.
 7. **Destacados y amenidades.** Información del proyecto agrupada sin duplicarla como “¿Por qué este proyecto?”.
 8. **Tipologías y planos.** Rango de unidades, superficies cuando estén respaldadas, solicitud de planos y disponibilidad.
@@ -203,7 +203,7 @@ Referencia funcional: 390 × 844.
 │ [Agenda]                     │
 │ [Email]       [Compartir]    │
 ├───────────────────────────────┤
-│ Proyecto en cifras · 2 × 2   │
+│ Datos clave · grilla adaptable│
 ├───────────────────────────────┤
 │ Galería horizontal           │
 ├───────────────────────────────┤

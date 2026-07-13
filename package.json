@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "catalog:slugs": "node scripts/generate-project-slugs.mjs",
-    "phase3b:matrix": "node scripts/generate-phase-3b-project-migration-matrix.mjs",
-    "phase3b:matrix:check": "node scripts/generate-phase-3b-project-migration-matrix.mjs --check",
+    "phase3b:matrix": "node --conditions=react-server --import tsx scripts/generate-phase-3b-project-migration-matrix.mjs",
+    "phase3b:matrix:check": "node --conditions=react-server --import tsx scripts/generate-phase-3b-project-migration-matrix.mjs --check",
     "phase3b:models:check": "node --conditions=react-server --import tsx scripts/check-canonical-project-view-models.ts",
     "phase3b:check": "npm run phase3b:matrix:check && npm run phase3b:models:check",
     "predev": "npm run catalog:slugs",
