@@ -87,7 +87,7 @@ export const homeContent: Record<Locale, HomeCopy> = {
       label: "Una relación clara desde el primer contacto",
       items: [
         { title: "Esteban Firpo", copy: "Contacto directo" },
-        { title: "Miami Life Realty", copy: "Afiliación inmobiliaria" },
+        { title: "Miami Life Realty", copy: "Firma inmobiliaria" },
         { title: "Miami y sur de Florida", copy: "Mercado de trabajo" },
         { title: "Inversores internacionales", copy: "Atención personal" },
       ],
@@ -130,12 +130,12 @@ export const homeContent: Record<Locale, HomeCopy> = {
       cta: "Empezar por WhatsApp",
     },
     projects: {
-      eyebrow: "Proyectos seleccionados",
-      title: "Seis candidatos prioritarios para revisar con contexto.",
+      eyebrow: "Proyectos para explorar",
+      title: "Una selección inicial para comparar según tu objetivo.",
       copy:
-        "Esta selección permite explorar distintas ubicaciones y propuestas sin presentar actividad, disponibilidad o recomendación definitiva como hechos.",
+        "Seis proyectos de distintas zonas y perfiles para comenzar a explorar opciones con Esteban.",
       disclosure:
-        "Selección prioritaria para revisión. No certifica que los proyectos estén activos o recomendados definitivamente. Información y disponibilidad sujetas a reconfirmación.",
+        "Información comercial, condiciones y disponibilidad sujetas a reconfirmación.",
       detailCta: "Ver ficha",
       whatsappCta: "Consultar por WhatsApp",
       allCta: "Explorar todos los proyectos",
@@ -220,7 +220,7 @@ export const homeContent: Record<Locale, HomeCopy> = {
       label: "A clear relationship from the first contact",
       items: [
         { title: "Esteban Firpo", copy: "Direct contact" },
-        { title: "Miami Life Realty", copy: "Real estate affiliation" },
+        { title: "Miami Life Realty", copy: "Brokerage" },
         { title: "Miami and South Florida", copy: "Primary market" },
         { title: "International investors", copy: "Personal guidance" },
       ],
@@ -263,12 +263,12 @@ export const homeContent: Record<Locale, HomeCopy> = {
       cta: "Start on WhatsApp",
     },
     projects: {
-      eyebrow: "Selected projects",
-      title: "Six priority candidates to review with context.",
+      eyebrow: "Projects to explore",
+      title: "An initial selection to compare based on your goals.",
       copy:
-        "This selection helps explore different locations and proposals without presenting activity, availability, or a definitive recommendation as facts.",
+        "Six projects across different areas and profiles to begin exploring options with Esteban.",
       disclosure:
-        "Priority selection for review. It does not certify that the projects are active or definitively recommended. Information and availability subject to reconfirmation.",
+        "Commercial information, terms, and availability subject to reconfirmation.",
       detailCta: "View project",
       whatsappCta: "Ask on WhatsApp",
       allCta: "Explore all projects",

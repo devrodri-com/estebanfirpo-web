@@ -12,7 +12,12 @@ export function HomeDecisions({ locale }: HomeDecisionsProps) {
   const copy = getHomeContent(locale).decisions;
 
   return (
-    <section id="asesoramiento" aria-labelledby="home-decisions-title" className="py-16 sm:py-24">
+    <section
+      id="asesoramiento"
+      aria-labelledby="home-decisions-title"
+      tabIndex={-1}
+      className="scroll-mt-20 py-16 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37] sm:py-24"
+    >
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0A2540]/65">

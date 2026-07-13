@@ -233,27 +233,29 @@ El TSV registra fecha de auditoría, respuesta HTTP, rol, dimensiones, formato, 
 
 Las cards no muestran precio, entrega, renta, financiación, actividad ni recomendación definitiva. La selección es prioritaria para revisión, no una certificación.
 
-## 9. Disclosure: diferencia encontrada y propuesta editorial
+## 9. Disclosure: fuente proporcionada y publicación diferenciada
 
-El disclosure general aparece duplicado en archivos HTML de referencia, pero ES y EN no son equivalentes:
+El Product Owner proporcionó el disclosure que aparece duplicado en `frida.html`, `the-standard-brickell.html` y `Viceroy.html`. Las fuentes ES y EN no son equivalentes:
 
 - ES menciona porcentajes de rentabilidad y contenido prospectivo sujeto a riesgos e incertidumbres.
 - EN agrega ausencia de garantías y due diligence, falta de evaluación de factibilidad/idoneidad, responsabilidad independiente del comprador y limitación de responsabilidad.
 
-No debe presentarse ninguna de las versiones actuales como traducción legal equivalente. La siguiente propuesta armoniza el sentido de ambos textos y requiere aprobación profesional antes de publicarse como disclosure completo.
+Cada versión se incorpora literalmente en su idioma dentro de la opción expandible del footer. No se presenta una como traducción legal de la otra y no se armonizan sus alcances sin una fuente aprobada que autorice ese cambio.
 
-### Borrador ES para revisión
+### Texto ES proporcionado
 
-> Este material tiene fines informativos. Cualquier referencia a rentabilidad, apreciación, renta u otros resultados es prospectiva, se basa en información y supuestos disponibles a la fecha y puede variar por riesgos e incertidumbres. Miami Life Realty no garantiza resultados ni afirma haber realizado due diligence sobre cada oportunidad. La información no constituye una evaluación de factibilidad, viabilidad o idoneidad para un comprador. Cada comprador debe realizar su propia due diligence, evaluar riesgos y consultar a sus asesores antes de decidir. No debe tomarse una decisión basándose exclusivamente en este material.
+> Cierto material publicitario presenta porcentajes de rentabilidad obtenida en un periodo determinado de tiempo, expresadas en una base de tiempo mensual o anual. El material publicitario puede contener información prospectiva y que, por ende, está basada en expectativas y proyecciones actuales sobre eventos y tendencias futuras, con probabilidad de variación, y en todo momento se encuentra sujeta a riesgos, incertidumbres y otro tipo de factores.
 
-### Draft EN for review
+### Provided EN text
 
-> This material is for informational purposes. Any reference to returns, appreciation, rental income, or other outcomes is forward-looking, based on information and assumptions available as of the applicable date, and may vary due to risks and uncertainties. Miami Life Realty does not guarantee results or represent that it has performed due diligence on every opportunity. The information is not an assessment of feasibility, viability, or suitability for any buyer. Each buyer should conduct independent due diligence, assess the risks, and consult their advisers before deciding. No decision should be based solely on this material.
+> The information included with this communication and marketing material is intended solely for informational purposes. Miami Life Realty explicitly disclaims any representations or warranties, express or implied, as to the profitability of the real estate investment opportunity mentioned herein. Miami Life Realty has not performed any due diligence on the real estate investment opportunity and makes no representations about its feasibility, financial viability, or suitability for investment purposes. The decision to invest shall be made independently by each prospective buyer after appropriate due diligence and consideration for the profitability and commercial risks of the real estate investment. Prospective buyers are to perform their own independent valuations of risks and commercial viability in determining whether to undertake such investment opportunity. Miami Life Realty disclaims any responsibility for your reliance on the information provided herein.
 
 ### Aclaración breve usada en el prototipo
 
-- ES: “Información y disponibilidad sujetas a reconfirmación.”
-- EN: “Information and availability subject to reconfirmation.”
+- ES: “Información comercial, condiciones y disponibilidad sujetas a reconfirmación.”
+- EN: “Commercial information, terms, and availability subject to reconfirmation.”
+
+El resumen visible del footer no sustituye el disclosure completo. Si las fuentes originales siguen sin ser equivalentes, ES y EN deben conservarse como textos diferenciados y no completarse por inferencia editorial.
 
 ## 10. Shot list para una futura sesión
 
@@ -281,13 +283,30 @@ No debe presentarse ninguna de las versiones actuales como traducción legal equ
 | Reduced motion global | Accesibilidad y confort |
 | Tokens semánticos sin nueva paleta | Consistencia: evoluciona el sistema sin cambiar identidad |
 
-## 12. Decisiones que requieren aprobación
+## 12. Comparación del hero sin cambio de implementación
+
+Las capturas A/B mantienen exactamente la misma composición, copy, overlay, CTAs y tarjeta de Esteban. La Opción B se aplicó únicamente en el DOM de una sesión de navegador para producir la evidencia; el código y el Preview conservan la Opción A.
+
+| Criterio | Opción A — responsive actual | Opción B — `miami-hero13.jpg` |
+|---|---|---|
+| Activos | `hero-fallback.jpg` desktop y `hero-fallback-mobile.jpg` mobile | Un único activo existente para ambos viewports |
+| Dimensiones | 1920×927 desktop; 1080×1920 mobile | 1536×1024 |
+| Peso de origen | 1.44 MiB desktop; 1.20 MiB mobile | 1.32 MiB; entrega final sujeta al optimizador de Next.js |
+| Legibilidad | Alta: la arquitectura deja áreas amplias y el overlay actual controla el contraste | Alta con el mismo overlay; en mobile la palma aporta más textura detrás del texto, pero conserva contraste suficiente |
+| Recorte desktop | Relación 2.07:1, cercana al encuadre visible del hero; pérdida mínima | Relación 1.5:1; el encuadre aproximado 2:1 recorta cerca de 25% de la altura total, conservando palma, skyline y arquitectura |
+| Recorte mobile | Variante vertical con art direction propia y pérdida mínima | Usa aproximadamente el 39% central del ancho; conserva palma y skyline y pierde casi toda la fachada lateral |
+| Identidad | Muy alineada con el lenguaje arquitectónico premium existente | Mantiene Miami contemporáneo y la paleta natural, aunque introduce verde y un tono más lifestyle |
+| Riesgo de confusión | Alto: la escena coincide con el universo visual y la portada de Baccarat | Bajo: no se identifica un desarrollo concreto; procedencia, derechos y ubicación exacta siguen pendientes |
+
+La Opción A permanece implementada porque ofrece mejor art direction responsive y continuidad. La Opción B demuestra una alternativa más neutral, pero no debe aprobarse para uso definitivo hasta confirmar procedencia, derechos y desempeño del recorte mobile.
+
+## 13. Decisiones que requieren aprobación
 
 - Derechos y neutralidad institucional del hero actualmente asociado a Baccarat.
 - Derechos del retrato y versiones finales aprobadas.
 - Archivo oficial/vector de Miami Life Realty y reglas de uso.
 - Licencia comercial del icono de WhatsApp.
-- Revisión profesional del disclosure armonizado ES/EN.
+- Confirmación profesional de los disclosures ES/EN proporcionados y de su diferencia de alcance.
 - Confirmación de que los seis proyectos siguen siendo candidatos prioritarios antes de una fase pública.
 - Criterios y responsables para gobernar portadas, galerías y recortes.
 - Decisión futura sobre alternativas Miami/Precon no usadas y restos del starter.

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, Mail, MessageCircle, Phone } from "lucide-react";
+import { CalendarDays, ChevronDown, Mail, MessageCircle, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import {
   CALENDAR_URL,
@@ -35,6 +35,9 @@ export default function Footer() {
         call: "Call Esteban",
         disclosure:
           "Website information is general and may change. Prices, availability, and conditions must be reconfirmed before making a decision.",
+        disclosureLabel: "Important information",
+        fullDisclosure:
+          "The information included with this communication and marketing material is intended solely for informational purposes. Miami Life Realty explicitly disclaims any representations or warranties, express or implied, as to the profitability of the real estate investment opportunity mentioned herein. Miami Life Realty has not performed any due diligence on the real estate investment opportunity and makes no representations about its feasibility, financial viability, or suitability for investment purposes. The decision to invest shall be made independently by each prospective buyer after appropriate due diligence and consideration for the profitability and commercial risks of the real estate investment. Prospective buyers are to perform their own independent valuations of risks and commercial viability in determining whether to undertake such investment opportunity. Miami Life Realty disclaims any responsibility for your reliance on the information provided herein.",
         rights: "All rights reserved.",
         made: "Made with Next.js by",
         whatsappMessage: "Hi Esteban, I’d like to discuss a possible purchase in Miami or South Florida.",
@@ -54,6 +57,9 @@ export default function Footer() {
         call: "Llamar a Esteban",
         disclosure:
           "La información del sitio es general y puede cambiar. Precios, disponibilidad y condiciones deben reconfirmarse antes de tomar una decisión.",
+        disclosureLabel: "Información importante",
+        fullDisclosure:
+          "Cierto material publicitario presenta porcentajes de rentabilidad obtenida en un periodo determinado de tiempo, expresadas en una base de tiempo mensual o anual. El material publicitario puede contener información prospectiva y que, por ende, está basada en expectativas y proyecciones actuales sobre eventos y tendencias futuras, con probabilidad de variación, y en todo momento se encuentra sujeta a riesgos, incertidumbres y otro tipo de factores.",
         rights: "Todos los derechos reservados.",
         made: "Hecho con Next.js por",
         whatsappMessage: "Hola Esteban, quiero conversar sobre una posible compra en Miami o el sur de Florida.",
@@ -174,6 +180,16 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6">
           <p className="max-w-4xl text-xs leading-5 text-white/48">{labels.disclosure}</p>
+          <details className="group mt-4 max-w-4xl border-t border-white/10 pt-4">
+            <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-4 rounded-sm text-xs font-semibold text-white/72 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37] [&::-webkit-details-marker]:hidden">
+              <span>{labels.disclosureLabel}</span>
+              <ChevronDown
+                className="h-4 w-4 shrink-0 transition group-open:rotate-180 motion-reduce:transition-none"
+                aria-hidden="true"
+              />
+            </summary>
+            <p className="pb-2 pr-8 text-xs leading-5 text-white/60">{labels.fullDisclosure}</p>
+          </details>
           <div className="mt-5 flex flex-col gap-2 border-t border-white/8 pt-5 text-[11px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
             <p>© {year} Esteban Firpo. {labels.rights}</p>
             <p>

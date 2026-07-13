@@ -123,7 +123,7 @@ export default function NavBar() {
     : "Hola Esteban, estoy evaluando una compra inmobiliaria en Miami o el sur de Florida.";
 
   function isActive(href: string) {
-    if (href.includes("#")) return pathname === base;
+    if (href.includes("#")) return false;
     return pathname.startsWith(href);
   }
 
