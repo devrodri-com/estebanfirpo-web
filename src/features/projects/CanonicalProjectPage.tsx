@@ -101,7 +101,7 @@ export default function CanonicalProjectPage({ model }: { model: CanonicalProjec
   return (
     <article className="mx-auto w-full max-w-5xl py-10 sm:py-12">
       <nav aria-label={copy.breadcrumbLabel}>
-        <ol className="flex flex-wrap items-center gap-2 text-sm text-[#0A2540]/62">
+        <ol className="flex flex-wrap items-center gap-2 text-sm text-[#0A2540]/70">
           <li>
             <Link
               href={`/${model.locale}/proyectos`}
@@ -119,7 +119,7 @@ export default function CanonicalProjectPage({ model }: { model: CanonicalProjec
 
       <section className="mt-6 grid items-start gap-x-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="lg:col-start-1 lg:row-start-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0A2540]/55">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0A2540]/70">
             {copy.eyebrow}
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-[#0A2540] sm:text-4xl lg:text-[42px]">
@@ -153,7 +153,7 @@ export default function CanonicalProjectPage({ model }: { model: CanonicalProjec
                 key={item.id}
                 className="rounded-[10px] border border-[#0A2540]/12 bg-white p-4 shadow-[0_1px_2px_rgba(10,37,64,0.04)]"
               >
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.13em] text-[#0A2540]/52">
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.13em] text-[#0A2540]/70">
                   {item.label}
                 </dt>
                 <dd className="mt-2 text-sm font-medium leading-5 text-[#0A2540]">{item.value}</dd>

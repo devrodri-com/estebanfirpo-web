@@ -35,7 +35,7 @@ export default function ProjectMetricsPanel({
         {metrics.map((metric) => (
           <div key={metric.id} className="rounded-[10px] bg-[#F6F5F0] p-4 text-[#0A2540]">
             {metric.label ? (
-              <dt className="text-xs font-medium text-[#0A2540]/60">{metric.label}</dt>
+              <dt className="text-xs font-medium text-[#0A2540]/70">{metric.label}</dt>
             ) : (
               <dt className="sr-only">{title}</dt>
             )}
