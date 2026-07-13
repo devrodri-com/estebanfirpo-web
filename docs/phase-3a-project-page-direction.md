@@ -6,7 +6,7 @@ La nueva ficha de los seis proyectos prioritarios evoluciona la experiencia exis
 
 No es un rediseño independiente ni una nueva identidad. Conserva la dirección aprobada en Fase 2 —navy, marfil, dorado discreto, tipografía sans, claridad editorial y contacto personal— y reemplaza sólo los patrones que publicaban información sensible sin trazabilidad.
 
-La implementación está en `src/components/projects/PriorityProjectPage.tsx`. La ruta actual decide entre esa experiencia y la ficha legacy mediante el slug, sin cambiar las URLs.
+La implementación pública está en `src/components/projects/PriorityProjectPage.tsx`. La ruta obtiene un view model seguro mediante `getPublicPriorityProjectGovernance(slug)` y decide entre esa experiencia y la ficha legacy mediante el slug, sin cambiar las URLs.
 
 ## 1. Principio de continuidad aplicado
 
@@ -45,8 +45,7 @@ Incluye:
 - estado editorial general con texto e icono;
 - ubicación;
 - resumen factual;
-- portada existente;
-- aviso visible sobre procedencia y derechos de la imagen.
+- portada existente.
 
 **Razón:** orienta sin abrir con un precio o promesa. El estado no depende solamente del color.
 
@@ -74,21 +73,21 @@ La cuadrícula muestra, en este orden:
 6. financiación;
 7. plan de pagos.
 
-Cada tarjeta puede mostrar valor o “Pendiente de verificación”, estado, nota, fecha, regla de vigencia y fuentes públicas aplicables.
+Cada tarjeta puede mostrar un valor público permitido o “Pendiente de verificación”, estado, nota pública breve, fecha, necesidad de reconfirmación y fuentes públicas aplicables.
 
-**Razón:** permite comparar sin equiparar un dato revisado con uno faltante. `imageRights` pertenece al mismo modelo, pero se comunica junto a la portada y la galería en lugar de ocupar una tarjeta comercial.
+**Razón:** permite comparar sin equiparar un dato revisado con uno faltante. `imageRights` permanece como control interno y no forma parte del view model público.
 
-### 5. Riesgos, límites y preguntas abiertas
+### 5. Qué conviene confirmar antes de avanzar
 
-Dos bloques paralelos registran contradicciones, limitaciones y documentos pendientes.
+La composición existente se conserva, pero su contenido se orienta al comprador: precio e inventario, entrega, plan de pagos, reglas de renta y uso, HOA y costos, financiación y documentación contractual.
 
-**Razón:** transforma la incertidumbre en una agenda concreta para la conversación, sin ocultarla ni dramatizarla.
+**Razón:** ofrece una agenda concreta para la conversación sin publicar contradicciones, decisiones pendientes ni notas operativas del equipo. Esos registros continúan en la gobernanza interna.
 
 ### 6. Galería existente
 
-Reutiliza los assets actuales y `GalleryLightbox`, con etiquetas ES/EN y aviso de derechos.
+Reutiliza los assets actuales y `GalleryLightbox`, con etiquetas ES/EN y navegación accesible.
 
-**Razón:** preserva reconocimiento y material visual sin presentarlo como autorizado o como prueba de una condición comercial.
+**Razón:** preserva reconocimiento y material visual sin usarlo como prueba de una condición comercial. La auditoría de derechos continúa como control interno; la interfaz no publica incertidumbre legal u operativa.
 
 ### 7. Registro de fuentes públicas
 
@@ -110,12 +109,13 @@ El cierre ofrece:
 | Capa | Contenido | Regla |
 |---|---|---|
 | Identidad heredada | Nombre, portada y galería provenientes del `Project` actual | Dependencia temporal para preservar URLs y assets. No hereda precio, entrega, renta ni plan en la ficha prioritaria. |
-| Dato gobernado | Ubicación, developer/equipo y campos sensibles | Debe respetar estado, fuente, fecha, responsable y vigencia definidos en la gobernanza. |
+| Dato gobernado | Ubicación, developer/equipo y campos sensibles | El registro interno conserva estado, fuente, fecha, responsable y vigencia. La proyección pública selecciona sólo el valor permitido, estado, fuentes públicas, fecha, reconfirmación y nota pública. |
 | Hecho atribuido | `factualHighlights` | Describe sólo lo comunicado por fuentes identificadas; no confirma inventario ni condiciones actuales. |
 | Síntesis editorial | `summary` | Resume fuentes sin agregar hechos, resultados o beneficios no contenidos en ellas. |
 | Marco de comparación | `profileFit` | Indica para qué necesidad podría resultar relevante. Nunca equivale a recomendación automática. |
-| Control editorial | `risks` y `openQuestions` | Explica contradicciones, límites y próximas verificaciones. No se atribuye al developer. |
-| Procedencia | `sources` | Sólo las fuentes públicas se muestran; las internas permanecen fuera de la interfaz. |
+| Control editorial interno | `risks`, `openQuestions`, `imageRights`, `reviewedBy` y notas originales | Conserva contradicciones, faltantes y próximas verificaciones, pero no se entrega al componente público. |
+| Agenda pública | `buyerQuestions` | Traduce las comprobaciones necesarias a preguntas útiles para el comprador, sin exponer errores internos. |
+| Procedencia pública | `sources` | Sólo incluye título, enlace, alcance y fecha observada de fuentes oficiales marcadas `public: true`. |
 
 La metadata mantiene una descripción genérica y factual. Para las seis fichas utiliza la ubicación gobernada, pero no agrega precio, entrega, rentabilidad, disponibilidad ni imagen del proyecto al contenido social.
 
@@ -126,10 +126,10 @@ La metadata mantiene una descripción genérica y factual. Para las seis fichas 
 | Precio, entrega y renta en una línea superior sin estado | Estado general y ubicación; condiciones en tarjetas gobernadas | Transparencia y menor riesgo de interpretar un dato como vigente. |
 | Microclaims repetidos como chips y bloque “¿Por qué…?” | Hechos atribuidos y marco “Puede ser relevante si…” | Separa descripción de recomendación. |
 | Plan de pagos tomado directamente del catálogo | “Pendiente de verificación” hasta contar con fuente vigente | Evita publicar cronogramas contradictorios o vencidos. |
-| FAQ con respuestas y CTAs generados por heurísticas de palabras | Riesgos y preguntas pendientes redactados por proyecto | Paridad ES/EN y contexto más preciso. |
+| FAQ con respuestas y CTAs generados por heurísticas de palabras | Preguntas concretas para el comprador | Paridad ES/EN y contexto más preciso sin publicar controles internos. |
 | Tres grupos de CTAs, email y share dentro de la ficha | Un cierre con WhatsApp contextual y agenda | Menos distracción y conversión alineada con la estrategia. |
 | Mapa generado desde `city`, que mezcla barrio y dirección | Ubicación gobernada y visible, sin embed | Mayor precisión y una solicitud externa menos. |
-| Galería sin contexto de derechos | Aviso junto a portada y galería | Transparencia sobre una limitación real. |
+| Galería legacy con idioma implícito | Locale explícito y total real de imágenes anunciado | Etiquetas ES/EN correctas y navegación accesible coherente. |
 | Sin registro visible de procedencia | Fuentes públicas con fecha y alcance | Confianza verificable sin exponer material interno. |
 
 ## 6. Continuidad visual
@@ -153,7 +153,7 @@ Los cambios de composición responden a jerarquía y trazabilidad, no a una bús
 - Hero 4:3 en mobile y 16:10 en pantallas amplias para reducir recortes extremos.
 - Estado, ubicación y resumen aparecen antes de cualquier detalle secundario.
 - Tarjetas comerciales legibles sin tabla horizontal.
-- Riesgos y preguntas se apilan en mobile.
+- La introducción y las preguntas para el comprador se apilan en mobile.
 - CTAs con altura mínima de 48 px y disposición vertical cuando el espacio es limitado.
 - Galería horizontal con `snap` en mobile y grilla progresiva en desktop.
 - No se depende de hover para comprender o activar una función.
@@ -185,23 +185,24 @@ La implementación utiliza:
 - Eliminar el mapa embebido evita una solicitud de terceros en la nueva ficha.
 - No se agregaron videos, librerías de carrusel ni assets nuevos.
 - Las fuentes originales de 26 & 2nd y Oasis incluyen archivos especialmente pesados. La optimización de Next reduce la transferencia habitual, pero no resuelve procedencia, costo de transformación ni necesidad editorial; deben revisarse antes de una futura migración de medios.
-- La gobernanza completa permanece en el servidor. No debe importarse en la página cliente del catálogo general.
+- La gobernanza completa permanece en el servidor. `public-priority-projects.ts` crea un objeto nuevo por lista blanca; ni el componente público ni la página cliente del catálogo general reciben el registro interno.
 
-## 10. Riesgo de derechos y procedencia de assets
+## 10. Control interno de derechos y procedencia de assets
 
 El inventario de Fase 2 confirmó disponibilidad técnica, dimensiones y respuesta HTTP; no confirmó licencia, titularidad ni autorización de marketing. Los seis campos `imageRights` comienzan como `unverified`.
 
 La decisión provisional es:
 
 - conservar las imágenes existentes para continuidad y comparación;
-- mostrar el límite junto a la portada y la galería;
+- mantener la incertidumbre de derechos exclusivamente en la gobernanza y documentación internas;
+- no mostrar en la interfaz pública una afirmación sobre licencia, procedencia o autorización mientras no exista una decisión aprobada;
 - no descargar, generar ni inventar reemplazos;
 - no usar las imágenes como evidencia de entrega, vista, mobiliario o disponibilidad;
 - no convertirlas en OG específicas del proyecto;
 - retirar o sustituir un asset sólo cuando se confirme una restricción o se reciba un reemplazo aprobado;
 - registrar por imagen fuente, titular, permiso, alcance, vigencia, alt editorial y foco de recorte en la futura herramienta estructurada.
 
-El aviso reduce ambigüedad editorial, pero no concede derechos. La aceptación de su uso provisional debe formar parte de la aprobación del Preview.
+La permanencia provisional del asset no equivale a una conclusión sobre sus derechos. Cualquier aviso legal futuro requerirá texto y aprobación específicos; no se infiere desde la auditoría técnica.
 
 ## 11. Límites de alcance
 
@@ -227,7 +228,8 @@ La ficha prioritaria es coherente con esta dirección cuando:
 - cada dato comercial visible incluye estado y límite;
 - los hechos se diferencian del criterio editorial;
 - ES y EN conservan el mismo alcance;
-- la galería comunica el riesgo de derechos;
+- la galería conserva imágenes y comportamiento sin exponer el control interno de derechos;
+- el componente recibe sólo la proyección pública tipada y una identidad mínima del proyecto;
 - las fuentes internas no aparecen en el HTML público;
 - WhatsApp incluye contexto del proyecto y pedido de reconfirmación;
 - mobile no requiere scroll horizontal de página;

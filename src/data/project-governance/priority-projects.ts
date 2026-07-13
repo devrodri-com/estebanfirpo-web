@@ -8,7 +8,6 @@ import type {
 } from "./types";
 
 const AUDIT_DATE = "2026-07-13";
-const AUDIT_RESPONSIBLE = "Phase 3A source audit";
 
 const text = (es: string, en: string): LocalizedText => ({ es, en });
 
@@ -22,7 +21,7 @@ function reconfirm<T>(
     status: "reconfirmation_required",
     sourceIds,
     reviewedAt: AUDIT_DATE,
-    reviewedBy: AUDIT_RESPONSIBLE,
+    reviewedBy: null,
     validity: { kind: "reconfirm_before_use" },
     note,
   };
@@ -37,7 +36,7 @@ function unverified<T>(
     status: "unverified",
     sourceIds,
     reviewedAt: AUDIT_DATE,
-    reviewedBy: AUDIT_RESPONSIBLE,
+    reviewedBy: null,
     validity: { kind: "reconfirm_before_use" },
     note,
   };

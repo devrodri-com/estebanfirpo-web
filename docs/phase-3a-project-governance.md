@@ -8,6 +8,7 @@ El modelo implementado se encuentra en:
 
 - `src/data/project-governance/types.ts`: contratos tipados;
 - `src/data/project-governance/priority-projects.ts`: registro inicial de los seis proyectos;
+- `src/data/project-governance/public-priority-projects.ts`: transformación por lista blanca a un view model público;
 - `src/components/projects/PriorityProjectPage.tsx`: proyección pública de la información gobernada.
 
 Esta gobernanza se aplica sólo a:
@@ -29,7 +30,7 @@ El tipo `EditorialStatus` admite solamente estos valores:
 |---|---|---|
 | `reviewed` | El dato tiene una fuente adecuada e identificada, fecha de revisión, responsable editorial, alcance claro y plazo de vigencia. Las contradicciones materiales fueron resueltas. | Puede mostrarse con su fuente, fecha y vigencia. Sigue sujeto a los documentos contractuales y no constituye garantía. |
 | `reconfirmation_required` | Existe un valor respaldado por una fuente identificada, pero su vigencia comercial, alcance o aplicación al caso concreto debe reconfirmarse. | Puede mostrarse sólo con la etiqueta de reconfirmación, la nota de límite y la fuente pública aplicable. No debe utilizarse como promesa ni como disponibilidad permanente. |
-| `unverified` | No hay evidencia suficiente, el dato falta, las fuentes se contradicen o la fuente encontrada no sirve para ese tipo de dato. | No se publica el valor legacy. La ficha muestra “Pendiente de verificación” y explica qué documento falta. |
+| `unverified` | No hay evidencia suficiente, el dato falta, las fuentes se contradicen o la fuente encontrada no sirve para ese tipo de dato. | No se publica el valor legacy. La ficha muestra “Pendiente de verificación” con una nota pública orientada a la próxima comprobación, sin detallar fallos internos. |
 | `inactive` | Una fuente autorizada confirma que el proyecto, una oferta o una condición dejó de estar activa. No equivale a una inferencia por falta de noticias. | No se promociona ni se recomienda. Cualquier permanencia de la URL debe tratarse como información histórica y requiere una decisión editorial separada. |
 
 ### Estado general del proyecto
@@ -68,6 +69,8 @@ Cada uno se registra como `GovernedField<T>` y debe conservar:
 | `validity` | Regla `valid_until` con fecha, o `reconfirm_before_use` cuando no puede asumirse vigencia. |
 | `note` | Explicación breve ES/EN de alcance, límite, contradicción o documento faltante. |
 
+Para `unverified` y `reconfirmation_required`, `reviewedBy` permanece `null` hasta que Rodrigo o Esteban asignen y aprueben un responsable real. Una actividad técnica o una fase del proyecto no sustituyen a esa persona o rol. La nota de este registro es interna; la proyección pública utiliza una nota distinta y acotada por tipo de campo.
+
 ### Reglas de vigencia
 
 - `valid_until` se usa cuando existe un plazo de vigencia defendible y registra una fecha ISO concreta.
@@ -100,6 +103,21 @@ Una fuente debe registrar:
 6. Una fuente de terceros no oficial puede orientar la búsqueda, pero no cierra una validación comercial.
 
 Una fuente marcada `public: true` debe tener una URL segura y apta para mostrarse. Las fuentes internas pueden conservar una ruta de repositorio, pero nunca deben exponer documentos privados completos, datos personales innecesarios ni ubicaciones locales del equipo en la interfaz pública.
+
+### Proyección pública segura
+
+`getPublicPriorityProjectGovernance(slug)` reutiliza el registro interno, pero construye un objeto nuevo por lista blanca. Sólo admite identidad, ubicación, developer/equipo, resumen, hechos atribuidos, encaje editorial, campos comerciales públicos, preguntas para el comprador, CTA contextual y fuentes oficiales públicas.
+
+La proyección excluye por tipo y en tiempo de ejecución:
+
+- `risks` y `openQuestions` internos;
+- `imageRights`;
+- `reviewedBy`;
+- notas internas de los campos;
+- fuentes `public: false`;
+- `repositoryPath`, nombres de documentos privados, tipo interno, fecha de emisión e identificadores internos.
+
+Cada fuente pública contiene solamente título, enlace, alcance y fecha observada. La fecha general del registro visible se calcula desde `observedAt`; no se duplica en el copy.
 
 ## 4. Criterios para promover o degradar un estado
 
@@ -178,6 +196,7 @@ Una misma persona puede cubrir más de un rol, pero la responsabilidad debe qued
 - Una observación editorial no se presenta como dato del developer.
 - La existencia técnica de una imagen no equivale a permiso de uso.
 - Sólo las fuentes con `public: true` forman parte del registro visible.
+- Las contradicciones, archivos faltantes y decisiones pendientes se conservan en la gobernanza, pero se convierten en preguntas útiles para el comprador antes de llegar a la interfaz.
 
 ## 8. Estado inicial de los seis proyectos
 

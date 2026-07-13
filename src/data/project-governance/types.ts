@@ -74,3 +74,45 @@ export type PriorityProjectGovernance = {
   fields: PriorityProjectFields;
   sources: ProjectSource[];
 };
+
+export type PublicProjectSource = {
+  title: LocalizedText;
+  url: string;
+  scope: LocalizedText;
+  observedAt: string;
+};
+
+export type PublicGovernedField<T> = {
+  publicValue: T | null;
+  status: EditorialStatus;
+  sources: PublicProjectSource[];
+  reviewedAt: string | null;
+  requiresReconfirmation: boolean;
+  validUntil: string | null;
+  publicNote: LocalizedText;
+};
+
+export type PublicPriorityProjectFields = {
+  commercialStatus: PublicGovernedField<LocalizedText>;
+  price: PublicGovernedField<LocalizedText>;
+  delivery: PublicGovernedField<LocalizedText>;
+  rentalPolicy: PublicGovernedField<LocalizedText>;
+  financing: PublicGovernedField<LocalizedText>;
+  availability: PublicGovernedField<LocalizedText>;
+  paymentPlan: PublicGovernedField<LocalizedText[]>;
+};
+
+export type PublicPriorityProjectGovernance = {
+  slug: string;
+  overallStatus: EditorialStatus;
+  location: LocalizedText;
+  developer: LocalizedText;
+  summary: LocalizedText;
+  profileFit: LocalizedText[];
+  factualHighlights: LocalizedText[];
+  fields: PublicPriorityProjectFields;
+  buyerQuestions: LocalizedText[];
+  ctaContext: LocalizedText;
+  sourcesObservedAt: string | null;
+  sources: PublicProjectSource[];
+};

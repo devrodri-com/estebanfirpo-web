@@ -116,7 +116,7 @@ export default function GalleryLightbox({
             type="button"
             onClick={() => openAt(i)}
             className="relative aspect-[16/10] overflow-hidden rounded-xl ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40 [@media(hover:hover)]:hover:ring-white/30 transition"
-            aria-label={labels.open(i + 1, displayImages.length)}
+            aria-label={labels.open(i + 1, images.length)}
           >
             <Image
               src={g.src}
@@ -140,7 +140,7 @@ export default function GalleryLightbox({
                 type="button"
                 onClick={() => openAt(i)}
                 className="relative h-48 w-[85vw] overflow-hidden rounded-xl ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
-                aria-label={labels.open(i + 1, displayImages.length)}
+                aria-label={labels.open(i + 1, images.length)}
               >
                 <Image
                   src={g.src}

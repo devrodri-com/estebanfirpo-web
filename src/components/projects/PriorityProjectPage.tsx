@@ -17,18 +17,19 @@ import {
 import GalleryLightbox from "@/components/GalleryLightbox";
 import type {
   EditorialStatus,
-  GovernedField,
   LocalizedText,
-  PriorityProjectGovernance,
+  PublicGovernedField,
+  PublicPriorityProjectGovernance,
 } from "@/data/project-governance/types";
 import type { Project } from "@/data/types";
 import { CALENDAR_URL, createWhatsAppUrl } from "@/lib/site";
 
 type Locale = "es" | "en";
+type PriorityProjectIdentity = Pick<Project, "name" | "image" | "images">;
 
 type PriorityProjectPageProps = {
-  project: Project;
-  governance: PriorityProjectGovernance;
+  project: PriorityProjectIdentity;
+  governance: PublicPriorityProjectGovernance;
   locale: Locale;
 };
 
@@ -109,8 +110,8 @@ export function PriorityProjectPage({
       ? "Commercial information and review status"
       : "Información comercial y estado de revisión",
     commercialCopy: isEnglish
-      ? "Sensitive information is published only with a source, review date, accountable reviewer, and validity rule."
-      : "La información sensible se publica sólo con fuente, fecha de revisión, responsable y regla de vigencia.",
+      ? "Each data point shows its status, the available source, the review date, and whether it needs reconfirmation."
+      : "Cada dato indica su estado, la fuente disponible, la fecha de revisión y si necesita reconfirmación.",
     pendingValue: isEnglish ? "Pending verification" : "Pendiente de verificación",
     reviewedOn: isEnglish ? "Reviewed" : "Revisado",
     source: isEnglish ? "Source" : "Fuente",
@@ -120,27 +121,18 @@ export function PriorityProjectPage({
       : "Reconfirmar antes de usar en una decisión",
     validUntil: isEnglish ? "Valid until" : "Vigente hasta",
     questionsTitle: isEnglish
-      ? "What still needs to be confirmed"
-      : "Qué falta confirmar",
+      ? "What to confirm before proceeding"
+      : "Qué conviene confirmar antes de avanzar",
     questionsCopy: isEnglish
-      ? "These open items should be resolved with dated documentation before making a commercial decision."
-      : "Estos puntos abiertos deben resolverse con documentación fechada antes de tomar una decisión comercial.",
-    risksTitle: isEnglish ? "Risks and limits to review" : "Riesgos y límites a revisar",
+      ? "Use these questions to compare options with the same level of current information and supporting documents."
+      : "Usá estas preguntas para comparar opciones con el mismo nivel de información vigente y documentación de respaldo.",
     gallery: isEnglish ? "Existing project imagery" : "Imágenes existentes del proyecto",
-    imageNotice: isEnglish
-      ? "The files remain available for comparison, but their provenance and web usage rights have not yet been documented."
-      : "Los archivos se mantienen disponibles para comparar, pero su procedencia y derechos de uso web todavía no están documentados.",
     sourceTitle: isEnglish ? "Source register" : "Registro de fuentes",
-    sourceCopy: isEnglish
-      ? "Public sources reviewed on July 13, 2026. Commercial terms remain subject to reconfirmation."
-      : "Fuentes públicas revisadas el 13 de julio de 2026. Las condiciones comerciales siguen sujetas a reconfirmación.",
+    observedOn: isEnglish ? "Observed" : "Observada",
     ctaEyebrow: isEnglish ? "Compare with context" : "Comparar con contexto",
     ctaTitle: isEnglish
       ? `Review ${project.name} with Esteban`
       : `Revisá ${project.name} con Esteban`,
-    ctaCopy: isEnglish
-      ? "Ask for current inventory, pricing, delivery, and use conditions before deciding whether it belongs on your shortlist."
-      : "Pedí inventario, precio, entrega y condiciones de uso vigentes antes de decidir si debe entrar en tu selección.",
     whatsapp: isEnglish ? "Ask on WhatsApp" : "Consultar por WhatsApp",
     schedule: isEnglish ? "Schedule a conversation" : "Agendar una conversación",
     developer: isEnglish ? "Developer / team" : "Developer / equipo",
@@ -166,22 +158,29 @@ export function PriorityProjectPage({
     inactive: isEnglish ? "Inactive" : "Inactivo",
   };
 
-  const publicSources = governance.sources.filter((source) => source.public);
-  const sourceById = new Map(governance.sources.map((source) => [source.id, source]));
+  const publicSources = governance.sources;
+  const sourceReviewDate = formatReviewDate(governance.sourcesObservedAt, locale);
+  const sourceCopy = sourceReviewDate
+    ? isEnglish
+      ? `Public sources were last consulted on ${sourceReviewDate}. Commercial terms remain subject to reconfirmation.`
+      : `Las fuentes públicas se consultaron por última vez el ${sourceReviewDate}. Las condiciones comerciales siguen sujetas a reconfirmación.`
+    : isEnglish
+      ? "Commercial terms remain subject to reconfirmation."
+      : "Las condiciones comerciales siguen sujetas a reconfirmación.";
   const whatsappMessage = isEnglish
     ? `Hi Esteban, I am reviewing ${project.name}. Could you help me reconfirm current inventory, price, estimated completion, and use or rental terms?`
     : `Hola Esteban, estoy revisando ${project.name}. ¿Podés ayudarme a reconfirmar inventario, precio, entrega estimada y condiciones de uso o renta vigentes?`;
 
   function renderFieldValue(
-    field: GovernedField<LocalizedText> | GovernedField<LocalizedText[]>,
+    field: PublicGovernedField<LocalizedText> | PublicGovernedField<LocalizedText[]>,
   ) {
-    if (!field.value) return copy.pendingValue;
+    if (!field.publicValue) return copy.pendingValue;
 
-    if (Array.isArray(field.value)) {
-      return field.value.map((item) => localize(item, locale)).join(" · ");
+    if (Array.isArray(field.publicValue)) {
+      return field.publicValue.map((item) => localize(item, locale)).join(" · ");
     }
 
-    return localize(field.value, locale);
+    return localize(field.publicValue, locale);
   }
 
   return (
@@ -241,10 +240,6 @@ export function PriorityProjectPage({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540]/28 via-transparent to-transparent" />
             </div>
-            <figcaption className="mt-3 flex items-start gap-2 text-xs leading-5 text-[#0D1521]/60">
-              <CircleAlert className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-              {copy.imageNotice}
-            </figcaption>
           </figure>
         </div>
 
@@ -332,9 +327,7 @@ export function PriorityProjectPage({
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {fieldOrder.map((key) => {
             const field = governance.fields[key];
-            const fieldSources = field.sourceIds
-              .map((sourceId) => sourceById.get(sourceId))
-              .filter((source) => source?.public);
+            const fieldSources = field.sources;
             const reviewedOn = formatReviewDate(field.reviewedAt, locale);
 
             return (
@@ -355,7 +348,7 @@ export function PriorityProjectPage({
                   {renderFieldValue(field)}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[#0D1521]/67">
-                  {localize(field.note, locale)}
+                  {localize(field.publicNote, locale)}
                 </p>
                 <div className="mt-auto border-t border-[#0A2540]/8 pt-4 text-xs leading-5 text-[#0D1521]/72">
                   {reviewedOn ? (
@@ -364,14 +357,16 @@ export function PriorityProjectPage({
                     </p>
                   ) : null}
                   <p>
-                    {field.validity.kind === "valid_until"
-                      ? `${copy.validUntil}: ${formatReviewDate(field.validity.date, locale)}`
-                      : copy.reconfirmBeforeUse}
+                    {field.validUntil
+                      ? `${copy.validUntil}: ${formatReviewDate(field.validUntil, locale)}`
+                      : field.requiresReconfirmation
+                        ? copy.reconfirmBeforeUse
+                        : null}
                   </p>
                   {fieldSources.length > 0 ? (
                     <p className="mt-2">
                       {fieldSources.length === 1 ? copy.source : copy.sources}: {fieldSources
-                        .map((source) => (source ? localize(source.title, locale) : ""))
+                        .map((source) => localize(source.title, locale))
                         .join(" · ")}
                     </p>
                   ) : null}
@@ -382,29 +377,28 @@ export function PriorityProjectPage({
         </div>
       </section>
 
-      <section className="bg-[#0A2540] py-14 text-white sm:py-20">
+      <section
+        className="bg-[#0A2540] py-14 text-white sm:py-20"
+        aria-labelledby="buyer-questions-title"
+      >
         <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="flex items-center gap-3">
-              <CircleAlert className="h-6 w-6 text-[#D4AF37]" aria-hidden="true" />
-              <h2 className="text-3xl font-semibold tracking-[-0.03em]">{copy.risksTitle}</h2>
+              <HelpCircle className="h-6 w-6 text-[#D4AF37]" aria-hidden="true" />
+              <h2
+                id="buyer-questions-title"
+                className="text-3xl font-semibold tracking-[-0.03em]"
+              >
+                {copy.questionsTitle}
+              </h2>
             </div>
-            <ul className="mt-7 space-y-5">
-              {governance.risks.map((risk) => (
-                <li key={risk.es} className="border-l border-[#D4AF37]/55 pl-4 text-base leading-7 text-white/78">
-                  {localize(risk, locale)}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/72">
+              {copy.questionsCopy}
+            </p>
           </div>
           <div className="rounded-2xl border border-white/12 bg-white/5 p-6 sm:p-8">
-            <div className="flex items-center gap-3">
-              <HelpCircle className="h-6 w-6 text-[#D4AF37]" aria-hidden="true" />
-              <h2 className="text-3xl font-semibold tracking-[-0.03em]">{copy.questionsTitle}</h2>
-            </div>
-            <p className="mt-4 text-sm leading-6 text-white/65">{copy.questionsCopy}</p>
-            <ol className="mt-7 space-y-5">
-              {governance.openQuestions.map((question, index) => (
+            <ol className="space-y-5">
+              {governance.buyerQuestions.map((question, index) => (
                 <li key={question.es} className="flex items-start gap-3">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/45 text-xs font-semibold text-[#D4AF37]">
                     {index + 1}
@@ -428,7 +422,6 @@ export function PriorityProjectPage({
                 {copy.gallery}
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-white/65">{copy.imageNotice}</p>
             <GalleryLightbox images={project.images} name={project.name} locale={locale} />
           </div>
         </section>
@@ -446,11 +439,11 @@ export function PriorityProjectPage({
             >
               {copy.sourceTitle}
             </h2>
-            <p className="mt-4 text-base leading-7 text-[#0D1521]/68">{copy.sourceCopy}</p>
+            <p className="mt-4 text-base leading-7 text-[#0D1521]/68">{sourceCopy}</p>
           </div>
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {publicSources.map((source) => (
-              <li key={source.id} className="rounded-xl border border-[#0A2540]/10 bg-[#FBFAF7] p-5">
+              <li key={source.url} className="rounded-xl border border-[#0A2540]/10 bg-[#FBFAF7] p-5">
                 <a
                   href={source.url}
                   target="_blank"
@@ -461,10 +454,10 @@ export function PriorityProjectPage({
                   <ExternalLink className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                 </a>
                 <p className="mt-3 text-sm leading-6 text-[#0D1521]/65">
-                  {localize(source.note, locale)}
+                  {localize(source.scope, locale)}
                 </p>
                 <p className="mt-3 text-xs text-[#0D1521]/68">
-                  {copy.reviewedOn}: {formatReviewDate(source.observedAt, locale)}
+                  {copy.observedOn}: {formatReviewDate(source.observedAt, locale)}
                 </p>
               </li>
             ))}
@@ -485,7 +478,9 @@ export function PriorityProjectPage({
               >
                 {copy.ctaTitle}
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-[#0D1521]/70">{copy.ctaCopy}</p>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#0D1521]/70">
+                {localize(governance.ctaContext, locale)}
+              </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <a

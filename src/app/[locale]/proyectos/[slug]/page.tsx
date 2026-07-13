@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
 import { PriorityProjectPage } from "@/components/projects/PriorityProjectPage";
-import { getPriorityProjectGovernance } from "@/data/project-governance/priority-projects";
+import { getPublicPriorityProjectGovernance } from "@/data/project-governance/public-priority-projects";
 import { createProjectMetadata } from "@/lib/metadata";
 type Params = { params: Promise<{ locale: string; slug: string }> };
 
@@ -56,7 +56,7 @@ export async function generateMetadata({
     };
   }
 
-  const governance = getPriorityProjectGovernance(slug);
+  const governance = getPublicPriorityProjectGovernance(slug);
 
   return createProjectMetadata({
     rawLocale: locale,
@@ -74,11 +74,11 @@ export default async function Proyecto({ params }: Params) {
   const p = pickBySlug(slug);
   if (!p) notFound();
 
-  const governance = getPriorityProjectGovernance(slug);
+  const governance = getPublicPriorityProjectGovernance(slug);
   if (governance) {
     return (
       <PriorityProjectPage
-        project={p}
+        project={{ name: p.name, image: p.image, images: p.images }}
         governance={governance}
         locale={isEN ? "en" : "es"}
       />
@@ -277,7 +277,11 @@ export default async function Proyecto({ params }: Params) {
             <ImagesIcon className="h-5 w-5 text-white stroke-[1.5]" aria-hidden />
             <h2 className="text-[16px] sm:text-[17px] font-semibold tracking-tight text-white">{t.gallery}</h2>
           </div>
-          <GalleryLightbox images={p.images} name={p.name} />
+          <GalleryLightbox
+            images={p.images}
+            name={p.name}
+            locale={isEN ? "en" : "es"}
+          />
         </section>
       )}
 
