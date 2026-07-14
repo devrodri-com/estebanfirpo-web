@@ -1,3 +1,4 @@
+import { remoteProcessFaq } from "@/content/remote-process-faq";
 import type { Locale } from "@/i18n/config";
 
 type DecisionItem = { title: string; copy: string };
@@ -174,11 +175,7 @@ export const homeContent: Record<Locale, HomeCopy> = {
       copy:
         "No necesitás llegar con un proyecto elegido. Podés contarle a Esteban qué estás evaluando y definir juntos si tiene sentido avanzar.",
       faqs: [
-        {
-          question: "¿Puedo comenzar el proceso desde fuera de Estados Unidos?",
-          answer:
-            "Sí. La primera conversación y la comparación inicial pueden hacerse a distancia. Los pasos posteriores dependen de cada operación y de los profesionales involucrados.",
-        },
+        remoteProcessFaq.es,
         {
           question: "¿Cómo se reducen las alternativas?",
           answer:
@@ -307,11 +304,7 @@ export const homeContent: Record<Locale, HomeCopy> = {
       copy:
         "You don’t need to arrive with a project already selected. Tell Esteban what you are considering and decide together whether it makes sense to move forward.",
       faqs: [
-        {
-          question: "Can I begin the process from outside the United States?",
-          answer:
-            "Yes. The first conversation and initial comparison can happen remotely. Later steps depend on the transaction and the professionals involved.",
-        },
+        remoteProcessFaq.en,
         {
           question: "How are the options narrowed down?",
           answer:

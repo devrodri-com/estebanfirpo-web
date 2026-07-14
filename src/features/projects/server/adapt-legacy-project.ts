@@ -1,5 +1,9 @@
 import "server-only";
 
+import {
+  isEquivalentRemoteProcessQuestion,
+  remoteProcessFaq,
+} from "@/content/remote-process-faq";
 import type { Project } from "@/data/types";
 import type { Locale } from "@/i18n/config";
 import { SITE_URL } from "@/lib/metadata";
@@ -60,11 +64,23 @@ function adaptFaqs(project: Project, locale: Locale): CanonicalProjectFaq[] {
   const faqs = locale === "en" ? project.faqsEn ?? [] : project.faqsEs ?? [];
   const overrides = projectMigrationAdjustments[project.slug]?.faqAnswerOverrides?.[locale] ?? {};
 
-  return faqs.map((faq, index) => ({
+  const adaptedFaqs = faqs.map((faq, index) => ({
     id: `${project.id}-faq-${index + 1}`,
     question: faq.q,
     answer: overrides[faq.q] ?? faq.a,
   }));
+
+  if (adaptedFaqs.some((faq) => isEquivalentRemoteProcessQuestion(faq.question, locale))) {
+    return adaptedFaqs;
+  }
+
+  return [
+    ...adaptedFaqs,
+    {
+      id: `${project.id}-faq-remote-process`,
+      ...remoteProcessFaq[locale],
+    },
+  ];
 }
 
 function adaptMetrics(project: Project, locale: Locale): CanonicalProjectMetric[] {

@@ -3,6 +3,11 @@ import path from "node:path";
 import { ALL_PROJECTS } from "../src/data/projects/index";
 import { PUBLIC_PROJECT_SLUGS } from "../src/data/projects/public-slugs.generated";
 import type { Project } from "../src/data/types";
+import { getHomeContent } from "../src/content/home";
+import {
+  isEquivalentRemoteProcessQuestion,
+  remoteProcessFaq,
+} from "../src/content/remote-process-faq";
 import { locales, type Locale } from "../src/i18n/config";
 import { SITE_URL } from "../src/lib/metadata";
 import { CALENDAR_URL, PUBLIC_EMAIL, WHATSAPP_NUMBER } from "../src/lib/site";
@@ -33,6 +38,18 @@ const FUNCTION_CONTRACTS = [
 
 const errors: string[] = [];
 const repositoryRoot = process.cwd();
+const EXPECTED_REMOTE_PROCESS_FAQ = {
+  es: {
+    question: "¿Puedo realizar todo el proceso desde fuera de Estados Unidos?",
+    answer:
+      "Sí. Todo el proceso puede coordinarse a distancia, desde la evaluación inicial hasta el cierre, sin necesidad de viajar. Esteban, junto con Miami Life Realty, coordina a los profesionales necesarios para cada operación, incluidos abogados y especialistas en financiación. La aprobación y las condiciones de financiación dependen del perfil del comprador y del proveedor.",
+  },
+  en: {
+    question: "Can I complete the entire process from outside the United States?",
+    answer:
+      "Yes. The entire process can be coordinated remotely, from the initial evaluation through closing, without the need to travel. Esteban, together with Miami Life Realty, coordinates the professionals required for each transaction, including attorneys and financing specialists. Financing approval and terms depend on the buyer’s profile and the provider.",
+  },
+} as const;
 const EXPECTED_MATRIX_TOTALS = {
   preserve: 556,
   qualify: 6,
@@ -456,17 +473,45 @@ function checkPreservation(project: Project, model: CanonicalProjectViewModel, l
     `${context}.features`,
   );
   const legacyFaqs = locale === "en" ? project.faqsEn ?? [] : project.faqsEs ?? [];
+  const adaptedLegacyFaqs = model.faqs.slice(0, legacyFaqs.length);
   checkArrayEqual(
-    model.faqs.map((faq) => faq.question),
+    adaptedLegacyFaqs.map((faq) => faq.question),
     legacyFaqs.map((faq) => faq.q),
     `${context}.faq.questions`,
   );
   const faqOverrides = projectMigrationAdjustments[project.slug]?.faqAnswerOverrides?.[locale] ?? {};
   checkArrayEqual(
-    model.faqs.map((faq) => faq.answer),
+    adaptedLegacyFaqs.map((faq) => faq.answer),
     legacyFaqs.map((faq) => faqOverrides[faq.q] ?? faq.a),
     `${context}.faq.answers`,
   );
+  const legacyHasEquivalentRemoteFaq = legacyFaqs.some((faq) =>
+    isEquivalentRemoteProcessQuestion(faq.q, locale),
+  );
+  const expectedFaqCount = legacyFaqs.length + (legacyHasEquivalentRemoteFaq ? 0 : 1);
+  check(
+    model.faqs.length === expectedFaqCount,
+    `${context}.faqs: expected ${expectedFaqCount}, got ${model.faqs.length}`,
+  );
+  const equivalentRemoteFaqs = model.faqs.filter((faq) =>
+    isEquivalentRemoteProcessQuestion(faq.question, locale),
+  );
+  check(
+    equivalentRemoteFaqs.length === 1,
+    `${context}.faqs: expected exactly one full remote-process FAQ`,
+  );
+  if (!legacyHasEquivalentRemoteFaq) {
+    const sharedFaq = model.faqs[model.faqs.length - 1];
+    check(
+      sharedFaq?.id === `${project.id}-faq-remote-process`,
+      `${context}.faqs: shared FAQ ID or order changed`,
+    );
+    check(
+      sharedFaq?.question === remoteProcessFaq[locale].question &&
+        sharedFaq?.answer === remoteProcessFaq[locale].answer,
+      `${context}.faqs: shared FAQ copy or order changed`,
+    );
+  }
   const legacyPayment = locale === "en" ? project.paymentPlanEn ?? [] : project.paymentPlanEs ?? [];
   const paymentRequest = projectMigrationAdjustments[project.slug]?.paymentRequest || legacyPayment.length === 0;
   check(model.payment.kind === (paymentRequest ? "request" : "steps"), `${context}: payment kind changed`);
@@ -521,6 +566,33 @@ function findModel(models: CanonicalProjectViewModel[], locale: Locale, slug: st
 
 const keyFactDecisions = checkMatrixContract();
 checkCanonicalPublicRouteContract();
+check(
+  JSON.stringify(remoteProcessFaq) === JSON.stringify(EXPECTED_REMOTE_PROCESS_FAQ),
+  "Shared remote-process FAQ copy changed",
+);
+for (const locale of locales) {
+  const homeFaq = getHomeContent(locale).contact.faqs[0];
+  check(
+    homeFaq?.question === remoteProcessFaq[locale].question &&
+      homeFaq?.answer === remoteProcessFaq[locale].answer,
+    `Home ${locale}: canonical remote-process FAQ missing or out of order`,
+  );
+}
+for (const fixture of [
+  { locale: "es", question: "¿Se puede coordinar todo el proceso a distancia?", expected: true },
+  { locale: "en", question: "Can the complete process be handled remotely?", expected: true },
+  { locale: "es", question: "¿Puedo completar la compra a distancia?", expected: true },
+  { locale: "en", question: "Can I complete the transaction remotely?", expected: true },
+  { locale: "es", question: "¿Puedo comenzar el proceso a distancia?", expected: false },
+  { locale: "en", question: "Can I begin the process remotely?", expected: false },
+  { locale: "es", question: "¿Hay financiación para extranjeros?", expected: false },
+  { locale: "en", question: "Is financing available to foreign buyers?", expected: false },
+] as const) {
+  check(
+    isEquivalentRemoteProcessQuestion(fixture.question, fixture.locale) === fixture.expected,
+    `Remote-process FAQ equivalence fixture failed: ${fixture.locale}/${fixture.question}`,
+  );
+}
 check(FUNCTION_CONTRACTS.length === 16, "Expected exactly 16 function contracts");
 check(ALL_PROJECTS.length === 36, `Expected 36 effective projects; got ${ALL_PROJECTS.length}`);
 check(new Set(ALL_PROJECTS.map((project) => project.id)).size === 36, "Project IDs are not unique");
@@ -713,7 +785,12 @@ for (const locale of locales) {
   check(!nomad.faqs.some((faq) => faq.answer.includes("Q4 2025")), `NoMad ${locale}: stale FAQ leaked`);
 
   check(findModel(models, locale, "one-park-tower").payment.kind === "request", `One Park ${locale}: empty plan fallback missing`);
-  check(findModel(models, locale, "26-and-2nd").faqs.length === 0, `26 & 2nd ${locale}: FAQ should remain absent`);
+  const twentySixFaqs = findModel(models, locale, "26-and-2nd").faqs;
+  check(twentySixFaqs.length === 1, `26 & 2nd ${locale}: expected only the shared FAQ`);
+  check(
+    twentySixFaqs[0]?.question === remoteProcessFaq[locale].question,
+    `26 & 2nd ${locale}: shared FAQ missing`,
+  );
   check(findModel(models, locale, "viceroy-brickell-residences").features.length === 0, `Viceroy ${locale}: features should remain absent`);
   check(
     findModel(models, locale, "ambar-orlando").decisions.delivery ===
