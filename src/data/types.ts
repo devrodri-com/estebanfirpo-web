@@ -3,6 +3,7 @@ export interface Project {
     id: string;
     name: string;
     city: string;
+    locationLabel?: string;
     delivery?: string;
     priceFromUsd?: number;
     pricePerSfApprox?: number;

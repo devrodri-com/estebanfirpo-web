@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "catalog:slugs": "node scripts/generate-project-slugs.mjs",
+    "catalog:rentals:check": "node --conditions=react-server --import tsx scripts/check-project-catalog-rentals.ts",
+    "catalog:foundation:check": "node --conditions=react-server --import tsx scripts/check-project-catalog-foundation.ts",
+    "catalog:check": "npm run catalog:rentals:check && npm run catalog:foundation:check",
     "phase3b:matrix": "node --conditions=react-server --import tsx scripts/generate-phase-3b-project-migration-matrix.mjs",
     "phase3b:matrix:check": "node --conditions=react-server --import tsx scripts/generate-phase-3b-project-migration-matrix.mjs --check",
     "phase3b:models:check": "node --conditions=react-server --import tsx scripts/check-canonical-project-view-models.ts",
     "phase3b:check": "npm run phase3b:matrix:check && npm run phase3b:models:check",
     "predev": "npm run catalog:slugs",
     "dev": "next dev --turbopack",
-    "prebuild": "npm run catalog:slugs",
+    "prebuild": "npm run catalog:slugs && npm run catalog:check",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
