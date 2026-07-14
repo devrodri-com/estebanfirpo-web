@@ -73,11 +73,11 @@ export function CatalogProjectCard({ project }: CatalogProjectCardProps) {
         </p>
 
         {project.highlights.length ? (
-          <ul className="mt-3 flex flex-col items-start gap-1.5">
+          <ul className="mt-3 flex flex-col items-start gap-2">
             {project.highlights.map((highlight) => (
               <li
                 key={highlight}
-                className="max-w-full break-words rounded-full bg-white px-2 py-1 text-[11px] leading-snug text-[#0A2540] ring-1 ring-[#0A2540]/15"
+                className="max-w-full break-words rounded-full bg-white px-2 py-1.5 text-[11px] leading-snug text-[#0A2540] ring-1 ring-[#0A2540]/15"
               >
                 {highlight}
               </li>
@@ -85,12 +85,14 @@ export function CatalogProjectCard({ project }: CatalogProjectCardProps) {
           </ul>
         ) : null}
 
-        <Link
-          href={href}
-          className="mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-md border border-white/25 px-3 py-2 text-center text-sm font-medium text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
-        >
-          {copy.viewDetails}
-        </Link>
+        <div className="mt-auto pt-4">
+          <Link
+            href={href}
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-white/25 px-3 py-2 text-center text-sm font-medium text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+          >
+            {copy.viewDetails}
+          </Link>
+        </div>
       </div>
     </article>
   );
