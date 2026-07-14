@@ -5,9 +5,13 @@ import type { ProjectCatalogCardViewModel } from "./project-catalog-types";
 
 interface CatalogProjectCardProps {
   project: ProjectCatalogCardViewModel;
+  prioritizeImage?: boolean;
 }
 
-export function CatalogProjectCard({ project }: CatalogProjectCardProps) {
+export function CatalogProjectCard({
+  project,
+  prioritizeImage = false,
+}: CatalogProjectCardProps) {
   const copy = getCatalogCopy(project.locale);
   const numberLocale = project.locale === "en" ? "en-US" : "es-ES";
   const formatPrice = (value: number) =>
@@ -30,8 +34,10 @@ export function CatalogProjectCard({ project }: CatalogProjectCardProps) {
           alt={project.name}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-[1.01]"
-          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          loading="lazy"
+          sizes="(min-width: 1152px) 358px, (min-width: 1024px) calc(33.333vw - 1.667rem), (min-width: 768px) calc(50vw - 1.75rem), calc(100vw - 2rem)"
+          priority={prioritizeImage}
+          fetchPriority={prioritizeImage ? "high" : undefined}
+          loading={prioritizeImage ? "eager" : "lazy"}
           decoding="async"
         />
         {project.delivery ? (

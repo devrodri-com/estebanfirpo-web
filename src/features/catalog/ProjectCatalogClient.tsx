@@ -310,8 +310,12 @@ export function ProjectCatalogClient({
 
       {results.length ? (
         <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {results.map((project) => (
-            <CatalogProjectCard key={project.slug} project={project} />
+          {results.map((project, index) => (
+            <CatalogProjectCard
+              key={project.slug}
+              project={project}
+              prioritizeImage={index === 0}
+            />
           ))}
         </div>
       ) : (
