@@ -168,6 +168,7 @@ export default function CanonicalProjectPage({ model }: { model: CanonicalProjec
             href={model.contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={copy.ctas.whatsappLabel(model.identity.name)}
             className={darkButton}
           >
             <MessageCircle className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
