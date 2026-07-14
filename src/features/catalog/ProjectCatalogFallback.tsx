@@ -33,8 +33,12 @@ export function ProjectCatalogFallback({
         {copy.projectCount(sorted.length)}
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-        {sorted.map((project) => (
-          <CatalogProjectCard key={project.slug} project={project} />
+        {sorted.map((project, index) => (
+          <CatalogProjectCard
+            key={project.slug}
+            project={project}
+            prioritizeImage={index === 0}
+          />
         ))}
       </div>
     </section>
