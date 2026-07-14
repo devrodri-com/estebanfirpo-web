@@ -67,12 +67,12 @@ export const staticRouteMetadata = {
     es: {
       title: "Preconstrucción en Miami",
       description:
-        "Información general sobre proyectos inmobiliarios de preconstrucción en Miami.",
+        "Guía de preconstrucción en Miami: capital por etapas, selección de unidad, proceso remoto y criterios para comparar proyectos con Esteban Firpo.",
     },
     en: {
-      title: "Miami Pre-construction",
+      title: "Miami Preconstruction",
       description:
-        "General information about pre-construction real estate projects in Miami.",
+        "A guide to Miami preconstruction: staged capital, unit selection, a remote process, and criteria for comparing projects with Esteban Firpo.",
     },
   },
   proyectos: {
