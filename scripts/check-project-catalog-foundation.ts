@@ -1,4 +1,7 @@
 import assert from "node:assert/strict";
+import { readdirSync, readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   createCatalogHref,
   createCatalogSearchParams,
@@ -16,6 +19,33 @@ import {
   type ProjectCatalogCardViewModel,
 } from "../src/features/catalog/project-catalog-types";
 import { getProjectCatalogCardViewModels } from "../src/features/catalog/server/get-project-catalog";
+
+const repositoryRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+);
+const catalogFeatureRoot = path.join(
+  repositoryRoot,
+  "src/features/catalog",
+);
+
+function catalogJsxFiles(directory: string): string[] {
+  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return catalogJsxFiles(fullPath);
+    return /\.[jt]sx$/.test(entry.name) ? [fullPath] : [];
+  });
+}
+
+const nativeSelectFiles = catalogJsxFiles(catalogFeatureRoot)
+  .filter((file) => /<select(?=[\s/>])/.test(readFileSync(file, "utf8")))
+  .map((file) => path.relative(repositoryRoot, file));
+
+assert.deepEqual(
+  nativeSelectFiles,
+  [],
+  `Native <select> is forbidden in the catalog; use CatalogSelect. Found: ${nativeSelectFiles.join(", ")}`,
+);
 
 const expectedKeys = [
   "delivery",

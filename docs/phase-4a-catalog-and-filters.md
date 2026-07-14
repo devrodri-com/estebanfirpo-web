@@ -13,13 +13,15 @@ El cambio se limita a `/es/proyectos`, `/en/proyectos`, sus piezas técnicas y l
 - La categoría de renta se infería en runtime mediante expresiones regulares. El orden de esas reglas clasificaba incorrectamente casos como Domus Brickell Park y Millux.
 - Los filtros no vivían en la URL: recarga, enlaces compartidos, atrás/adelante y cambio ES/EN perdían el estado.
 - Un rango mínimo mayor que el máximo producía resultados vacíos sin explicar el error.
-- Los selectores personalizados y el drawer mobile no ofrecían el contrato de teclado, foco y diálogo requerido.
+- Los selectores nativos delegaban el menú abierto al navegador o sistema operativo y rompían la continuidad visual del panel de filtros.
 - Las tarjetas usaban altura fija, truncado agresivo y chips sin ajuste, con riesgo de recorte y overflow.
 - La página añadía un segundo elemento `main` dentro del `main` global.
 
 ## Arquitectura implementada
 
 `ALL_PROJECTS` continúa siendo la fuente aprobada. Una página Server Component llama a un adaptador marcado `server-only`, que proyecta una lista liviana. Sólo la búsqueda, los filtros, el orden, la URL, los chips de estado y el drawer forman una isla cliente.
+
+Política de renta y orden usan un único `CatalogSelect` construido sobre Radix Select. El trigger y el menú abierto comparten el sistema navy, marfil y dorado; Radix aporta teclado, foco, Escape, portal, posicionamiento y colisiones tanto en desktop como dentro del drawer. Los conteos de renta se muestran como información secundaria separada del label. `catalog:foundation:check` inspecciona exclusivamente `src/features/catalog/` y falla si vuelve a introducirse un `<select>` nativo.
 
 `ProjectCatalogCardViewModel` contiene únicamente:
 
@@ -84,7 +86,7 @@ Los proyectos sin precio permanecen estables y al final de ambos órdenes por pr
 
 La interfaz muestra conteo singular/plural, chips removibles, limpieza total y un estado vacío con explicación. Las tarjetas conservan su estructura y contenido, pero permiten títulos de dos líneas, textos y chips ajustables, alto flexible, CTA de al menos 44 px y foco visible.
 
-En mobile, Radix Dialog proporciona modalidad, título asociado, foco inicial, focus trap, Escape, retorno de foco, cierre por backdrop y bloqueo/restauración de scroll. El drawer se cierra al alcanzar el breakpoint desktop. Los controles tienen al menos 44 × 44 px y el CTA informa el resultado vivo: `Ver X proyectos / View X projects`.
+En mobile, Radix Dialog proporciona modalidad, título asociado, foco inicial, focus trap, Escape, retorno de foco, cierre por backdrop y bloqueo/restauración de scroll. Radix Select mantiene sus menús portaled por encima del drawer sin cerrarlo al seleccionar. El drawer se cierra al alcanzar el breakpoint desktop. Los controles y opciones tienen al menos 44 × 44 px y el CTA informa el resultado vivo: `Ver X proyectos / View X projects`.
 
 ## Límites y decisiones pendientes
 
@@ -92,4 +94,4 @@ En mobile, Radix Dialog proporciona modalidad, título asociado, foco inicial, f
 - La categoría de 60 días seguirá oculta mientras su conteo sea cero.
 - Las categorías de Ambar y Nickelodeon son agrupaciones de navegación prudentes, no nuevos claims comerciales.
 - Cualquier cambio futuro de política visible exige actualizar la asignación explícita y aprobar el nuevo reporte; esta fase no revalida datos comerciales.
-- No se introducen dependencias, CMS, analytics ni cambios sobre fichas individuales.
+- La única dependencia incorporada para esta interfaz es `@radix-ui/react-select`; no se introducen CMS, analytics ni cambios sobre fichas individuales.

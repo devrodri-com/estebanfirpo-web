@@ -2,11 +2,13 @@
 
 import { Search } from "lucide-react";
 import { useId } from "react";
+import { CatalogSelect } from "./CatalogSelect";
 import { getCatalogCopy } from "./catalog-copy";
-import type {
-  CatalogFilters,
-  CatalogLocale,
-  CatalogRentalFilter,
+import {
+  catalogSortOptions,
+  type CatalogFilters,
+  type CatalogLocale,
+  type CatalogRentalFilter,
 } from "./project-catalog-types";
 
 export type CatalogFilterChangeReason = "search" | "price" | "discrete";
@@ -96,28 +98,18 @@ export function ProjectCatalogFilters({
           </span>
         </label>
 
-        <label className="block text-[12px] font-medium text-white/90">
-          {copy.rental}
-          <select
-            value={value.rental}
-            onChange={(event) =>
-              onChange(
-                {
-                  ...value,
-                  rental: event.target.value as CatalogRentalFilter,
-                },
-                "discrete",
-              )
-            }
-            className="mt-1 block min-h-11 w-full rounded-md border border-white/20 bg-white px-3 text-sm text-[#0A2540] outline-none transition focus:ring-2 focus:ring-[#D4AF37]/60"
-          >
-            {rentalOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {`${copy.rentalLabel(option.value)} (${option.count})`}
-              </option>
-            ))}
-          </select>
-        </label>
+        <CatalogSelect
+          label={copy.rental}
+          value={value.rental}
+          options={rentalOptions.map((option) => ({
+            ...option,
+            label: copy.rentalLabel(option.value),
+            countLabel: copy.projectCount(option.count),
+          }))}
+          onValueChange={(rental) =>
+            onChange({ ...value, rental }, "discrete")
+          }
+        />
 
         <label className="block text-[12px] font-medium text-white/90">
           {copy.minPrice}
@@ -159,30 +151,15 @@ export function ProjectCatalogFilters({
           />
         </label>
 
-        <label className="block text-[12px] font-medium text-white/90">
-          {copy.sort}
-          <select
-            value={value.sort}
-            onChange={(event) =>
-              onChange(
-                {
-                  ...value,
-                  sort: event.target.value as CatalogFilters["sort"],
-                },
-                "discrete",
-              )
-            }
-            className="mt-1 block min-h-11 w-full rounded-md border border-white/20 bg-white px-3 text-sm text-[#0A2540] outline-none transition focus:ring-2 focus:ring-[#D4AF37]/60"
-          >
-            {(["alpha-asc", "alpha-desc", "price-asc", "price-desc"] as const).map(
-              (option) => (
-                <option key={option} value={option}>
-                  {copy.sortLabel(option)}
-                </option>
-              ),
-            )}
-          </select>
-        </label>
+        <CatalogSelect
+          label={copy.sort}
+          value={value.sort}
+          options={catalogSortOptions.map((option) => ({
+            value: option,
+            label: copy.sortLabel(option),
+          }))}
+          onValueChange={(sort) => onChange({ ...value, sort }, "discrete")}
+        />
       </div>
 
       <p id={pricesHelpId} className="mt-2 text-[11px] text-white/55">
