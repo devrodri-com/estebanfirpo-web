@@ -131,7 +131,7 @@ const content = {
       whatsappMessage:
         "Hola Esteban, quiero explorar proyectos de preconstrucción en Miami y entender cuáles pueden encajar con mi objetivo.",
       imageAlt: "Maqueta conceptual de una torre residencial contemporánea",
-      imageCaption: "Imagen conceptual",
+      imageCaption: "Visual conceptual",
     },
     benefits: {
       eyebrow: "Ventajas con criterio",
@@ -142,7 +142,7 @@ const content = {
         {
           title: "Capital por etapas",
           copy:
-            "En muchos proyectos, el capital se distribuye entre reserva, contrato, avances de obra y cierre. El calendario exacto depende del developer y del contrato.",
+            "En muchos proyectos, el capital se distribuye entre reserva, contrato, avances de obra y cierre. El calendario exacto depende del desarrollador y del contrato.",
         },
         {
           title: "Más margen para elegir",
@@ -152,7 +152,7 @@ const content = {
         {
           title: "Producto nuevo",
           copy:
-            "Accedés a diseño, sistemas, terminaciones y amenities pensados para la demanda actual, con menor exposición inicial al desgaste de un edificio antiguo.",
+            "Accedés a diseño, sistemas, terminaciones y amenidades pensados para la demanda actual, con menor exposición inicial al desgaste de un edificio antiguo.",
         },
         {
           title: "Tiempo para preparar el cierre",
@@ -173,7 +173,7 @@ const content = {
         },
         {
           title: "Contrato",
-          copy: "Se firma el purchase agreement y queda definido el calendario contractual.",
+          copy: "Se firma el contrato de compraventa y queda definido el calendario contractual.",
         },
         {
           title: "Depósitos durante la obra",
@@ -215,12 +215,12 @@ const content = {
         "La obra nueva puede responder mejor a preferencias actuales de diseño, servicios y experiencia residencial. También permite evaluar el activo desde su concepción y preparar con tiempo su uso futuro.",
       points: [
         "Diseño, sistemas y códigos recientes.",
-        "Terminaciones y amenities contemporáneas.",
-        "Warranties y un proceso de entrega definido por el proyecto.",
+        "Terminaciones y amenidades contemporáneas.",
+        "Garantías y un proceso de entrega definido por el proyecto.",
         "Menor exposición inicial a reparaciones pesadas propias del desgaste.",
       ],
       note:
-        "Un edificio nuevo no implica automáticamente costos operativos bajos. La HOA, los servicios y el presupuesto deben evaluarse proyecto por proyecto.",
+        "Un edificio nuevo no implica automáticamente costos operativos bajos. La cuota de condominio, los servicios y el presupuesto deben evaluarse proyecto por proyecto.",
       imageAlt: "Arquitectura residencial contemporánea con materiales y terminaciones actuales",
     },
     comparison: {
@@ -233,7 +233,7 @@ const content = {
         {
           label: "Capital inicial",
           preconstruction: "Suele distribuirse en depósitos por etapas.",
-          completed: "Suele concentrarse en el cierre y el down payment.",
+          completed: "Suele concentrarse en el cierre y el pago inicial.",
         },
         {
           label: "Plazo",
@@ -268,7 +268,7 @@ const content = {
         {
           label: "Inspección",
           preconstruction: "El foco inicial está en contrato, proyecto y entrega futura.",
-          completed: "La due diligence física es inmediata y central.",
+          completed: "La revisión física del activo es inmediata y central.",
         },
         {
           label: "Renta",
@@ -296,25 +296,25 @@ const content = {
         "Desde la evaluación inicial hasta el cierre, la operación puede coordinarse a distancia. Esteban funciona como punto de contacto para ordenar el proceso y conectar a los profesionales necesarios.",
       centerTitle: "Esteban + Miami Life Realty",
       centerCopy: "Coordinación y seguimiento de la operación",
-      roles: ["Comprador", "Developer", "Abogado", "Title company", "Financiación"],
+      roles: ["Comprador", "Desarrollador", "Abogado", "Compañía de títulos", "Financiación"],
       note:
         "La aprobación y las condiciones de financiación dependen del comprador, el proyecto y el proveedor.",
     },
     checklist: {
-      eyebrow: "Selección y due diligence",
+      eyebrow: "Selección y revisión",
       title: "Elegir bien importa más que comprar temprano",
       copy:
         "Una oportunidad sólida se entiende como un conjunto: quién ejecuta, qué dice el contrato, cómo se usa la unidad y qué exige el cierre.",
       items: [
-        "Developer y experiencia de ejecución",
+        "Desarrollador y experiencia de ejecución",
         "Contrato y derechos del comprador",
         "Calendario de depósitos",
         "Entrega estimada",
         "Costos de cierre",
         "Condición de entrega",
         "Política de renta",
-        "Restricciones de assignment",
-        "Presupuesto y HOA",
+        "Restricciones para ceder el contrato",
+        "Presupuesto y cuota de condominio",
         "Estrategia de financiación",
         "Tasación al cierre",
         "Ubicación y demanda objetivo",
@@ -355,7 +355,7 @@ const content = {
         {
           question: "¿Cuánto se deposita?",
           answer:
-            "Depende del proyecto. Muchos developers solicitan depósitos escalonados, pero el calendario y los porcentajes exactos quedan definidos en el contrato.",
+            "Depende del proyecto. Muchos desarrolladores solicitan depósitos escalonados, pero el calendario y los porcentajes exactos quedan definidos en el contrato.",
         },
         {
           question: "¿Cuándo se paga el saldo?",
@@ -384,7 +384,7 @@ const content = {
         {
           question: "¿Puedo revender antes del cierre?",
           answer:
-            "No en todos los proyectos. La posibilidad de assignment, sus plazos y costos dependen del contrato.",
+            "No en todos los proyectos. La posibilidad de ceder el contrato, sus plazos y costos dependen del propio contrato.",
         },
         {
           question: "¿Qué ocurre si la obra se demora?",
@@ -399,12 +399,12 @@ const content = {
         {
           question: "¿Qué costos existen al cierre?",
           answer:
-            "Además del saldo, puede haber costos del comprador y cargos específicos del proyecto o developer. Deben estimarse con la documentación vigente.",
+            "Además del saldo, puede haber costos del comprador y cargos específicos del proyecto o desarrollador. Deben estimarse con la documentación vigente.",
         },
         {
           question: "¿Qué documentos conviene revisar?",
           answer:
-            "Reserva, purchase agreement, prospectus, condo docs, presupuesto, reglas de renta, calendario de depósitos, costos de cierre y política de assignment, con revisión profesional cuando corresponda.",
+            "Reserva, contrato de compraventa, prospecto y documentos del condominio, presupuesto, reglas de renta, calendario de depósitos, costos de cierre y política de cesión del contrato, con revisión profesional cuando corresponda.",
         },
       ],
       ctaTitle: "Explorá preconstrucción con una estrategia clara",
@@ -430,7 +430,7 @@ const content = {
       whatsappMessage:
         "Hi Esteban, I would like to explore Miami preconstruction projects and understand which options may fit my goals.",
       imageAlt: "Conceptual model of a contemporary residential tower",
-      imageCaption: "Conceptual image",
+      imageCaption: "Conceptual visualization",
     },
     benefits: {
       eyebrow: "Advantages with context",
