@@ -66,6 +66,10 @@ export function PreconstructionFaqCta({ locale, copy }: PreconstructionFaqCtaPro
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
+
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-5 text-white/75">
+            {copy.disclaimer}
+          </p>
         </aside>
       </div>
     </section>

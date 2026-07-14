@@ -114,6 +114,7 @@ export type PreconstructionContent = {
     primaryCta: string;
     secondaryCta: string;
     whatsappMessage: string;
+    disclaimer: string;
   };
 };
 
@@ -413,6 +414,8 @@ const content = {
       secondaryCta: "Explorar proyectos",
       whatsappMessage:
         "Hola Esteban, quiero conversar sobre preconstrucción en Miami. Mi objetivo es comparar proyectos según mi inversión y horizonte.",
+      disclaimer:
+        "La información es educativa y puede cambiar. Depósitos, plazos, reglas de renta, costos, financiación y condiciones dependen de cada proyecto, contrato y comprador. No sustituye asesoramiento legal, fiscal o financiero.",
     },
   },
   en: {
@@ -710,6 +713,8 @@ const content = {
       secondaryCta: "Explore projects",
       whatsappMessage:
         "Hi Esteban, I would like to discuss Miami preconstruction and compare projects based on my investment range and timeline.",
+      disclaimer:
+        "This information is educational and may change. Deposits, timelines, rental rules, costs, financing, and terms depend on each project, contract, and buyer. It does not replace legal, tax, or financial advice.",
     },
   },
 } satisfies Record<Locale, PreconstructionContent>;
