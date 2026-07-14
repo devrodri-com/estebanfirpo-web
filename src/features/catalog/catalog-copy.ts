@@ -60,7 +60,7 @@ export function getCatalogCopy(locale: CatalogLocale) {
           }
         : {
             all: "Todas",
-            flexible: "Flexible / corta estancia",
+            flexible: "Flexible / Renta Corta",
             "30-days": "Mínimo 30 días",
             "60-days": "Mínimo 60 días",
             "90-days": "Mínimo 90 días",

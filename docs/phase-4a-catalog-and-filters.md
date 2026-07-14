@@ -47,7 +47,7 @@ La categoría sirve sólo para navegación; nunca sustituye el texto de renta vi
 | Categoría | Proyectos | Tratamiento |
 | --- | ---: | --- |
 | Todas / All | 36 | Siempre disponible |
-| Flexible / corta estancia | 22 | Disponible |
+| Flexible / Renta Corta | 22 | Disponible |
 | Mínimo 30 días | 9 | Incluye Millenia Park, cuyo texto visible conserva 31 días |
 | Mínimo 60 días | 0 | Oculta del selector |
 | Mínimo 90 días | 2 | Disponible |
