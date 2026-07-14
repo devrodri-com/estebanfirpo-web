@@ -1,8 +1,8 @@
-import { Building2, CalendarClock, Layers3, ScanSearch } from "lucide-react";
+import { Building2, CalendarClock, Layers3, ScanSearch, TrendingUp } from "lucide-react";
 import type { PreconstructionContent } from "@/content/preconstruction";
 import { eyebrowClass, sectionTitleClass } from "./preconstruction-styles";
 
-const benefitIcons = [Layers3, ScanSearch, Building2, CalendarClock] as const;
+const benefitIcons = [TrendingUp, Layers3, ScanSearch, Building2, CalendarClock] as const;
 
 type PreconstructionBenefitsProps = {
   copy: PreconstructionContent["benefits"];
@@ -23,11 +23,10 @@ export function PreconstructionBenefits({ copy }: PreconstructionBenefitsProps) 
         <h2 id="preconstruction-benefits-title" className={sectionTitleClass}>
           {copy.title}
         </h2>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-[#0D1521]/70">{copy.copy}</p>
       </div>
 
       <div className="mt-10 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-        <article className="relative overflow-hidden rounded-2xl bg-[#0A2540] p-7 text-white shadow-[0_18px_55px_rgba(10,37,64,0.12)] sm:p-9">
+        <article className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-[#0A2540] p-7 text-white shadow-[0_18px_55px_rgba(10,37,64,0.12)] sm:p-9">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent" />
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/8 text-[#D4AF37]">
             <FeaturedIcon className="h-5 w-5" aria-hidden="true" />
@@ -37,6 +36,11 @@ export function PreconstructionBenefits({ copy }: PreconstructionBenefitsProps) 
             {featured.title}
           </h3>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/72">{featured.copy}</p>
+          {featured.support ? (
+            <p className="mt-8 border-t border-white/15 pt-6 text-sm font-semibold leading-6 text-[#D4AF37] lg:mt-auto">
+              {featured.support}
+            </p>
+          ) : null}
         </article>
 
         <div className="divide-y divide-[#0A2540]/10 border-y border-[#0A2540]/10">

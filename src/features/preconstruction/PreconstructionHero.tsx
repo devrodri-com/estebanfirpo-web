@@ -32,6 +32,9 @@ export function PreconstructionHero({ locale, copy }: PreconstructionHeroProps) 
           <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-[#0D1521]/78 sm:text-lg sm:leading-8">
             {copy.copy}
           </p>
+          <p className="mt-6 max-w-xl border-l-2 border-[#D4AF37] pl-4 text-base font-semibold leading-7 text-[#0A2540] sm:text-lg">
+            {copy.highlight}
+          </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href={`/${locale}/proyectos`} className={darkButtonClass}>
@@ -55,7 +58,7 @@ export function PreconstructionHero({ locale, copy }: PreconstructionHeroProps) 
           </p>
         </div>
 
-        <figure className="lg:justify-self-end">
+        <figure className="relative lg:justify-self-end">
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#0A2540] shadow-[0_24px_70px_rgba(10,37,64,0.17)] sm:aspect-[3/2] lg:aspect-[4/5] lg:w-[440px]">
             <Image
               src="/images/preconstruction/preconstruction-planning-model.jpg"
@@ -71,7 +74,7 @@ export function PreconstructionHero({ locale, copy }: PreconstructionHeroProps) 
               aria-hidden="true"
             />
           </div>
-          <figcaption className="mt-3 max-w-md text-xs leading-5 text-[#0A2540]/72">
+          <figcaption className="absolute bottom-3 left-3 z-10 rounded bg-[#0A2540]/85 px-2 py-1 text-[10px] font-medium leading-4 text-white sm:bottom-4 sm:left-4 sm:text-[11px]">
             {copy.imageCaption}
           </figcaption>
         </figure>

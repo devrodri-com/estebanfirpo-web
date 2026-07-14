@@ -45,10 +45,6 @@ export function NewProductSection({ copy }: NewProductSectionProps) {
               </li>
             ))}
           </ul>
-
-          <p className="mt-6 border-l-2 border-[#D4AF37] pl-4 text-sm leading-6 text-[#0D1521]/68">
-            {copy.note}
-          </p>
         </div>
       </div>
     </section>
