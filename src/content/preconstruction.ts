@@ -311,7 +311,7 @@ const content = {
         "Tenés horizonte medio o largo.",
         "Querés participar del potencial de plusvalía durante la obra.",
         "Podés completar depósitos escalonados.",
-        "No necesitás ingresos inmediatos.",
+        "Priorizás crecimiento de capital a mediano o largo plazo.",
         "Valorás producto nuevo.",
         "Querés organizar el capital con anticipación.",
         "Buscás diversificación en Miami y en dólares.",
@@ -373,9 +373,9 @@ const content = {
             "No en todos los proyectos. La posibilidad de ceder el contrato, sus plazos y costos dependen del propio contrato.",
         },
         {
-          question: "¿Qué ocurre si la obra se demora?",
+          question: "¿Por qué conviene entrar en las primeras etapas?",
           answer:
-            "Los cronogramas pueden cambiar. Conviene revisar con un abogado las fechas contractuales, extensiones permitidas y derechos aplicables.",
+            "Porque suele haber mayor disponibilidad de unidades, más opciones de pisos, vistas y distribuciones, y la posibilidad de asegurar el precio antes de futuras etapas de comercialización.",
         },
         {
           question: "¿Qué costos existen al cierre?",
@@ -383,9 +383,9 @@ const content = {
             "Además del saldo, puede haber costos del comprador y cargos específicos del proyecto o desarrollador. Deben estimarse con la documentación vigente.",
         },
         {
-          question: "¿Qué documentos conviene revisar?",
+          question: "¿Cómo ayuda Esteban a elegir el proyecto adecuado?",
           answer:
-            "Reserva, contrato de compraventa, prospecto del condominio, documentos del condominio, presupuesto, reglas de renta, calendario de depósitos, costos de cierre y política de cesión del contrato, con revisión profesional cuando corresponda.",
+            "Esteban compara ubicación, etapa de venta, unidades disponibles, estructura de depósitos, política de renta y objetivos del comprador para identificar las opciones con mejor encaje.",
         },
       ],
       ctaTitle: "Explorá preconstrucción con una estrategia clara",
@@ -592,7 +592,7 @@ const content = {
         "You have a medium- or long-term horizon.",
         "You want to participate in appreciation potential during construction.",
         "You can complete staged deposits.",
-        "You do not need immediate income.",
+        "You prioritize medium- or long-term capital growth.",
         "You value new product.",
         "You want to organize capital in advance.",
         "You seek diversification in Miami and U.S. dollars.",
@@ -654,9 +654,9 @@ const content = {
             "Not in every project. Assignment rights, timing, and costs depend on the contract.",
         },
         {
-          question: "What happens if construction is delayed?",
+          question: "Why is it attractive to enter during the early stages?",
           answer:
-            "Timelines may change. It is important to review contractual dates, permitted extensions, and applicable rights with an attorney.",
+            "Early stages often provide greater unit availability, more choice of floors, views, and layouts, and the opportunity to secure the price before future sales stages.",
         },
         {
           question: "What costs are due at closing?",
@@ -664,9 +664,9 @@ const content = {
             "In addition to the balance, there may be buyer closing costs and project- or developer-specific charges. They should be estimated from current documents.",
         },
         {
-          question: "Which documents should be reviewed?",
+          question: "How does Esteban help you choose the right project?",
           answer:
-            "Reservation, purchase agreement, prospectus, condo documents, budget, rental rules, deposit schedule, closing costs, and assignment policy, with professional review when appropriate.",
+            "Esteban compares location, sales stage, available residences, deposit structure, rental policy, and the buyer’s goals to identify the options with the strongest fit.",
         },
       ],
       ctaTitle: "Explore preconstruction with a clear strategy",
