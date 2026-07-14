@@ -16,12 +16,16 @@ export default function FaqsBlock({
   title,
   items,
   headingLevel = "h2",
+  headingIcon,
+  emptyLabel,
   className = "",
 }: {
   id?: string;
   title?: string;
   items: FaqItem[];
   headingLevel?: "h2" | "h3" | "h4";
+  headingIcon?: React.ReactNode;
+  emptyLabel?: React.ReactNode;
   className?: string;
 }) {
   const HeadingTag = headingLevel as keyof JSXNS.IntrinsicElements;
@@ -33,34 +37,40 @@ export default function FaqsBlock({
       />
       {title ? (
         <HeadingTag className="mb-2.5 flex items-center gap-2 text-[16px] sm:text-[17px] font-semibold tracking-tight text-white">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v.01M12 8v5" />
-          </svg>
+          {headingIcon ?? (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v.01M12 8v5" />
+            </svg>
+          )}
           {title}
         </HeadingTag>
       ) : null}
 
-      <div className="mt-3 space-y-2.5">
-        {items.map((it, idx) => (
-          <details
-            key={it.id ?? idx}
-            id={it.id}
-            open={it.defaultOpen}
-            className="group rounded-md border border-white/10 bg-[#0A2540] p-3 text-white hover:border-[#D4AF37]/40 transition"
-          >
-            <summary className="cursor-pointer list-none text-[14px] font-medium text-white/95 flex items-center justify-between gap-2">
-              {it.q}
-              <svg className="h-3 w-3 text-white/80 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </summary>
-            <div className="mt-2 text-[14px] leading-[22px] text-white/85">
-              {it.a}
-            </div>
-          </details>
-        ))}
-      </div>
+      {items.length > 0 ? (
+        <div className="mt-3 space-y-2.5">
+          {items.map((it, idx) => (
+            <details
+              key={it.id ?? idx}
+              id={it.id}
+              open={it.defaultOpen}
+              className="group rounded-md border border-white/10 bg-[#0A2540] p-3 text-white hover:border-[#D4AF37]/40 transition"
+            >
+              <summary className="cursor-pointer list-none text-[14px] font-medium text-white/95 flex items-center justify-between gap-2">
+                {it.q}
+                <svg className="h-3 w-3 text-white/80 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </summary>
+              <div className="mt-2 text-[14px] leading-[22px] text-white/85">
+                {it.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      ) : emptyLabel ? (
+        <p className="mt-3 text-sm leading-6 text-white/75">{emptyLabel}</p>
+      ) : null}
     </section>
   );
 }
