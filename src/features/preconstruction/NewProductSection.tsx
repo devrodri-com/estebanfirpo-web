@@ -18,16 +18,14 @@ export function NewProductSection({ copy }: NewProductSectionProps) {
         <figure>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#E6E1D7] shadow-[0_20px_60px_rgba(10,37,64,0.11)] sm:aspect-[3/2] lg:aspect-[4/5]">
             <Image
-              src="/images/miami-hero.jpg"
+              src="/images/preconstruction/new-residential-product-editorial.jpg"
               alt={copy.imageAlt}
               fill
-              sizes="(min-width: 1024px) 47vw, 100vw"
-              className="object-cover object-center"
+              loading="lazy"
+              sizes="(min-width: 1152px) 520px, (min-width: 1024px) calc(49vw - 43px), calc(100vw - 32px)"
+              className="object-cover object-[center_62%] lg:object-center"
             />
           </div>
-          <figcaption className="mt-3 max-w-xl text-xs leading-5 text-[#0A2540]/72">
-            {copy.imageCaption}
-          </figcaption>
         </figure>
 
         <div>

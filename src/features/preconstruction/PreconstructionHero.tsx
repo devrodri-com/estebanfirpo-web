@@ -58,13 +58,13 @@ export function PreconstructionHero({ locale, copy }: PreconstructionHeroProps) 
         <figure className="lg:justify-self-end">
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#0A2540] shadow-[0_24px_70px_rgba(10,37,64,0.17)] sm:aspect-[3/2] lg:aspect-[4/5] lg:w-[440px]">
             <Image
-              src="/images/precon-hero.jpg"
+              src="/images/preconstruction/preconstruction-planning-model.jpg"
               alt={copy.imageAlt}
               fill
               priority
               fetchPriority="high"
-              sizes="(min-width: 1024px) 440px, (min-width: 640px) calc(100vw - 32px), 100vw"
-              className="object-cover object-center"
+              sizes="(min-width: 1024px) 440px, calc(100vw - 32px)"
+              className="object-contain object-center lg:object-cover"
             />
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A2540]/28 via-transparent to-transparent"

@@ -69,7 +69,6 @@ export type PreconstructionContent = {
     points: string[];
     note: string;
     imageAlt: string;
-    imageCaption: string;
   };
   comparison: {
     eyebrow: string;
@@ -130,8 +129,8 @@ const content = {
       microcopy: "Todo el proceso puede coordinarse a distancia.",
       whatsappMessage:
         "Hola Esteban, quiero explorar proyectos de preconstrucción en Miami y entender cuáles pueden encajar con mi objetivo.",
-      imageAlt: "Planos arquitectónicos que representan la planificación de un proyecto futuro",
-      imageCaption: "Planificar antes de cerrar permite comparar con más criterio.",
+      imageAlt: "Maqueta conceptual de una torre residencial contemporánea",
+      imageCaption: "Imagen conceptual",
     },
     benefits: {
       eyebrow: "Ventajas con criterio",
@@ -221,8 +220,7 @@ const content = {
       ],
       note:
         "Un edificio nuevo no implica automáticamente costos operativos bajos. La HOA, los servicios y el presupuesto deben evaluarse proyecto por proyecto.",
-      imageAlt: "Balcón contemporáneo con el skyline de Miami al fondo",
-      imageCaption: "Producto nuevo: diseño actual, cierre futuro y decisiones desde una etapa temprana.",
+      imageAlt: "Arquitectura residencial contemporánea con materiales y terminaciones actuales",
     },
     comparison: {
       eyebrow: "Dos caminos posibles",
@@ -428,8 +426,8 @@ const content = {
       microcopy: "The entire process can be coordinated remotely.",
       whatsappMessage:
         "Hi Esteban, I would like to explore Miami preconstruction projects and understand which options may fit my goals.",
-      imageAlt: "Architectural plans representing the planning of a future project",
-      imageCaption: "Planning before closing creates more room for a thoughtful comparison.",
+      imageAlt: "Conceptual model of a contemporary residential tower",
+      imageCaption: "Conceptual image",
     },
     benefits: {
       eyebrow: "Advantages with context",
@@ -519,8 +517,7 @@ const content = {
       ],
       note:
         "A new building does not automatically mean low operating costs. HOA fees, services, and budgets must be reviewed project by project.",
-      imageAlt: "Contemporary balcony with the Miami skyline in the background",
-      imageCaption: "New product: current design, a future closing, and decisions from an early stage.",
+      imageAlt: "Contemporary residential architecture with current materials and finishes",
     },
     comparison: {
       eyebrow: "Two possible paths",
