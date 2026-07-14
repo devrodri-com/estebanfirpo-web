@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { createWhatsAppUrl } from "@/lib/site";
+import { CatalogAwareLanguageLink } from "@/features/catalog/CatalogAwareLanguageLink";
 
 type SupportedLocale = "es" | "en";
 
@@ -158,14 +159,26 @@ export default function NavBar() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href={switchHref}
-            title={switchTo.toUpperCase()}
-            aria-label={labels.switchLanguage}
-            className="inline-flex min-h-9 items-center rounded-full border border-white/22 px-2.5 text-xs font-semibold text-white no-underline transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+          <Suspense
+            fallback={
+              <Link
+                href={switchHref}
+                title={switchTo.toUpperCase()}
+                aria-label={labels.switchLanguage}
+                className="inline-flex min-h-9 items-center rounded-full border border-white/22 px-2.5 text-xs font-semibold text-white no-underline transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+              >
+                {switchTo.toUpperCase()}
+              </Link>
+            }
           >
-            {switchTo.toUpperCase()}
-          </Link>
+            <CatalogAwareLanguageLink
+              switchTo={switchTo}
+              ariaLabel={labels.switchLanguage}
+              className="inline-flex min-h-9 items-center rounded-full border border-white/22 px-2.5 text-xs font-semibold text-white no-underline transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+            >
+              {switchTo.toUpperCase()}
+            </CatalogAwareLanguageLink>
+          </Suspense>
           <a
             href={createWhatsAppUrl(whatsappMessage)}
             target="_blank"
@@ -247,14 +260,27 @@ export default function NavBar() {
                     {item.label}
                   </Link>
                 ))}
-                <Link
-                  href={switchHref}
-                  onClick={() => setOpen(false)}
-                  aria-label={labels.switchLanguage}
-                  className="inline-flex min-h-10 items-center rounded-lg border border-white/18 px-3 text-sm font-semibold text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+                <Suspense
+                  fallback={
+                    <Link
+                      href={switchHref}
+                      onClick={() => setOpen(false)}
+                      aria-label={labels.switchLanguage}
+                      className="inline-flex min-h-10 items-center rounded-lg border border-white/18 px-3 text-sm font-semibold text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+                    >
+                      {switchTo.toUpperCase()}
+                    </Link>
+                  }
                 >
-                  {switchTo.toUpperCase()}
-                </Link>
+                  <CatalogAwareLanguageLink
+                    switchTo={switchTo}
+                    ariaLabel={labels.switchLanguage}
+                    onNavigate={() => setOpen(false)}
+                    className="inline-flex min-h-10 items-center rounded-lg border border-white/18 px-3 text-sm font-semibold text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+                  >
+                    {switchTo.toUpperCase()}
+                  </CatalogAwareLanguageLink>
+                </Suspense>
               </div>
             </nav>
 
