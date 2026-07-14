@@ -4,6 +4,7 @@ import { remoteProcessFaq } from "@/content/remote-process-faq";
 type Benefit = {
   title: string;
   copy: string;
+  support?: string;
 };
 
 type TimelineStep = {
@@ -19,8 +20,7 @@ type CapitalSegment = {
 
 type ComparisonRow = {
   label: string;
-  preconstruction: string;
-  completed: string;
+  advantage: string;
 };
 
 type FaqItem = {
@@ -33,6 +33,7 @@ export type PreconstructionContent = {
     eyebrow: string;
     title: string;
     copy: string;
+    highlight: string;
     primaryCta: string;
     secondaryCta: string;
     microcopy: string;
@@ -43,7 +44,6 @@ export type PreconstructionContent = {
   benefits: {
     eyebrow: string;
     title: string;
-    copy: string;
     items: Benefit[];
   };
   timeline: {
@@ -60,6 +60,7 @@ export type PreconstructionContent = {
     examplePrice: string;
     segments: CapitalSegment[];
     explanation: string;
+    opportunity: string;
     disclaimer: string;
   };
   newProduct: {
@@ -67,17 +68,15 @@ export type PreconstructionContent = {
     title: string;
     copy: string;
     points: string[];
-    note: string;
     imageAlt: string;
   };
   comparison: {
     eyebrow: string;
     title: string;
     copy: string;
-    preconstructionLabel: string;
-    completedLabel: string;
+    variableLabel: string;
+    advantageLabel: string;
     rows: ComparisonRow[];
-    fitNote: string;
   };
   remote: {
     eyebrow: string;
@@ -99,10 +98,10 @@ export type PreconstructionContent = {
     eyebrow: string;
     title: string;
     copy: string;
-    preconstructionTitle: string;
-    preconstructionItems: string[];
-    completedTitle: string;
-    completedItems: string[];
+    profileTitle: string;
+    profileItems: string[];
+    objectivesTitle: string;
+    objectivesItems: string[];
   };
   faq: {
     eyebrow: string;
@@ -122,42 +121,47 @@ const content = {
   es: {
     hero: {
       eyebrow: "Preconstrucción en Miami",
-      title: "Más tiempo para planificar. Más margen para elegir.",
+      title: "Comprá hoy. Participá del crecimiento del proyecto.",
       copy:
-        "La preconstrucción puede darte acceso a producto nuevo, depósitos por etapas y un cierre futuro para organizar capital con anticipación. La clave está en comparar el proyecto, el contrato y la estrategia según tu objetivo.",
+        "La preconstrucción te permite entrar en una etapa temprana, distribuir el capital durante la obra y llegar a la entrega con una unidad nueva que puede haber aumentado su valor desde el precio pactado.",
+      highlight: "Más tiempo, más elección y más potencial de plusvalía.",
       primaryCta: "Explorar proyectos",
       secondaryCta: "Hablar con Esteban",
       microcopy: "Todo el proceso puede coordinarse a distancia.",
       whatsappMessage:
         "Hola Esteban, quiero explorar proyectos de preconstrucción en Miami y entender cuáles pueden encajar con mi objetivo.",
       imageAlt: "Maqueta conceptual de una torre residencial contemporánea",
-      imageCaption: "Imagen conceptual",
+      imageCaption: "Visual conceptual",
     },
     benefits: {
-      eyebrow: "Ventajas con criterio",
-      title: "Por qué puede ser una estrategia atractiva",
-      copy:
-        "El valor no está en una promesa automática, sino en cómo el tiempo, la selección y la estructura de compra pueden trabajar a favor de tu plan.",
+      eyebrow: "Ventajas de entrar temprano",
+      title: "Por qué invertir en preconstrucción",
       items: [
         {
-          title: "Capital por etapas",
+          title: "La plusvalía puede comenzar antes de la entrega",
           copy:
-            "En muchos proyectos, el capital se distribuye entre reserva, contrato, avances de obra y cierre. El calendario exacto depende del developer y del contrato.",
+            "Comprás a un precio contractual mientras el proyecto todavía está en desarrollo. A medida que avanzan la obra y la comercialización, los precios de lista suelen evolucionar. Si el proyecto y el mercado acompañan, esa diferencia puede convertirse en plusvalía antes del cierre.",
+          support: "Entrar temprano te posiciona antes de las próximas etapas de precio.",
         },
         {
-          title: "Más margen para elegir",
+          title: "Capital distribuido durante la obra",
           copy:
-            "Entrar en etapas tempranas puede ampliar las opciones de piso, orientación, vista, distribución e inventario dentro del proyecto.",
+            "En muchos proyectos, los depósitos se realizan por etapas. En lugar de concentrar todo el capital en un cierre inmediato, podés distribuirlo mientras avanza la construcción.",
         },
         {
-          title: "Producto nuevo",
+          title: "Mayor selección entrando temprano",
           copy:
-            "Accedés a diseño, sistemas, terminaciones y amenities pensados para la demanda actual, con menor exposición inicial al desgaste de un edificio antiguo.",
+            "Las primeras etapas suelen ofrecer más opciones de pisos, vistas, orientación, distribución y ubicación dentro de la torre. Las unidades más atractivas pueden venderse primero.",
         },
         {
-          title: "Tiempo para preparar el cierre",
+          title: "Producto nuevo y competitivo",
           copy:
-            "El período de construcción puede darte tiempo para ordenar liquidez, documentación y estrategia de financiación antes del cierre.",
+            "Accedés a diseño, sistemas, terminaciones, tecnología y amenidades pensadas para la demanda actual y futura.",
+        },
+        {
+          title: "Tiempo para organizar el cierre",
+          copy:
+            "El período de construcción te da tiempo para preparar liquidez, documentación, estructura de compra y estrategia de financiación antes del cierre.",
         },
       ],
     },
@@ -173,7 +177,7 @@ const content = {
         },
         {
           title: "Contrato",
-          copy: "Se firma el purchase agreement y queda definido el calendario contractual.",
+          copy: "Se firma el contrato de compraventa y queda definido el calendario contractual.",
         },
         {
           title: "Depósitos durante la obra",
@@ -190,13 +194,14 @@ const content = {
           copy: "Se paga el saldo con fondos propios o crédito aprobado y se recibe la unidad.",
         },
       ],
-      note: "Los porcentajes, hitos y plazos varían según cada proyecto y contrato.",
+      note:
+        "Mientras cumplís cada etapa, el proyecto continúa avanzando en construcción, ventas y posicionamiento.",
     },
     capital: {
       eyebrow: "Ejemplo de flujo",
-      title: "Más tiempo para estructurar el capital",
+      title: "Distribuí el capital mientras el proyecto avanza",
       copy:
-        "Un calendario escalonado puede repartir el compromiso de capital entre distintos momentos de la compra.",
+        "La preconstrucción puede permitirte comprometer el capital en distintas etapas, conservar liquidez durante parte de la obra y preparar con anticipación el saldo del cierre.",
       examplePrice: "Precio hipotético · US$1.000.000",
       segments: [
         { label: "Reserva y contrato", value: "20%", width: 20 },
@@ -206,88 +211,62 @@ const content = {
       ],
       explanation:
         "En este ejemplo, el comprador comprometería US$400.000 antes del cierre y resolvería el saldo de US$600.000 al cierre mediante fondos propios o financiación aprobada.",
+      opportunity:
+        "Durante ese período, la unidad mantiene el precio contractual mientras el proyecto puede continuar avanzando en sus listas de venta.",
       disclaimer: "Ejemplo ilustrativo. No representa un plan estándar.",
     },
     newProduct: {
       eyebrow: "Una unidad futura",
-      title: "Producto nuevo en un mercado más exigente",
+      title: "Producto nuevo, pensado para la demanda futura",
       copy:
-        "La obra nueva puede responder mejor a preferencias actuales de diseño, servicios y experiencia residencial. También permite evaluar el activo desde su concepción y preparar con tiempo su uso futuro.",
+        "La obra nueva combina diseño contemporáneo, sistemas recientes, terminaciones actuales y amenidades que pueden aumentar el atractivo de la propiedad para futuros compradores, residentes o inquilinos.",
       points: [
         "Diseño, sistemas y códigos recientes.",
-        "Terminaciones y amenities contemporáneas.",
-        "Warranties y un proceso de entrega definido por el proyecto.",
-        "Menor exposición inicial a reparaciones pesadas propias del desgaste.",
+        "Terminaciones y amenidades contemporáneas.",
+        "Garantías y un proceso de entrega definido por el proyecto.",
+        "Mayor atractivo para la demanda futura.",
+        "Menor exposición inicial al desgaste de edificios antiguos.",
       ],
-      note:
-        "Un edificio nuevo no implica automáticamente costos operativos bajos. La HOA, los servicios y el presupuesto deben evaluarse proyecto por proyecto.",
       imageAlt: "Arquitectura residencial contemporánea con materiales y terminaciones actuales",
     },
     comparison: {
-      eyebrow: "Dos caminos posibles",
-      title: "Preconstrucción o propiedad terminada",
-      copy: "No hay una opción universalmente mejor. Son estrategias distintas para necesidades distintas.",
-      preconstructionLabel: "Preconstrucción",
-      completedLabel: "Propiedad terminada",
+      eyebrow: "La ventaja de entrar temprano",
+      title: "Por qué muchos inversores prefieren entrar temprano",
+      copy:
+        "Una propiedad terminada se compra al valor actual y concentra el capital en el cierre. La preconstrucción permite entrar antes, distribuir depósitos y participar de la evolución del proyecto hasta la entrega.",
+      variableLabel: "Variable",
+      advantageLabel: "Ventaja de preconstrucción",
       rows: [
         {
-          label: "Capital inicial",
-          preconstruction: "Suele distribuirse en depósitos por etapas.",
-          completed: "Suele concentrarse en el cierre y el down payment.",
+          label: "Precio",
+          advantage: "Contratás en una etapa temprana del proyecto.",
         },
         {
-          label: "Plazo",
-          preconstruction: "Requiere esperar hasta la entrega; el cronograma puede variar.",
-          completed: "Permite usar o alquilar el activo después del cierre.",
+          label: "Plusvalía",
+          advantage: "El valor puede evolucionar entre la firma y la entrega.",
         },
         {
-          label: "Financiación",
-          preconstruction: "En muchos casos se evalúa cerca del cierre.",
-          completed: "Se define al momento de comprar.",
+          label: "Capital",
+          advantage: "Los depósitos pueden distribuirse durante la obra.",
         },
         {
-          label: "Ingreso inmediato",
-          preconstruction: "No genera renta antes de la entrega.",
-          completed: "Puede generarla si el activo y sus reglas lo permiten.",
-        },
-        {
-          label: "Selección de unidad",
-          preconstruction: "Puede ser más amplia al entrar temprano.",
-          completed: "Está limitada al inventario disponible.",
+          label: "Selección",
+          advantage:
+            "Mayor disponibilidad de pisos, vistas y distribuciones al entrar temprano.",
         },
         {
           label: "Producto",
-          preconstruction: "Nuevo, con diseño y sistemas actuales.",
-          completed: "Visible e inspeccionable; puede requerir mejoras.",
+          advantage: "Recibís una unidad nueva con diseño y sistemas actuales.",
         },
         {
-          label: "Incertidumbre",
-          preconstruction: "Mayor por el plazo, la obra y el cierre futuro.",
-          completed: "Menor respecto del estado físico y la entrega inicial.",
+          label: "Tiempo",
+          advantage: "Podés preparar el cierre y la financiación con anticipación.",
         },
         {
-          label: "Inspección",
-          preconstruction: "El foco inicial está en contrato, proyecto y entrega futura.",
-          completed: "La due diligence física es inmediata y central.",
-        },
-        {
-          label: "Renta",
-          preconstruction: "Depende de las reglas futuras y documentos del proyecto.",
-          completed: "Puede evaluarse con reglas y operación ya existentes.",
-        },
-        {
-          label: "Liquidez",
-          preconstruction: "El capital queda comprometido durante la obra.",
-          completed: "La salida depende del edificio, precio y mercado al vender.",
-        },
-        {
-          label: "Horizonte",
-          preconstruction: "Suele encajar mejor con objetivos de medio o largo plazo.",
-          completed: "Puede encajar mejor con necesidades más inmediatas.",
+          label: "Mercado",
+          advantage: "Entrás antes de que el proyecto complete su comercialización.",
         },
       ],
-      fitNote:
-        "La preconstrucción gana relevancia cuando podés esperar, valorás producto nuevo, querés distribuir capital y buscás más elección inicial.",
     },
     remote: {
       eyebrow: "Coordinación internacional",
@@ -296,66 +275,73 @@ const content = {
         "Desde la evaluación inicial hasta el cierre, la operación puede coordinarse a distancia. Esteban funciona como punto de contacto para ordenar el proceso y conectar a los profesionales necesarios.",
       centerTitle: "Esteban + Miami Life Realty",
       centerCopy: "Coordinación y seguimiento de la operación",
-      roles: ["Comprador", "Developer", "Abogado", "Title company", "Financiación"],
+      roles: ["Comprador", "Desarrollador", "Abogado", "Compañía de títulos", "Financiación"],
       note:
         "La aprobación y las condiciones de financiación dependen del comprador, el proyecto y el proveedor.",
     },
     checklist: {
-      eyebrow: "Selección y due diligence",
-      title: "Elegir bien importa más que comprar temprano",
+      eyebrow: "Selección y revisión",
+      title: "Elegir bien potencia la ventaja de entrar temprano",
       copy:
-        "Una oportunidad sólida se entiende como un conjunto: quién ejecuta, qué dice el contrato, cómo se usa la unidad y qué exige el cierre.",
+        "Elegir un buen proyecto potencia las ventajas de entrar temprano: precio, plusvalía, selección, producto y estrategia de salida.",
       items: [
-        "Developer y experiencia de ejecución",
+        "Desarrollador y experiencia de ejecución",
         "Contrato y derechos del comprador",
         "Calendario de depósitos",
         "Entrega estimada",
         "Costos de cierre",
         "Condición de entrega",
         "Política de renta",
-        "Restricciones de assignment",
-        "Presupuesto y HOA",
+        "Restricciones para ceder el contrato",
+        "Presupuesto y cuota de condominio",
         "Estrategia de financiación",
         "Tasación al cierre",
         "Ubicación y demanda objetivo",
       ],
       closingCopy:
-        "El objetivo no es revisar más papeles por revisar: es saber qué cambia la decisión y qué debe quedar resuelto antes de avanzar.",
+        "Comparar estos puntos te ayuda a elegir con claridad y aprovechar mejor el momento de entrada.",
     },
     fit: {
-      eyebrow: "Alineación con tu estrategia",
-      title: "¿Encaja con tu objetivo?",
+      eyebrow: "Perfil del inversor",
+      title: "Preconstrucción puede ser ideal si querés crecer con el proyecto",
       copy:
-        "El horizonte, la necesidad de ingresos y la forma de financiar pesan tanto como la ubicación o el diseño del proyecto.",
-      preconstructionTitle: "Puede encajar especialmente bien si:",
-      preconstructionItems: [
+        "Tu horizonte, tu capacidad de completar depósitos y tus objetivos ayudan a definir qué proyecto puede aprovechar mejor las ventajas de entrar temprano.",
+      profileTitle: "Puede encajar especialmente bien si:",
+      profileItems: [
         "Tenés horizonte medio o largo.",
-        "Podés completar los depósitos previstos.",
+        "Querés participar del potencial de plusvalía durante la obra.",
+        "Podés completar depósitos escalonados.",
         "No necesitás ingresos inmediatos.",
         "Valorás producto nuevo.",
-        "Querés tiempo para organizar capital.",
-        "Aceptás que el cronograma pueda variar.",
+        "Querés organizar el capital con anticipación.",
         "Buscás diversificación en Miami y en dólares.",
+        "Comprás desde el exterior.",
       ],
-      completedTitle: "Una propiedad terminada puede ser más adecuada si:",
-      completedItems: [
-        "Necesitás usarla o alquilarla de inmediato.",
-        "Tenés una fecha rígida.",
-        "Dependés completamente de una financiación futura.",
-        "Necesitás liquidez a corto plazo.",
-        "Preferís evaluar un activo ya construido.",
+      objectivesTitle: "Qué puede ayudarte a lograr:",
+      objectivesItems: [
+        "Entrar a un precio de etapa temprana.",
+        "Acceder a mejores opciones de unidad.",
+        "Distribuir el capital.",
+        "Preparar financiación al cierre.",
+        "Recibir un activo nuevo.",
+        "Posicionarte para la valorización futura.",
       ],
     },
     faq: {
       eyebrow: "Preguntas frecuentes",
       title: "Lo esencial antes de comparar proyectos",
       copy:
-        "Estas respuestas explican la mecánica general. Las condiciones concretas se revisan siempre en el proyecto y el contrato elegidos.",
+        "Respuestas claras para entender cómo entrar temprano, organizar el capital y avanzar hacia la entrega.",
       items: [
+        {
+          question: "¿Por qué la plusvalía es una ventaja de la preconstrucción?",
+          answer:
+            "Porque comprás a un precio contractual antes de la entrega. Durante la construcción, el desarrollador puede avanzar sus precios de lista y el mercado puede aumentar el valor del proyecto y la zona. Cuando esa evolución es favorable, podés llegar al cierre con una unidad cuyo valor sea superior al precio pactado al entrar. El resultado depende del proyecto y del mercado.",
+        },
         {
           question: "¿Cuánto se deposita?",
           answer:
-            "Depende del proyecto. Muchos developers solicitan depósitos escalonados, pero el calendario y los porcentajes exactos quedan definidos en el contrato.",
+            "Depende del proyecto. Muchos desarrolladores solicitan depósitos escalonados, pero el calendario y los porcentajes exactos quedan definidos en el contrato.",
         },
         {
           question: "¿Cuándo se paga el saldo?",
@@ -384,7 +370,7 @@ const content = {
         {
           question: "¿Puedo revender antes del cierre?",
           answer:
-            "No en todos los proyectos. La posibilidad de assignment, sus plazos y costos dependen del contrato.",
+            "No en todos los proyectos. La posibilidad de ceder el contrato, sus plazos y costos dependen del propio contrato.",
         },
         {
           question: "¿Qué ocurre si la obra se demora?",
@@ -392,19 +378,14 @@ const content = {
             "Los cronogramas pueden cambiar. Conviene revisar con un abogado las fechas contractuales, extensiones permitidas y derechos aplicables.",
         },
         {
-          question: "¿Está garantizada la apreciación?",
-          answer:
-            "No. Al momento de entrega, el valor puede ser mayor, similar o menor que el precio contractual, según el proyecto y el mercado.",
-        },
-        {
           question: "¿Qué costos existen al cierre?",
           answer:
-            "Además del saldo, puede haber costos del comprador y cargos específicos del proyecto o developer. Deben estimarse con la documentación vigente.",
+            "Además del saldo, puede haber costos del comprador y cargos específicos del proyecto o desarrollador. Deben estimarse con la documentación vigente.",
         },
         {
           question: "¿Qué documentos conviene revisar?",
           answer:
-            "Reserva, purchase agreement, prospectus, condo docs, presupuesto, reglas de renta, calendario de depósitos, costos de cierre y política de assignment, con revisión profesional cuando corresponda.",
+            "Reserva, contrato de compraventa, prospecto del condominio, documentos del condominio, presupuesto, reglas de renta, calendario de depósitos, costos de cierre y política de cesión del contrato, con revisión profesional cuando corresponda.",
         },
       ],
       ctaTitle: "Explorá preconstrucción con una estrategia clara",
@@ -421,42 +402,47 @@ const content = {
   en: {
     hero: {
       eyebrow: "Miami preconstruction",
-      title: "More time to plan. More room to choose.",
+      title: "Buy today. Participate in the project’s growth.",
       copy:
-        "Preconstruction can provide access to new product, staged deposits, and a future closing that gives you time to organize capital. The key is matching the project, contract, and strategy to your goals.",
+        "Preconstruction allows you to enter at an early stage, stage your capital throughout construction, and reach delivery with a new residence that may have increased in value from the contract price.",
+      highlight: "More time, more choice, and more appreciation potential.",
       primaryCta: "Explore projects",
       secondaryCta: "Talk with Esteban",
       microcopy: "The entire process can be coordinated remotely.",
       whatsappMessage:
         "Hi Esteban, I would like to explore Miami preconstruction projects and understand which options may fit my goals.",
       imageAlt: "Conceptual model of a contemporary residential tower",
-      imageCaption: "Conceptual image",
+      imageCaption: "Conceptual visualization",
     },
     benefits: {
-      eyebrow: "Advantages with context",
-      title: "Why it can be an attractive strategy",
-      copy:
-        "The value is not an automatic promise. It is how time, selection, and the purchase structure can work in support of your plan.",
+      eyebrow: "Advantages of entering early",
+      title: "Why invest in preconstruction",
       items: [
         {
-          title: "Capital in stages",
+          title: "Appreciation can begin before delivery",
           copy:
-            "In many projects, capital is distributed across reservation, contract, construction milestones, and closing. The exact schedule depends on the developer and contract.",
+            "You secure a contract price while the project is still being developed. As construction and sales progress, listing prices often evolve. When the project and market perform well, that difference can become appreciation before closing.",
+          support: "Entering early positions you ahead of future pricing stages.",
         },
         {
-          title: "More room to choose",
+          title: "Capital distributed during construction",
           copy:
-            "Entering at an earlier stage may provide more choice of floor, orientation, view, layout, and available inventory.",
+            "In many projects, deposits are made in stages. Instead of concentrating all capital into an immediate closing, you can distribute it throughout construction.",
         },
         {
-          title: "New product",
+          title: "Greater selection when entering early",
           copy:
-            "You gain access to design, systems, finishes, and amenities created for today’s market, with less initial exposure to the wear of an older building.",
+            "Earlier stages often provide more choice of floors, views, orientation, layouts, and position within the tower. The most desirable residences may sell first.",
+        },
+        {
+          title: "New and competitive product",
+          copy:
+            "You gain access to design, systems, finishes, technology, and amenities created for current and future demand.",
         },
         {
           title: "Time to prepare for closing",
           copy:
-            "The construction period can give you time to organize liquidity, documentation, and a financing strategy before closing.",
+            "The construction period gives you time to prepare liquidity, documentation, ownership structure, and financing strategy before closing.",
         },
       ],
     },
@@ -489,13 +475,14 @@ const content = {
           copy: "The balance is paid with cash or approved financing, and the unit is delivered.",
         },
       ],
-      note: "Percentages, milestones, and timelines vary by project and contract.",
+      note:
+        "While you complete each stage, the project continues progressing in construction, sales, and market positioning.",
     },
     capital: {
       eyebrow: "Cash-flow example",
-      title: "More time to structure your capital",
+      title: "Stage your capital while the project progresses",
       copy:
-        "A staged schedule can distribute the capital commitment across different moments in the purchase.",
+        "Preconstruction can allow you to commit capital in stages, preserve liquidity during part of the construction period, and prepare the closing balance in advance.",
       examplePrice: "Hypothetical price · US$1,000,000",
       segments: [
         { label: "Reservation and contract", value: "20%", width: 20 },
@@ -505,88 +492,62 @@ const content = {
       ],
       explanation:
         "In this example, the buyer would commit US$400,000 before closing and fund the remaining US$600,000 at closing through cash or approved financing.",
+      opportunity:
+        "During that period, the residence retains its contract price while the project may continue advancing through its sales pricing.",
       disclaimer: "Illustrative example. This is not a standard payment plan.",
     },
     newProduct: {
       eyebrow: "A future residence",
-      title: "New product in a more demanding market",
+      title: "New product designed for future demand",
       copy:
-        "New construction can respond more closely to current preferences in design, services, and residential experience. It also allows the asset to be evaluated from its conception and its future use to be planned ahead of time.",
+        "New construction combines contemporary design, current systems, modern finishes, and amenities that can increase the property’s appeal to future buyers, residents, or tenants.",
       points: [
         "Recent design, systems, and building codes.",
         "Contemporary finishes and amenities.",
         "Warranties and a delivery process defined by the project.",
-        "Less initial exposure to major repairs caused by wear.",
+        "Greater appeal for future demand.",
+        "Less initial exposure to wear in older buildings.",
       ],
-      note:
-        "A new building does not automatically mean low operating costs. HOA fees, services, and budgets must be reviewed project by project.",
       imageAlt: "Contemporary residential architecture with current materials and finishes",
     },
     comparison: {
-      eyebrow: "Two possible paths",
-      title: "Preconstruction or a completed property",
-      copy: "Neither option is universally better. They serve different goals and timelines.",
-      preconstructionLabel: "Preconstruction",
-      completedLabel: "Completed property",
+      eyebrow: "The early-entry advantage",
+      title: "Why many investors prefer to enter earlier",
+      copy:
+        "A completed property is purchased at today’s market value and concentrates capital at closing. Preconstruction allows you to enter earlier, stage deposits, and participate in the project’s evolution through delivery.",
+      variableLabel: "Variable",
+      advantageLabel: "Preconstruction advantage",
       rows: [
         {
-          label: "Initial capital",
-          preconstruction: "It is often distributed through staged deposits.",
-          completed: "It is often concentrated at closing and in the down payment.",
+          label: "Price",
+          advantage: "You secure a contract at an early stage of the project.",
         },
         {
-          label: "Timeline",
-          preconstruction: "It requires waiting for delivery; the schedule may change.",
-          completed: "It can be used or rented after closing.",
+          label: "Appreciation",
+          advantage: "Value may evolve between contract and delivery.",
         },
         {
-          label: "Financing",
-          preconstruction: "In many cases, it is evaluated closer to closing.",
-          completed: "It is arranged at the time of purchase.",
+          label: "Capital",
+          advantage: "Deposits may be staged throughout construction.",
         },
         {
-          label: "Immediate income",
-          preconstruction: "It does not generate rent before delivery.",
-          completed: "It may generate rent if the asset and its rules allow it.",
-        },
-        {
-          label: "Unit selection",
-          preconstruction: "It may be broader when entering early.",
-          completed: "It is limited to available inventory.",
+          label: "Selection",
+          advantage:
+            "Greater availability of floors, views, and layouts when entering early.",
         },
         {
           label: "Product",
-          preconstruction: "New, with current design and systems.",
-          completed: "Visible and inspectable; it may require updates.",
+          advantage: "You receive a new residence with current design and systems.",
         },
         {
-          label: "Uncertainty",
-          preconstruction: "Higher because of timing, construction, and the future closing.",
-          completed: "Lower regarding physical condition and initial delivery.",
+          label: "Time",
+          advantage: "You can prepare for closing and financing in advance.",
         },
         {
-          label: "Inspection",
-          preconstruction: "The initial focus is the contract, project, and future delivery.",
-          completed: "Physical due diligence is immediate and central.",
-        },
-        {
-          label: "Rentals",
-          preconstruction: "They depend on future rules and project documents.",
-          completed: "They can be assessed under existing rules and operations.",
-        },
-        {
-          label: "Liquidity",
-          preconstruction: "Capital remains committed during construction.",
-          completed: "The exit depends on the building, pricing, and market when selling.",
-        },
-        {
-          label: "Horizon",
-          preconstruction: "It often fits medium- or long-term goals more naturally.",
-          completed: "It may fit more immediate needs better.",
+          label: "Market",
+          advantage: "You enter before the project completes its sales cycle.",
         },
       ],
-      fitNote:
-        "Preconstruction becomes especially relevant when you can wait, value new product, want to distribute capital, and seek greater early-stage choice.",
     },
     remote: {
       eyebrow: "International coordination",
@@ -600,10 +561,10 @@ const content = {
         "Financing approval and terms depend on the buyer, the project, and the provider.",
     },
     checklist: {
-      eyebrow: "Selection and due diligence",
-      title: "Choosing well matters more than buying early",
+      eyebrow: "Selection and review",
+      title: "Choosing well strengthens the advantage of entering early",
       copy:
-        "A strong opportunity is understood as a whole: who executes, what the contract says, how the unit may be used, and what closing requires.",
+        "Choosing the right project strengthens the advantages of entering early: price, appreciation, selection, product, and exit strategy.",
       items: [
         "Developer and execution experience",
         "Contract and buyer rights",
@@ -619,38 +580,45 @@ const content = {
         "Location and target demand",
       ],
       closingCopy:
-        "The goal is not to review more paperwork for its own sake. It is to understand what changes the decision and what should be resolved before moving forward.",
+        "Comparing these points helps you choose with clarity and make better use of the entry stage.",
     },
     fit: {
-      eyebrow: "Alignment with your strategy",
-      title: "Does it fit your goals?",
+      eyebrow: "Investor profile",
+      title: "Preconstruction may be ideal if you want to grow with the project",
       copy:
-        "Your horizon, need for income, and financing approach matter as much as the location or design of the project.",
-      preconstructionTitle: "It may fit especially well if:",
-      preconstructionItems: [
+        "Your horizon, ability to complete deposits, and goals help identify which project can best capture the advantages of entering early.",
+      profileTitle: "It may fit especially well if:",
+      profileItems: [
         "You have a medium- or long-term horizon.",
-        "You can complete the scheduled deposits.",
+        "You want to participate in appreciation potential during construction.",
+        "You can complete staged deposits.",
         "You do not need immediate income.",
         "You value new product.",
-        "You want time to organize capital.",
-        "You accept that the timeline may change.",
-        "You seek diversification in Miami and in U.S. dollars.",
+        "You want to organize capital in advance.",
+        "You seek diversification in Miami and U.S. dollars.",
+        "You are buying from abroad.",
       ],
-      completedTitle: "A completed property may be more suitable if:",
-      completedItems: [
-        "You need to use or rent it immediately.",
-        "You have a fixed date.",
-        "You depend entirely on future financing.",
-        "You need short-term liquidity.",
-        "You prefer to evaluate an already-built asset.",
+      objectivesTitle: "What it can help you achieve:",
+      objectivesItems: [
+        "Enter at an early-stage price.",
+        "Access better unit options.",
+        "Stage your capital.",
+        "Prepare financing for closing.",
+        "Receive a new asset.",
+        "Position yourself for future appreciation.",
       ],
     },
     faq: {
       eyebrow: "Frequently asked questions",
       title: "What matters before comparing projects",
       copy:
-        "These answers explain the general mechanics. Specific conditions should always be reviewed in the selected project and contract.",
+        "Clear answers to understand how to enter early, organize capital, and move toward delivery.",
       items: [
+        {
+          question: "Why is appreciation an advantage of preconstruction?",
+          answer:
+            "Because you enter at a contract price before delivery. During construction, the developer may advance its listing prices and the market may increase the value of the project and its location. When that evolution is favorable, you may reach closing with a residence worth more than the price secured when you entered. Results depend on the project and market.",
+        },
         {
           question: "How much is deposited?",
           answer:
@@ -689,11 +657,6 @@ const content = {
           question: "What happens if construction is delayed?",
           answer:
             "Timelines may change. It is important to review contractual dates, permitted extensions, and applicable rights with an attorney.",
-        },
-        {
-          question: "Is appreciation guaranteed?",
-          answer:
-            "No. At delivery, the value may be higher, similar, or lower than the contract price, depending on the project and market.",
         },
         {
           question: "What costs are due at closing?",

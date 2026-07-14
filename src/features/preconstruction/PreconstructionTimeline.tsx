@@ -37,7 +37,7 @@ export function PreconstructionTimeline({ copy }: PreconstructionTimelineProps) 
           </ol>
         </div>
 
-        <p className="mt-10 border-t border-white/10 pt-5 text-xs leading-5 text-white/55">
+        <p className="mt-10 border-t border-white/10 pt-5 text-sm font-semibold leading-6 text-[#F1D16A]">
           {copy.note}
         </p>
       </div>

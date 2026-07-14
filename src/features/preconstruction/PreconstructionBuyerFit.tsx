@@ -1,4 +1,4 @@
-import { Check, Clock3 } from "lucide-react";
+import { Check, Target } from "lucide-react";
 import type { PreconstructionContent } from "@/content/preconstruction";
 import { lightEyebrowClass, lightSectionTitleClass } from "./preconstruction-styles";
 
@@ -29,10 +29,10 @@ export function PreconstructionBuyerFit({ copy }: PreconstructionBuyerFitProps) 
               <Check className="h-4 w-4" aria-hidden="true" />
             </span>
             <h3 className="mt-6 text-2xl font-semibold tracking-[-0.02em] text-white">
-              {copy.preconstructionTitle}
+              {copy.profileTitle}
             </h3>
             <ul className="mt-6 space-y-3">
-              {copy.preconstructionItems.map((item) => (
+              {copy.profileItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm leading-6 text-white/72">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D4AF37]" aria-hidden="true" />
                   {item}
@@ -42,16 +42,16 @@ export function PreconstructionBuyerFit({ copy }: PreconstructionBuyerFitProps) 
           </article>
 
           <article className="bg-[#102B47] p-6 sm:p-8">
-            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white">
-              <Clock3 className="h-4 w-4" aria-hidden="true" />
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37] text-[#0A2540]">
+              <Target className="h-4 w-4" aria-hidden="true" />
             </span>
             <h3 className="mt-6 text-2xl font-semibold tracking-[-0.02em] text-white">
-              {copy.completedTitle}
+              {copy.objectivesTitle}
             </h3>
             <ul className="mt-6 space-y-3">
-              {copy.completedItems.map((item) => (
+              {copy.objectivesItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm leading-6 text-white/70">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/45" aria-hidden="true" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D4AF37]" aria-hidden="true" />
                   {item}
                 </li>
               ))}

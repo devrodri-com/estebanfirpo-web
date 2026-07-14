@@ -68,6 +68,9 @@ export function CapitalPlanExample({ copy }: CapitalPlanExampleProps) {
           <p className="mt-7 border-t border-[#0A2540]/10 pt-6 text-sm leading-6 text-[#0D1521]/72">
             {copy.explanation}
           </p>
+          <p className="mt-4 border-l-2 border-[#D4AF37] pl-4 text-sm font-semibold leading-6 text-[#0A2540]">
+            {copy.opportunity}
+          </p>
           <p className="mt-3 text-xs font-medium leading-5 text-[#0A2540]/72">{copy.disclaimer}</p>
         </div>
       </div>

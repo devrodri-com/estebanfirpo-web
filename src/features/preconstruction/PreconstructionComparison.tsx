@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import type { PreconstructionContent } from "@/content/preconstruction";
 import { eyebrowClass, sectionTitleClass } from "./preconstruction-styles";
 
@@ -25,28 +26,27 @@ export function PreconstructionComparison({ copy }: PreconstructionComparisonPro
           <caption className="sr-only">{copy.title}</caption>
           <thead className="bg-[#0A2540] text-left text-white">
             <tr>
-              <th scope="col" className="w-[22%] px-5 py-5 text-xs font-semibold uppercase tracking-[0.15em] text-white/55">
-                <span className="sr-only">Variable</span>
+              <th scope="col" className="w-[24%] px-5 py-5 text-xs font-semibold uppercase tracking-[0.15em] text-white/60">
+                {copy.variableLabel}
               </th>
-              <th scope="col" className="w-[39%] border-l border-white/10 px-5 py-5 text-sm font-semibold">
-                {copy.preconstructionLabel}
-              </th>
-              <th scope="col" className="w-[39%] border-l border-white/10 px-5 py-5 text-sm font-semibold">
-                {copy.completedLabel}
+              <th scope="col" className="w-[76%] border-l border-white/10 px-5 py-5 text-sm font-semibold text-[#F1D16A]">
+                {copy.advantageLabel}
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-[#0A2540]/8">
             {copy.rows.map((row) => (
-              <tr key={row.label} className="align-top odd:bg-[#FBFAF7]">
-                <th scope="row" className="px-5 py-4 text-left text-sm font-semibold leading-6 text-[#0A2540]">
+              <tr key={row.label} className="align-top">
+                <th scope="row" className="bg-[#FBFAF7] px-5 py-4 text-left text-sm font-semibold leading-6 text-[#0A2540]">
                   {row.label}
                 </th>
-                <td className="border-l border-[#0A2540]/8 px-5 py-4 text-sm leading-6 text-[#0D1521]/72">
-                  {row.preconstruction}
-                </td>
-                <td className="border-l border-[#0A2540]/8 px-5 py-4 text-sm leading-6 text-[#0D1521]/68">
-                  {row.completed}
+                <td className="border-l border-[#0A2540]/8 bg-[#F6F5F0] px-5 py-4 text-sm leading-6 text-[#0D1521]/76">
+                  <span className="flex items-start gap-3">
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0A2540] text-white">
+                      <Check className="h-3 w-3" aria-hidden="true" />
+                    </span>
+                    {row.advantage}
+                  </span>
                 </td>
               </tr>
             ))}
@@ -57,28 +57,16 @@ export function PreconstructionComparison({ copy }: PreconstructionComparisonPro
           {copy.rows.map((row) => (
             <div key={row.label} className="p-5 odd:bg-[#FBFAF7]">
               <dt className="text-sm font-semibold text-[#0A2540]">{row.label}</dt>
-              <dd className="mt-4 grid gap-4">
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#755B14]">
-                    {copy.preconstructionLabel}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-6 text-[#0D1521]/74">{row.preconstruction}</p>
-                </div>
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0A2540]/72">
-                    {copy.completedLabel}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-6 text-[#0D1521]/68">{row.completed}</p>
-                </div>
+              <dd className="mt-3 flex items-start gap-3 text-sm leading-6 text-[#0D1521]/74">
+                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0A2540] text-white">
+                  <Check className="h-3 w-3" aria-hidden="true" />
+                </span>
+                {row.advantage}
               </dd>
             </div>
           ))}
         </dl>
       </div>
-
-      <p className="mt-6 max-w-3xl border-l-2 border-[#D4AF37] pl-4 text-sm leading-6 text-[#0D1521]/70">
-        {copy.fitNote}
-      </p>
     </section>
   );
 }
