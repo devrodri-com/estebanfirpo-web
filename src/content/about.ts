@@ -22,9 +22,11 @@ export type AboutContent = {
   journey: {
     eyebrow: string;
     title: string;
+    featured: string;
+    support: string;
     copy: string;
     secondaryCopy: string;
-    milestones: AboutItem[];
+    chapters: AboutItem[];
   };
   approach: {
     eyebrow: string;
@@ -52,14 +54,14 @@ const aboutContent = {
   es: {
     hero: {
       eyebrow: "Sobre Esteban Firpo",
-      title: "Criterio local y acompañamiento personal para invertir en Miami",
+      title: "Experiencia empresarial para decidir mejor en Miami",
       copy:
-        "Acompaño a compradores e inversores internacionales desde la definición del objetivo hasta el cierre, coordinando proyectos, propiedades y profesionales alrededor de una estrategia clara.",
-      highlight: "Un punto de contacto para ordenar todo el proceso.",
+        "Después de más de 15 años dirigiendo una empresa en Uruguay, hoy acompaño a compradores e inversores internacionales a analizar oportunidades, comparar alternativas y tomar decisiones inmobiliarias con una mirada práctica y personal.",
+      highlight:
+        "No se trata de mostrar más opciones. Se trata de ayudarte a elegir mejor.",
       primaryCta: "Hablar con Esteban",
       secondaryCta: "Explorar proyectos",
-      microcopy:
-        "Atención en español e inglés. El proceso puede coordinarse desde el exterior.",
+      microcopy: "Atención personal en español e inglés.",
       whatsappMessage:
         "Hola Esteban, quiero conversar sobre una inversión inmobiliaria en Miami y entender qué opciones pueden encajar mejor con mi objetivo.",
       imageAlt: "Retrato profesional de Esteban Firpo",
@@ -72,21 +74,24 @@ const aboutContent = {
     },
     journey: {
       eyebrow: "Una trayectoria de gestión",
-      title: "Experiencia empresarial aplicada a decisiones inmobiliarias",
+      title: "De construir una empresa en Uruguay a asesorar inversiones en Miami",
+      featured: "Más de 15 años dirigiendo Magenta",
+      support:
+        "Dirección, negociación, equipos, números y decisiones empresariales.",
       copy:
         "Nací en Paysandú, estudié Ingeniería en Montevideo y durante más de 15 años dirigí Magenta, una empresa que se consolidó entre las imprentas más importantes del interior de Uruguay y que continúa operando.",
       secondaryCopy:
-        "Liderar una empresa durante tantos años me enseñó a analizar números, negociar, ordenar procesos, anticipar dificultades y acompañar decisiones importantes. Hoy aplico esa experiencia al real estate en Miami.",
-      milestones: [
+        "Esa trayectoria me enseñó a interpretar números, negociar, organizar equipos, anticipar problemas y asumir responsabilidad por decisiones importantes. Hoy llevo esa experiencia al asesoramiento inmobiliario en Miami.",
+      chapters: [
         { title: "Paysandú", copy: "Origen y visión emprendedora." },
         { title: "Montevideo", copy: "Formación en Ingeniería." },
         {
-          title: "Más de 15 años en Magenta",
-          copy: "Dirección, negociación y gestión empresarial.",
+          title: "Magenta",
+          copy: "Más de 15 años de dirección y gestión empresarial.",
         },
         {
           title: "Miami",
-          copy: "Asesoramiento inmobiliario para compradores e inversores internacionales.",
+          copy: "Una nueva etapa acompañando decisiones inmobiliarias.",
         },
       ],
     },
@@ -94,7 +99,7 @@ const aboutContent = {
       eyebrow: "Mi forma de trabajar",
       title: "Menos ruido. Más criterio en cada decisión.",
       copy:
-        "No se trata de mostrarte todo el inventario disponible. Se trata de concentrarnos en las opciones que mejor encajan con tu presupuesto, horizonte, uso esperado y estrategia patrimonial.",
+        "Mi trabajo no consiste en enviarte todo el inventario disponible. Consiste en concentrarnos en las opciones que mejor encajan con tu presupuesto, horizonte, uso esperado y estrategia patrimonial.",
       pillars: [
         {
           title: "Criterio de inversión",
@@ -114,34 +119,38 @@ const aboutContent = {
       ],
     },
     process: {
-      eyebrow: "Acompañamiento completo",
-      title: "Un proceso claro, de la primera conversación al cierre",
+      eyebrow: "Qué podés esperar de mí",
+      title: "Escuchar, filtrar y acompañar cada decisión",
       copy:
-        "Me convierto en tu punto de contacto para ordenar decisiones, información y profesionales durante cada etapa de la compra.",
+        "Mi trabajo no termina al mostrar una propiedad. Sigo presente para ordenar la información, explicar alternativas y mantener cada etapa clara.",
       steps: [
         {
-          title: "Entender tu objetivo",
-          copy: "Presupuesto, horizonte, uso esperado y prioridades.",
+          title: "Escuchar antes de recomendar",
+          copy:
+            "Entender qué querés lograr, qué te preocupa y cómo querés utilizar la propiedad.",
         },
         {
-          title: "Comparar oportunidades",
-          copy: "Zonas, proyectos, propiedades, números y reglas de uso.",
+          title: "Filtrar antes de mostrar",
+          copy: "Reducir el inventario a opciones que realmente merecen tu atención.",
         },
         {
-          title: "Coordinar la compra",
-          copy: "Oferta o reserva, contrato, documentación y profesionales involucrados.",
+          title: "Explicar antes de decidir",
+          copy:
+            "Presentar números, diferencias y próximos pasos de forma clara y directa.",
         },
         {
-          title: "Acompañar hasta el cierre",
-          copy: "Financiación cuando corresponde, compañía de títulos, firma y entrega.",
+          title: "Coordinar hasta cerrar",
+          copy:
+            "Mantener comunicación con las partes involucradas y acompañar el avance de la operación.",
         },
       ],
-      highlight: "Podés avanzar gran parte del proceso sin vivir en Miami.",
+      highlight:
+        "Una recomendación tiene valor cuando está alineada con tu objetivo.",
     },
     finalCta: {
-      title: "Tu inversión empieza con una conversación clara",
+      title: "Hablemos de lo que querés lograr en Miami",
       copy:
-        "Contame qué buscás, cuánto querés invertir y cuál es tu horizonte. A partir de ahí podemos ordenar opciones y próximos pasos.",
+        "Una primera conversación alcanza para entender tu objetivo, ordenar prioridades y definir qué oportunidades vale la pena mirar.",
       primaryCta: "Hablar por WhatsApp",
       secondaryCta: "Explorar proyectos",
       microcopy: "Atención personal en español e inglés.",
@@ -150,14 +159,14 @@ const aboutContent = {
   en: {
     hero: {
       eyebrow: "About Esteban Firpo",
-      title: "Local insight and personal guidance for investing in Miami",
+      title: "Business experience for better real estate decisions in Miami",
       copy:
-        "I guide international buyers and investors from defining their goals through closing, coordinating projects, properties, and professionals around a clear strategy.",
-      highlight: "One point of contact to organize the entire process.",
+        "After more than 15 years leading a company in Uruguay, I now help international buyers and investors analyze opportunities, compare alternatives, and make real estate decisions with a practical, personal perspective.",
+      highlight:
+        "It is not about showing more options. It is about helping you choose better.",
       primaryCta: "Talk with Esteban",
       secondaryCta: "Explore projects",
-      microcopy:
-        "Available in English and Spanish. The process can be coordinated from abroad.",
+      microcopy: "Personal guidance in English and Spanish.",
       whatsappMessage:
         "Hi Esteban, I would like to discuss a Miami real estate investment and understand which options may best fit my goals.",
       imageAlt: "Professional portrait of Esteban Firpo",
@@ -170,21 +179,24 @@ const aboutContent = {
     },
     journey: {
       eyebrow: "A management background",
-      title: "Business experience applied to real estate decisions",
+      title: "From building a business in Uruguay to advising real estate decisions in Miami",
+      featured: "More than 15 years leading Magenta",
+      support:
+        "Leadership, negotiation, teams, numbers, and business decisions.",
       copy:
         "I was born in Paysandú, studied Engineering in Montevideo, and led Magenta for more than 15 years, helping establish it among the leading printing companies in Uruguay’s interior. The company continues operating today.",
       secondaryCopy:
-        "Leading a business for so many years taught me how to analyze numbers, negotiate, organize processes, anticipate challenges, and guide important decisions. I now apply that experience to Miami real estate.",
-      milestones: [
+        "That background taught me how to interpret numbers, negotiate, organize teams, anticipate problems, and take responsibility for important decisions. I now bring that experience to Miami real estate.",
+      chapters: [
         { title: "Paysandú", copy: "Origins and entrepreneurial perspective." },
         { title: "Montevideo", copy: "Engineering education." },
         {
-          title: "More than 15 years at Magenta",
-          copy: "Leadership, negotiation, and business management.",
+          title: "Magenta",
+          copy: "More than 15 years of business leadership and management.",
         },
         {
           title: "Miami",
-          copy: "Real estate guidance for international buyers and investors.",
+          copy: "A new stage guiding real estate decisions.",
         },
       ],
     },
@@ -192,7 +204,7 @@ const aboutContent = {
       eyebrow: "How I work",
       title: "Less noise. More clarity in every decision.",
       copy:
-        "The goal is not to show you every available listing. It is to focus on the options that best align with your budget, timeline, intended use, and wealth strategy.",
+        "My role is not to send you every available listing. It is to focus on the options that best align with your budget, timeline, intended use, and wealth strategy.",
       pillars: [
         {
           title: "Investment judgment",
@@ -212,34 +224,38 @@ const aboutContent = {
       ],
     },
     process: {
-      eyebrow: "Complete guidance",
-      title: "A clear process, from the first conversation through closing",
+      eyebrow: "What you can expect from me",
+      title: "Listen, filter, and guide every decision",
       copy:
-        "I serve as your point of contact, organizing decisions, information, and professionals throughout each stage of the purchase.",
+        "My work does not end when I show a property. I remain involved to organize information, explain alternatives, and keep every stage clear.",
       steps: [
         {
-          title: "Understand your goals",
-          copy: "Budget, timeline, intended use, and priorities.",
+          title: "Listen before recommending",
+          copy:
+            "Understand what you want to achieve, what concerns you, and how you plan to use the property.",
         },
         {
-          title: "Compare opportunities",
-          copy: "Areas, projects, properties, numbers, and usage rules.",
+          title: "Filter before presenting",
+          copy: "Reduce the inventory to options that genuinely deserve your attention.",
         },
         {
-          title: "Coordinate the purchase",
-          copy: "Offer or reservation, contract, documentation, and involved professionals.",
+          title: "Explain before deciding",
+          copy:
+            "Present numbers, differences, and next steps clearly and directly.",
         },
         {
-          title: "Guide you through closing",
-          copy: "Financing when applicable, title company, signing, and delivery.",
+          title: "Coordinate through closing",
+          copy:
+            "Maintain communication with the involved parties and follow the transaction through completion.",
         },
       ],
-      highlight: "You can complete much of the process without living in Miami.",
+      highlight:
+        "A recommendation has value when it is aligned with your goal.",
     },
     finalCta: {
-      title: "Your investment starts with a clear conversation",
+      title: "Let’s discuss what you want to achieve in Miami",
       copy:
-        "Tell me what you are looking for, how much you plan to invest, and your timeline. From there, we can organize the right options and next steps.",
+        "A first conversation is enough to understand your goal, organize priorities, and determine which opportunities are worth exploring.",
       primaryCta: "Chat on WhatsApp",
       secondaryCta: "Explore projects",
       microcopy: "Personal guidance in English and Spanish.",

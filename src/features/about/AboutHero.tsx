@@ -27,8 +27,8 @@ export function AboutHero({ locale, copy }: AboutHeroProps) {
       aria-labelledby="about-hero-title"
       className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-b border-[#0A2540]/10 bg-[#F6F5F0]"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:py-20 lg:min-h-[680px] lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:py-24">
-        <div className="max-w-3xl">
+      <div className="mx-auto grid max-w-6xl items-center gap-x-16 gap-y-9 px-4 py-14 sm:py-20 lg:min-h-[680px] lg:grid-cols-[0.92fr_1.08fr] lg:py-24">
+        <div className="max-w-3xl lg:col-start-2 lg:row-start-1 lg:self-end">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0A2540]/65">
             {copy.eyebrow}
           </p>
@@ -44,8 +44,28 @@ export function AboutHero({ locale, copy }: AboutHeroProps) {
           <p className="mt-6 max-w-xl border-l-2 border-[#D4AF37] pl-4 text-base font-semibold leading-7 text-[#0A2540] sm:text-lg">
             {copy.highlight}
           </p>
+        </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="relative isolate mx-auto w-full max-w-[420px] lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:self-center lg:justify-self-start">
+          <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#0A2540]/10 bg-[#E9E6DD] shadow-[0_24px_70px_rgba(10,37,64,0.16)] lg:w-[420px]">
+            <Image
+              src="/images/Esteban.jpg"
+              alt={copy.imageAlt}
+              fill
+              priority
+              fetchPriority="high"
+              sizes="(min-width: 452px) 420px, calc(100vw - 32px)"
+              className="object-cover object-center"
+            />
+          </div>
+          <span
+            className="absolute -bottom-3 -left-3 -z-10 h-full w-full rounded-2xl border border-[#D4AF37]/45"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="lg:col-start-2 lg:row-start-2 lg:self-start">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href={createWhatsAppUrl(copy.whatsappMessage)}
               target="_blank"
@@ -77,24 +97,6 @@ export function AboutHero({ locale, copy }: AboutHeroProps) {
               );
             })}
           </ul>
-        </div>
-
-        <div className="relative isolate mx-auto w-full max-w-[420px] lg:mx-0 lg:justify-self-end">
-          <div className="relative aspect-square overflow-hidden rounded-2xl border border-[#0A2540]/10 bg-[#E9E6DD] shadow-[0_24px_70px_rgba(10,37,64,0.16)] lg:w-[420px]">
-            <Image
-              src="/images/Esteban.jpg"
-              alt={copy.imageAlt}
-              fill
-              priority
-              fetchPriority="high"
-              sizes="(min-width: 452px) 420px, calc(100vw - 32px)"
-              className="object-cover object-center"
-            />
-          </div>
-          <span
-            className="absolute -bottom-3 -left-3 -z-10 h-full w-full rounded-2xl border border-[#D4AF37]/45"
-            aria-hidden="true"
-          />
         </div>
       </div>
     </section>

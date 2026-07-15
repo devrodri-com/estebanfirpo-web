@@ -1,4 +1,3 @@
-import { Check, MessageCircleMore } from "lucide-react";
 import type { AboutContent } from "@/content/about";
 import { lightEyebrowClass, lightSectionTitleClass } from "./about-styles";
 
@@ -26,21 +25,18 @@ export function AboutProcess({ copy }: AboutProcessProps) {
           </p>
         </div>
 
-        <ol className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <ol className="mt-12 grid lg:grid-cols-4">
           {copy.steps.map((step, index) => (
             <li
               key={step.title}
-              className="relative min-h-full rounded-2xl border border-white/14 bg-white/[0.055] p-6"
+              className={`border-t border-white/16 py-7 lg:border-l lg:border-t-0 lg:px-7 lg:py-2 ${
+                index === 0 ? "lg:border-l-0 lg:pl-0" : ""
+              } ${index === copy.steps.length - 1 ? "lg:pr-0" : ""}`}
             >
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-xs font-semibold tracking-[0.16em] text-[#E4C45C]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#E4C45C]/40 text-[#E4C45C]">
-                  <Check className="h-4 w-4" aria-hidden="true" />
-                </span>
-              </div>
-              <h3 className="mt-7 text-xl font-semibold leading-snug tracking-[-0.02em] text-white">
+              <span className="text-xs font-semibold tracking-[0.16em] text-[#E4C45C]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-6 text-xl font-semibold leading-snug tracking-[-0.02em] text-white">
                 {step.title}
               </h3>
               <p className="mt-3 text-sm leading-6 text-white/68">{step.copy}</p>
@@ -48,9 +44,11 @@ export function AboutProcess({ copy }: AboutProcessProps) {
           ))}
         </ol>
 
-        <div className="mt-8 flex max-w-3xl items-start gap-3 border-t border-white/12 pt-7 text-base font-semibold leading-7 text-white">
-          <MessageCircleMore className="mt-0.5 h-5 w-5 shrink-0 text-[#E4C45C]" aria-hidden="true" />
-          <p>{copy.highlight}</p>
+        <div className="mt-10 max-w-3xl border-t border-white/16 pt-8">
+          <span className="block h-px w-12 bg-[#D4AF37]" aria-hidden="true" />
+          <p className="mt-5 text-xl font-semibold leading-8 tracking-[-0.02em] text-white sm:text-2xl">
+            {copy.highlight}
+          </p>
         </div>
       </div>
     </section>
