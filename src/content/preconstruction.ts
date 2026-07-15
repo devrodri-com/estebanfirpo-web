@@ -180,12 +180,12 @@ const content = {
           copy: "Se firma el contrato de compraventa y queda definido el calendario contractual.",
         },
         {
-          title: "Depósitos durante la obra",
+          title: "Depósitos",
           copy:
             "El comprador aporta capital según las etapas y porcentajes establecidos por el proyecto.",
         },
         {
-          title: "Preparación del cierre",
+          title: "Preparación",
           copy:
             "Se organizan fondos, documentación, estructura de compra y, cuando corresponde, financiación.",
         },
@@ -461,17 +461,17 @@ const content = {
           copy: "The purchase agreement is signed and the contractual schedule is established.",
         },
         {
-          title: "Construction deposits",
+          title: "Deposits",
           copy:
             "The buyer contributes capital according to the stages and percentages established by the project.",
         },
         {
-          title: "Closing preparation",
+          title: "Preparation",
           copy:
             "Funds, documentation, ownership structure, and financing, when applicable, are organized.",
         },
         {
-          title: "Closing and delivery",
+          title: "Closing & delivery",
           copy: "The balance is paid with cash or approved financing, and the unit is delivered.",
         },
       ],
