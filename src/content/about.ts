@@ -56,12 +56,12 @@ const aboutContent = {
       eyebrow: "Sobre Esteban Firpo",
       title: "Experiencia empresarial para decidir mejor en Miami",
       copy:
-        "Después de más de 15 años dirigiendo una empresa en Uruguay, hoy acompaño a compradores e inversores internacionales a analizar oportunidades, comparar alternativas y tomar decisiones inmobiliarias con una mirada práctica y personal.",
+        "Mi experiencia dirigiendo una empresa en Uruguay hoy se traduce en una forma práctica y personal de acompañar a compradores e inversores internacionales a analizar oportunidades, comparar alternativas y tomar decisiones inmobiliarias.",
       highlight:
-        "No se trata de mostrar más opciones. Se trata de ayudarte a elegir mejor.",
+        "No se trata de mostrar más opciones. Se trata de encontrar las que realmente tienen sentido para vos.",
       primaryCta: "Hablar con Esteban",
       secondaryCta: "Explorar proyectos",
-      microcopy: "Atención personal en español e inglés.",
+      microcopy: "Contacto directo con Esteban.",
       whatsappMessage:
         "Hola Esteban, quiero conversar sobre una inversión inmobiliaria en Miami y entender qué opciones pueden encajar mejor con mi objetivo.",
       imageAlt: "Retrato profesional de Esteban Firpo",
@@ -161,12 +161,12 @@ const aboutContent = {
       eyebrow: "About Esteban Firpo",
       title: "Business experience for better real estate decisions in Miami",
       copy:
-        "After more than 15 years leading a company in Uruguay, I now help international buyers and investors analyze opportunities, compare alternatives, and make real estate decisions with a practical, personal perspective.",
+        "My experience leading a company in Uruguay now translates into a practical, personal way of helping international buyers and investors analyze opportunities, compare alternatives, and make real estate decisions.",
       highlight:
-        "It is not about showing more options. It is about helping you choose better.",
+        "It is not about showing more options. It is about finding the ones that genuinely make sense for you.",
       primaryCta: "Talk with Esteban",
       secondaryCta: "Explore projects",
-      microcopy: "Personal guidance in English and Spanish.",
+      microcopy: "Direct contact with Esteban.",
       whatsappMessage:
         "Hi Esteban, I would like to discuss a Miami real estate investment and understand which options may best fit my goals.",
       imageAlt: "Professional portrait of Esteban Firpo",
