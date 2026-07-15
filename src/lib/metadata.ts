@@ -54,12 +54,14 @@ export const staticRouteMetadata = {
   miami: {
     path: "/miami",
     es: {
-      title: "Miami",
-      description: "Información general sobre Miami y su mercado inmobiliario.",
+      title: "Por qué invertir en Miami",
+      description:
+        "Descubrí por qué Miami atrae capital internacional: activos en dólares, demanda global, infraestructura, economía y oportunidades inmobiliarias.",
     },
     en: {
-      title: "Miami",
-      description: "General information about Miami and its real estate market.",
+      title: "Why Invest in Miami",
+      description:
+        "Discover why Miami attracts international capital through dollar-based assets, global demand, infrastructure, economic scale, and real estate opportunities.",
     },
   },
   precon: {

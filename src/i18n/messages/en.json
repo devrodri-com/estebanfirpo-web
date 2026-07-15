@@ -4,18 +4,6 @@
   "cta": { "whatsapp":"WhatsApp","calendly":"Schedule", "projects": "See projects" },
   "footer": { "rights":"All rights reserved." },
 
-  "miami": {
-    "title": "Why invest in Miami",
-    "copy": "Liquid USD market with global demand. Favorable tax environment and sustained growth.",
-    "points": [
-      "Population and jobs expanding",
-      "Low state taxes",
-      "Consistent international liquidity",
-      "Infrastructure and air connectivity"
-    ],
-    "quote": "Do not wait to buy properties, buy properties and wait."
-  },
-
   "precon": {
     "title": "Pre-construction advantages",
     "copy": "Milestone deposits, appreciation during construction, and simple management. Strong USD diversification.",
