@@ -28,7 +28,7 @@ export default function NavBar() {
   }, []);
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const desktopQuery = window.matchMedia("(min-width: 1280px)");
     const closeOnDesktop = (event: MediaQueryListEvent) => {
       if (event.matches) setOpen(false);
     };
@@ -110,11 +110,11 @@ export default function NavBar() {
     { href: `${base}/precon`, label: labels.precon },
     { href: `${base}/miami`, label: labels.miami },
     { href: `${base}/sobre-mi`, label: labels.about },
+    { href: `${base}/contacto`, label: labels.contact },
   ];
 
   const secondaryItems = [
     { href: `${base}/financiacion`, label: labels.financing },
-    { href: `${base}/contacto`, label: labels.contact },
   ];
 
   const switchTo: SupportedLocale = isEnglish ? "es" : "en";
@@ -144,7 +144,7 @@ export default function NavBar() {
           Esteban Firpo <span className="font-normal text-white/62">· Miami Real Estate</span>
         </Link>
 
-        <nav aria-label={isEnglish ? "Primary navigation" : "Navegación principal"} className="hidden items-center gap-5 lg:flex">
+        <nav aria-label={isEnglish ? "Primary navigation" : "Navegación principal"} className="hidden items-center gap-5 xl:flex">
           {primaryItems.map((item) => (
             <Link
               key={item.href}
@@ -197,7 +197,7 @@ export default function NavBar() {
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen(true)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/16 text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/16 text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] xl:hidden"
         >
           <Menu className="h-5 w-5" aria-hidden="true" />
         </button>
@@ -210,7 +210,7 @@ export default function NavBar() {
           role="dialog"
           aria-modal="true"
           aria-label={isEnglish ? "Mobile navigation" : "Navegación mobile"}
-          className="fixed inset-0 z-[60] bg-[#0A2540] text-white lg:hidden"
+          className="fixed inset-0 z-[60] bg-[#0A2540] text-white xl:hidden"
         >
           <div className="mx-auto flex h-full max-w-lg flex-col px-5 py-4">
             <div className="flex min-h-12 items-center justify-between border-b border-white/12 pb-4">
@@ -242,7 +242,12 @@ export default function NavBar() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-14 items-center py-3 text-xl font-medium text-white/88 no-underline hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#D4AF37]"
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    className={`flex min-h-14 items-center py-3 text-xl font-medium no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#D4AF37] ${
+                      isActive(item.href)
+                        ? "text-white underline decoration-[#D4AF37] decoration-2 underline-offset-8"
+                        : "text-white/88 hover:text-white"
+                    }`}
                   >
                     {item.label}
                   </Link>
