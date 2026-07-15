@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Building2, CircleDollarSign, Globe2, UsersRound, Waypoints } from "lucide-react";
+import { Building2, CircleDollarSign, Globe2, Waypoints } from "lucide-react";
 import type { MiamiContent } from "@/content/miami";
 import { eyebrowClass, sectionTitleClass } from "./miami-styles";
 
-const pointIcons = [Globe2, CircleDollarSign, Waypoints, Building2, UsersRound] as const;
+const pointIcons = [Globe2, CircleDollarSign, Waypoints, Building2] as const;
 
 type MiamiGlobalPlatformProps = {
   copy: MiamiContent["globalPlatform"];
@@ -31,7 +31,7 @@ export function MiamiGlobalPlatform({ copy }: MiamiGlobalPlatformProps) {
             {copy.points.map((point, index) => {
               const Icon = pointIcons[index];
               return (
-                <li key={point} className="flex min-h-14 items-center gap-3 rounded-xl border border-[#0A2540]/10 bg-white px-4 py-3 text-sm font-semibold leading-5 text-[#0A2540]">
+                <li key={point} className="flex min-h-14 items-center gap-3 rounded-xl border border-[#0A2540]/10 bg-white px-4 py-3 text-sm font-semibold leading-5 text-[#0A2540] sm:min-h-[4.125rem]">
                   <Icon className="h-4 w-4 shrink-0 text-[#9A7415]" aria-hidden="true" />
                   {point}
                 </li>

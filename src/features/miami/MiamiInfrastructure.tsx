@@ -25,13 +25,13 @@ export function MiamiInfrastructure({ copy }: MiamiInfrastructureProps) {
         </div>
 
         <div className="relative mt-12">
-          <span className="absolute left-[12.5%] right-[12.5%] top-6 hidden h-px bg-[#0A2540]/18 lg:block" aria-hidden="true" />
-          <ol className="grid gap-4 lg:grid-cols-4 lg:gap-6">
+          <span className="absolute left-[12.5%] right-[12.5%] top-6 z-0 hidden h-px -translate-y-1/2 bg-[#0A2540]/18 lg:block" aria-hidden="true" />
+          <ol className="grid gap-4 lg:grid-cols-4 lg:gap-0">
             {copy.items.map((item, index) => {
               const Icon = icons[index];
               return (
-                <li key={item.title} className="relative grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-[#0A2540]/10 bg-white p-5 shadow-[0_10px_35px_rgba(10,37,64,0.045)] lg:block lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
-                  <span className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border-4 border-[#F6F5F0] bg-[#0A2540] text-[#E4C45C] lg:mx-auto">
+                <li key={item.title} className="relative grid grid-cols-[auto_1fr] gap-4 rounded-2xl border border-[#0A2540]/10 bg-white p-5 shadow-[0_10px_35px_rgba(10,37,64,0.045)] lg:block lg:border-0 lg:bg-transparent lg:px-4 lg:py-0 lg:shadow-none">
+                  <span className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border-4 border-[#F6F5F0] bg-[#0A2540] text-[#E4C45C] lg:mx-auto lg:flex">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div className="lg:mt-6 lg:text-center">
