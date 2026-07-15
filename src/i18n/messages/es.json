@@ -4,18 +4,6 @@
   "cta": { "whatsapp":"WhatsApp","calendly":"Agendar", "projects": "Ver proyectos" },
   "footer": { "rights":"Todos los derechos reservados." },
 
-  "miami": {
-    "title": "Por qué invertir en Miami",
-    "copy": "Mercado líquido, dolarizado y con demanda global. Beneficios fiscales comparativos y crecimiento sostenido.",
-    "points": [
-      "Demografía y empleo en expansión",
-      "Bajos impuestos estatales",
-      "Liquidez internacional constante",
-      "Infraestructura y conectividad aérea"
-    ],
-    "quote": "No esperes a comprar propiedades, compra propiedades y espera."
-  },
-
   "precon": {
     "title": "Ventajas de la preconstrucción",
     "copy": "Entrada en hitos, valorización durante obra y gestión simple. Ideal para diversificar en USD.",
