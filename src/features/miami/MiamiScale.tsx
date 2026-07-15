@@ -1,4 +1,3 @@
-import { ExternalLink } from "lucide-react";
 import type { MiamiContent, MiamiMetricView } from "@/content/miami";
 import { lightEyebrowClass, lightSectionTitleClass } from "./miami-styles";
 
@@ -32,22 +31,57 @@ export function MiamiScale({ copy, metrics }: MiamiScaleProps) {
               <p className="order-1 text-[1.75rem] font-semibold leading-none tracking-[-0.04em] text-[#E4C45C] tabular-nums xl:text-3xl 2xl:text-4xl">
                 {metric.value}
               </p>
-              <div className="order-3 mt-5 border-t border-white/12 pt-4 text-xs leading-5 text-white/60">
+              <div className="order-3 mt-auto border-t border-white/12 pt-4 text-xs leading-5 text-white/60">
                 <p>{metric.geography}</p>
                 <p>{metric.period}</p>
               </div>
-              <a
-                href={metric.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="order-4 mt-auto inline-flex min-h-11 items-end gap-1.5 pt-5 text-xs font-semibold leading-5 text-white/72 underline decoration-white/35 underline-offset-4 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
-              >
-                {metric.sourceName}
-                <ExternalLink className="mb-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
-              </a>
             </li>
           ))}
         </ul>
+
+        <div className="mt-6 border-t border-white/16 pt-5 text-xs leading-5 text-white/72">
+          <p>{copy.verificationNote}</p>
+          <details className="mt-2">
+            <summary className="min-h-11 cursor-pointer py-3 font-semibold text-white/88 underline decoration-white/35 underline-offset-4 focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]">
+              {copy.sourcesSummary}
+            </summary>
+            <ul className="mt-4 grid gap-x-8 gap-y-5 border-t border-white/12 pt-5 md:grid-cols-2">
+              {metrics.map((metric) => (
+                <li key={metric.id} className="min-w-0">
+                  <p className="font-semibold text-white/88">
+                    <span className="text-[#E4C45C]">{metric.value}</span>
+                    <span aria-hidden="true"> · </span>
+                    {metric.label}
+                  </p>
+                  <dl className="mt-1 space-y-0.5 text-white/68">
+                    <div className="flex flex-wrap gap-x-1.5">
+                      <dt className="font-semibold text-white/82">{copy.sourceLabel}:</dt>
+                      <dd>{metric.sourceName}</dd>
+                    </div>
+                    <div className="flex flex-wrap gap-x-1.5">
+                      <dt className="font-semibold text-white/82">{copy.geographyLabel}:</dt>
+                      <dd>{metric.geography}</dd>
+                    </div>
+                    <div className="flex flex-wrap gap-x-1.5">
+                      <dt className="font-semibold text-white/82">{copy.periodLabel}:</dt>
+                      <dd>{metric.period}</dd>
+                    </div>
+                    <div className="flex flex-wrap gap-x-1.5">
+                      <dt className="font-semibold text-white/82">{copy.verifiedLabel}:</dt>
+                      <dd>{metric.verifiedAt}</dd>
+                    </div>
+                  </dl>
+                  {metric.methodologyNote ? (
+                    <p className="mt-2 text-white/68">
+                      <span className="font-semibold text-white/82">{copy.methodologyLabel}: </span>
+                      {metric.methodologyNote}
+                    </p>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </details>
+        </div>
       </div>
     </section>
   );

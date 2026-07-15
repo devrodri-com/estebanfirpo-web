@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { Building2, CircleDollarSign, Globe2, UsersRound, Waypoints } from "lucide-react";
 import type { MiamiContent } from "@/content/miami";
 import { eyebrowClass, sectionTitleClass } from "./miami-styles";
-import { MiamiConnectionsGraphic } from "./MiamiConnectionsGraphic";
 
 const pointIcons = [Globe2, CircleDollarSign, Waypoints, Building2, UsersRound] as const;
 
@@ -40,12 +40,17 @@ export function MiamiGlobalPlatform({ copy }: MiamiGlobalPlatformProps) {
           </ul>
         </div>
 
-        <MiamiConnectionsGraphic
-          title={copy.visualTitle}
-          description={copy.visualDescription}
-          centerLabel={copy.centerLabel}
-          regions={copy.regions}
-        />
+        <figure className="overflow-hidden rounded-2xl border border-[#0A2540]/10 bg-[#F6F5F0] shadow-[0_18px_55px_rgba(10,37,64,0.08)]">
+          <Image
+            src="/images/miami/miami-global-connections-editorial.jpg"
+            alt={copy.imageAlt}
+            width={1448}
+            height={1086}
+            loading="lazy"
+            sizes="(min-width: 1280px) 616px, (min-width: 1024px) 53vw, calc(100vw - 2rem)"
+            className="h-auto w-full object-contain"
+          />
+        </figure>
       </div>
     </section>
   );

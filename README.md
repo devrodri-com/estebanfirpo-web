@@ -33,7 +33,6 @@ A professional real‑estate website built with **Next.js (App Router)** focused
 - **NavBar.tsx** — Responsive top navigation with ES/EN switch and gold active underline.
 - **Footer.tsx** — Global footer with brand links and contact.
 - **FeaturedProjects.tsx** — Curated projects band.
-- **features/miami/** — Server-first, bilingual “Why Miami” investment experience.
 - **SectionWhyPrecon.tsx** — “Why Pre‑construction” module.
 - **SectionWhyStorages.tsx** — Storages rationale and CTAs.
 - **HighlightsBlock.tsx** — Key highlights as compact list/cards.
@@ -94,12 +93,6 @@ src/
  │   ├─ PaymentPlan.tsx
  │   ├─ FaqsBlock.tsx
  │   └─ ProjectsFilters.tsx
- │
- ├─ content/
- │   └─ miami.ts              # Typed bilingual Miami content + verified metrics
- │
- ├─ features/
- │   └─ miami/                # Nine server-rendered Miami page blocks
  │
  └─ data/
      ├─ projects/

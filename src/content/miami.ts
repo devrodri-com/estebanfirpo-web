@@ -1,3 +1,5 @@
+import "server-only";
+
 import type { Locale } from "@/i18n/config";
 
 type MiamiReason = {
@@ -42,6 +44,13 @@ export type MiamiContent = {
     eyebrow: string;
     title: string;
     copy: string;
+    verificationNote: string;
+    sourcesSummary: string;
+    sourceLabel: string;
+    geographyLabel: string;
+    periodLabel: string;
+    verifiedLabel: string;
+    methodologyLabel: string;
   };
   globalPlatform: {
     eyebrow: string;
@@ -49,10 +58,7 @@ export type MiamiContent = {
     copy: string;
     highlight: string;
     points: string[];
-    visualTitle: string;
-    visualDescription: string;
-    centerLabel: string;
-    regions: string[];
+    imageAlt: string;
   };
   infrastructure: {
     eyebrow: string;
@@ -106,7 +112,7 @@ export type MiamiMetric = {
   sourceName: string;
   sourceUrl: string;
   verifiedAt: "2026-07-14";
-  methodologyNote?: string;
+  methodologyNote?: LocalizedText;
 };
 
 export type MiamiMetricView = {
@@ -116,8 +122,8 @@ export type MiamiMetricView = {
   geography: string;
   period: string;
   sourceName: string;
-  sourceUrl: string;
   verifiedAt: string;
+  methodologyNote?: string;
 };
 
 const metrics: MiamiMetric[] = [
@@ -136,8 +142,10 @@ const metrics: MiamiMetric[] = [
     sourceName: "U.S. Bureau of Economic Analysis (BEA)",
     sourceUrl: "https://apps.bea.gov/regional/zip/CAGDP2.zip",
     verifiedAt: "2026-07-14",
-    methodologyNote:
-      "2024 all-industry nominal GDP from CAGDP2, summed for Broward, Miami-Dade, and Palm Beach counties: $574,994,257,000, rounded to approximately $575B for the Miami–Fort Lauderdale–West Palm Beach MSA.",
+    methodologyNote: {
+      es: "PIB nominal 2024 de todas las industrias, calculado a partir de CAGDP2 mediante la suma de Broward, Miami-Dade y Palm Beach: US$574.994.257.000, redondeado a aproximadamente US$575 mil millones para el área metropolitana Miami–Fort Lauderdale–West Palm Beach.",
+      en: "2024 all-industry nominal GDP from CAGDP2, summed for Broward, Miami-Dade, and Palm Beach counties: $574,994,257,000, rounded to approximately $575 billion for the Miami–Fort Lauderdale–West Palm Beach metropolitan area.",
+    },
   },
   {
     id: "mia-passengers",
@@ -204,6 +212,13 @@ const metrics: MiamiMetric[] = [
   },
 ];
 
+const verifiedAtLabels = {
+  "2026-07-14": {
+    es: "14 de julio de 2026",
+    en: "July 14, 2026",
+  },
+} satisfies Record<MiamiMetric["verifiedAt"], LocalizedText>;
+
 const content = {
   es: {
     hero: {
@@ -259,6 +274,14 @@ const content = {
       title: "Una ciudad respaldada por escala real",
       copy:
         "La fuerza de Miami no se explica solamente por su imagen. También se refleja en el tamaño de su economía, sus conexiones internacionales y el volumen de personas y capital que circulan por la región.",
+      verificationNote:
+        "Datos verificados con fuentes públicas e institucionales al 14 de julio de 2026.",
+      sourcesSummary: "Fuentes y metodología",
+      sourceLabel: "Fuente",
+      geographyLabel: "Geografía",
+      periodLabel: "Período",
+      verifiedLabel: "Verificado",
+      methodologyLabel: "Metodología",
     },
     globalPlatform: {
       eyebrow: "Una ciudad conectada al mundo",
@@ -273,11 +296,7 @@ const content = {
         "Empresas y hubs regionales",
         "Demanda doméstica e internacional",
       ],
-      visualTitle: "Conexiones internacionales de Miami",
-      visualDescription:
-        "Diagrama editorial con Miami como centro y conexiones hacia América Latina, Norteamérica y Europa.",
-      centerLabel: "Miami",
-      regions: ["América Latina", "Norteamérica", "Europa"],
+      imageAlt: "Globo editorial con Miami como conexión entre mercados internacionales",
     },
     infrastructure: {
       eyebrow: "Escala y conectividad",
@@ -490,6 +509,14 @@ const content = {
       title: "A city supported by real scale",
       copy:
         "Miami’s strength is not explained by image alone. It is also reflected in the size of its economy, international connections, and the volume of people and capital moving through the region.",
+      verificationNote:
+        "Data verified with public and institutional sources as of July 14, 2026.",
+      sourcesSummary: "Sources and methodology",
+      sourceLabel: "Source",
+      geographyLabel: "Geography",
+      periodLabel: "Period",
+      verifiedLabel: "Verified",
+      methodologyLabel: "Methodology",
     },
     globalPlatform: {
       eyebrow: "A city connected to the world",
@@ -504,11 +531,7 @@ const content = {
         "Companies and regional hubs",
         "Domestic and international demand",
       ],
-      visualTitle: "Miami’s international connections",
-      visualDescription:
-        "Editorial diagram with Miami at the center and connections to Latin America, North America, and Europe.",
-      centerLabel: "Miami",
-      regions: ["Latin America", "North America", "Europe"],
+      imageAlt: "Editorial globe showing Miami connecting international markets",
     },
     infrastructure: {
       eyebrow: "Scale and connectivity",
@@ -680,7 +703,7 @@ export function getMiamiMetrics(locale: Locale): MiamiMetricView[] {
     geography: metric.geography[locale],
     period: metric.period[locale],
     sourceName: metric.sourceName,
-    sourceUrl: metric.sourceUrl,
-    verifiedAt: metric.verifiedAt,
+    verifiedAt: verifiedAtLabels[metric.verifiedAt][locale],
+    methodologyNote: metric.methodologyNote?.[locale],
   }));
 }
