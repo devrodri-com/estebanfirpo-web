@@ -56,8 +56,8 @@ const contactContent = {
       title: "Hablemos de tu próximo paso en Miami",
       copy:
         "Contame qué estás buscando y podré orientarte sobre zonas, proyectos y próximos pasos según tu objetivo.",
-      highlight: "Contacto directo con Esteban.",
-      support: "Atención en español e inglés.",
+      highlight: "Escribime por WhatsApp o dejame tu consulta en el formulario.",
+      support: "Podés comunicarte en español o inglés.",
       whatsappLabel: "Hablar por WhatsApp",
       whatsappMessage:
         "Hola Esteban, quiero conversar sobre una oportunidad inmobiliaria en Miami y entender qué opciones pueden encajar mejor con mi objetivo.",
@@ -100,7 +100,7 @@ const contactContent = {
       phoneInvalid: "Por favor, ingresá un número de teléfono válido.",
       sendError: "No se pudo enviar la consulta. Probá nuevamente.",
       rateLimited: "Demasiados intentos. Probá de nuevo en unos minutos.",
-      success: "Consulta enviada. Esteban se pondrá en contacto contigo.",
+      success: "Consulta enviada. Me pondré en contacto con vos.",
       closeNotice: "Cerrar notificación",
     },
     countrySelector: {
@@ -117,8 +117,8 @@ const contactContent = {
       title: "Let’s discuss your next step in Miami",
       copy:
         "Tell me what you are looking for and I can help you understand the areas, projects, and next steps that may best fit your goals.",
-      highlight: "Direct contact with Esteban.",
-      support: "Available in English and Spanish.",
+      highlight: "Message me on WhatsApp or share your inquiry through the form.",
+      support: "You can reach out in English or Spanish.",
       whatsappLabel: "Chat on WhatsApp",
       whatsappMessage:
         "Hi Esteban, I would like to discuss a Miami real estate opportunity and understand which options may best fit my goals.",
@@ -161,7 +161,7 @@ const contactContent = {
       phoneInvalid: "Please enter a valid phone number.",
       sendError: "The inquiry could not be sent. Please try again.",
       rateLimited: "Too many attempts. Please try again in a few minutes.",
-      success: "Inquiry sent. Esteban will be in touch with you.",
+      success: "Inquiry sent. I’ll be in touch.",
       closeNotice: "Close notification",
     },
     countrySelector: {
