@@ -116,11 +116,13 @@ export const staticRouteMetadata = {
     path: "/sobre-mi",
     es: {
       title: "Sobre Esteban Firpo",
-      description: "Información sobre Esteban Firpo y su trabajo en real estate en Miami.",
+      description:
+        "Conocé la trayectoria y forma de trabajo de Esteban Firpo, asesor inmobiliario en Miami para compradores e inversores internacionales.",
     },
     en: {
       title: "About Esteban Firpo",
-      description: "Information about Esteban Firpo and his real estate work in Miami.",
+      description:
+        "Learn about Esteban Firpo’s background and approach to guiding international buyers and investors in Miami real estate.",
     },
   },
   storages: {
