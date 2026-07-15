@@ -15,26 +15,6 @@
     ]
   },
 
-  "about": {
-    "title": "Sobre mí",
-    "subtitle": "Asesoría para inversión inmobiliaria en Miami",
-    "badge": {
-      "role": "REALTOR® Associate",
-      "langs": "Español · Inglés",
-      "license": "Lic. Florida"
-    },
-    "bio": "Acompaño a inversores en todo el proceso: selección, reserva, contrato, due diligence y cierre. Enfoque ROI y preservación de capital.",
-    "points": [
-      "Análisis de renta y salida",
-      "Curaduría de proyectos confiables",
-      "Gestión de proceso y documentación"
-    ],
-    "cta": {
-      "contact": "Contactar",
-      "whatsapp": "Escribir por WhatsApp"
-    }
-  },
-
   "home": {
     "hero": {
       "title": "Invierte en Miami con Esteban Firpo",
