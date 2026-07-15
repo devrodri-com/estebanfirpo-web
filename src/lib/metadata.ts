@@ -92,11 +92,13 @@ export const staticRouteMetadata = {
     path: "/contacto",
     es: {
       title: "Contacto",
-      description: "Información de contacto de Esteban Firpo.",
+      description:
+        "Contactá a Esteban Firpo para conversar sobre proyectos, propiedades y oportunidades de inversión inmobiliaria en Miami.",
     },
     en: {
       title: "Contact",
-      description: "Contact information for Esteban Firpo.",
+      description:
+        "Contact Esteban Firpo to discuss Miami real estate projects, properties, and investment opportunities.",
     },
   },
   financiacion: {
