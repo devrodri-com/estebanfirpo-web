@@ -41,33 +41,39 @@ export function ContactIntro({ locale, copy }: ContactIntroProps) {
         />
       </div>
 
-      <ul className="mt-9 grid gap-4 border-t border-white/14 pt-7 sm:grid-cols-2 lg:mt-auto lg:grid-cols-1 lg:pt-8">
-        {copy.details.map((detail, index) => {
-          const Icon = detailIcons[index];
-          const content = (
-            <>
-              <span className="sr-only">{detail.label}: </span>
-              <span className="break-words">{detail.value}</span>
-            </>
-          );
+      <div className="mt-10 lg:mt-auto lg:pt-10">
+        <span
+          className="mb-7 block h-px w-14 bg-[#D4AF37]/70"
+          aria-hidden="true"
+        />
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+          {copy.details.map((detail, index) => {
+            const Icon = detailIcons[index];
+            const content = (
+              <>
+                <span className="sr-only">{detail.label}: </span>
+                <span className="break-words">{detail.value}</span>
+              </>
+            );
 
-          return (
-            <li key={detail.label} className="flex min-h-7 items-start gap-3 text-sm leading-6 text-white/78">
-              <Icon className="mt-1 h-4 w-4 shrink-0 text-[#D4AF37]" aria-hidden="true" />
-              {detail.href ? (
-                <a
-                  href={detail.href}
-                  className="rounded-sm underline decoration-white/25 underline-offset-4 transition hover:text-white hover:decoration-[#D4AF37] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
-                >
-                  {content}
-                </a>
-              ) : (
-                <span>{content}</span>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+            return (
+              <li key={detail.label} className="flex min-h-7 items-start gap-3 text-sm leading-6 text-white/78">
+                <Icon className="mt-1 h-4 w-4 shrink-0 text-[#D4AF37]" aria-hidden="true" />
+                {detail.href ? (
+                  <a
+                    href={detail.href}
+                    className="rounded-sm underline decoration-white/25 underline-offset-4 transition hover:text-white hover:decoration-[#D4AF37] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#D4AF37]"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <span>{content}</span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
