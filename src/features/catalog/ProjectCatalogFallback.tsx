@@ -1,6 +1,7 @@
 import { CatalogProjectCard } from "./CatalogProjectCard";
 import { getCatalogCopy } from "./catalog-copy";
 import { filterAndSortCatalogProjects } from "./catalog-search";
+import { ProjectCatalogHeader } from "./ProjectCatalogHeader";
 import {
   DEFAULT_CATALOG_FILTERS,
   type CatalogLocale,
@@ -24,12 +25,20 @@ export function ProjectCatalogFallback({
   );
 
   return (
-    <section className="py-8 sm:py-12" aria-label={copy.title}>
-      <h1 className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl">
-        {copy.title}
-      </h1>
-      <div className="mt-5 h-48 animate-pulse rounded-[10px] bg-[#0A2540] sm:h-40" />
-      <p className="mt-6 text-sm font-semibold text-[#0A2540]">
+    <section className="py-8 sm:py-12" aria-labelledby="catalog-title">
+      <ProjectCatalogHeader
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+        mobileAction={
+          <span
+            className="block h-11 w-24 animate-pulse rounded-md border border-black/10 bg-white"
+            aria-hidden="true"
+          />
+        }
+      />
+      <div className="mt-10 hidden h-[22rem] animate-pulse rounded-[10px] bg-[#0A2540] sm:block lg:h-[12.25rem]" />
+      <p className="mt-5 text-sm font-semibold text-[#0A2540]">
         {copy.projectCount(sorted.length)}
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
