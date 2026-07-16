@@ -8,7 +8,13 @@ export function getCatalogCopy(locale: CatalogLocale) {
   const isEnglish = locale === "en";
 
   return {
-    title: isEnglish ? "Projects" : "Proyectos",
+    eyebrow: isEnglish ? "PROJECT CATALOG" : "CATÁLOGO DE PROYECTOS",
+    title: isEnglish
+      ? "Miami real estate projects"
+      : "Proyectos inmobiliarios en Miami",
+    description: isEnglish
+      ? "Search by name or area and compare price ranges and rental policies to narrow the catalog using clear criteria."
+      : "Buscá por nombre o zona y compará rangos de precio y políticas de renta para acotar la búsqueda con criterios concretos.",
     filters: isEnglish ? "Filters" : "Filtros",
     closeFilters: isEnglish ? "Close filters" : "Cerrar filtros",
     search: isEnglish ? "Search projects" : "Buscar proyectos",

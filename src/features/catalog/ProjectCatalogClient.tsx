@@ -15,6 +15,7 @@ import {
   hasInvalidPriceRange,
 } from "./catalog-search";
 import { ProjectCatalogDrawer } from "./ProjectCatalogDrawer";
+import { ProjectCatalogHeader } from "./ProjectCatalogHeader";
 import {
   ProjectCatalogFilters,
   type CatalogFilterChangeReason,
@@ -251,21 +252,20 @@ export function ProjectCatalogClient({
 
   return (
     <section className="py-8 sm:py-12" aria-labelledby="catalog-title">
-      <div className="flex items-center justify-between gap-4">
-        <h1
-          id="catalog-title"
-          className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl"
-        >
-          {copy.title}
-        </h1>
-        <ProjectCatalogDrawer
-          {...filterProps}
-          resultCount={results.length}
-          activeFilterCount={activeFilterCount}
-        />
-      </div>
+      <ProjectCatalogHeader
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+        mobileAction={
+          <ProjectCatalogDrawer
+            {...filterProps}
+            resultCount={results.length}
+            activeFilterCount={activeFilterCount}
+          />
+        }
+      />
 
-      <div className="mt-5 hidden sm:block">
+      <div className="mt-10 hidden sm:block">
         <ProjectCatalogFilters {...filterProps} />
       </div>
 
