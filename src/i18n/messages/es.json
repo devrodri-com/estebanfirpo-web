@@ -57,31 +57,5 @@
     "title": "Proyectos",
     "from": "Desde",
     "delivery": "Entrega"
-  },
-  "financing": {
-    "title": "Financiación para comprar en Miami",
-    "seo": "Hipotecas para extranjeros en EE. UU.: 30% de downpayment y plazos 15-30 años.",
-    "intro": "Acceda a hipotecas con condiciones competitivas. Como extranjero puede aplicar a préstamos con un 30% de downpayment y plazos de 15 a 30 años.",
-    "benefitsTitle": "Beneficios clave",
-    "benefits": [
-      "Programas de financiación para extranjeros",
-      "Tasas competitivas y asesoramiento en español",
-      "Escritura a nombre personal o corporativo"
-    ],
-    "reqTitle": "Requisitos básicos",
-    "requirements": [
-      "Carta de ingresos (contador o empleador, últimos 2 años).",
-      "Fondos comprobables para downpayment + 6 meses de reserva.",
-      "Carta de referencia bancaria que avale reputación crediticia.",
-      "Pasaporte/visa; y artículos de incorporación si aplica a nombre de empresa."
-    ],
-    "processTitle": "Cómo funciona",
-    "steps": [
-      { "t": "Aplicación", "d": "Reunimos documentos y enviamos la solicitud." },
-      { "t": "Pre-aprobación", "d": "El banco confirma montos y condiciones." },
-      { "t": "Cierre", "d": "Se firma la hipoteca junto con la compra." }
-    ],
-    "ctaLabel": "Consultar financiación por WhatsApp",
-    "ctaHref": "https://wa.me/17542673931"
   }
 }
