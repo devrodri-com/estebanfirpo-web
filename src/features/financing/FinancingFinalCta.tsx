@@ -21,7 +21,7 @@ export function FinancingFinalCta({
     <section
       data-financing-block="final-cta"
       aria-labelledby="financing-final-cta-title"
-      className="relative left-1/2 w-screen -translate-x-1/2 bg-[#F6F5F0]"
+      className="relative left-1/2 w-screen -translate-x-1/2 bg-paper"
     >
       <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:py-24">
         <span className="mx-auto block h-px w-16 bg-[#D4AF37]" aria-hidden="true" />

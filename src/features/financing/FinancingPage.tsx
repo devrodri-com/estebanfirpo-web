@@ -14,7 +14,7 @@ export function FinancingPage({ locale }: FinancingPageProps) {
   const copy = getFinancingContent(locale);
 
   return (
-    <article data-financing-page className="pb-8 text-[#0D1521]">
+    <article data-financing-page className="text-[#0D1521]">
       <FinancingHero locale={locale} copy={copy.hero} />
       <FinancingVariables copy={copy.variables} />
       <FinancingReview copy={copy.review} />
