@@ -104,18 +104,17 @@ export default function NavBar() {
         switchLanguage: "Cambiar a inglés",
       };
 
-  const primaryItems = [
+  const navigationItems = [
     { href: `${base}/proyectos`, label: labels.projects },
     { href: `${base}#asesoramiento`, label: labels.advisory },
     { href: `${base}/precon`, label: labels.precon },
     { href: `${base}/miami`, label: labels.miami },
+    { href: `${base}/financiacion`, label: labels.financing },
     { href: `${base}/sobre-mi`, label: labels.about },
     { href: `${base}/contacto`, label: labels.contact },
   ];
 
-  const secondaryItems = [
-    { href: `${base}/financiacion`, label: labels.financing },
-  ];
+  const desktopItems = navigationItems.filter((item) => !item.href.includes("#"));
 
   const switchTo: SupportedLocale = isEnglish ? "es" : "en";
   const switchHref = `/${switchTo}${pathname.replace(/^\/(es|en)/, "")}`;
@@ -145,12 +144,12 @@ export default function NavBar() {
         </Link>
 
         <nav aria-label={isEnglish ? "Primary navigation" : "Navegación principal"} className="hidden items-center gap-5 xl:flex">
-          {primaryItems.map((item) => (
+          {desktopItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`rounded-sm text-[13px] font-medium no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37] ${
+              className={`whitespace-nowrap rounded-sm text-[13px] font-medium no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37] ${
                 isActive(item.href)
                   ? "text-white underline decoration-[#D4AF37] decoration-2 underline-offset-[10px]"
                   : "text-white/72 hover:text-white"
@@ -237,7 +236,7 @@ export default function NavBar() {
 
             <nav aria-label={isEnglish ? "Mobile navigation" : "Navegación mobile"} className="flex-1 overflow-y-auto py-5">
               <div className="divide-y divide-white/10">
-                {primaryItems.map((item) => (
+                {navigationItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -255,16 +254,6 @@ export default function NavBar() {
               </div>
 
               <div className="mt-5 flex flex-wrap gap-3 border-t border-white/12 pt-5">
-                {secondaryItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="inline-flex min-h-10 items-center rounded-lg border border-white/18 px-3 text-sm text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
                 <Suspense
                   fallback={
                     <Link

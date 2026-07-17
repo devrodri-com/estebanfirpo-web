@@ -104,14 +104,14 @@ export const staticRouteMetadata = {
   financiacion: {
     path: "/financiacion",
     es: {
-      title: "Financiación inmobiliaria",
+      title: "Financiación inmobiliaria en Miami",
       description:
-        "Información general sobre financiación inmobiliaria para compradores internacionales.",
+        "Conocé qué variables influyen al evaluar financiación para una compra inmobiliaria en Miami y cómo coordinar el proceso con Esteban Firpo.",
     },
     en: {
-      title: "Real Estate Financing",
+      title: "Miami Real Estate Financing",
       description:
-        "General information about real estate financing for international buyers.",
+        "Learn which factors influence financing for a Miami real estate purchase and how Esteban Firpo helps coordinate the process.",
     },
   },
   sobreMi: {
