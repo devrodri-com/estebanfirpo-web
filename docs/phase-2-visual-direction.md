@@ -235,7 +235,7 @@ Las cards no muestran precio, entrega, renta, financiación, actividad ni recome
 
 ## 9. Disclosure: fuente proporcionada y publicación diferenciada
 
-El Product Owner proporcionó el disclosure que aparece duplicado en `frida.html`, `the-standard-brickell.html` y `Viceroy.html`. Las fuentes ES y EN no son equivalentes:
+El Product Owner proporcionó los textos de disclosure ES y EN. Las fuentes ES y EN no son equivalentes:
 
 - ES menciona porcentajes de rentabilidad y contenido prospectivo sujeto a riesgos e incertidumbres.
 - EN agrega ausencia de garantías y due diligence, falta de evaluación de factibilidad/idoneidad, responsabilidad independiente del comprador y limitación de responsabilidad.
