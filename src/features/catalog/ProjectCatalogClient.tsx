@@ -7,9 +7,12 @@ import { CatalogProjectCard } from "./CatalogProjectCard";
 import { getCatalogCopy } from "./catalog-copy";
 import {
   createCatalogHref,
-  createCatalogSearchParams,
-  parseCatalogFilters,
 } from "./catalog-query";
+import {
+  areCatalogFiltersEqual,
+  createCatalogInitialState,
+  sanitizeCatalogFiltersForAvailableRentals,
+} from "./catalog-initial-state";
 import {
   filterAndSortCatalogProjects,
   hasInvalidPriceRange,
@@ -32,6 +35,8 @@ import {
 interface ProjectCatalogClientProps {
   locale: CatalogLocale;
   projects: ProjectCatalogCardViewModel[];
+  initialFilters: CatalogFilters;
+  initialQueryKey: string;
 }
 
 type ActiveFilterKey = "q" | "rental" | "min" | "max" | "sort";
@@ -39,6 +44,11 @@ type ActiveFilterKey = "q" | "rental" | "min" | "max" | "sort";
 interface ActiveFilterChip {
   key: ActiveFilterKey;
   label: string;
+}
+
+interface AppliedCatalogState {
+  filters: CatalogFilters;
+  queryKey: string;
 }
 
 const URL_DEBOUNCE_MS = 300;
@@ -56,6 +66,8 @@ function countActiveFilters(filters: CatalogFilters): number {
 export function ProjectCatalogClient({
   locale,
   projects,
+  initialFilters,
+  initialQueryKey,
 }: ProjectCatalogClientProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -64,40 +76,29 @@ export function ProjectCatalogClient({
   const copy = getCatalogCopy(locale);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const rentalCounts = useMemo(() => {
-    const counts: Record<CatalogRentalFilter, number> = {
-      all: projects.length,
-      flexible: 0,
-      "30-days": 0,
-      "60-days": 0,
-      "90-days": 0,
-      traditional: 0,
-    };
-    projects.forEach((project) => {
-      if (project.rentalCategory) counts[project.rentalCategory] += 1;
-    });
-    return counts;
-  }, [projects]);
+  const urlState = useMemo(
+    () =>
+      createCatalogInitialState(
+        projects,
+        locale,
+        new URLSearchParams(queryKey),
+      ),
+    [locale, projects, queryKey],
+  );
+  const rentalCounts = urlState.rentalCounts;
 
   const sanitizeForAvailableRentals = useCallback(
-    (next: CatalogFilters): CatalogFilters => {
-      if (
-        next.rental !== "all" &&
-        rentalCounts[next.rental] === 0
-      ) {
-        return { ...next, rental: "all" };
-      }
-      return next;
-    },
+    (next: CatalogFilters): CatalogFilters =>
+      sanitizeCatalogFiltersForAvailableRentals(next, rentalCounts),
     [rentalCounts],
   );
 
-  // Keep the prerendered markup and the first client render identical. The
-  // locale layout is force-static, so URL state is applied immediately after
-  // hydration instead of being read into the initial render.
-  const [filters, setFilters] = useState<CatalogFilters>(
-    DEFAULT_CATALOG_FILTERS,
-  );
+  const [appliedState, setAppliedState] = useState<AppliedCatalogState>(() => ({
+    filters: initialFilters,
+    queryKey: initialQueryKey,
+  }));
+  const renderedFilters =
+    appliedState.queryKey === queryKey ? appliedState.filters : urlState.filters;
 
   const rentalOptions = useMemo<RentalFilterOption[]>(() => {
     const values: CatalogRentalFilter[] = [
@@ -132,20 +133,20 @@ export function ProjectCatalogClient({
       debounceRef.current = null;
     }
 
-    const parsed = sanitizeForAvailableRentals(
-      parseCatalogFilters(new URLSearchParams(queryKey)),
+    setAppliedState((current) =>
+      current.queryKey === queryKey &&
+      areCatalogFiltersEqual(current.filters, urlState.filters)
+        ? current
+        : { filters: urlState.filters, queryKey },
     );
-    setFilters(parsed);
 
-    const canonical = createCatalogSearchParams(
-      parsed,
-      new URLSearchParams(queryKey),
-    ).toString();
-    if (canonical !== queryKey) {
-      const href = canonical ? `${pathname}?${canonical}` : pathname;
+    if (urlState.canonicalQueryKey !== queryKey) {
+      const href = urlState.canonicalQueryKey
+        ? `${pathname}?${urlState.canonicalQueryKey}`
+        : pathname;
       router.replace(href, { scroll: false });
     }
-  }, [pathname, queryKey, router, sanitizeForAvailableRentals]);
+  }, [pathname, queryKey, router, urlState]);
 
   useEffect(
     () => () => {
@@ -157,7 +158,7 @@ export function ProjectCatalogClient({
   const updateFilters = useCallback(
     (next: CatalogFilters, reason: CatalogFilterChangeReason) => {
       const sanitized = sanitizeForAvailableRentals(next);
-      setFilters(sanitized);
+      setAppliedState({ filters: sanitized, queryKey });
       if (debounceRef.current) clearTimeout(debounceRef.current);
       debounceRef.current = null;
 
@@ -171,22 +172,22 @@ export function ProjectCatalogClient({
         navigateToFilters(sanitized, "replace");
       }, URL_DEBOUNCE_MS);
     },
-    [navigateToFilters, sanitizeForAvailableRentals],
+    [navigateToFilters, queryKey, sanitizeForAvailableRentals],
   );
 
   const resetFilters = useCallback(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = null;
-    setFilters(DEFAULT_CATALOG_FILTERS);
+    setAppliedState({ filters: DEFAULT_CATALOG_FILTERS, queryKey });
     navigateToFilters(DEFAULT_CATALOG_FILTERS, "push");
-  }, [navigateToFilters]);
+  }, [navigateToFilters, queryKey]);
 
-  const invalidRange = hasInvalidPriceRange(filters);
+  const invalidRange = hasInvalidPriceRange(renderedFilters);
   const results = useMemo(
-    () => filterAndSortCatalogProjects(projects, filters, locale),
-    [filters, locale, projects],
+    () => filterAndSortCatalogProjects(projects, renderedFilters, locale),
+    [locale, projects, renderedFilters],
   );
-  const activeFilterCount = countActiveFilters(filters);
+  const activeFilterCount = countActiveFilters(renderedFilters);
   const hasActiveFilters = activeFilterCount > 0;
   const currency = useMemo(
     () =>
@@ -200,36 +201,39 @@ export function ProjectCatalogClient({
 
   const chips = useMemo<ActiveFilterChip[]>(() => {
     const values: ActiveFilterChip[] = [];
-    if (filters.q.trim()) {
-      values.push({ key: "q", label: copy.searchChip(filters.q.trim()) });
+    if (renderedFilters.q.trim()) {
+      values.push({
+        key: "q",
+        label: copy.searchChip(renderedFilters.q.trim()),
+      });
     }
-    if (filters.rental !== "all") {
+    if (renderedFilters.rental !== "all") {
       values.push({
         key: "rental",
-        label: copy.rentalLabel(filters.rental),
+        label: copy.rentalLabel(renderedFilters.rental),
       });
     }
-    if (typeof filters.min === "number") {
+    if (typeof renderedFilters.min === "number") {
       values.push({
         key: "min",
-        label: copy.minChip(currency.format(filters.min)),
+        label: copy.minChip(currency.format(renderedFilters.min)),
       });
     }
-    if (typeof filters.max === "number") {
+    if (typeof renderedFilters.max === "number") {
       values.push({
         key: "max",
-        label: copy.maxChip(currency.format(filters.max)),
+        label: copy.maxChip(currency.format(renderedFilters.max)),
       });
     }
-    if (filters.sort !== "alpha-asc") {
-      values.push({ key: "sort", label: copy.sortLabel(filters.sort) });
+    if (renderedFilters.sort !== "alpha-asc") {
+      values.push({ key: "sort", label: copy.sortLabel(renderedFilters.sort) });
     }
     return values;
-  }, [copy, currency, filters]);
+  }, [copy, currency, renderedFilters]);
 
   const removeFilter = useCallback(
     (key: ActiveFilterKey) => {
-      const next: CatalogFilters = { ...filters };
+      const next: CatalogFilters = { ...renderedFilters };
       if (key === "q") next.q = "";
       if (key === "rental") next.rental = "all";
       if (key === "min") delete next.min;
@@ -237,12 +241,12 @@ export function ProjectCatalogClient({
       if (key === "sort") next.sort = "alpha-asc";
       updateFilters(next, "discrete");
     },
-    [filters, updateFilters],
+    [renderedFilters, updateFilters],
   );
 
   const filterProps = {
     locale,
-    value: filters,
+    value: renderedFilters,
     rentalOptions,
     invalidRange,
     hasActiveFilters,

@@ -8,6 +8,7 @@ import {
   parseCatalogFilters,
   preserveCatalogQueryParams,
 } from "../src/features/catalog/catalog-query";
+import { getCatalogCopy } from "../src/features/catalog/catalog-copy";
 import {
   filterAndSortCatalogProjects,
   hasInvalidPriceRange,
@@ -18,6 +19,10 @@ import {
   type CatalogFilters,
   type ProjectCatalogCardViewModel,
 } from "../src/features/catalog/project-catalog-types";
+import {
+  createCatalogInitialState,
+  toCatalogURLSearchParams,
+} from "../src/features/catalog/catalog-initial-state";
 import { getProjectCatalogCardViewModels } from "../src/features/catalog/server/get-project-catalog";
 
 const repositoryRoot = path.resolve(
@@ -218,6 +223,132 @@ assert.deepEqual(
   parseCatalogFilters(subThousandParams),
   DEFAULT_CATALOG_FILTERS,
   "Price query values must match the UI's thousand-USD precision",
+);
+
+function initialState(
+  locale: "es" | "en",
+  input: Record<string, string | string[] | undefined>,
+) {
+  const projects = locale === "en" ? en : es;
+  return createCatalogInitialState(
+    projects,
+    locale,
+    toCatalogURLSearchParams(input),
+  );
+}
+
+const defaultInitial = initialState("es", {});
+assert.deepEqual(defaultInitial.filters, DEFAULT_CATALOG_FILTERS);
+assert.equal(defaultInitial.sourceQueryKey, "");
+assert.equal(defaultInitial.canonicalQueryKey, "");
+assert.equal(defaultInitial.results.length, 36);
+
+const williamInitialParams = {
+  q: "william",
+  rental: "90-days",
+  min: "300000",
+  max: "600000",
+  sort: "price-asc",
+};
+for (const locale of ["es", "en"] as const) {
+  const state = initialState(locale, williamInitialParams);
+  assert.deepEqual(state.filters, williamFilters);
+  assert.equal(state.results.length, 1);
+  assert.equal(state.results[0]?.slug, "/proyectos/the-william");
+  assert.equal(state.results[0]?.name, "The William Residences");
+  assert.equal(state.results[0]?.locale, locale);
+  assert.equal(
+    getCatalogCopy(locale).projectCount(state.results.length),
+    locale === "en" ? "1 project" : "1 proyecto",
+  );
+  assert.equal(state.sourceQueryKey, directParams.toString());
+  assert.equal(state.canonicalQueryKey, directParams.toString());
+}
+
+const emptyInitial = initialState("es", {
+  q: "william",
+  rental: "flexible",
+});
+assert.equal(emptyInitial.results.length, 0);
+assert.equal(emptyInitial.canonicalQueryKey, "q=william&rental=flexible");
+
+const invalidInitial = initialState("es", {
+  rental: "invalid",
+  min: "abc",
+  max: "-1",
+  sort: "invalid",
+  utm_source: "qa",
+});
+assert.deepEqual(invalidInitial.filters, DEFAULT_CATALOG_FILTERS);
+assert.equal(invalidInitial.results.length, 36);
+assert.equal(invalidInitial.canonicalQueryKey, "utm_source=qa");
+const invalidCanonical = createCatalogInitialState(
+  es,
+  "es",
+  new URLSearchParams(invalidInitial.canonicalQueryKey),
+);
+assert.equal(
+  invalidCanonical.canonicalQueryKey,
+  invalidInitial.canonicalQueryKey,
+  "Canonical query state must be idempotent",
+);
+
+const unknownInitial = initialState("es", {
+  utm_source: "qa",
+  utm_campaign: "direct",
+});
+assert.deepEqual(unknownInitial.filters, DEFAULT_CATALOG_FILTERS);
+assert.equal(unknownInitial.results.length, 36);
+assert.equal(
+  unknownInitial.canonicalQueryKey,
+  "utm_source=qa&utm_campaign=direct",
+);
+assert.equal(
+  createCatalogInitialState(
+    es,
+    "es",
+    new URLSearchParams(unknownInitial.canonicalQueryKey),
+  ).canonicalQueryKey,
+  unknownInitial.canonicalQueryKey,
+);
+
+const unavailableRentalInitial = initialState("es", {
+  rental: "60-days",
+  utm_source: "qa",
+});
+assert.equal(unavailableRentalInitial.filters.rental, "all");
+assert.equal(unavailableRentalInitial.results.length, 36);
+assert.equal(unavailableRentalInitial.canonicalQueryKey, "utm_source=qa");
+assert.equal(
+  createCatalogInitialState(
+    es,
+    "es",
+    new URLSearchParams(unavailableRentalInitial.canonicalQueryKey),
+  ).canonicalQueryKey,
+  unavailableRentalInitial.canonicalQueryKey,
+);
+
+const repeatedInitial = initialState("es", {
+  q: ["  william  ", "ignored"],
+  rental: ["90-days", "flexible"],
+  utm_term: ["one", "two"],
+  omitted: undefined,
+});
+assert.equal(repeatedInitial.filters.q, "william");
+assert.equal(repeatedInitial.filters.rental, "90-days");
+assert.equal(repeatedInitial.results.length, 1);
+assert.equal(repeatedInitial.results[0]?.slug, "/proyectos/the-william");
+assert.equal(
+  repeatedInitial.canonicalQueryKey,
+  "q=william&rental=90-days&utm_term=one&utm_term=two",
+);
+assert.equal(
+  createCatalogInitialState(
+    es,
+    "es",
+    new URLSearchParams(repeatedInitial.canonicalQueryKey),
+  ).canonicalQueryKey,
+  repeatedInitial.canonicalQueryKey,
 );
 
 console.log("Catalog foundation passed: 36 ES + 36 EN lightweight models, search, URL, range and sorting contracts.");
