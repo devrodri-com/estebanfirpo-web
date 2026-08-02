@@ -17,10 +17,10 @@ Las versiones exactas y sus restricciones están en [`package.json`](package.jso
 
 ## Requisitos
 
-- Node.js 20 para reproducir el baseline actual de CI.
+- Node.js 22.x, versión recomendada para reproducir el baseline actual de desarrollo local, GitHub Actions y builds de Vercel.
 - npm compatible con el lockfile v3 versionado.
 
-El baseline actual del repositorio todavía utiliza Node.js 20 en CI. Esa versión está fuera de soporte oficial; su migración de runtime debe realizarse y validarse en una fase separada, deliberadamente fuera de este cambio de documentación y CI.
+Node.js 22.x es el baseline vigente para desarrollo local. GitHub Actions utiliza Node.js 22 y Vercel utiliza Node.js 22.x, por lo que ambos entornos de validación y build quedan alineados.
 
 ## Instalación local
 
