@@ -16,7 +16,9 @@
     "prebuild": "npm run catalog:slugs && npm run catalog:check",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "type-check": "tsc --noEmit",
+    "validate": "npm run lint && npm run type-check && npm run catalog:check && npm run phase3b:check"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
