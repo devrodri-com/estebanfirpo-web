@@ -1,27 +1,41 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
 import { ProjectCatalogClient } from "@/features/catalog/ProjectCatalogClient";
-import { ProjectCatalogFallback } from "@/features/catalog/ProjectCatalogFallback";
+import {
+  createCatalogInitialState,
+  toCatalogURLSearchParams,
+  type CatalogPageSearchParams,
+} from "@/features/catalog/catalog-initial-state";
 import { getProjectCatalogCardViewModels } from "@/features/catalog/server/get-project-catalog";
+
+export const dynamic = "auto";
 
 export default async function ProjectsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<CatalogPageSearchParams>;
 }) {
-  const { locale: rawLocale } = await params;
+  const [{ locale: rawLocale }, rawSearchParams] = await Promise.all([
+    params,
+    searchParams,
+  ]);
   if (!isLocale(rawLocale)) notFound();
 
   const projects = getProjectCatalogCardViewModels(rawLocale);
+  const initialState = createCatalogInitialState(
+    projects,
+    rawLocale,
+    toCatalogURLSearchParams(rawSearchParams),
+  );
 
   return (
-    <Suspense
-      fallback={
-        <ProjectCatalogFallback locale={rawLocale} projects={projects} />
-      }
-    >
-      <ProjectCatalogClient locale={rawLocale} projects={projects} />
-    </Suspense>
+    <ProjectCatalogClient
+      locale={rawLocale}
+      projects={projects}
+      initialFilters={initialState.filters}
+      initialQueryKey={initialState.sourceQueryKey}
+    />
   );
 }

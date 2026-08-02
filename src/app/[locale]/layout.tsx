@@ -11,8 +11,6 @@ import { isLocale, locales } from "@/i18n/config";
 import { createStaticPageMetadata, SITE_URL } from "@/lib/metadata";
 import "../globals.css";
 
-export const dynamic = "force-static";
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { type ReactNode, useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { preserveCatalogQueryParams } from "./catalog-query";
 import type { CatalogLocale } from "./project-catalog-types";
 
@@ -24,14 +24,11 @@ export function CatalogAwareLanguageLink({
   const pathname = usePathname() || "/es";
   const searchParams = useSearchParams();
   const queryKey = searchParams.toString();
-  const [catalogQuery, setCatalogQuery] = useState("");
   const localizedPath = `/${switchTo}${pathname.replace(/^\/(es|en)/, "")}`;
-
-  useEffect(() => {
-    setCatalogQuery(
-      preserveCatalogQueryParams(pathname, new URLSearchParams(queryKey)),
-    );
-  }, [pathname, queryKey]);
+  const catalogQuery = preserveCatalogQueryParams(
+    pathname,
+    new URLSearchParams(queryKey),
+  );
 
   const href = catalogQuery ? `${localizedPath}?${catalogQuery}` : localizedPath;
 

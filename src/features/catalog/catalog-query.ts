@@ -70,7 +70,7 @@ export function createCatalogSearchParams(
   if (filters.sort !== DEFAULT_CATALOG_FILTERS.sort) next.set("sort", filters.sort);
 
   currentParams?.forEach((value, key) => {
-    if (!CATALOG_QUERY_KEY_SET.has(key) && !next.has(key)) next.set(key, value);
+    if (!CATALOG_QUERY_KEY_SET.has(key)) next.append(key, value);
   });
 
   return next;
@@ -91,5 +91,5 @@ export function preserveCatalogQueryParams(
 ): string {
   if (!/^\/(es|en)\/proyectos\/?$/.test(pathname)) return "";
   const parsed = parseCatalogFilters(params);
-  return createCatalogSearchParams(parsed).toString();
+  return createCatalogSearchParams(parsed, params).toString();
 }
