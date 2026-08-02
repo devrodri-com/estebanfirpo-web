@@ -40,6 +40,9 @@ jobs:
       - name: Type-check
         run: npm run type-check
 
+      - name: Unit tests
+        run: npm run test
+
       - name: Validate catalog
         run: npm run catalog:check
 
