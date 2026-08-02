@@ -8,7 +8,7 @@ Sitio inmobiliario bilingüe (español e inglés) orientado a compradores e inve
 
 - Next.js 15 con App Router y React 19.
 - TypeScript.
-- Vitest para tests unitarios en entorno Node.
+- Vitest para tests unitarios en Node y tests selectivos de componentes en jsdom.
 - Tailwind CSS 4.
 - `next-intl` para internacionalización ES/EN.
 - Resend y Zod para el flujo server-side de contacto.
@@ -54,9 +54,9 @@ Toda variable con prefijo `NEXT_PUBLIC_` queda expuesta al navegador y nunca deb
 | `npm run start` | Sirve un build ya generado. | No modifica archivos tracked. | Smoke local posterior al build. |
 | `npm run lint` | Ejecuta ESLint. | No. | Validación rápida. |
 | `npm run type-check` | Ejecuta TypeScript sin emitir archivos. | No. | Validación rápida y CI. |
-| `npm run test` | Ejecuta una vez la suite unitaria de Vitest en entorno Node. | No. | Validación local y CI. |
-| `npm run test:watch` | Ejecuta Vitest en modo watch. | No. | Desarrollo local de tests. |
-| `npm run validate` | Agrupa lint, TypeScript, tests unitarios, catálogo y matriz/modelos. | No, si los artefactos versionados están sincronizados. | Gate local principal. |
+| `npm run test` | Ejecuta una vez la suite de Vitest: tests unitarios en Node y tests selectivos de componentes en jsdom. | No. | Validación local y CI. |
+| `npm run test:watch` | Ejecuta la misma suite de Vitest en modo watch. | No. | Desarrollo local de tests. |
+| `npm run validate` | Agrupa lint, TypeScript, la suite de Vitest, catálogo y matriz/modelos. | No, si los artefactos versionados están sincronizados. | Gate local principal. |
 | `npm run catalog:check` | Valida slugs, políticas de renta, filtros, orden y estado inicial del catálogo. | No. | Al cambiar catálogo o filtros. |
 | `npm run phase3b:check` | Verifica la matriz y los 72 view models localizados. | No. | Al cambiar datos o fichas. |
 | `npm run catalog:slugs` | Regenera `src/data/projects/public-slugs.generated.ts`. | Sí, condicionalmente. | Al modificar los proyectos públicos. |
@@ -103,17 +103,20 @@ El baseline actual incluye:
 
 - lint con ESLint;
 - type-check con TypeScript;
-- tests unitarios con Vitest para lógica pura de query, búsqueda y estado inicial del catálogo, además de helpers puntuales de URLs y metadata;
+- tests unitarios con Vitest y entorno Node para lógica pura de query, búsqueda y estado inicial del catálogo, además de helpers puntuales de URLs y metadata;
+- tests selectivos de componentes con jsdom, React Testing Library y user-event para `ContactForm` y `CountrySelect`;
 - validadores propios de catálogo;
 - verificación de matriz y view models;
 - build de producción;
 - CI en GitHub Actions.
 
-Los tests unitarios se ubican junto a cada módulo como archivos `*.test.ts` y se ejecutan sin DOM, red ni secretos. Los validadores propios del catálogo siguen siendo controles complementarios sobre datos y contratos integrados. Todavía no existen tests de componentes, integración o E2E, ni una configuración de Playwright; la cobertura actual no debe interpretarse como completa.
+Los tests se ubican junto a cada módulo como archivos `*.test.ts` o `*.test.tsx`. La suite unitaria conserva Node como entorno predeterminado; sólo los dos archivos de componentes de Contacto declaran jsdom localmente. Los tests no realizan requests reales ni usan secretos. Los validadores propios del catálogo siguen siendo controles complementarios sobre datos y contratos integrados.
+
+La cobertura de componentes es deliberadamente selectiva y no representa al sitio completo. Todavía no existen E2E, Playwright, browser real ni configuración de coverage. La integración del handler `/api/contact` y Resend sigue pendiente de una fase separada; responsive y foco en navegador real pertenecen a una futura validación E2E.
 
 ## CI
 
-El workflow `CI` conserva el check visible `build` y se ejecuta en pull requests y en pushes a `main`. Instala con `npm ci`, corre lint, TypeScript, tests unitarios, validadores de catálogo y modelos, construye la aplicación y comprueba que el build no deje cambios tracked. Usa permisos de sólo lectura, concurrencia con cancelación de ejecuciones obsoletas y un timeout explícito.
+El workflow `CI` conserva el check visible `build` y se ejecuta en pull requests y en pushes a `main`. Instala con `npm ci`, corre lint, TypeScript, los tests unitarios y de componentes selectivos, validadores de catálogo y modelos, construye la aplicación y comprueba que el build no deje cambios tracked. Usa permisos de sólo lectura, concurrencia con cancelación de ejecuciones obsoletas y un timeout explícito.
 
 GitHub Actions no despliega. La integración de Vercel gestiona los Preview de ramas o pull requests y Production desde `main`.
 
