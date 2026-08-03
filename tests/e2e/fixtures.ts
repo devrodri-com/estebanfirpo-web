@@ -126,20 +126,19 @@ export class NetworkHarness {
       const request = route.request();
       const url = new URL(request.url());
       const method = request.method();
+      const isReadMethod = ["GET", "HEAD"].includes(method);
 
       if (url.origin === E2E_ORIGIN) {
-        if (url.pathname === "/_next/image") {
-          await route.fulfill({
-            status: 200,
-            contentType: "image/png",
-            headers: { "cache-control": "public, max-age=3600" },
-            body: TRANSPARENT_PNG,
-          });
+        const isContactPost = url.pathname === "/api/contact" && method === "POST";
+
+        if (!isReadMethod && !isContactPost) {
+          this.violations.push(`Unexpected same-origin mutation: ${method} ${url.pathname}`);
+          await route.abort("blockedbyclient");
           return;
         }
 
         if (url.pathname === "/api/contact") {
-          if (method !== "POST") {
+          if (!isContactPost) {
             this.violations.push(`Unexpected Contact API method: ${method}`);
             await route.abort("blockedbyclient");
             return;
@@ -153,12 +152,22 @@ export class NetworkHarness {
           return;
         }
 
-        if (["GET", "HEAD", "OPTIONS"].includes(method)) {
-          await route.continue();
+        if (url.pathname === "/_next/image") {
+          await route.fulfill({
+            status: 200,
+            contentType: "image/png",
+            headers: { "cache-control": "public, max-age=3600" },
+            body: TRANSPARENT_PNG,
+          });
           return;
         }
 
-        this.violations.push(`Unexpected same-origin mutation: ${method} ${url.pathname}`);
+        await route.continue();
+        return;
+      }
+
+      if (!isReadMethod) {
+        this.violations.push(`Blocked external mutation: ${method} ${url.origin}${url.pathname}`);
         await route.abort("blockedbyclient");
         return;
       }
