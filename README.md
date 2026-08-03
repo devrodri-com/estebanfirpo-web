@@ -56,6 +56,7 @@ Toda variable con prefijo `NEXT_PUBLIC_` queda expuesta al navegador y nunca deb
 | `npm run type-check` | Ejecuta TypeScript sin emitir archivos. | No. | Validación rápida y CI. |
 | `npm run test` | Ejecuta una vez la suite de Vitest: tests unitarios en Node y tests selectivos de componentes en jsdom. | No. | Validación local y CI. |
 | `npm run test:watch` | Ejecuta la misma suite de Vitest en modo watch. | No. | Desarrollo local de tests. |
+| `npm run test:e2e` | Ejecuta los recorridos críticos de Playwright con Chromium contra el build local servido en `127.0.0.1:3137`. | Genera artefactos ignorados sólo ante fallas. | Después de `npm run build`; validación local y CI. |
 | `npm run validate` | Agrupa lint, TypeScript, la suite de Vitest, catálogo y matriz/modelos. | No, si los artefactos versionados están sincronizados. | Gate local principal. |
 | `npm run catalog:check` | Valida slugs, políticas de renta, filtros, orden y estado inicial del catálogo. | No. | Al cambiar catálogo o filtros. |
 | `npm run phase3b:check` | Verifica la matriz y los 72 view models localizados. | No. | Al cambiar datos o fichas. |
@@ -106,18 +107,29 @@ El baseline actual incluye:
 - tests unitarios con Vitest y entorno Node para lógica pura de query, búsqueda y estado inicial del catálogo, además de helpers puntuales de URLs y metadata;
 - tests selectivos de componentes con jsdom, React Testing Library y user-event para `ContactForm` y `CountrySelect`;
 - tests de integración server-side del handler `/api/contact` con `Request` nativo de Node y Resend completamente mockeado para validar transporte y esquema, honeypot, rate limit, respuesta exitosa y construcción del payload para Resend, escaping HTML y errores devueltos o lanzados por el proveedor;
+- 9 recorridos E2E críticos con Playwright y Chromium sobre un build local: navegación ES/EN, menú mobile, catálogo filtrado directo con historial y sin JavaScript, Contacto con validación y respuestas 200/429 controladas, y 404 localizada;
 - validadores propios de catálogo;
 - verificación de matriz y view models;
 - build de producción;
 - CI en GitHub Actions.
 
-Los tests se ubican junto a cada módulo como archivos `*.test.ts` o `*.test.tsx`. La suite unitaria y la integración del handler conservan Node como entorno; sólo los dos archivos de componentes de Contacto declaran jsdom localmente. La integración de `/api/contact` invoca `POST` en proceso con requests nativos y un mock de Resend: no abre red, no envía emails y no usa secretos. Los validadores propios del catálogo siguen siendo controles complementarios sobre datos y contratos integrados.
+Los tests de Vitest se ubican junto a cada módulo como archivos `*.test.ts` o `*.test.tsx`; los E2E viven en `tests/e2e/`. La suite unitaria y la integración del handler conservan Node como entorno; sólo los dos archivos de componentes de Contacto declaran jsdom localmente. La integración de `/api/contact` invoca `POST` en proceso con requests nativos y un mock de Resend: no abre red, no envía emails y no usa secretos. Los validadores propios del catálogo siguen siendo controles complementarios sobre datos y contratos integrados.
 
-La cobertura de componentes es deliberadamente selectiva y no representa al sitio completo. Todavía no existen E2E, Playwright, browser real ni configuración de coverage. La suite no integra con Resend real ni valida su entregabilidad, el comportamiento de infraestructura serverless real, el rate limit distribuido entre múltiples instancias, responsive, foco o el flujo completo en navegador; esos riesgos requieren validaciones separadas.
+Playwright usa únicamente Chromium y levanta `npm run start` sobre el build existente. Antes de la primera corrida local se instala ese browser dentro del repositorio, sin usar el cache global:
+
+```bash
+PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers npx playwright install chromium
+npm run build
+npm run test:e2e
+```
+
+El fixture E2E bloquea el endpoint real de Contacto, responde localmente sus escenarios aprobados y sustituye recursos externos pasivos. Los recorridos no usan Production ni Preview, no envían emails, no abren WhatsApp y no emiten analytics reales. `npm run validate` conserva los controles rápidos de Vitest y validadores; los E2E se ejecutan por separado porque requieren build y browser.
+
+La cobertura sigue siendo deliberadamente selectiva y no representa al sitio completo. Todavía no existen pruebas con Firefox o WebKit, configuración de coverage, entrega real de Resend, infraestructura serverless real ni rate limit distribuido entre múltiples instancias. Responsive y foco quedan cubiertos sólo en los recorridos críticos declarados, no como matriz exhaustiva.
 
 ## CI
 
-El workflow `CI` conserva el check visible `build` y se ejecuta en pull requests y en pushes a `main`. Instala con `npm ci`, corre lint, TypeScript, los tests unitarios y de componentes selectivos, validadores de catálogo y modelos, construye la aplicación y comprueba que el build no deje cambios tracked. Usa permisos de sólo lectura, concurrencia con cancelación de ejecuciones obsoletas y un timeout explícito.
+El workflow `CI` conserva el check visible `build` y se ejecuta en pull requests y en pushes a `main`. Instala con `npm ci`, corre lint, TypeScript, Vitest, validadores de catálogo y modelos, construye la aplicación, instala Chromium con sus dependencias del runner, ejecuta los E2E y finalmente comprueba que los archivos generados no dejen cambios tracked. Usa Node 22, permisos de sólo lectura, concurrencia con cancelación de ejecuciones obsoletas y un timeout explícito.
 
 GitHub Actions no despliega. La integración de Vercel gestiona los Preview de ramas o pull requests y Production desde `main`.
 
