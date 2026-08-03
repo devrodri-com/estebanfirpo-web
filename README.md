@@ -105,14 +105,15 @@ El baseline actual incluye:
 - type-check con TypeScript;
 - tests unitarios con Vitest y entorno Node para lógica pura de query, búsqueda y estado inicial del catálogo, además de helpers puntuales de URLs y metadata;
 - tests selectivos de componentes con jsdom, React Testing Library y user-event para `ContactForm` y `CountrySelect`;
+- tests de integración server-side del handler `/api/contact` con `Request` nativo de Node y Resend completamente mockeado para validar transporte y esquema, honeypot, rate limit, respuesta exitosa y construcción del payload para Resend, escaping HTML y errores devueltos o lanzados por el proveedor;
 - validadores propios de catálogo;
 - verificación de matriz y view models;
 - build de producción;
 - CI en GitHub Actions.
 
-Los tests se ubican junto a cada módulo como archivos `*.test.ts` o `*.test.tsx`. La suite unitaria conserva Node como entorno predeterminado; sólo los dos archivos de componentes de Contacto declaran jsdom localmente. Los tests no realizan requests reales ni usan secretos. Los validadores propios del catálogo siguen siendo controles complementarios sobre datos y contratos integrados.
+Los tests se ubican junto a cada módulo como archivos `*.test.ts` o `*.test.tsx`. La suite unitaria y la integración del handler conservan Node como entorno; sólo los dos archivos de componentes de Contacto declaran jsdom localmente. La integración de `/api/contact` invoca `POST` en proceso con requests nativos y un mock de Resend: no abre red, no envía emails y no usa secretos. Los validadores propios del catálogo siguen siendo controles complementarios sobre datos y contratos integrados.
 
-La cobertura de componentes es deliberadamente selectiva y no representa al sitio completo. Todavía no existen E2E, Playwright, browser real ni configuración de coverage. La integración del handler `/api/contact` y Resend sigue pendiente de una fase separada; responsive y foco en navegador real pertenecen a una futura validación E2E.
+La cobertura de componentes es deliberadamente selectiva y no representa al sitio completo. Todavía no existen E2E, Playwright, browser real ni configuración de coverage. La suite no integra con Resend real ni valida su entregabilidad, el comportamiento de infraestructura serverless real, el rate limit distribuido entre múltiples instancias, responsive, foco o el flujo completo en navegador; esos riesgos requieren validaciones separadas.
 
 ## CI
 
